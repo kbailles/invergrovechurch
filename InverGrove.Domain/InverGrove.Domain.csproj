@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6EBDBEB0-4C34-4318-A6FC-6117CD949148}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InverGrove.Domain</RootNamespace>
+    <AssemblyName>InverGrove.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Dependencies\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\Dependencies\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\ChangePasswordSuccessType.cs" />
+    <Compile Include="Enums\InverGrovePasswordFormat.cs" />
+    <Compile Include="Enums\MaritalStatusType.cs" />
+    <Compile Include="Enums\PersonType.cs" />
+    <Compile Include="Enums\RelationType.cs" />
+    <Compile Include="Enums\SortDirection.cs" />
+    <Compile Include="Exceptions\LockTimeoutException.cs" />
+    <Compile Include="Exceptions\UndisposedLockException.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\Guard.cs" />
+    <Compile Include="Extensions\MembershipExtensions.cs" />
+    <Compile Include="Extensions\PasswordFormatExtensions.cs" />
+    <Compile Include="Extensions\ProfileExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Factories\ControllerFactory.cs" />
+    <Compile Include="Factories\ObjectFactory.cs" />
+    <Compile Include="Factories\DataContextFactory.cs" />
+    <Compile Include="Interfaces\IProfileFactory.cs" />
+    <Compile Include="Factories\MembershipFactory.cs" />
+    <Compile Include="Factories\ProfileFactory.cs" />
+    <Compile Include="Helpers\AccountHelper.cs" />
+    <Compile Include="Helpers\StateList.cs" />
+    <Compile Include="Interfaces\IAttendance.cs" />
+    <Compile Include="Interfaces\IAttendanceRepository.cs" />
+    <Compile Include="Interfaces\IAttendanceService.cs" />
+    <Compile Include="Interfaces\IContact.cs" />
+    <Compile Include="Interfaces\IContactRepository.cs" />
+    <Compile Include="Interfaces\IDataContextFactory.cs" />
+    <Compile Include="Interfaces\IMembership.cs" />
+    <Compile Include="Interfaces\IMembershipFactory.cs" />
+    <Compile Include="Interfaces\IMembershipRepository.cs" />
+    <Compile Include="Interfaces\IMembershipService.cs" />
+    <Compile Include="Interfaces\IProfile.cs" />
+    <Compile Include="Interfaces\IProfileProvider.cs" />
+    <Compile Include="Interfaces\IProfileRepository.cs" />
+    <Compile Include="Interfaces\IProfileService.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IResource.cs" />
+    <Compile Include="Interfaces\ISessionStateService.cs" />
+    <Compile Include="Interfaces\IStateList.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Enums\PhoneNumberFormatType.cs" />
+    <Compile Include="Enums\ZipCodeFormatType.cs" />
+    <Compile Include="Providers\MembershipProvider.cs" />
+    <Compile Include="Providers\ProfileProvider.cs" />
+    <Compile Include="Providers\RoleProvider.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Interfaces\IPerson.cs" />
+    <Compile Include="Models\EnumerableResource.cs" />
+    <Compile Include="Interfaces\IRole.cs" />
+    <Compile Include="Interfaces\IUserRole.cs" />
+    <Compile Include="Models\Membership.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\Resource.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoleCollection.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ViewLabels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewLabels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AttendanceService.cs" />
+    <Compile Include="Services\MembershipService.cs" />
+    <Compile Include="Services\ProfileService.cs" />
+    <Compile Include="Services\SessionStateService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Utils\TimedLock.cs" />
+    <Compile Include="ValueTypes\CacheKey.cs" />
+    <Compile Include="ValueTypes\RegularExpressions.cs" />
+    <Compile Include="ViewModels\AttendancePerson.cs" />
+    <Compile Include="Interfaces\ILoginUser.cs" />
+    <Compile Include="ViewModels\LoginUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">
+      <Project>{520632DE-3EFC-4C41-83E8-FCB14E2FDFAF}</Project>
+      <Name>InverGrove.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ViewLabels.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ViewLabels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
