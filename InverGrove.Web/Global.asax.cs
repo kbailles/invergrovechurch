@@ -18,7 +18,7 @@ namespace InverGrove.Web
 
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container));
 
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<InverGroveContext>());
+            Database.SetInitializer<InverGroveContext>(new InverGroveInitializer());
         }
     }
 }
