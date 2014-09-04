@@ -7,8 +7,8 @@ namespace InverGrove.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("Content/{*pathInfo}"); // prevents validation routines from returning false from here and confuse the router       
-
+            routes.IgnoreRoute("Content/{*pathInfo}"); // prevents validation routines from returning false from here and confuse the router  
+            routes.IgnoreRoute("bundles/{*pathInfo}"); 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
