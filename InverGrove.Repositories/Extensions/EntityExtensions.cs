@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using InverGrove.Domain.Models;
 
 namespace InverGrove.Repositories.Extensions
@@ -26,7 +28,7 @@ namespace InverGrove.Repositories.Extensions
                            IsApproved = membership.IsApproved,
                            Password = membership.Password,
                            PasswordAnswer = membership.PasswordAnswer,
-                           PasswordFormatId = membership.PasswordFormat,
+                           PasswordFormatId = membership.PasswordFormatId,
                            PasswordQuestion = membership.PasswordQuestion,
                            PasswordSalt = membership.PasswordSalt,
                            DateLastActivity = membership.DateLastActivity
@@ -54,7 +56,7 @@ namespace InverGrove.Repositories.Extensions
                 IsApproved = membership.IsApproved,
                 Password = membership.Password,
                 PasswordAnswer = membership.PasswordAnswer,
-                PasswordFormat = (byte)membership.PasswordFormatId,
+                PasswordFormatId = (byte)membership.PasswordFormatId,
                 PasswordQuestion = membership.PasswordQuestion,
                 PasswordSalt = membership.PasswordSalt,
                 DateLastActivity = membership.DateLastActivity
@@ -141,6 +143,34 @@ namespace InverGrove.Repositories.Extensions
                 DateModified = profile.DateModified,
                 DateCreated = profile.DateCreated
             };
+        }
+
+        public static Role ToModel(this Data.Entities.Role entityRole)
+        {
+            if (entityRole == null)
+            {
+                return new Role();
+            }
+
+            return new Role
+            {
+                RoleId = entityRole.RoleId,
+                Description = entityRole.Description
+            };
+        }
+
+        public static IEnumerable<Role> ToModelCollection(this IEnumerable<Data.Entities.Role> entityRoles)
+        {
+            var roles = new List<Role>();
+
+            if (entityRoles == null)
+            {
+                return roles;
+            }
+
+            roles.AddRange(entityRoles.Select(entityRole => entityRole.ToModel()));
+
+            return roles;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace InverGrove.Data.Entities
         [StringLength(128)]
         public string PasswordSalt { get; set; }
 
-        public byte PasswordFormat { get; set; }
+        public int PasswordFormatId { get; set; }
 
         [Required]
         [StringLength(64)]
@@ -51,7 +51,7 @@ namespace InverGrove.Data.Entities
 
         public bool IsApproved { get; set; }
 
-        public virtual PasswordFormat PasswordFormat1 { get; set; }
+        public virtual PasswordFormat PasswordFormat { get; set; }
 
         public virtual User User { get; set; }
     }

@@ -128,7 +128,7 @@ namespace InverGrove.Repositories
                     membershipEntity.IsApproved = membership.IsApproved;
                     membershipEntity.Password = membership.Password;
                     membershipEntity.PasswordAnswer = membership.PasswordAnswer;
-                    membershipEntity.PasswordFormat = (byte)membership.PasswordFormatId;
+                    membershipEntity.PasswordFormatId = membership.PasswordFormatId;
                     membershipEntity.PasswordQuestion = membership.PasswordQuestion;
                     membershipEntity.PasswordSalt = membership.PasswordSalt;
                     membershipEntity.DateLastActivity = DateTime.Now;

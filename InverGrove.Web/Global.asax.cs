@@ -4,6 +4,8 @@ using System.Web.Routing;
 using Castle.Windsor;
 using InverGrove.Data;
 using InverGrove.Domain.Factories;
+using Invergrove.Domain.Interfaces;
+using InverGrove.Domain.Models;
 
 namespace InverGrove.Web
 {
@@ -18,7 +20,17 @@ namespace InverGrove.Web
 
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container));
 
-            Database.SetInitializer<InverGroveContext>(new InverGroveInitializer());
+            Database.SetInitializer(new InverGroveInitializer());
+
+            this.ForceDbCreation();
+        }
+
+        private void ForceDbCreation()
+        {
+#if DEBUG
+            var roles = container.Resolve<IRepository<Role>>();
+            roles.GetAll<string>(null);
+#endif
         }
     }
 }

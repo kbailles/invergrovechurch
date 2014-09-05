@@ -106,8 +106,8 @@ namespace InverGrove.Data
 
             modelBuilder.Entity<PasswordFormat>()
                 .HasMany(e => e.Memberships)
-                .WithRequired(e => e.PasswordFormat1)
-                .HasForeignKey(e => e.PasswordFormat)
+                .WithRequired(e => e.PasswordFormat)
+                .HasForeignKey(e => e.PasswordFormatId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Person>()

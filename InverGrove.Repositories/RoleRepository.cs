@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using InverGrove.Data;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Models;
+using InverGrove.Repositories.Extensions;
 using InverGrove.Repositories.Queries;
 using Invergrove.Domain.Models;
 
@@ -55,26 +56,27 @@ namespace InverGrove.Repositories
         /// <returns></returns>
         public override IEnumerable<Role> GetAll<T1>(T1 filter)
         {
-            List<Role> roles;
+            var dbContext = (InverGroveContext) contextFactory.GetObjectContext();
+            var allRoles = dbContext.Set<Data.Entities.Role>();
 
-            using (var db = (InverGroveContext)contextFactory.GetObjectContext())
-            {
-                if (filter is int)
-                {
-                    int userId = int.Parse(filter.ToString());
-                    roles = this.GetRolesByUserId(db, userId).ToSafeList();
-                }
-                else if ((filter is string) && (!string.IsNullOrEmpty(filter as string)))
-                {
-                    roles = this.GetRolesByUserName(db, filter as string).ToSafeList();
-                }
-                else
-                {
-                    roles = RoleQueries.GetRoles(db).ToSafeList();
-                }
-            }
+            //using (var db = (InverGroveContext)contextFactory.GetObjectContext())
+            //{
+            //    if (filter is int)
+            //    {
+            //        int userId = int.Parse(filter.ToString());
+            //        roles = this.GetRolesByUserId(db, userId).ToSafeList();
+            //    }
+            //    else if ((filter is string) && (!string.IsNullOrEmpty(filter as string)))
+            //    {
+            //        roles = this.GetRolesByUserName(db, filter as string).ToSafeList();
+            //    }
+            //    else
+            //    {
+            //        roles = RoleQueries.GetRoles(db).ToSafeList();
+            //    }
+            //}
 
-            return roles;
+            return allRoles.ToModelCollection();
         }
 
         private IEnumerable<Role> GetRolesByUserName(InverGroveContext db, string userName)

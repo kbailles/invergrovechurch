@@ -14,9 +14,7 @@ namespace InverGrove.Data.Entities
             this.Memberships = new HashSet<Membership>();
         }
 
-        [Key]
-        [Column("PasswordFormat")]
-        public byte PasswordFormat1 { get; set; }
+        public int PasswordFormatId { get; set; }
 
         [Required]
         [StringLength(64)]
