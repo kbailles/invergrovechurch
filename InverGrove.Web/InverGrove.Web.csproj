@@ -125,19 +125,59 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\html5-boilerplate\main.css" />
+    <Content Include="Content\css\html5-boilerplate\normalize.css" />
+    <Content Include="Content\css\rs-plugin\settings-ie8.css" />
+    <Content Include="Content\css\rs-plugin\settings.css" />
+    <Content Include="Content\css\rs-plugin\style.css" />
+    <Content Include="Content\Images\bg_off.png" />
+    <Content Include="Content\Images\BIBLESTUDYweb.jpg" />
+    <Content Include="Content\Images\churchlogo.png" />
+    <Content Include="Content\Images\darkblurbg.jpg" />
+    <Content Include="Content\Images\graymatte.png" />
     <Content Include="Content\Images\header_bright.jpg" />
     <Content Include="Content\Images\icons-docs.gif" />
     <Content Include="Content\Images\icons-SocialMedia.png" />
     <Content Include="Content\Images\ig_coversample.png" />
     <Content Include="Content\Images\loading.gif" />
-    <Content Include="Content\Styles\bootstrap-responsive.min.css" />
-    <Content Include="Content\Styles\bootstrap_amelia.css" />
+    <Content Include="Content\Images\slidebg1.jpg" />
+    <Content Include="Content\Images\summerseries14.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular\angular-mocks.js" />
+    <Content Include="Scripts\angular\angular-route.js" />
+    <Content Include="Scripts\angular\angular-route.min.js" />
+    <Content Include="Scripts\angular\angular-ui-router.js" />
+    <Content Include="Scripts\angular\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular\angular.js" />
+    <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap\ui-bootstrap.js" />
+    <Content Include="Scripts\bootstrap\ui-bootstrap.min.js" />
+    <Content Include="Scripts\common\directives.js" />
+    <Content Include="Scripts\common\factories.js" />
+    <Content Include="Scripts\common\filters.js" />
+    <Content Include="Scripts\common\routes.js" />
+    <Content Include="Scripts\common\services.js" />
+    <Content Include="Scripts\controllers\AppController.js" />
+    <Content Include="Scripts\controllers\AuthenticationController.js" />
+    <Content Include="Scripts\controllers\ContactController.js" />
+    <Content Include="Scripts\controllers\HomeController.js" />
+    <Content Include="Scripts\gmap\jquery.gmap.js" />
+    <Content Include="Scripts\gmap\jquery.gmap.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Content\less\app.less" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -152,10 +192,18 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-3.0.0.debug.js" />
-    <Content Include="Scripts\knockout-3.0.0.js" />
-    <Content Include="Scripts\Knockout.SimpleGrid-3.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\rs-plugin\jquery.themepunch.revolution.js" />
+    <Content Include="Scripts\rs-plugin\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\rs-plugin\jquery.themepunch.tools.min.js" />
+    <Content Include="Scripts\sticky\jquery.sticky.js" />
+    <Content Include="Tests\e2e\scenarios.js" />
+    <Content Include="Tests\karma.conf.js" />
+    <Content Include="Tests\protractor-conf.js" />
+    <Content Include="Tests\unit\controllersSpec.js" />
+    <Content Include="Tests\unit\directivesSpec.js" />
+    <Content Include="Tests\unit\filtersSpec.js" />
+    <Content Include="Tests\unit\servicesSpec.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -183,6 +231,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Contact\_Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
