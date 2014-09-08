@@ -10,5 +10,10 @@ namespace InverGrove.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Home()
+        {
+            return PartialView();
+        }
 	}
 }
