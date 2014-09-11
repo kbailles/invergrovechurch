@@ -4,16 +4,16 @@ namespace InverGrove.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Home()
         {
-            return PartialView();
+            return PartialView("_Home");
         }
 	}
 }

@@ -1,0 +1,96 @@
+﻿
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                <h2 class="title">Contact Us</h2>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                <div class="breadcrumbs pull-right">
+                    <ul>
+                        <li>You are here:</li>
+                        <li><strong>Contact Us</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-content">
+    <div class="container">
+        <div class="row">
+            <div id="ContactForm" class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                <h3 class="title">Send Us an Email</h3>
+                <p>This is some short info about the email form</p>
+                <div class="divider"></div>
+                <form class="reply">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Name: <span class="warning">*</span></label>
+                                <input class="form-control" id="name" name="name" type="text" value="" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Email: <span class="warning">*</span></label>
+                                <input class="form-control" id="email" name="email" type="text" value="" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label>Subject: <span class="warning">*</span></label>
+                                <input class="form-control" id="subject" name="subject" type="text" value="" required="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label>Message: <span class="warning">*</span></label>
+                                <textarea class="form-control" id="text" name="text" rows="3" cols="40" required=""></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button class="btn btn-normal btn-color submit bottom-pad">Send</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+                <div class="address">
+                    <h3 class="title">Inver Grove Church</h3>
+                    <ul>
+                        <li>
+                            <i class="glyphicon glyphicon-map-marker"></i>
+                            <p>
+                                <strong class="contact-pad">Address: </strong>
+                                Inver Grove Church of Christ <br>
+                                8777 Courthouse Blvd <br>
+                                Inver Grove Heights MN 55077
+                            </p>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-earphone"></i>
+                            <p>
+                                <strong>Phone: </strong>
+                                (651) 457-1189
+                            </p>
+                        </li>
+                        <li>
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            <p>
+                                <strong>Email: </strong>
+                                invergrovechurch@gmail.com
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="our-location row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h3 class="title">Our Location</h3>
+                <div id="MapAddress" class="church-location" g-map ng-model="churchLocation"></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+    </div>
+</div>

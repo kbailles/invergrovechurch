@@ -10,7 +10,8 @@ app.controller('AppCtrl', ['$scope' ,'$location', function($scope, $location) {
         $scope.isActive = function(route) {
             return route === $location.path();
         }
-        $scope.go = function(path) {
+        $scope.go = function (path) {
+            alert($location.path());
             $location.path(path);
         }
     }]);
