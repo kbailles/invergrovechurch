@@ -286,6 +286,8 @@
     <Content Include="Components\jquery\src\var\support.js" />
     <Content Include="Components\jquery\src\var\toString.js" />
     <Content Include="Components\jquery\src\wrap.js" />
+    <Content Include="Components\phantomjs\phantomjs.exe" />
+    <Content Include="Components\phantomjs\third-party.txt" />
     <Content Include="Components\rs-plugin\assets\arrowleft.png" />
     <Content Include="Components\rs-plugin\assets\arrowright.png" />
     <Content Include="Components\rs-plugin\assets\arrow_large_left.png" />
@@ -353,6 +355,18 @@
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\slidebg1.jpg" />
     <Content Include="Content\Images\summerseries14.jpg" />
+    <Content Include="Content\less\app.css">
+      <DependentUpon>app.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\app.min.css">
+      <DependentUpon>app.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
@@ -511,6 +525,17 @@
     <Content Include="Components\sticky\bower.json" />
     <Content Include="Components\sticky\LICENSE.md" />
     <Content Include="Components\sticky\README.md" />
+    <Content Include="Content\less\mixins.less" />
+    <Content Include="Content\less\variables.less" />
+    <Content Include="Content\less\app.css.map">
+      <DependentUpon>app.css</DependentUpon>
+    </Content>
+    <Content Include="Content\less\variables.css.map">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+    <Content Include="Components\phantomjs\ChangeLog" />
+    <Content Include="Components\phantomjs\LICENSE.BSD" />
+    <Content Include="Components\phantomjs\README.md" />
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
@@ -526,6 +551,9 @@
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
+    <Content Include="Tests\dependencies\boot.js" />
+    <Content Include="Tests\dependencies\console.js" />
+    <Content Include="Tests\dependencies\jasmine.js" />
     <Content Include="Tests\e2e\scenarios.js" />
     <Content Include="Tests\karma.conf.js" />
     <Content Include="Tests\protractor-conf.js" />

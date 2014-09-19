@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InverGrove.Domain", "InverGrove.Domain\InverGrove.Domain.csproj", "{6EBDBEB0-4C34-4318-A6FC-6117CD949148}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InverGrove.Data", "InverGrove.Data\InverGrove.Data.csproj", "{520632DE-3EFC-4C41-83E8-FCB14E2FDFAF}"
@@ -10,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InverGrove.Tests", "InverGrove.Tests\InverGrove.Tests.csproj", "{4082ED05-148F-457C-8601-84A9CF241CBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InverGrove.Web", "InverGrove.Web\InverGrove.Web.csproj", "{1AC64A7C-8DA7-4E1B-9E0D-63D62E19843D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8A3AD17-6F2B-40A1-A77F-29157DBCFA3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
