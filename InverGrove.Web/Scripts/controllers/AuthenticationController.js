@@ -1,6 +1,6 @@
 'use strict';
 
-/* Controllers */
+angular.module('app.controllers')
 
-app.controller('AuthCtrl', ['$scope', function($scope) {
-}]);
+    .controller('AuthCtrl', ['$scope', function ($scope) {
+    }]);

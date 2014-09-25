@@ -371,15 +371,12 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\common\directives.js" />
-    <Content Include="Scripts\common\factories.js" />
-    <Content Include="Scripts\common\filters.js" />
-    <Content Include="Scripts\common\routes.js" />
-    <Content Include="Scripts\common\services.js" />
     <Content Include="Scripts\controllers\AppController.js" />
     <Content Include="Scripts\controllers\AuthenticationController.js" />
     <Content Include="Scripts\controllers\ContactController.js" />
     <Content Include="Scripts\controllers\HomeController.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.min.js" />
+    <Content Include="Scripts\factories\LocationFactory.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
@@ -551,16 +548,9 @@
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
-    <Content Include="Tests\dependencies\boot.js" />
-    <Content Include="Tests\dependencies\console.js" />
+    <Content Include="Tests\controllers\AppControllerTest.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
-    <Content Include="Tests\e2e\scenarios.js" />
-    <Content Include="Tests\karma.conf.js" />
-    <Content Include="Tests\protractor-conf.js" />
-    <Content Include="Tests\unit\controllersSpec.js" />
-    <Content Include="Tests\unit\directivesSpec.js" />
-    <Content Include="Tests\unit\filtersSpec.js" />
-    <Content Include="Tests\unit\servicesSpec.js" />
+    <Content Include="Tests\controllers\HomeControllerTest.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -601,6 +591,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Admin\" />
+    <Folder Include="Scripts\directives\" />
+    <Folder Include="Scripts\services\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>

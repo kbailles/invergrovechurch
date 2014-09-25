@@ -13,3 +13,8 @@ config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/contact', { templateUrl: '/Contact/ContactUs', controller: 'ContactCtrl' });
     $routeProvider.otherwise({ redirectTo: '/' });
 }]);
+
+angular.module('app.filters', []);
+angular.module('app.services', []);
+angular.module('app.directives', []);
+angular.module('app.controllers', ['ui.bootstrap']);

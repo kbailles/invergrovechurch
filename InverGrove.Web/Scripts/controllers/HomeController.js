@@ -1,7 +1,7 @@
 'use strict';
 
-/* Controllers */
+angular.module('app.controllers')
 
-app.controller('HomeCtrl', ['$scope', 'locationFactory', function($scope, locationFactory) {
-    $scope.churchLocation = locationFactory;
-}]);
+    .controller('HomeCtrl', ['$scope', 'LocationFactory', function ($scope, locationFactory) {
+        $scope.churchLocation = locationFactory;
+    }]);

@@ -1,17 +1,14 @@
 'use strict';
 
-/* Controllers */
+angular.module('app.controllers')
 
-var app = angular.module('app.controllers', ['ui.bootstrap']);
-
-app.controller('AppCtrl', ['$scope' ,'$location', function($scope, $location) {
+    .controller('AppCtrl', ['$scope', '$location', function ($scope, $location) {
         $scope.navbarCollapsed = true;
 
-        $scope.isActive = function(route) {
+        $scope.isActive = function (route) {
             return route === $location.path();
         }
         $scope.go = function (path) {
-            alert($location.path());
             $location.path(path);
         }
     }]);

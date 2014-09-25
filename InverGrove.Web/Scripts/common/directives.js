@@ -1,23 +1,21 @@
 'use strict';
 
-/* Directives */
-
-var app = angular.module('app.directives', []);
-
-app.directive('appVersion', ['version', function(version) {
+angular.module('app.directives').directive('appVersion', ['version', function (version) {
     return function(scope, elm, attrs) {
       elm.text(version);
     };
-  }]);
-app.directive('sticky', function() {
+}]);
+
+angular.module('app.directives').directive('sticky', function () {
     return {
         restrict: 'A',
         link: function(scope, element) {
             $(element).sticky({ topSpacing: 0 });
         }
     };
-  });
-app.directive('gMap', function() {
+});
+
+angular.module('app.directives').directive('gMap', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -25,7 +23,8 @@ app.directive('gMap', function() {
         }
     };
 });
-app.directive('flexslider', function() {
+
+angular.module('app.directives').directive('flexslider', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -33,7 +32,8 @@ app.directive('flexslider', function() {
         }
     };
 });
-app.directive('revoslider', function() {
+
+angular.module('app.directives').directive('revoslider', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -46,7 +46,8 @@ app.directive('revoslider', function() {
         }
     };
 });
-app.directive('scrollUp', function() {
+
+angular.module('app.directives').directive('scrollUp', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
