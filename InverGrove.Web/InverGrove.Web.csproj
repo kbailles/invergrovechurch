@@ -371,6 +371,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\common\directives.js" />
+    <Content Include="Scripts\common\filters.js" />
     <Content Include="Scripts\controllers\AppController.js" />
     <Content Include="Scripts\controllers\AuthenticationController.js" />
     <Content Include="Scripts\controllers\ContactController.js" />
