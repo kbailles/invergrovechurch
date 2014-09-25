@@ -1,5 +1,5 @@
 ﻿body {
-  background: url('../Images/graymatte.png') repeat;
+  background: url('../images/graymatte.png') repeat;
   color: #767676;
   font-family: 'pt-sans', sans-serif;
 }
@@ -271,7 +271,7 @@ h3.title {
   position: relative;
 }
 h3.title:after {
-  background: url('../Images/bg_off.png') repeat;
+  background: url('../images/bg_off.png') repeat;
   content: "";
   height: 5px;
   margin-left: 10px;
