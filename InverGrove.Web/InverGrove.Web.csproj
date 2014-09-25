@@ -593,6 +593,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Admin\" />
     <Folder Include="Scripts\common\" />
+    <Folder Include="Scripts\models\" />
     <Folder Include="Scripts\services\" />
     <Folder Include="Views\Admin\" />
   </ItemGroup>
