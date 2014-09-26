@@ -343,20 +343,12 @@
     <Content Include="Components\sticky\jquery.sticky.js" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\rs-plugin\style.css" />
-    <Content Include="Content\images\be_bold.png" />
-    <Content Include="Content\images\be_bold_sundays.png" />
+    <Content Include="Content\images\bebold_banner.png" />
     <Content Include="Content\images\bg_off.png" />
-    <Content Include="Content\images\BIBLESTUDYweb.jpg" />
     <Content Include="Content\images\churchlogo.png" />
-    <Content Include="Content\images\darkblurbg.jpg" />
     <Content Include="Content\images\graymatte.png" />
-    <Content Include="Content\images\header_bright.jpg" />
-    <Content Include="Content\images\icons-docs.gif" />
-    <Content Include="Content\images\icons-SocialMedia.png" />
     <Content Include="Content\images\ig_coversample.png" />
     <Content Include="Content\images\loading.gif" />
-    <Content Include="Content\images\slidebg1.jpg" />
-    <Content Include="Content\images\summerseries14.jpg" />
     <Content Include="Content\less\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
