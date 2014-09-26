@@ -344,6 +344,7 @@
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\rs-plugin\style.css" />
     <Content Include="Content\images\be_bold.png" />
+    <Content Include="Content\images\be_bold_sundays.png" />
     <Content Include="Content\images\bg_off.png" />
     <Content Include="Content\images\BIBLESTUDYweb.jpg" />
     <Content Include="Content\images\churchlogo.png" />
