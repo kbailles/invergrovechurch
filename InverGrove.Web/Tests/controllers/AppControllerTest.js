@@ -12,11 +12,16 @@
 'use strict';
 
 describe('AppCtrl', function () {
+    //setup
     beforeEach(module('app.controllers'));
 
     it('should be defined', inject(function ($controller) {
-        //spec body
+        //arrange
         var myCtrl1 = $controller('AppCtrl', { $scope: {} });
+
+        //act
+
+        //assert
         expect(myCtrl1).toBeDefined();
     }));
 

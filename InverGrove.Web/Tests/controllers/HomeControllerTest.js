@@ -13,13 +13,18 @@
 
 'use strict';
 
-describe('HomeCtrl', function(){
+describe('HomeCtrl', function () {
+    //setup
     beforeEach(module('app.services')); //HomeCtrl is dependent on LocationFactory which exists in app.services
     beforeEach(module('app.controllers'));
 
     it('should be defined', inject(function ($controller) {
-        //spec body
+        //arrange
         var myCtrl1 = $controller('HomeCtrl', { $scope: {} });
+
+        //act
+
+        //assert
         expect(myCtrl1).toBeDefined();
     }));
 
