@@ -373,9 +373,11 @@
     <Content Include="Content\less\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
+    <Content Include="Controllers\Admin\gitkeep.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\common\gitkeep.txt" />
     <Content Include="Scripts\directives.js" />
     <Content Include="Scripts\filters.js" />
     <Content Include="Scripts\controllers\AppController.js" />
@@ -558,9 +560,12 @@
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
+    <Content Include="Scripts\models\gitkeep.txt" />
+    <Content Include="Scripts\services\gitkeep.txt" />
     <Content Include="Tests\controllers\AppControllerTest.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
     <Content Include="Tests\controllers\HomeControllerTest.js" />
+    <Content Include="Views\Admin\gitkeep.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -600,11 +605,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Admin\" />
-    <Folder Include="Scripts\common\" />
-    <Folder Include="Scripts\models\" />
-    <Folder Include="Scripts\services\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">
