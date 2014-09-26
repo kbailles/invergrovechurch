@@ -187,7 +187,7 @@ a {
 }
 @media (min-width: 1200px) {
   .content-box {
-    min-height: 275px !important;
+    min-height: 270px !important;
   }
 }
 .content-box .content-box-info .glyphicon-pad {
