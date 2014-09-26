@@ -25,7 +25,7 @@ angular.module('app.directives').directive('revoslider', function () {
             $(element).revolution({
                 delay:9000,
                 startwidth:1170,
-                startheight:348,
+                startheight:370,
                 hideThumbs:10
             });
         }
