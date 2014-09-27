@@ -30,8 +30,102 @@
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
 </head>
 <body ng-controller="AppCtrl">
+        <div class="container wrapper">
+            <header>
+                <div class="top-bar">
+                    <div class="container">
+                        <div class="pull-left">
+                            <a href="#"><i class="glyphicon glyphicon-earphone"></i>(651) 457-1189</a>
+                            <a href="#"><i class="glyphicon glyphicon-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
+                        </div>
+                    </div>
+                </div>
 
-    @RenderBody()
+                <div class="bottom-bar" sticky>
+                    <div class="container">
+                        <div class="logo pull-left">
+                            <h1><a href="#"><img src="~/Content/Images/churchlogo.png"></a></h1>
+                        </div>
+
+                        <div class="mobile navbar-header">
+                            <div class="mobile navbar-header">
+                                <button class="navbar-toggle collapsed" ng-click="navbarCollapsed = !navbarCollapsed">
+                                    <i class="glyphicon glyphicon-align-justify"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <nav class="collapse navbar-collapse" collapse="navbarCollapsed">
+                            <ul class="nav navbar-nav">
+                                <li ng-class="{active: isActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li ng-class="{active: isActive('/Contact/ContactUs')}"><a href="@Url.Action("ContactUs", "Contact")">Contact Us</a></li>
+                                <li><a href="login/login.html">Members</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+                <![endif]-->
+
+                @RenderBody()
+            </main>
+
+            <footer>
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row">
+                            <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+                                <h3>who we are</h3>
+                                <p>The Christians at Inver Grove regularly study together, pray together, and encourage one another in our walk with the Lord. We would be delighted to have you join us in these endeavors!</p>
+                            </section>
+                            <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+                                <h3>join us</h3>
+                                <address>
+                                    <i class="glyphicon glyphicon-map-marker glyphicon-pad"></i> Courthouse Blvd <br>
+                                    Inver Grove Heights MN 55077 <br>
+                                    <i class="glyphicon glyphicon-earphone"></i> (651) 457-1189
+                                </address>
+                                <p>Located 12 minutes south of downtown St. Paul off of Hwy. 52 in Inver Grove Heights.</p>
+                            </section>
+                            <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+                                <h3>times of assembly</h3>
+                                <p>
+                                    <em>Sunday AM</em> <br>
+                                    Bible Study – 9:30 <br>
+                                    Worship – 10:30 <br>
+                                </p>
+                                <p>
+                                    <em>Sunday PM</em> <br>
+                                    Worship – 5:00 <br>
+                                </p>
+                                <p>
+                                    <em>Wednesday PM</em> <br>
+                                    Bible Study – 7:00 <br>
+                                </p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                © Copyright 2014 Inver Grove Church of Christ. All Rights Reserved.
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- ./footer-bottom -->
+            </footer>
+
+            <!-- scroll to top -->
+            <a class="scrollup" scroll-up>
+                <i class="glyphicon glyphicon-chevron-up"></i>
+            </a>
+        </div>
 
     <!-- In production use:
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

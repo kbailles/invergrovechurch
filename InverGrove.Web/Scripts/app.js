@@ -10,7 +10,6 @@ angular.module('app', [
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', { templateUrl: '/Home/Home', controller: 'HomeCtrl' });
-    $routeProvider.when('/contact', { templateUrl: '/Contact/ContactUs', controller: 'ContactCtrl' });
     $routeProvider.otherwise({ redirectTo: '/' });
 }]);
 

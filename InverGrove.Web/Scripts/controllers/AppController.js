@@ -6,7 +6,7 @@ angular.module('app.controllers')
         $scope.navbarCollapsed = true;
 
         $scope.isActive = function (route) {
-            return route === $location.path();
+            return !route ? '/' === $location.path() : $location.absUrl().indexOf(route) > -1;
         }
         $scope.go = function (path) {
             $location.path(path);

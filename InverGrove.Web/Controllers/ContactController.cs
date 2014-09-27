@@ -7,7 +7,7 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult ContactUs()
         {
-            return PartialView("_Contact");
+            return View("_Contact");
         }
     }
 }
