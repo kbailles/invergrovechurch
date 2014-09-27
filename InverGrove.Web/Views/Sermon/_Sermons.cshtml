@@ -1,0 +1,357 @@
+﻿
+<style>
+    .sermon-date a.date {
+        background: #fff;
+        display: block;
+        float: left;
+        margin-right: 20px;
+        text-align: center;
+        text-decoration: none;
+        width: 55px;
+        border-radius: 2px;
+    }
+
+        .sermon-date a.date i {
+            background-color: #1889C1;
+            border-top: 1px solid #F3F3F3;
+            color: #FFFFFF;
+            display: block;
+            font-size: 11px;
+            font-style: normal;
+        }
+
+        .sermon-date a.date strong {
+            color: #1889C1;
+            display: block;
+            font-size: 27px;
+            font-weight: normal;
+        }
+
+    .sermon-entry-meta-speaker {
+        margin-right: 10px;
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    .sermon-entry-meta-tags {
+        margin-right: 20px;
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    .sermon-entry-meta-comments {
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    .sermon-meta i {
+        margin-right: 4px;
+    }
+
+    .sermon-entry-meta-speaker, .sermon-entry-meta-tags, .sermon-entry-meta-comments {
+        display: inline-block;
+    }
+
+    .sermon-divider {
+        margin: 25px 0;
+        background: url('../../Content/images/bg_off.png') repeat;
+        content: "";
+        height: 5px;
+    }
+
+    .sermons-content {
+        padding: 60px 0 0;
+    }
+
+    .sermon-title {
+        margin-top: 0;
+    }
+
+    .input-group {
+        position: relative;
+        display: table;
+        border-collapse: separate;
+    }
+
+        .input-group-addon, .input-group-btn, .input-group .form-control {
+            display: table-cell;
+        }
+
+    .input-group-addon, .input-group-btn {
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+
+    .subscribe-btn {
+        height: 44px;
+        padding: 6px 16px;
+        background-image: none;
+        color: #fff;
+        text-shadow: none;
+        font-size: 16px;
+        border: none;
+        text-shadow: none !important;
+        -webkit-transition: all .5s ease-in-out !important;
+        -moz-transition: all .5s ease-in-out !important;
+        -o-transition: all .5s ease-in-out !important;
+        -ms-transition: all .5s ease-in-out !important;
+    }
+
+        .subscribe-btn:hover {
+            background-color: #0488CD;
+            color: #fff;
+        }
+
+    .btn:focus, .subscribe-btn, .progress .progress-bar, .accordionMod .panel-heading .current, #current:after, .tp-leftarrow.default:hover, .tp-rightarrow.default:hover, .nivo-prevNav:hover, .nivo-nextNav:hover, .contact-box:hover, #options li a.selected, .ch-info-front {
+        background: #2eaef0;
+    }
+
+    .btn-color, .subscribe-btn {
+        background: #2eaef0;
+        cursor: pointer;
+    }
+
+    .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+        margin-left: 0;
+    }
+
+    a:hover {
+        text-decoration: none;
+        outline: none;
+        color: #777777;
+    }
+</style>
+
+<div class="sermons-wrapper" ng-controller="ContactCtrl">
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <h2 class="title">Sermons</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <div class="breadcrumbs pull-right">
+                        <ul>
+                            <li>You are here:</li>
+                            <li><strong>Home</strong></li>
+                            <li>Sermons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sermons-content">
+        <div class="container">
+            <div class="row">
+                <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                    <article class="sermon hentry">
+                        <div class="sermon-content-wrap">
+                            <header class="sermon-header">
+                                <div class="sermon-date">
+                                    <a class="date" href="#"><strong>28</strong><i>SEP</i></a>
+                                </div>
+                                <h3 class="sermon-title"><a href="#">Head Covering</a></h3>
+                                <div class="sermon-meta">
+                                    <div class="sermon-entry-meta-speaker">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <a href="#" class="sermon-entry-meta-speaker">Bryant Bailles</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-tags">
+                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <a href="#">Web Design</a>,
+                                        <a href="#">Branding</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-comments">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                        <a href="#" class="blog-entry-meta-comments">1 comments</a>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="clearfix"></div>
+                    </article>
+                    <div class="sermon-divider"></div>
+
+                    <article class="sermon hentry">
+                        <div class="sermon-content-wrap">
+                            <header class="sermon-header">
+                                <div class="sermon-date">
+                                    <a class="date" href="#"><strong>26</strong><i>SEP</i></a>
+                                </div>
+                                <h3 class="sermon-title"><a href="#">Boldly Respond to the Invitation</a></h3>
+                                <div class="sermon-meta">
+                                    <div class="sermon-entry-meta-speaker">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-tags">
+                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <a href="#">Web Design</a>,
+                                        <a href="#">Branding</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-comments">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                        <a href="#" class="blog-entry-meta-comments">4 comments</a>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="clearfix"></div>
+                    </article>
+                    <div class="sermon-divider"></div>
+
+                    <article class="sermon hentry">
+                        <div class="sermon-content-wrap">
+                            <header class="sermon-header">
+                                <div class="sermon-date">
+                                    <a class="date" href="#"><strong>25</strong><i>SEP</i></a>
+                                </div>
+                                <h3 class="sermon-title"><a href="#">Boldly Trust Jesus</a></h3>
+                                <div class="sermon-meta">
+                                    <div class="sermon-entry-meta-speaker">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-tags">
+                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <a href="#">Web Design</a>,
+                                        <a href="#">Branding</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-comments">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                        <a href="#" class="blog-entry-meta-comments">4 comments</a>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="clearfix"></div>
+                    </article>
+                    <div class="sermon-divider"></div>
+
+                    <article class="sermon hentry">
+                        <div class="sermon-content-wrap">
+                            <header class="sermon-header">
+                                <div class="sermon-date">
+                                    <a class="date" href="#"><strong>24</strong><i>SEP</i></a>
+                                </div>
+                                <h3 class="sermon-title"><a href="#">Speak Boldly</a></h3>
+                                <div class="sermon-meta">
+                                    <div class="sermon-entry-meta-speaker">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-tags">
+                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <a href="#">Web Design</a>,
+                                        <a href="#">Branding</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-comments">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                        <a href="#" class="blog-entry-meta-comments">4 comments</a>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="clearfix"></div>
+                    </article>
+                    <div class="sermon-divider"></div>
+
+                    <article class="sermon hentry">
+                        <div class="sermon-content-wrap">
+                            <header class="sermon-header">
+                                <div class="sermon-date">
+                                    <a class="date" href="#"><strong>23</strong><i>SEP</i></a>
+                                </div>
+                                <h3 class="sermon-title"><a href="#">Boldly Believe in the Son of God</a></h3>
+                                <div class="sermon-meta">
+                                    <div class="sermon-entry-meta-speaker">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-tags">
+                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <a href="#">Web Design</a>,
+                                        <a href="#">Branding</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-comments">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                        <a href="#" class="blog-entry-meta-comments">4 comments</a>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="clearfix"></div>
+                    </article>
+                    <div class="sermon-divider"></div>
+
+                    <article class="sermon hentry">
+                        <div class="sermon-content-wrap">
+                            <header class="sermon-header">
+                                <div class="sermon-date">
+                                    <a class="date" href="#"><strong>22</strong><i>SEP</i></a>
+                                </div>
+                                <h3 class="sermon-title"><a href="#">Boldly Seek After God</a></h3>
+                                <div class="sermon-meta">
+                                    <div class="sermon-entry-meta-speaker">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-tags">
+                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <a href="#">Web Design</a>,
+                                        <a href="#">Branding</a>
+                                    </div>
+                                    <div class="sermon-entry-meta-comments">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                        <a href="#" class="blog-entry-meta-comments">4 comments</a>
+                                    </div>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="clearfix"></div>
+                    </article>
+
+                    <div class="divider"></div>
+                </div>
+                <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="widget search-form" style="margin-bottom: 35px;">
+                        <div class="input-group">
+                            <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control">
+                            <span class="input-group-btn">
+                                <button type="submit" class="subscribe-btn btn"><i class="glyphicon glyphicon-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="widget speakers" style="margin-bottom: 35px;">
+                        <h3 class="title">Speakers</h3>
+                        <ul>
+                            <li><a href="#">Antoine Halloway (5)</a></li>
+                            <li><a href="#">Rennie Frazier (0)</a></li>
+                            <li><a href="#">Bryant Bailles (1)</a></li>
+                            <li><a href="#">Jim Echols (0)</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget tags">
+                        <h3 class="title">Tags</h3>
+                        <ul>
+                            <li><a href="#">Wordpress (66)</a></li>
+                            <li><a href="#">Drupal (28)</a></li>
+                            <li><a href="#">Web Design (103)</a></li>
+                            <li><a href="#">Logo (58)</a></li>
+                            <li><a href="#">Joomla (4)</a></li>
+                            <li><a href="#">Illustration (6)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

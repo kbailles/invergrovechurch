@@ -582,6 +582,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SermonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -598,6 +599,7 @@
     <Content Include="Views\Contact\_Contact.cshtml" />
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Account\_Layout.cshtml" />
+    <Content Include="Views\Sermon\_Sermons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
