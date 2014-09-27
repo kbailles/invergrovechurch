@@ -1,0 +1,27 @@
+﻿
+@import "app.less";
+
+body {
+  > .wrapper {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    margin: 25px auto;
+    padding-right: 0;
+    padding-left: 0;
+    width: 500px;
+  }
+  @media (max-width: 767px) {
+    > .wrapper {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+  }
+}
+.bottom-bar {
+  .container {
+    width: 100% !important;
+  }
+}
+.login-content {
+  padding: 15px;
+}

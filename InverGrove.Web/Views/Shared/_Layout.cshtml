@@ -16,7 +16,7 @@
     <link href="~/Components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/rs-plugin/style.css" rel="stylesheet" media="screen" />
     <link href="~/Components/rs-plugin/css/settings.css" rel="stylesheet" />
-    <link href="~/Content/less/app.css" rel="stylesheet" />
+    <link href="~/Content/less/app.min.css" rel="stylesheet" />
 
     <!-- -------------------- -->
     <!-- TODO: Create bundles -->
@@ -59,7 +59,7 @@
                             <ul class="nav navbar-nav">
                                 <li ng-class="{active: isActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
                                 <li ng-class="{active: isActive('/Contact/ContactUs')}"><a href="@Url.Action("ContactUs", "Contact")">Contact Us</a></li>
-                                <li><a href="login/login.html">Members</a></li>
+                                <li><a href="@Url.Action("Login", "Account")">Members</a></li>
                             </ul>
                         </nav>
                     </div>

@@ -356,6 +356,12 @@
     <Content Include="Content\less\app.min.css">
       <DependentUpon>app.css</DependentUpon>
     </Content>
+    <Content Include="Content\less\login.css">
+      <DependentUpon>login.less</DependentUpon>
+    </Content>
+    <Content Include="Content\less\login.min.css">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
     <Content Include="Content\less\mixins.css">
       <DependentUpon>mixins.less</DependentUpon>
     </Content>
@@ -540,6 +546,10 @@
     <Content Include="Content\less\mixins.css.map">
       <DependentUpon>mixins.css</DependentUpon>
     </Content>
+    <Content Include="Content\less\login.less" />
+    <Content Include="Content\less\login.css.map">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
@@ -582,15 +592,12 @@
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Contact\_Contact.cshtml" />
     <Content Include="Views\Home\_Home.cshtml" />
+    <Content Include="Views\Account\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
