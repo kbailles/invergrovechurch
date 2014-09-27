@@ -9,6 +9,6 @@ angular.module('app.controllers')
             return !route ? '/' === $location.path() : $location.absUrl().indexOf(route) > -1;
         }
         $scope.go = function (path) {
-            $location.path(path);
+            window.location.href = path;
         }
     }]);

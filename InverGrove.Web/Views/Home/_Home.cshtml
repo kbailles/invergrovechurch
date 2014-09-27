@@ -90,7 +90,7 @@
                         <p>Message spoken from the word of God that has practical applications to your life (Mark 16:15; 2 Timothy 4:2)</p>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                        <div class="contact-box" ng-click="go('/contact')">
+                        <div class="contact-box" ng-click="go('@Url.Action("ContactUs", "Contact")')">
                             <h3>More Questions?</h3>
                             <i class="glyphicon glyphicon-envelope"></i>
                             <p>Let us know your question via the contact form.</p>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-lg-3 col-md-3">
                         <div class="contact-us clearfix">
-                            <button class="btn btn-special btn-color pull-right" ng-click="go('/contact')">Contact Us</button>
+                            <button class="btn btn-special btn-color pull-right" ng-click="go('@Url.Action("ContactUs", "Contact")')">Contact Us</button>
                         </div>
                     </div>
                     <div class="clearfix"></div>
