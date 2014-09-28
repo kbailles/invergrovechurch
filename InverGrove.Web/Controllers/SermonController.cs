@@ -9,5 +9,11 @@ namespace InverGrove.Web.Controllers
         {
             return View("_Sermons");
         }
+
+        [HttpGet]
+        public ActionResult SermonDetail()
+        {
+            return View("_SermonDetail");
+        }
     }
 }

@@ -4,7 +4,7 @@
         background: #fff;
         display: block;
         float: left;
-        margin-right: 20px;
+        margin-right: 10px;
         text-align: center;
         text-decoration: none;
         width: 55px;
@@ -28,18 +28,21 @@
         }
 
     .sermon-entry-meta-speaker {
+        margin-bottom: 10px;
         margin-right: 10px;
         font-size: 14px;
         vertical-align: top;
     }
 
     .sermon-entry-meta-tags {
-        margin-right: 20px;
+        margin-bottom: 10px;
+        margin-right: 10px;
         font-size: 14px;
         vertical-align: top;
     }
 
     .sermon-entry-meta-comments {
+        margin-bottom: 10px;
         font-size: 14px;
         vertical-align: top;
     }
@@ -126,6 +129,9 @@
         outline: none;
         color: #777777;
     }
+    .sermon-desc p {
+        margin-bottom: 0;
+    }
 </style>
 
 <div class="sermons-wrapper" ng-controller="ContactCtrl">
@@ -158,11 +164,11 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong>28</strong><i>SEP</i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#">Head Covering</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Head Covering</a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" class="sermon-entry-meta-speaker">Bryant Bailles</a>
+                                        <a href="#">Bryant Bailles</a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
@@ -175,6 +181,9 @@
                                     </div>
                                 </div>
                             </header>
+                            <div class="sermon-desc">
+                                <p>This is a short description of the sermon</p>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -186,11 +195,11 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong>26</strong><i>SEP</i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#">Boldly Respond to the Invitation</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Respond to the Invitation</a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                        <a href="#">Antoine Halloway</a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
@@ -203,6 +212,9 @@
                                     </div>
                                 </div>
                             </header>
+                            <div class="sermon-desc">
+                                <p>This is a short description of the sermon</p>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -214,11 +226,11 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong>25</strong><i>SEP</i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#">Boldly Trust Jesus</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Trust Jesus</a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                        <a href="#">Antoine Halloway</a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
@@ -231,6 +243,9 @@
                                     </div>
                                 </div>
                             </header>
+                            <div class="sermon-desc">
+                                <p>This is a short description of the sermon</p>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -242,11 +257,11 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong>24</strong><i>SEP</i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#">Speak Boldly</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Speak Boldly</a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                        <a href="#">Antoine Halloway</a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
@@ -259,6 +274,9 @@
                                     </div>
                                 </div>
                             </header>
+                            <div class="sermon-desc">
+                                <p>This is a short description of the sermon</p>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -270,11 +288,11 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong>23</strong><i>SEP</i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#">Boldly Believe in the Son of God</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Believe in the Son of God</a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                        <a href="#">Antoine Halloway</a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
@@ -287,6 +305,9 @@
                                     </div>
                                 </div>
                             </header>
+                            <div class="sermon-desc">
+                                <p>This is a short description of the sermon</p>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -298,11 +319,11 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong>22</strong><i>SEP</i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#">Boldly Seek After God</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Seek After God</a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" class="sermon-entry-meta-speaker">Antoine Halloway</a>
+                                        <a href="#">Antoine Halloway</a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
@@ -315,6 +336,9 @@
                                     </div>
                                 </div>
                             </header>
+                            <div class="sermon-desc">
+                                <p>This is a short description of the sermon</p>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -339,7 +363,7 @@
                             <li><a href="#">Jim Echols (0)</a></li>
                         </ul>
                     </div>
-                    <div class="widget tags">
+                    <div class="widget tags" style="margin-bottom: 35px;">
                         <h3 class="title">Tags</h3>
                         <ul>
                             <li><a href="#">Wordpress (66)</a></li>

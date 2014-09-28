@@ -600,6 +600,7 @@
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Account\_Layout.cshtml" />
     <Content Include="Views\Sermon\_Sermons.cshtml" />
+    <Content Include="Views\Sermon\_SermonDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
