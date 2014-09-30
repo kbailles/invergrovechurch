@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Castle.Windsor;
@@ -15,6 +16,9 @@ namespace InverGrove.Web
 
         protected void Application_Start()
         {
+            // re-add the registger areas if we use areas.
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ContainerConfig.RegisterTypes(container);
 

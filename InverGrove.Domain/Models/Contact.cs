@@ -11,7 +11,23 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The contacts identifier.
         /// </value>
-        public int ContactsId { get; set; }
+        public int ContactsId { get; set; } // <-- should be read-only, not exposed at all, or substituted with a GUID ?
+
+        public Contact(int contactsId, string name, string address, string city, string state, string zip, string email, string phone, bool isVisitorCard, bool isOnlineContactForm, string comments, DateTime dateSubmitted)
+        {
+            this.ContactsId = contactsId;
+            this.Name = name;
+            this.Address = address;
+            this.City = city;
+            this.State = state;
+            this.Zip = zip;
+            this.Email = email;
+            this.Phone = phone;
+            this.IsVisitorCard = isVisitorCard;
+            this.IsOnlineContactForm = isOnlineContactForm;
+            this.Comments = comments;
+            this.DateSubmitted = dateSubmitted;
+        }
 
         /// <summary>
         /// Gets or sets the name.
@@ -94,7 +110,7 @@ namespace InverGrove.Domain.Models
         public string Comments { get; set; }
 
         /// <summary>
-        /// Gets or sets the date submitted.
+        /// Pretty useless? 
         /// </summary>
         /// <value>
         /// The date submitted.
