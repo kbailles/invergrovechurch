@@ -534,14 +534,12 @@
     <Content Include="Components\jquery\bower.json" />
     <Content Include="Components\jquery\dist\jquery.min.map" />
     <Content Include="Components\jquery\src\sizzle\dist\sizzle.min.map" />
-    <Content Include="Components\rs-plugin\.DS_Store" />
     <Content Include="Components\rs-plugin\assets\arrows.psd" />
     <Content Include="Components\rs-plugin\assets\bullets.psd" />
     <Content Include="Components\rs-plugin\assets\small_arrows.psd" />
     <Content Include="Components\rs-plugin\font\revicons.eot" />
     <Content Include="Components\rs-plugin\font\revicons.ttf" />
     <Content Include="Components\rs-plugin\font\revicons.woff" />
-    <Content Include="Components\rs-plugin\js\.DS_Store" />
     <Content Include="Components\sticky\bower.json" />
     <Content Include="Components\sticky\LICENSE.md" />
     <Content Include="Components\sticky\README.md" />
