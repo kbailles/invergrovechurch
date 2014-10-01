@@ -392,6 +392,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\common\gitkeep.txt" />
+    <Content Include="Scripts\controllers\SermonController.js" />
     <Content Include="Scripts\directives.js" />
     <Content Include="Scripts\filters.js" />
     <Content Include="Scripts\controllers\AppController.js" />
