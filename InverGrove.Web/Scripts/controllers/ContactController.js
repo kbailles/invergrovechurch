@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.controllers')
-    
+
     .controller('ContactCtrl', ['$scope', '$http', 'LocationFactory', function ($scope, $http, locationFactory) {
         $scope.churchLocation = locationFactory;
         $scope.working = false;
