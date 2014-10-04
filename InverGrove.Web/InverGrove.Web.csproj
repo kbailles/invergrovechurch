@@ -47,9 +47,9 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="BundleTransformer.Core">
-      <HintPath>..\packages\BundleTransformer.Core.1.9.13\lib\net40\BundleTransformer.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="BundleTransformer.Core, Version=1.9.22.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BundleTransformer.Core.1.9.22\lib\net40\BundleTransformer.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\Dependencies\Castle.Core.dll</HintPath>
@@ -68,9 +68,9 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions">
       <Private>True</Private>
@@ -78,9 +78,9 @@
     <Reference Include="System.Net.Http">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Abstractions">
       <Private>True</Private>
@@ -110,13 +110,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -348,9 +348,6 @@
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\factories\LocationFactory.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
-    <None Include="BundleTransformer.Configuration.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Content\less\app.less" />
     <Content Include="Components\bootstrap\dist\css\bootstrap-theme.css.map" />
     <Content Include="Components\bootstrap\dist\css\bootstrap.css.map" />
@@ -469,6 +466,9 @@
     <Content Include="Content\less\login.css.map">
       <DependentUpon>login.css</DependentUpon>
     </Content>
+    <None Include="BundleTransformer.Configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
