@@ -73,7 +73,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Tries to get the value from Session with the specified key, if it does not exist, 
+        /// Tries to get the value from Session with the specified key, if it does not exist,
         /// it will call the Func and set the Session[key] to that returned value if the Func is not null and cacheResult is true.
         /// </summary>
         /// <typeparam name="TResult">The type of the result.</typeparam>
@@ -81,7 +81,7 @@ namespace InverGrove.Domain.Services
         /// <param name="serviceFunc">The service function.</param>
         /// <param name="cacheResult">if set to <c>true</c> [cache result].</param>
         /// <returns></returns>
-        /// <exception cref="Patterson.Infrastructure.Exceptions.ParameterNullException">key</exception>
+        /// <exception cref="System.ArgumentNullException">key</exception>
         public TResult TryGet<TResult>(string key, Func<TResult> serviceFunc = null, bool cacheResult = true)
         {
             if (string.IsNullOrEmpty(key))
