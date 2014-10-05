@@ -217,7 +217,9 @@
     <Content Include="Components\bootstrap\dist\css\bootstrap-theme.min.css" />
     <Content Include="Components\bootstrap\dist\css\bootstrap.css" />
     <Content Include="Components\bootstrap\dist\css\bootstrap.min.css" />
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Components\bootstrap\dist\js\bootstrap.js" />
     <Content Include="Components\bootstrap\dist\js\bootstrap.min.js" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -356,9 +358,15 @@
     <Content Include="Content\less\app.less" />
     <Content Include="Components\bootstrap\dist\css\bootstrap-theme.css.map" />
     <Content Include="Components\bootstrap\dist\css\bootstrap.css.map" />
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -474,6 +482,12 @@
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Components\angular\angular.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Components\angular-route\angular-route.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
