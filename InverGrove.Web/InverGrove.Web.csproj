@@ -213,28 +213,13 @@
     <Content Include="Components\angular-ui-router\src\viewScroll.js" />
     <Content Include="Components\angular\angular.js" />
     <Content Include="Components\angular\angular.min.js" />
-    <Content Include="Components\bootstrap\dist\css\bootstrap-theme.css" />
-    <Content Include="Components\bootstrap\dist\css\bootstrap-theme.min.css" />
-    <Content Include="Components\bootstrap\dist\css\bootstrap.css" />
-    <Content Include="Components\bootstrap\dist\css\bootstrap.min.css" />
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Components\bootstrap\dist\js\bootstrap.js" />
-    <Content Include="Components\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Components\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Components\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Components\bootstrap\css\bootstrap.css" />
+    <Content Include="Components\bootstrap\css\bootstrap.min.css" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Components\bootstrap\js\affix.js" />
-    <Content Include="Components\bootstrap\js\alert.js" />
-    <Content Include="Components\bootstrap\js\button.js" />
-    <Content Include="Components\bootstrap\js\carousel.js" />
-    <Content Include="Components\bootstrap\js\collapse.js" />
-    <Content Include="Components\bootstrap\js\dropdown.js" />
-    <Content Include="Components\bootstrap\js\modal.js" />
-    <Content Include="Components\bootstrap\js\popover.js" />
-    <Content Include="Components\bootstrap\js\scrollspy.js" />
-    <Content Include="Components\bootstrap\js\tab.js" />
-    <Content Include="Components\bootstrap\js\tooltip.js" />
-    <Content Include="Components\bootstrap\js\transition.js" />
+    <Content Include="Components\bootstrap\js\bootstrap.js" />
+    <Content Include="Components\bootstrap\js\bootstrap.min.js" />
     <Content Include="Components\gmaps\images\gmap_pin.png" />
     <Content Include="Components\gmaps\images\gmap_pin_grey.png" />
     <Content Include="Components\gmaps\images\gmap_pin_orange.png" />
@@ -356,90 +341,6 @@
     <Content Include="Scripts\factories\LocationFactory.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
     <Content Include="Content\less\app.less" />
-    <Content Include="Components\bootstrap\dist\css\bootstrap-theme.css.map" />
-    <Content Include="Components\bootstrap\dist\css\bootstrap.css.map" />
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Components\bootstrap\less\alerts.less" />
-    <Content Include="Components\bootstrap\less\badges.less" />
-    <Content Include="Components\bootstrap\less\bootstrap.less" />
-    <Content Include="Components\bootstrap\less\breadcrumbs.less" />
-    <Content Include="Components\bootstrap\less\button-groups.less" />
-    <Content Include="Components\bootstrap\less\buttons.less" />
-    <Content Include="Components\bootstrap\less\carousel.less" />
-    <Content Include="Components\bootstrap\less\close.less" />
-    <Content Include="Components\bootstrap\less\code.less" />
-    <Content Include="Components\bootstrap\less\component-animations.less" />
-    <Content Include="Components\bootstrap\less\dropdowns.less" />
-    <Content Include="Components\bootstrap\less\forms.less" />
-    <Content Include="Components\bootstrap\less\glyphicons.less" />
-    <Content Include="Components\bootstrap\less\grid.less" />
-    <Content Include="Components\bootstrap\less\input-groups.less" />
-    <Content Include="Components\bootstrap\less\jumbotron.less" />
-    <Content Include="Components\bootstrap\less\labels.less" />
-    <Content Include="Components\bootstrap\less\list-group.less" />
-    <Content Include="Components\bootstrap\less\media.less" />
-    <Content Include="Components\bootstrap\less\mixins.less" />
-    <Content Include="Components\bootstrap\less\mixins\alerts.less" />
-    <Content Include="Components\bootstrap\less\mixins\background-variant.less" />
-    <Content Include="Components\bootstrap\less\mixins\border-radius.less" />
-    <Content Include="Components\bootstrap\less\mixins\buttons.less" />
-    <Content Include="Components\bootstrap\less\mixins\center-block.less" />
-    <Content Include="Components\bootstrap\less\mixins\clearfix.less" />
-    <Content Include="Components\bootstrap\less\mixins\forms.less" />
-    <Content Include="Components\bootstrap\less\mixins\gradients.less" />
-    <Content Include="Components\bootstrap\less\mixins\grid-framework.less" />
-    <Content Include="Components\bootstrap\less\mixins\grid.less" />
-    <Content Include="Components\bootstrap\less\mixins\hide-text.less" />
-    <Content Include="Components\bootstrap\less\mixins\image.less" />
-    <Content Include="Components\bootstrap\less\mixins\labels.less" />
-    <Content Include="Components\bootstrap\less\mixins\list-group.less" />
-    <Content Include="Components\bootstrap\less\mixins\nav-divider.less" />
-    <Content Include="Components\bootstrap\less\mixins\nav-vertical-align.less" />
-    <Content Include="Components\bootstrap\less\mixins\opacity.less" />
-    <Content Include="Components\bootstrap\less\mixins\pagination.less" />
-    <Content Include="Components\bootstrap\less\mixins\panels.less" />
-    <Content Include="Components\bootstrap\less\mixins\progress-bar.less" />
-    <Content Include="Components\bootstrap\less\mixins\reset-filter.less" />
-    <Content Include="Components\bootstrap\less\mixins\resize.less" />
-    <Content Include="Components\bootstrap\less\mixins\responsive-visibility.less" />
-    <Content Include="Components\bootstrap\less\mixins\size.less" />
-    <Content Include="Components\bootstrap\less\mixins\tab-focus.less" />
-    <Content Include="Components\bootstrap\less\mixins\table-row.less" />
-    <Content Include="Components\bootstrap\less\mixins\text-emphasis.less" />
-    <Content Include="Components\bootstrap\less\mixins\text-overflow.less" />
-    <Content Include="Components\bootstrap\less\mixins\vendor-prefixes.less" />
-    <Content Include="Components\bootstrap\less\modals.less" />
-    <Content Include="Components\bootstrap\less\navbar.less" />
-    <Content Include="Components\bootstrap\less\navs.less" />
-    <Content Include="Components\bootstrap\less\normalize.less" />
-    <Content Include="Components\bootstrap\less\pager.less" />
-    <Content Include="Components\bootstrap\less\pagination.less" />
-    <Content Include="Components\bootstrap\less\panels.less" />
-    <Content Include="Components\bootstrap\less\popovers.less" />
-    <Content Include="Components\bootstrap\less\print.less" />
-    <Content Include="Components\bootstrap\less\progress-bars.less" />
-    <Content Include="Components\bootstrap\less\responsive-embed.less" />
-    <Content Include="Components\bootstrap\less\responsive-utilities.less" />
-    <Content Include="Components\bootstrap\less\scaffolding.less" />
-    <Content Include="Components\bootstrap\less\tables.less" />
-    <Content Include="Components\bootstrap\less\theme.less" />
-    <Content Include="Components\bootstrap\less\thumbnails.less" />
-    <Content Include="Components\bootstrap\less\tooltip.less" />
-    <Content Include="Components\bootstrap\less\type.less" />
-    <Content Include="Components\bootstrap\less\utilities.less" />
-    <Content Include="Components\bootstrap\less\variables.less" />
-    <Content Include="Components\bootstrap\less\wells.less" />
     <Content Include="Components\html5-boilerplate\.bower.json" />
     <Content Include="Components\html5-boilerplate\.htaccess" />
     <Content Include="Components\html5-boilerplate\CHANGELOG.md" />
@@ -488,6 +389,11 @@
     <Content Include="Components\angular-route\angular-route.min.js.map">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Components\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Components\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
