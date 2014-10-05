@@ -7,6 +7,15 @@ namespace InverGrove.Domain.Models
     public class Profile : Resource, IProfile
     {
         /// <summary>
+        /// Creates this instance.
+        /// </summary>
+        /// <returns></returns>
+        public static IProfile Create()
+        {
+            return new Profile();
+        }
+
+        /// <summary>
         /// Gets or sets the profile id.
         /// </summary>
         /// <value>

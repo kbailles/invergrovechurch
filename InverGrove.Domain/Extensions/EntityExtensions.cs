@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using InverGrove.Domain.Models;
 
-namespace InverGrove.Repositories.Extensions
+namespace InverGrove.Domain.Extensions
 {
     public static class EntityExtensions
     {

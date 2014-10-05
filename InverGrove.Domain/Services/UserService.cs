@@ -1,22 +1,30 @@
 ﻿using System;
+using System.Linq;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
-using Invergrove.Domain.Interfaces;
-using Invergrove.Domain.Models;
+using InverGrove.Domain.Repositories;
 
 namespace InverGrove.Domain.Services
 {
     public class UserService : IUserService
     {
-        private readonly IRepository<User> userRepository;
+        private readonly IUserRepository userRepository;
 
-        public UserService(IRepository<User> userRepository = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserService"/> class.
+        /// </summary>
+        /// <param name="userRepository">The user repository.</param>
+        public UserService(IUserRepository userRepository = null)
         {
-            this.userRepository = userRepository ?? Repository<User>.Create();
+            this.userRepository = userRepository ?? UserRepository.Create();
         }
 
+        /// <summary>
+        /// Creates this instance.
+        /// </summary>
+        /// <returns></returns>
         public static IUserService Create()
         {
             return new UserService();
@@ -38,7 +46,10 @@ namespace InverGrove.Domain.Services
             user.LastActivityDate = DateTime.Now;
             user.IsAnonymous = false;
 
-            return this.userRepository.Add(user);
+            var newUserId = this.userRepository.Add(user);
+            user.UserId = newUserId;
+
+            return user;
         }
 
         /// <summary>
@@ -54,7 +65,14 @@ namespace InverGrove.Domain.Services
                 throw new ArgumentOutOfRangeException("userId");
             }
 
-            return this.userRepository.Get(userId);
+            var user = this.userRepository.Get(u => u.UserId == userId).FirstOrDefault();
+
+            if (user != null)
+            {
+                return user.ToModel();
+            }
+
+            return ObjectFactory.Create<User>();
         }
 
         /// <summary>
@@ -74,7 +92,7 @@ namespace InverGrove.Domain.Services
 
             try
             {
-                this.userRepository.Update((User)user);
+                this.userRepository.Update(user);
             }
             catch (Exception)
             {

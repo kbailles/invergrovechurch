@@ -68,8 +68,10 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserRole.cs" />
+    <Compile Include="IInverGroveContext.cs" />
     <Compile Include="InverGroveContext.cs" />
     <Compile Include="InverGroveInitializer.cs" />
+    <Compile Include="IQueryableDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

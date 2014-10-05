@@ -6,6 +6,7 @@ using Castle.Windsor;
 using InverGrove.Data;
 using InverGrove.Domain.Factories;
 using Invergrove.Domain.Interfaces;
+using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 
 namespace InverGrove.Web
@@ -32,8 +33,8 @@ namespace InverGrove.Web
         private void ForceDbCreation()
         {
 #if DEBUG
-            var roles = container.Resolve<IRepository<Role>>();
-            roles.GetAll<string>(null);
+            var roles = container.Resolve<IRoleRepository>();
+            roles.GetAll();
 #endif
         }
     }

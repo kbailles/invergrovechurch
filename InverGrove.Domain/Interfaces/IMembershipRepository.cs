@@ -1,34 +1,20 @@
 ﻿namespace InverGrove.Domain.Interfaces
 {
-    public interface IMembershipRepository
+    public interface IMembershipRepository : IEntityRepository<Data.Entities.Membership, int>
     {
         /// <summary>
-        /// Gets the membership.
-        /// </summary>
-        /// <param name="userId">The user id.</param>
-        /// <returns></returns>
-        /// <exception cref="System.ArgumentException">userId</exception>
-        IMembership GetMembership(int userId);
-
-        /// <summary>
-        /// Gets the name of the membership by user.
-        /// </summary>
-        /// <param name="userName">Name of the user.</param>
-        /// <returns></returns>
-        IMembership GetMembershipByUserName(string userName);
-
-        /// <summary>
-        /// Updates the membership.
+        /// Adds the specified membership.
         /// </summary>
         /// <param name="membership">The membership.</param>
         /// <returns></returns>
-        IMembership UpdateMembership(IMembership membership);
+        /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">profile</exception>
+        int Add(IMembership membership);
 
         /// <summary>
-        /// Creates the membership.
+        /// Updates the specified membership.
         /// </summary>
         /// <param name="membership">The membership.</param>
-        /// <returns></returns>
-        IMembership CreateMembership(IMembership membership);
+        /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">membership</exception>
+        void Update(IMembership membership);
     }
 }

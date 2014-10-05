@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using System.Web.Profile;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
+using InverGrove.Domain.Repositories;
 using InverGrove.Domain.ValueTypes;
-using Invergrove.Domain.Interfaces;
-using Invergrove.Domain.Models;
 
 namespace InverGrove.Domain.Services
 {
@@ -14,7 +15,7 @@ namespace InverGrove.Domain.Services
         //private readonly ILogService logService;
         private readonly IProfileProvider profileProvider;
         private readonly ISessionStateService sessionStateService;
-        private readonly IRepository<Profile> profileRepository;
+        private readonly IProfileRepository profileRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProfileService" /> class.
@@ -22,12 +23,12 @@ namespace InverGrove.Domain.Services
         /// <param name="profileProvider">The profile provider.</param>
         /// <param name="sessionStateService">The session state service.</param>
         /// <param name="profileRepository">The profile repository.</param>
-        public ProfileService(IProfileProvider profileProvider, ISessionStateService sessionStateService, IRepository<Profile> profileRepository = null)
+        public ProfileService(IProfileProvider profileProvider, ISessionStateService sessionStateService, IProfileRepository profileRepository = null)
         {
             this.profileProvider = profileProvider;
             //this.logService = logService;
             this.sessionStateService = sessionStateService;
-            this.profileRepository = profileRepository ?? Repository<Profile>.Create();
+            this.profileRepository = profileRepository ?? ProfileRepository.Create();
         }
 
 
@@ -117,15 +118,34 @@ namespace InverGrove.Domain.Services
 
         internal IProfile GetRepositoryProfile(int userId, string userName)
         {
-            var result = this.profileRepository.Get(userId, userName);
+            IProfile profile = Profile.Create();
 
-            if (!string.IsNullOrEmpty(result.ErrorMessage))
+            if ((userId <= 0) && (string.IsNullOrEmpty(userName)))
             {
-                //this.logService.WriteToErrorLog("Error retrieving profile from ProfileService.GetRepositoryProfile for userId: " + userId);
-                throw new ApplicationException("Error retrieving user profile");
+                return profile;
             }
 
-            return result;
+            if (userId > 0)
+            {
+                var foundProfile = this.profileRepository.Get(p => p.UserId == userId).FirstOrDefault();
+
+                if (foundProfile != null)
+                {
+                    profile = foundProfile.ToModel();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(userName))
+            {
+                var foundProfile = this.profileRepository.Get(p => p.User.UserName == userName).FirstOrDefault();
+
+                if (foundProfile != null)
+                {
+                    profile = foundProfile.ToModel();
+                }
+            }
+
+            return profile;
         }
     }
 }

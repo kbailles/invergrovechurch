@@ -49,6 +49,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -69,8 +70,10 @@
     <Compile Include="Enums\RelationType.cs" />
     <Compile Include="Enums\SortDirection.cs" />
     <Compile Include="Exceptions\LockTimeoutException.cs" />
+    <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Exceptions\UndisposedLockException.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\Guard.cs" />
     <Compile Include="Extensions\MembershipExtensions.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Factories\ControllerFactory.cs" />
     <Compile Include="Factories\ObjectFactory.cs" />
     <Compile Include="Factories\DataContextFactory.cs" />
+    <Compile Include="Interfaces\IEntityRepository.cs" />
     <Compile Include="Interfaces\IProfileFactory.cs" />
     <Compile Include="Factories\MembershipFactory.cs" />
     <Compile Include="Factories\ProfileFactory.cs" />
@@ -101,16 +105,25 @@
     <Compile Include="Interfaces\IProfileService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IResource.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\ISessionStateService.cs" />
     <Compile Include="Interfaces\IStateList.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IUserRoleRepository.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Enums\PhoneNumberFormatType.cs" />
     <Compile Include="Enums\ZipCodeFormatType.cs" />
     <Compile Include="Providers\MembershipProvider.cs" />
     <Compile Include="Providers\ProfileProvider.cs" />
     <Compile Include="Providers\RoleProvider.cs" />
+    <Compile Include="Repositories\EntityRepository.cs" />
+    <Compile Include="Repositories\MembershipRepository.cs" />
+    <Compile Include="Repositories\ProfileRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\UserRoleRepository.cs" />
     <Compile Include="Resources\Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,7 +137,6 @@
     <Compile Include="Models\Membership.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Profile.cs" />
-    <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoleCollection.cs" />

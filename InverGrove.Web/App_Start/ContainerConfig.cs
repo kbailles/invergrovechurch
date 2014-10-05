@@ -2,10 +2,12 @@
 using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using InverGrove.Data;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using Invergrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
+using InverGrove.Domain.Repositories;
 using InverGrove.Domain.Services;
 using InverGrove.Repositories;
 using InverGrove.Web.Controllers;
@@ -31,14 +33,14 @@ namespace InverGrove.Web
         private static void RegisterRepositories(IWindsorContainer container)
         {
             container.Register(Component.For<IDataContextFactory>().ImplementedBy<DataContextFactory>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IInverGroveContext>().ImplementedBy<InverGroveContext>().LifeStyle.Transient);
             //container.Register(Component.For<IPersonRepository>().ImplementedBy<PersonRepository>().LifeStyle.Transient);
-            container.Register(Component.For<IRepository<Membership>>().ImplementedBy<MembershipRepository>().LifeStyle.PerWebRequest);
-            container.Register(Component.For<IRepository<Role>>().ImplementedBy<RoleRepository>().LifeStyle.Transient);
-            container.Register(Component.For<IRepository<Profile>>().ImplementedBy<ProfileRepository>().LifeStyle.PerWebRequest);
-            container.Register(Component.For<IRepository<User>>().ImplementedBy<UserRepository>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IMembershipRepository>().ImplementedBy<MembershipRepository>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IUserRoleRepository>().ImplementedBy<UserRoleRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IRoleRepository>().ImplementedBy<RoleRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifeStyle.PerWebRequest);
             container.Register(Component.For<IContactRepository>().ImplementedBy<ContactRepository>().LifeStyle.PerWebRequest);
-
-            //container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.PerWebRequest);
         }
 
         private static void RegisterServices(IWindsorContainer container)

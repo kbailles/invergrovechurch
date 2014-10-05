@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Linq;
 using System.Web;
 using System.Web.Profile;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
+using InverGrove.Domain.Repositories;
 using InverGrove.Domain.ValueTypes;
-using Invergrove.Domain.Interfaces;
-using Invergrove.Domain.Models;
 
 namespace InverGrove.Domain.Providers
 {
     public class ProfileProvider : System.Web.Profile.ProfileProvider, IProfileProvider
     {
-        private readonly IRepository<Profile> profileRepository;
+        private readonly IProfileRepository profileRepository;
         private readonly IProfileFactory profileFactory;
         private string providerName;
 
@@ -31,10 +32,10 @@ namespace InverGrove.Domain.Providers
         /// </summary>
         /// <param name="profileFactory">The profile factory.</param>
         /// <param name="profileRepository">The profile repository.</param>
-        public ProfileProvider(IProfileFactory profileFactory, IRepository<Profile> profileRepository)
+        public ProfileProvider(IProfileFactory profileFactory, IProfileRepository profileRepository)
         {
             this.profileFactory = profileFactory ?? ProfileFactory.Instance;
-            this.profileRepository = profileRepository ?? Repository<Profile>.Create();
+            this.profileRepository = profileRepository ?? ProfileRepository.Create();
         }
 
         /// <summary>
@@ -112,6 +113,7 @@ namespace InverGrove.Domain.Providers
 
             if (string.IsNullOrEmpty(userName))
             {
+                // ReSharper disable once NotResolvedInText
                 throw new ArgumentNullException("context['UserName']");
             }
 
@@ -298,30 +300,31 @@ namespace InverGrove.Domain.Providers
 
         private IProfile GetProfile(string userName)
         {
-            var result = this.profileRepository.Get(name: userName);
+            var result = this.profileRepository.Get(p => p.User.UserName == userName).FirstOrDefault();
 
-            if (!string.IsNullOrEmpty(result.ErrorMessage))
+            if (result == null)
             {
                 throw new ApplicationException("Error retrieving user profile");
             }
 
-            return result;
+            return result.ToModel();
         }
 
         private void SaveProfile(Profile profile, string userName)
         {
-            var savedProfile = this.profileRepository.Add(profile);
+            var savedProfileId = this.profileRepository.Add(profile);
 
-            if (!string.IsNullOrEmpty(savedProfile.ErrorMessage))
+            if (savedProfileId <= 0)
             {
-                throw new ApplicationException("Error occurred when attempting to save the profile in ProfileProvider.SaveProfile with message:" +
-                    savedProfile.ErrorMessage);
+                throw new ApplicationException("Error occurred when attempting to save the profile in ProfileProvider.SaveProfile");
             }
 
+            profile.ProfileId = savedProfileId;
+
             //cached by user-name
-            HttpContext.Current.Session[string.Format(CacheKey.UserProfileKey, userName)] = savedProfile;
+            HttpContext.Current.Session[string.Format(CacheKey.UserProfileKey, userName)] = profile;
             //cached by  user id
-            HttpContext.Current.Session[string.Format(CacheKey.UserProfileIDKey, profile.UserId)] = savedProfile;
+            HttpContext.Current.Session[string.Format(CacheKey.UserProfileIDKey, profile.UserId)] = profile;
         }
 
         private TResult TryGet<T1, TResult>(string key, T1 t1, Func<T1, TResult> serviceFunc = null, bool cacheResult = true)

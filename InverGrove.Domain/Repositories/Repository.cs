@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using Invergrove.Domain.Interfaces;
+using Invergrove.Domain.Models;
 
-namespace Invergrove.Domain.Models
+namespace InverGrove.Domain.Repositories
 {
     public class Repository<T> : IRepository<T>
         where T : Resource, new()

@@ -58,14 +58,9 @@
   <ItemGroup>
     <Compile Include="AttendanceRepository.cs" />
     <Compile Include="ContactRepository.cs" />
-    <Compile Include="Extensions\EntityExtensions.cs" />
-    <Compile Include="MembershipRepository.cs" />
-    <Compile Include="ProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\MembershipQueries.cs" />
     <Compile Include="Queries\RoleQueries.cs" />
-    <Compile Include="RoleRepository.cs" />
-    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">

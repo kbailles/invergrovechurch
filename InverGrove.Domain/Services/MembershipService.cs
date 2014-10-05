@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Security;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
-using Invergrove.Domain.Interfaces;
-using Invergrove.Domain.Models;
+using InverGrove.Domain.Repositories;
 
 namespace InverGrove.Domain.Services
 {
@@ -11,13 +12,19 @@ namespace InverGrove.Domain.Services
     {
         private readonly IMembershipFactory membershipFactory;
         private readonly IUserService userService;
-        private readonly IRepository<Models.Membership> membershipRepository;
+        private readonly IMembershipRepository membershipRepository;
 
-        public MembershipService(IUserService userService = null, IMembershipFactory membershipFactory = null, IRepository<Models.Membership> membershipRepository = null)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MembershipService"/> class.
+        /// </summary>
+        /// <param name="userService">The user service.</param>
+        /// <param name="membershipFactory">The membership factory.</param>
+        /// <param name="membershipRepository">The membership repository.</param>
+        public MembershipService(IUserService userService = null, IMembershipFactory membershipFactory = null, IMembershipRepository membershipRepository = null)
         {
             this.userService = userService ?? UserService.Create();
             this.membershipFactory = membershipFactory ?? MembershipFactory.Create();
-            this.membershipRepository = membershipRepository ?? Repository<Models.Membership>.Create();
+            this.membershipRepository = membershipRepository ?? MembershipRepository.Create();
         }
 
         /// <summary>
@@ -42,7 +49,14 @@ namespace InverGrove.Domain.Services
                 throw new ArgumentNullException("userName");
             }
 
-            return this.membershipRepository.Get(name: userName);
+            var foundMember = this.membershipRepository.Get(m => m.User.UserName == userName).FirstOrDefault();
+
+            if (foundMember != null)
+            {
+                return foundMember.ToModel();
+            }
+
+            return ObjectFactory.Create<Models.Membership>();
         }
 
         /// <summary>
@@ -58,7 +72,14 @@ namespace InverGrove.Domain.Services
                 throw new ArgumentException("userId is not valid in MembershipService.GetMembershipByUserId");
             }
 
-            return this.membershipRepository.Get(userId);
+            var foundMember = this.membershipRepository.Get(m => m.UserId == userId).FirstOrDefault();
+
+            if (foundMember != null)
+            {
+                return foundMember.ToModel();
+            }
+
+            return ObjectFactory.Create<Models.Membership>();
         }
 
         /// <summary>
@@ -110,8 +131,9 @@ namespace InverGrove.Domain.Services
 
             if (user != null)
             {
-                var newMembership = this.membershipFactory.Create(user.UserId, password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
-                membership = this.membershipRepository.Add((Models.Membership)newMembership);
+                membership = this.membershipFactory.Create(user.UserId, password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
+                var newMembershipId = this.membershipRepository.Add(membership);
+                membership.MembershipId = newMembershipId;
             }
 
             return membership;
@@ -134,12 +156,7 @@ namespace InverGrove.Domain.Services
 
             try
             {
-                var result = this.membershipRepository.Update((Models.Membership)membership);
-
-                if (!string.IsNullOrEmpty(result.ErrorMessage))
-                {
-                    success = false;
-                }
+                this.membershipRepository.Update(membership);
             }
             catch (Exception)
             {
