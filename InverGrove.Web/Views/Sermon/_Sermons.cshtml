@@ -206,7 +206,7 @@
                         <h3 class="title">Speakers</h3>
                         <ul>
                             <li ng-repeat="(key, value) in filteredSpeakers()">
-                                <a href="#" ng-click="filterSpeakers(key)">{{key}} ({{value}})</a>
+                                <a href="#" ng-click="$parent.speakerFilter = key.toString()">{{key}} ({{value}})</a>
                             </li>
                         </ul>
                     </div>
@@ -214,7 +214,7 @@
                         <h3 class="title">Tags</h3>
                         <ul>
                             <li ng-repeat="(key, value) in filteredTags()">
-                                <a href="#" ng-click="filterTags(key)">{{key}} ({{value}})</a>
+                                <a href="#" ng-click="$parent.tagFilter = key.toString()">{{key}} ({{value}})</a>
                             </li>
                         </ul>
                     </div>

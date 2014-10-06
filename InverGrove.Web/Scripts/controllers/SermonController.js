@@ -59,16 +59,11 @@ angular.module('app.controllers')
         $scope.sermons = fakeSermons;
 
         $scope.filteredSpeakers = function () {
+            //TODO: Add defensive coding...
             return _.mapValues(_.groupBy($scope.sermons, 'speaker'), function (r) { return r.length; });
         };
-        $scope.filterSpeakers = function (speaker) {
-            $scope.speakerFilter = speaker;
-        };
-
         $scope.filteredTags = function () {
+            //TODO: Add defensive coding...
             return _.mapValues(_.groupBy(_.chain($scope.sermons).pluck('tags').flatten().value()), function (r) { return r.length; });
-        };
-        $scope.filterTags = function (tag) {
-            $scope.tagFilter = tag;
         };
     }]);
