@@ -56,7 +56,7 @@
     }
 
     .sermon-divider {
-        margin: 25px 0;
+        margin: 20px 0;
         background: url('../../Content/images/bg_off.png') repeat;
         content: "";
         height: 5px;
@@ -161,148 +161,41 @@
                 <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                     <h3 class="title">Listen to Sermons</h3>
 
-                    <article class="sermon hentry">
+                    <article class="sermon hentry" ng-repeat="sermon in sermons | filter: { title: titleSearch, tags: tagSearch }" ng-cloak>
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
-                                    <a class="date" href="#"><strong>26</strong><i>SEP</i></a>
+                                    <a class="date" href="#"><strong ng-bind="sermon.date | date : 'dd'"></strong><i ng-bind="sermon.date | date : 'MMM'"></i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Respond to the Invitation</a></h3>
+                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")" ng-bind="sermon.title"></a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#">Antoine Halloway</a>
+                                        <a href="#" ng-bind="sermon.speaker"></a>
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
-                                        <a href="#">Web Design</a>,
-                                        <a href="#">Branding</a>
+                                        <div style="display: inline-block" ng-repeat="tag in sermon.tags">
+                                            <a href="#" ng-bind="tag" ng-click="tagSearch = {{tag}}"></a>{{ ! $last ? ',&nbsp;' : '' }}
+                                        </div>
                                     </div>
                                 </div>
                             </header>
-                            <div class="sermon-desc">
-                                <p>This is a short description of the sermon</p>
-                            </div>
                         </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <div class="sermon-divider"></div>
 
-                    <article class="sermon hentry">
-                        <div class="sermon-content-wrap">
-                            <header class="sermon-header">
-                                <div class="sermon-date">
-                                    <a class="date" href="#"><strong>25</strong><i>SEP</i></a>
-                                </div>
-                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Trust Jesus</a></h3>
-                                <div class="sermon-meta">
-                                    <div class="sermon-entry-meta-speaker">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#">Antoine Halloway</a>
-                                    </div>
-                                    <div class="sermon-entry-meta-tags">
-                                        <i class="glyphicon glyphicon-tags"></i>
-                                        <a href="#">Web Design</a>,
-                                        <a href="#">Branding</a>
-                                    </div>
-                                </div>
-                            </header>
-                            <div class="sermon-desc">
-                                <p>This is a short description of the sermon</p>
-                            </div>
-                        </div>
                         <div class="clearfix"></div>
-                    </article>
-                    <div class="sermon-divider"></div>
-
-                    <article class="sermon hentry">
-                        <div class="sermon-content-wrap">
-                            <header class="sermon-header">
-                                <div class="sermon-date">
-                                    <a class="date" href="#"><strong>24</strong><i>SEP</i></a>
-                                </div>
-                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Speak Boldly</a></h3>
-                                <div class="sermon-meta">
-                                    <div class="sermon-entry-meta-speaker">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#">Antoine Halloway</a>
-                                    </div>
-                                    <div class="sermon-entry-meta-tags">
-                                        <i class="glyphicon glyphicon-tags"></i>
-                                        <a href="#">Web Design</a>,
-                                        <a href="#">Branding</a>
-                                    </div>
-                                </div>
-                            </header>
-                            <div class="sermon-desc">
-                                <p>This is a short description of the sermon</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <div class="sermon-divider"></div>
-
-                    <article class="sermon hentry">
-                        <div class="sermon-content-wrap">
-                            <header class="sermon-header">
-                                <div class="sermon-date">
-                                    <a class="date" href="#"><strong>23</strong><i>SEP</i></a>
-                                </div>
-                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Believe in the Son of God</a></h3>
-                                <div class="sermon-meta">
-                                    <div class="sermon-entry-meta-speaker">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#">Antoine Halloway</a>
-                                    </div>
-                                    <div class="sermon-entry-meta-tags">
-                                        <i class="glyphicon glyphicon-tags"></i>
-                                        <a href="#">Web Design</a>,
-                                        <a href="#">Branding</a>
-                                    </div>
-                                </div>
-                            </header>
-                            <div class="sermon-desc">
-                                <p>This is a short description of the sermon</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <div class="sermon-divider"></div>
-
-                    <article class="sermon hentry">
-                        <div class="sermon-content-wrap">
-                            <header class="sermon-header">
-                                <div class="sermon-date">
-                                    <a class="date" href="#"><strong>22</strong><i>SEP</i></a>
-                                </div>
-                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")">Boldly Seek After God</a></h3>
-                                <div class="sermon-meta">
-                                    <div class="sermon-entry-meta-speaker">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#">Antoine Halloway</a>
-                                    </div>
-                                    <div class="sermon-entry-meta-tags">
-                                        <i class="glyphicon glyphicon-tags"></i>
-                                        <a href="#">Web Design</a>,
-                                        <a href="#">Branding</a>
-                                    </div>
-                                </div>
-                            </header>
-                            <div class="sermon-desc">
-                                <p>This is a short description of the sermon</p>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
+                        <div ng-show="! $last" class="sermon-divider"></div>
                     </article>
 
                     <div class="divider"></div>
                 </div>
+
                 <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
                     <div class="widget search-form" style="margin-bottom: 35px;">
                         <div class="input-group">
-                            <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control">
+                            <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control" ng-model="searchText">
                             <span class="input-group-btn">
-                                <button type="submit" class="subscribe-btn btn"><i class="glyphicon glyphicon-search"></i></button>
+                                <button type="submit" class="subscribe-btn btn" ng-click="titleSearch = searchText"><i class="glyphicon glyphicon-search"></i></button>
                             </span>
                         </div>
                     </div>
