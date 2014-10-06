@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using InverGrove.Domain.Models;
+
 
 namespace InverGrove.Domain.Interfaces
 {
     public interface IContactRepository
     {
-        IEnumerable<Domain.Models.Contact> GetAllContacts();
+        IEnumerable<Contact> GetAllContacts();
     }
 }
