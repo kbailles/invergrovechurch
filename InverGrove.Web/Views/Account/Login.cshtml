@@ -7,22 +7,22 @@
 <div id="ContactForm" class="login-content">
     <h3 class="title">Login</h3>
 
-    <p>Some optional text about logging on.</p>
-    <div class="divider-half"></div>
-@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "reply", role = "form" }))
-            {
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
 
-        <fieldset>
+        <fieldset class="reply">
             <div class="row">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label>Username: <span class="warning">*</span></label>
                     @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label>Password: <span class="warning">*</span></label>
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                 </div>
@@ -30,5 +30,5 @@
         </fieldset>
         <button class="btn btn-normal btn-color submit" style="width: 100%;">Login</button>
         <div class="clearfix"></div>
-        }
+    }
 </div>
