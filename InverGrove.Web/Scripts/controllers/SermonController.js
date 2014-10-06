@@ -60,8 +60,15 @@ angular.module('app.controllers')
 
         $scope.filteredSpeakers = function () {
             return _.mapValues(_.groupBy($scope.sermons, 'speaker'), function (r) { return r.length; });
-        }
+        };
+        $scope.filterSpeakers = function (speaker) {
+            $scope.speakerFilter = speaker;
+        };
+
         $scope.filteredTags = function () {
             return _.mapValues(_.groupBy(_.chain($scope.sermons).pluck('tags').flatten().value()), function (r) { return r.length; });
+        };
+        $scope.filterTags = function (tag) {
+            $scope.tagFilter = tag;
         };
     }]);

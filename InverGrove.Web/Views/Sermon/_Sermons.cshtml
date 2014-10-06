@@ -164,7 +164,7 @@
                 <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                     <h3 class="title">Listen to Sermons</h3>
 
-                    <article class="sermon hentry" ng-repeat="sermon in sermons | filter: { speaker: speakerSearch, tags: tagSearch, title: titleSearch }">
+                    <article class="sermon hentry" ng-repeat="sermon in sermons | filter: { speaker: speakerFilter, tags: tagFilter, title: titleFilter }">
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
@@ -198,7 +198,7 @@
                         <div class="input-group">
                             <input type="text" placeholder="Search..." class="search-input form-control" ng-model="searchText">
                             <span class="input-group-btn">
-                                <button type="submit" class="subscribe-btn btn" ng-click="titleSearch = searchText"><i class="glyphicon glyphicon-search"></i></button>
+                                <button type="submit" class="subscribe-btn btn" ng-click="titleFilter = searchText"><i class="glyphicon glyphicon-search"></i></button>
                             </span>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                         <h3 class="title">Speakers</h3>
                         <ul>
                             <li ng-repeat="(key, value) in filteredSpeakers()">
-                                <a href="#" ng-click="speakerSearch = '{{key}}'">{{key}} ({{value}})</a>
+                                <a href="#" ng-click="filterSpeakers(key)">{{key}} ({{value}})</a>
                             </li>
                         </ul>
                     </div>
@@ -214,7 +214,7 @@
                         <h3 class="title">Tags</h3>
                         <ul>
                             <li ng-repeat="(key, value) in filteredTags()">
-                                <a href="#" ng-click="tagSearch = '{{key}}'">{{key}} ({{value}})</a>
+                                <a href="#" ng-click="filterTags(key)">{{key}} ({{value}})</a>
                             </li>
                         </ul>
                     </div>
