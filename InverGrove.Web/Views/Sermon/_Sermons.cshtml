@@ -132,6 +132,9 @@
     .sermon-desc p {
         margin-bottom: 0;
     }
+    .tags-container {
+        display: inline-block;
+    }
 </style>
 
 <div class="sermons-wrapper" ng-controller="SermonCtrl">
@@ -155,13 +158,13 @@
         </div>
     </div>
 
-    <div class="sermons-content">
+    <div class="sermons-content" ng-cloak>
         <div class="container">
             <div class="row">
                 <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                     <h3 class="title">Listen to Sermons</h3>
 
-                    <article class="sermon hentry" ng-repeat="sermon in sermons | filter: { title: titleSearch, tags: tagSearch }" ng-cloak>
+                    <article class="sermon hentry" ng-repeat="sermon in sermons | filter: { speaker: speakerSearch, tags: tagSearch, title: titleSearch }">
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
@@ -171,12 +174,12 @@
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="glyphicon glyphicon-user"></i>
-                                        <a href="#" ng-bind="sermon.speaker"></a>
+                                        {{ sermon.speaker }}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="glyphicon glyphicon-tags"></i>
-                                        <div style="display: inline-block" ng-repeat="tag in sermon.tags">
-                                            <a href="#" ng-bind="tag"></a>{{ ! $last ? ',&nbsp;' : '' }}
+                                        <div class="tags-container" ng-repeat="tag in sermon.tags">
+                                            {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +196,7 @@
                 <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
                     <div class="widget search-form" style="margin-bottom: 35px;">
                         <div class="input-group">
-                            <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control" ng-model="searchText">
+                            <input type="text" placeholder="Search..." class="search-input form-control" ng-model="searchText">
                             <span class="input-group-btn">
                                 <button type="submit" class="subscribe-btn btn" ng-click="titleSearch = searchText"><i class="glyphicon glyphicon-search"></i></button>
                             </span>
@@ -202,21 +205,17 @@
                     <div class="widget speakers" style="margin-bottom: 35px;">
                         <h3 class="title">Speakers</h3>
                         <ul>
-                            <li><a href="#">Antoine Halloway (5)</a></li>
-                            <li><a href="#">Rennie Frazier (0)</a></li>
-                            <li><a href="#">Bryant Bailles (1)</a></li>
-                            <li><a href="#">Jim Echols (0)</a></li>
+                            <li ng-repeat="(key, value) in filteredSpeakers()">
+                                <a href="#" ng-click="speakerSearch = '{{key}}'">{{key}} ({{value}})</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="widget tags" style="margin-bottom: 35px;">
                         <h3 class="title">Tags</h3>
                         <ul>
-                            <li><a href="#">Wordpress (66)</a></li>
-                            <li><a href="#">Drupal (28)</a></li>
-                            <li><a href="#">Web Design (103)</a></li>
-                            <li><a href="#">Logo (58)</a></li>
-                            <li><a href="#">Joomla (4)</a></li>
-                            <li><a href="#">Illustration (6)</a></li>
+                            <li ng-repeat="(key, value) in filteredTags()">
+                                <a href="#" ng-click="tagSearch = '{{key}}'">{{key}} ({{value}})</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

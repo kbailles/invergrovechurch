@@ -241,6 +241,8 @@
     <Content Include="Components\html5-boilerplate\js\vendor\jquery-1.10.2.min.js" />
     <Content Include="Components\html5-boilerplate\js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="Components\html5-boilerplate\robots.txt" />
+    <Content Include="Components\lodash\lodash.js" />
+    <Content Include="Components\lodash\lodash.min.js" />
     <Content Include="Components\phantomjs\phantomjs.exe" />
     <Content Include="Components\phantomjs\third-party.txt" />
     <Content Include="Components\rs-plugin\assets\arrowleft.png" />
