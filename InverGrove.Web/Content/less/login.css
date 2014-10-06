@@ -53,6 +53,9 @@ a {
   color: #888888;
   font-weight: 600;
 }
+.breadcrumb-wrapper .breadcrumbs ul li a:hover {
+  text-decoration: none !important;
+}
 .breadcrumb-wrapper .breadcrumbs ul li:before {
   color: #9e9e9e;
   content: "\e080";
