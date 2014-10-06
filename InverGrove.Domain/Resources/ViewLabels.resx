@@ -135,4 +135,10 @@
   <data name="RememberMeLabel" xml:space="preserve">
     <value>Remember me?</value>
   </data>
+  <data name="PasswordAnswerLabel" xml:space="preserve">
+    <value>Password Answer</value>
+  </data>
+  <data name="PasswordQuestionLabel" xml:space="preserve">
+    <value>Password Question</value>
+  </data>
 </root>

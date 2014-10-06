@@ -28,39 +28,39 @@ namespace InverGrove.Domain.ViewModels
         [Display(ResourceType = typeof (ViewLabels), Name = "PasswordLabel")]
         public string Password { get; set; }
 
-        /// <summary>
-        /// Gets or sets the old password.
-        /// </summary>
-        /// <value>
-        /// The old password.
-        /// </value>
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(ResourceType = typeof (ViewLabels), Name = "CurrentPasswordLabel")]
-        public string OldPassword { get; set; }
+        ///// <summary>
+        ///// Gets or sets the old password.
+        ///// </summary>
+        ///// <value>
+        ///// The old password.
+        ///// </value>
+        //[Required]
+        //[DataType(DataType.Password)]
+        //[Display(ResourceType = typeof (ViewLabels), Name = "CurrentPasswordLabel")]
+        //public string OldPassword { get; set; }
 
-        /// <summary>
-        /// Gets or sets the new password.
-        /// </summary>
-        /// <value>
-        /// The new password.
-        /// </value>
-        [Required]
-        [StringLength(100, ErrorMessageResourceType = typeof (Messages), ErrorMessageResourceName = "PasswordErrorMessage", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(ResourceType = typeof (ViewLabels), Name = "NewPasswordLabel")]
-        public string NewPassword { get; set; }
+        ///// <summary>
+        ///// Gets or sets the new password.
+        ///// </summary>
+        ///// <value>
+        ///// The new password.
+        ///// </value>
+        //[Required]
+        //[StringLength(100, ErrorMessageResourceType = typeof (Messages), ErrorMessageResourceName = "PasswordErrorMessage", MinimumLength = 6)]
+        //[DataType(DataType.Password)]
+        //[Display(ResourceType = typeof (ViewLabels), Name = "NewPasswordLabel")]
+        //public string NewPassword { get; set; }
 
-        /// <summary>
-        /// Gets or sets the confirm password.
-        /// </summary>
-        /// <value>
-        /// The confirm password.
-        /// </value>
-        [DataType(DataType.Password)]
-        [Display(ResourceType = typeof (ViewLabels), Name = "ConfirmPasswordLabel")]
-        [Compare("Password", ErrorMessageResourceType = typeof (Messages), ErrorMessageResourceName = "ConfirmPasswordErrorMessage")]
-        public string ConfirmPassword { get; set; }
+        ///// <summary>
+        ///// Gets or sets the confirm password.
+        ///// </summary>
+        ///// <value>
+        ///// The confirm password.
+        ///// </value>
+        //[DataType(DataType.Password)]
+        //[Display(ResourceType = typeof (ViewLabels), Name = "ConfirmPasswordLabel")]
+        //[Compare("Password", ErrorMessageResourceType = typeof (Messages), ErrorMessageResourceName = "ConfirmPasswordErrorMessage")]
+        //public string ConfirmPassword { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [remember me].

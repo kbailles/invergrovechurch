@@ -544,10 +544,10 @@ namespace InverGrove.Domain.Providers
             {
                 throw new ApplicationException("Password is empty.");
             }
-            if (string.IsNullOrEmpty(email))
-            {
-                throw new ApplicationException("Email is empty.");
-            }
+            //if (string.IsNullOrEmpty(email))
+            //{
+            //    throw new ApplicationException("Email is empty.");
+            //}
             if (string.IsNullOrEmpty(passwordQuestion))
             {
                 throw new ApplicationException("passwordQuestion question is empty.");
@@ -1074,7 +1074,7 @@ namespace InverGrove.Domain.Providers
             // hashed is the default if not filled out.
             string str = config["passwordFormat"] ?? "HASHED";
             str = str.ToUpperInvariant();
-
+            
             if (str != "CLEAR")
             {
                 if (str == "ENCRYPTED")

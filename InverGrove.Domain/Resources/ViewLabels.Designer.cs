@@ -88,11 +88,29 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password Answer.
+        /// </summary>
+        public static string PasswordAnswerLabel {
+            get {
+                return ResourceManager.GetString("PasswordAnswerLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string PasswordLabel {
             get {
                 return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Question.
+        /// </summary>
+        public static string PasswordQuestionLabel {
+            get {
+                return ResourceManager.GetString("PasswordQuestionLabel", resourceCulture);
             }
         }
         

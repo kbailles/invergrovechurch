@@ -70,29 +70,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The application name is too long..
-        /// </summary>
-        public static string ApplicationNameTooLong1 {
-            get {
-                return ResourceManager.GetString("ApplicationNameTooLong1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to MinRequiredNonalphanumericCharacters can not be more than MinRequiredPasswordLength.
         /// </summary>
         public static string CanNotBeMoreThanMinRequiredPasswordLength {
             get {
                 return ResourceManager.GetString("CanNotBeMoreThanMinRequiredPasswordLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MinRequiredNonalphanumericCharacters can not be more than MinRequiredPasswordLength.
-        /// </summary>
-        public static string CanNotBeMoreThanMinRequiredPasswordLength1 {
-            get {
-                return ResourceManager.GetString("CanNotBeMoreThanMinRequiredPasswordLength1", resourceCulture);
             }
         }
         
@@ -124,29 +106,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New password must contain a minimum of {0} numeric characters..
-        /// </summary>
-        public static string ChangePasswordDoesNotContainNumber1 {
-            get {
-                return ResourceManager.GetString("ChangePasswordDoesNotContainNumber1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to New password must contain a minimum of {0} non alphanumeric characters..
         /// </summary>
         public static string ChangePasswordDoesNotContainSymbol {
             get {
                 return ResourceManager.GetString("ChangePasswordDoesNotContainSymbol", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to New password must contain a minimum of {0} non alphanumeric characters..
-        /// </summary>
-        public static string ChangePasswordDoesNotContainSymbol1 {
-            get {
-                return ResourceManager.GetString("ChangePasswordDoesNotContainSymbol1", resourceCulture);
             }
         }
         
@@ -160,29 +124,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New password does not meet requirements. Must be a minimum of {0} characters.
-        /// </summary>
-        public static string ChangePasswordDoesNotMeetRequirements1 {
-            get {
-                return ResourceManager.GetString("ChangePasswordDoesNotMeetRequirements1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {0} does not meet the requirements for a password. Ensure there are no spaces, and only contains letters numbers or one of the following characters: ! @ # $ % ^.
         /// </summary>
         public static string ChangePasswordNotCorrect {
             get {
                 return ResourceManager.GetString("ChangePasswordNotCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} does not meet the requirements for a password. Ensure there are no spaces, and only contains letters numbers or one of the following characters: ! @ # $ % ^.
-        /// </summary>
-        public static string ChangePasswordNotCorrect1 {
-            get {
-                return ResourceManager.GetString("ChangePasswordNotCorrect1", resourceCulture);
             }
         }
         
@@ -196,29 +142,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Old password and new password cannot be the same..
-        /// </summary>
-        public static string ChangePasswordSameWord1 {
-            get {
-                return ResourceManager.GetString("ChangePasswordSameWord1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The password and confirmation password do not match..
         /// </summary>
         public static string ConfirmPasswordErrorMessage {
             get {
                 return ResourceManager.GetString("ConfirmPasswordErrorMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The password and confirmation password do not match..
-        /// </summary>
-        public static string ConfirmPasswordErrorMessage1 {
-            get {
-                return ResourceManager.GetString("ConfirmPasswordErrorMessage1", resourceCulture);
             }
         }
         
@@ -232,29 +160,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The user name or password provided is incorrect..
-        /// </summary>
-        public static string IncorrectPasswordErrorMessage1 {
-            get {
-                return ResourceManager.GetString("IncorrectPasswordErrorMessage1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid application name..
         /// </summary>
         public static string InvalidApplicationName {
             get {
                 return ResourceManager.GetString("InvalidApplicationName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid application name..
-        /// </summary>
-        public static string InvalidApplicationName1 {
-            get {
-                return ResourceManager.GetString("InvalidApplicationName1", resourceCulture);
             }
         }
         
@@ -304,15 +214,6 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password length of {0} is invalid.  Password length must be between 1 and 128..
-        /// </summary>
-        public static string MembershipPasswordLengthIncorrect1 {
-            get {
-                return ResourceManager.GetString("MembershipPasswordLengthIncorrect1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This Membership Provider has not been configured to support password retrieval..
         /// </summary>
         public static string MembershipPasswordRetrievalNotSupported {
@@ -322,29 +223,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This Membership Provider has not been configured to support password retrieval..
-        /// </summary>
-        public static string MembershipPasswordRetrievalNotSupported1 {
-            get {
-                return ResourceManager.GetString("MembershipPasswordRetrievalNotSupported1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to This provider is not configured to allow password resets. To enable password reset, set enablePasswordReset to \&quot;true\&quot; in the configuration file..
         /// </summary>
         public static string NotConfiguredToSupportPasswordResets {
             get {
                 return ResourceManager.GetString("NotConfiguredToSupportPasswordResets", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This provider is not configured to allow password resets. To enable password reset, set enablePasswordReset to \&quot;true\&quot; in the configuration file..
-        /// </summary>
-        public static string NotConfiguredToSupportPasswordResets1 {
-            get {
-                return ResourceManager.GetString("NotConfiguredToSupportPasswordResets1", resourceCulture);
             }
         }
         
@@ -414,15 +297,6 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The parameter &apos;{0}&apos; is too long: it must not exceed {1} chars in length..
-        /// </summary>
-        public static string ParameterTooLong1 {
-            get {
-                return ResourceManager.GetString("ParameterTooLong1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The length of parameter &apos;{0}&apos; needs to be greater or equal to &apos;{1}&apos;..
         /// </summary>
         public static string ParameterTooShort {
@@ -432,29 +306,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The length of parameter &apos;{0}&apos; needs to be greater or equal to &apos;{1}&apos;..
-        /// </summary>
-        public static string ParameterTooShort1 {
-            get {
-                return ResourceManager.GetString("ParameterTooShort1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
         /// </summary>
         public static string PasswordErrorMessage {
             get {
                 return ResourceManager.GetString("PasswordErrorMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
-        /// </summary>
-        public static string PasswordErrorMessage1 {
-            get {
-                return ResourceManager.GetString("PasswordErrorMessage1", resourceCulture);
             }
         }
         
@@ -469,30 +325,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password strength regular expression: {0}
-        ///.
-        /// </summary>
-        public static string PasswordRegexStrength1 {
-            get {
-                return ResourceManager.GetString("PasswordRegexStrength1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Could not find a property called &apos;{0}&apos; on type {1}.
         /// </summary>
         public static string PropertyNotFound {
             get {
                 return ResourceManager.GetString("PropertyNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Could not find a property called &apos;{0}&apos; on type {1}.
-        /// </summary>
-        public static string PropertyNotFound1 {
-            get {
-                return ResourceManager.GetString("PropertyNotFound1", resourceCulture);
             }
         }
         
@@ -506,29 +343,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Security answer is incorrect. Please re-enter..
-        /// </summary>
-        public static string SecurityAnswerIncorrect1 {
-            get {
-                return ResourceManager.GetString("SecurityAnswerIncorrect1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The security answer {0} is invalid..
         /// </summary>
         public static string SecurityAnswerInvalidText {
             get {
                 return ResourceManager.GetString("SecurityAnswerInvalidText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The security answer {0} is invalid..
-        /// </summary>
-        public static string SecurityAnswerInvalidText1 {
-            get {
-                return ResourceManager.GetString("SecurityAnswerInvalidText1", resourceCulture);
             }
         }
         
@@ -542,29 +361,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The security answer value cannot exceed 64 characters..
-        /// </summary>
-        public static string SecurityAnswerMaximumLength1 {
-            get {
-                return ResourceManager.GetString("SecurityAnswerMaximumLength1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Security Answer missing..
         /// </summary>
         public static string SecurityAnswerMissing {
             get {
                 return ResourceManager.GetString("SecurityAnswerMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Security Answer missing..
-        /// </summary>
-        public static string SecurityAnswerMissing1 {
-            get {
-                return ResourceManager.GetString("SecurityAnswerMissing1", resourceCulture);
             }
         }
         
@@ -578,29 +379,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must specify a security answer..
-        /// </summary>
-        public static string SecurityAnswerRequired1 {
-            get {
-                return ResourceManager.GetString("SecurityAnswerRequired1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The security question value cannot exceed 64 characters..
         /// </summary>
         public static string SecurityQuestionMaximumLength {
             get {
                 return ResourceManager.GetString("SecurityQuestionMaximumLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The security question value cannot exceed 64 characters..
-        /// </summary>
-        public static string SecurityQuestionMaximumLength1 {
-            get {
-                return ResourceManager.GetString("SecurityQuestionMaximumLength1", resourceCulture);
             }
         }
         
@@ -614,29 +397,11 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We are unable to reset your password online.  Please contact Patterson Medical on 08448 730 035..
-        /// </summary>
-        public static string SecurityQuestionMissing1 {
-            get {
-                return ResourceManager.GetString("SecurityQuestionMissing1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to You must specify a security question..
         /// </summary>
         public static string SecurityQuestionRequired {
             get {
                 return ResourceManager.GetString("SecurityQuestionRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You must specify a security question..
-        /// </summary>
-        public static string SecurityQuestionRequired1 {
-            get {
-                return ResourceManager.GetString("SecurityQuestionRequired1", resourceCulture);
             }
         }
     }

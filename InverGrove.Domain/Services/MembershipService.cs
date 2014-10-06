@@ -125,18 +125,10 @@ namespace InverGrove.Domain.Services
                 throw new ArgumentNullException("passwordAnswer");
             }
 
-            IMembership membership = null;
-
-            var user = this.userService.CreateUser(userName);
-
-            if (user != null)
-            {
-                membership = this.membershipFactory.Create(user.UserId, password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
-                var newMembershipId = this.membershipRepository.Add(membership);
-                membership.MembershipId = newMembershipId;
-            }
-
-            return membership;
+            IMembership membership = this.membershipFactory.Create(password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
+            var newMembership = this.membershipRepository.Add(membership, userName);
+            
+            return newMembership;
         }
 
         /// <summary>

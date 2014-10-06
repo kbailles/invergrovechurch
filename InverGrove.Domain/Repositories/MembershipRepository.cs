@@ -3,6 +3,7 @@ using InverGrove.Data;
 using InverGrove.Data.Entities;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
+using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Repositories
@@ -31,9 +32,11 @@ namespace InverGrove.Domain.Repositories
         /// Adds the specified membership.
         /// </summary>
         /// <param name="membership">The membership.</param>
+        /// <param name="userName">Name of the user.</param>
         /// <returns></returns>
+        /// <exception cref="ParameterNullException">profile</exception>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">profile</exception>
-        public int Add(IMembership membership)
+        public IMembership Add(IMembership membership, string userName)
         {
             if (membership == null)
             {
@@ -48,12 +51,24 @@ namespace InverGrove.Domain.Repositories
             membershipEntity.IsLockedOut = false;
             membershipEntity.DateCreated = timestamp;
             membershipEntity.DateModified = timestamp;
+            membershipEntity.User = ObjectFactory.Create<User>();
+            membershipEntity.User.UserName = userName;
+            membershipEntity.User.DateCreated = timestamp;
+            membershipEntity.User.DateModified = timestamp;
+            membershipEntity.User.LastActivityDate = timestamp;
+            membershipEntity.User.IsAnonymous = false;
+            membershipEntity.DateLockedOut = null;
+            membershipEntity.DateLastActivity = timestamp;
+            membershipEntity.DateLastLogin = timestamp;
+            membershipEntity.IsApproved = true;
+            membershipEntity.FailedPasswordAnswerAttemptWindowStart = timestamp;
+            membershipEntity.FailedPasswordAttemptWindowStart = timestamp;
 
             this.Insert(membershipEntity);
 
             this.Save();
-
-            return membershipEntity.MembershipId;
+            
+            return membershipEntity.ToModel();
         }
 
         /// <summary>
@@ -89,6 +104,8 @@ namespace InverGrove.Domain.Repositories
                 membershipEntity.DateLastActivity = DateTime.Now;
             }
 
+            // Don't cascade update (don't attempt to update user)
+            this.dataContext.AutoDetectChanges = false;
             this.Update(membershipEntity);
 
             this.Save();

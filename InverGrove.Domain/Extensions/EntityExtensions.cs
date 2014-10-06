@@ -19,7 +19,7 @@ namespace InverGrove.Domain.Extensions
                            MembershipId = membership.MembershipId,
                            DateLastLogin = membership.DateLastLogin,
                            DateLockedOut = membership.DateLockedOut,
-                           DateModified = DateTime.Now,
+                           DateModified = membership.DateModified,
                            FailedPasswordAnswerAttemptCount = membership.FailedPasswordAnswerAttemptCount,
                            FailedPasswordAnswerAttemptWindowStart = membership.FailedPasswordAnswerAttemptWindowStart,
                            FailedPasswordAttemptCount = membership.FailedPasswordAttemptCount,
@@ -31,7 +31,8 @@ namespace InverGrove.Domain.Extensions
                            PasswordFormatId = membership.PasswordFormatId,
                            PasswordQuestion = membership.PasswordQuestion,
                            PasswordSalt = membership.PasswordSalt,
-                           DateLastActivity = membership.DateLastActivity
+                           DateLastActivity = membership.DateLastActivity,
+                           UserId = membership.UserId
                        };
         }
 
@@ -56,7 +57,7 @@ namespace InverGrove.Domain.Extensions
                 IsApproved = membership.IsApproved,
                 Password = membership.Password,
                 PasswordAnswer = membership.PasswordAnswer,
-                PasswordFormatId = (byte)membership.PasswordFormatId,
+                PasswordFormatId = membership.PasswordFormatId,
                 PasswordQuestion = membership.PasswordQuestion,
                 PasswordSalt = membership.PasswordSalt,
                 DateLastActivity = membership.DateLastActivity

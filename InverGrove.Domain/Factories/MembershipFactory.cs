@@ -19,7 +19,6 @@ namespace InverGrove.Domain.Factories
         /// <summary>
         /// Creates the specified user id.
         /// </summary>
-        /// <param name="userId">The user id.</param>
         /// <param name="password">The password.</param>
         /// <param name="isApproved">if set to <c>true</c> [is approved].</param>
         /// <param name="passwordQuestion">The password question.</param>
@@ -27,7 +26,7 @@ namespace InverGrove.Domain.Factories
         /// <param name="passwordFormat">The password format.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">password</exception>
-        public IMembership Create(int userId, string password, bool isApproved,
+        public IMembership Create(string password, bool isApproved,
             string passwordQuestion, string passwordAnswer, MembershipPasswordFormat passwordFormat)
         {
             if (string.IsNullOrEmpty(password))
@@ -45,14 +44,15 @@ namespace InverGrove.Domain.Factories
                 throw new ArgumentNullException("passwordAnswer");
             }
 
+            var inverGrovePasswordFormat = passwordFormat.ToInverGrovePasswordFormat();
+
             var membership = new Membership
                              {
-                                 UserId = userId,
                                  PasswordSalt = password.GetRandomSalt(),
-                                 PasswordFormatId = (int) passwordFormat
+                                 PasswordFormatId = (int)inverGrovePasswordFormat
                              };
 
-            membership.Password = password.FormatPasscode(passwordFormat.ToInverGrovePasswordFormat(), membership.PasswordSalt);
+            membership.Password = password.FormatPasscode(inverGrovePasswordFormat, membership.PasswordSalt);
             membership.PasswordQuestion = passwordQuestion;
             membership.PasswordAnswer = passwordAnswer.ToLowerInvariant().Sha256Hash();
             membership.FailedPasswordAttemptWindowStart = DateTime.MinValue.IsSqlSafeDate();

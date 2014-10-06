@@ -231,46 +231,8 @@
   <data name="IncorrectPasswordErrorMessage" xml:space="preserve">
     <value>The user name or password provided is incorrect.</value>
   </data>
-  <data name="ApplicationNameTooLong1" xml:space="preserve">
-    <value>The application name is too long.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="CanNotBeMoreThanMinRequiredPasswordLength1" xml:space="preserve">
-    <value>MinRequiredNonalphanumericCharacters can not be more than MinRequiredPasswordLength</value>
-    <comment>MembershipProvider</comment>
-  </data>
   <data name="CannotRetrieveHashedPassword1" xml:space="preserve">
     <value>Provider cannot retrieve a hashed password</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ChangePasswordDoesNotContainNumber1" xml:space="preserve">
-    <value>New password must contain a minimum of {0} numeric characters.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ChangePasswordDoesNotContainSymbol1" xml:space="preserve">
-    <value>New password must contain a minimum of {0} non alphanumeric characters.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ChangePasswordDoesNotMeetRequirements1" xml:space="preserve">
-    <value>New password does not meet requirements. Must be a minimum of {0} characters</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ChangePasswordNotCorrect1" xml:space="preserve">
-    <value>{0} does not meet the requirements for a password. Ensure there are no spaces, and only contains letters numbers or one of the following characters: ! @ # $ % ^</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ChangePasswordSameWord1" xml:space="preserve">
-    <value>Old password and new password cannot be the same.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ConfirmPasswordErrorMessage1" xml:space="preserve">
-    <value>The password and confirmation password do not match.</value>
-  </data>
-  <data name="IncorrectPasswordErrorMessage1" xml:space="preserve">
-    <value>The user name or password provided is incorrect.</value>
-  </data>
-  <data name="InvalidApplicationName1" xml:space="preserve">
-    <value>Invalid application name.</value>
     <comment>MembershipProvider</comment>
   </data>
   <data name="MembershipCustomPasswordValidationFailure1" xml:space="preserve">
@@ -279,18 +241,6 @@
   </data>
   <data name="MembershipMinRequiredNonAlphanumericCharactersIncorrect1" xml:space="preserve">
     <value>Miniumum alphanumeric character value of {0} is invalid.  Minumum number of alphanumeric characters must be between 0 and {1}.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="MembershipPasswordLengthIncorrect1" xml:space="preserve">
-    <value>Password length of {0} is invalid.  Password length must be between 1 and 128.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="MembershipPasswordRetrievalNotSupported1" xml:space="preserve">
-    <value>This Membership Provider has not been configured to support password retrieval.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="NotConfiguredToSupportPasswordResets1" xml:space="preserve">
-    <value>This provider is not configured to allow password resets. To enable password reset, set enablePasswordReset to \"true\" in the configuration file.</value>
     <comment>MembershipProvider</comment>
   </data>
   <data name="ParameterNullExceptionMessageObjectIs" xml:space="preserve">
@@ -312,57 +262,5 @@
   </data>
   <data name="ParameterNullExceptionUnableToDetermineDeclaringType" xml:space="preserve">
     <value> Unable to determine the method's declaring type.</value>
-  </data>
-  <data name="ParameterTooLong1" xml:space="preserve">
-    <value>The parameter '{0}' is too long: it must not exceed {1} chars in length.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="ParameterTooShort1" xml:space="preserve">
-    <value>The length of parameter '{0}' needs to be greater or equal to '{1}'.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="PasswordErrorMessage1" xml:space="preserve">
-    <value>The {0} must be at least {2} characters long.</value>
-  </data>
-  <data name="PasswordRegexStrength1" xml:space="preserve">
-    <value>Password strength regular expression: {0}
-</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="PropertyNotFound1" xml:space="preserve">
-    <value>Could not find a property called '{0}' on type {1}</value>
-    <comment>EnumerableExtensions</comment>
-  </data>
-  <data name="SecurityAnswerIncorrect1" xml:space="preserve">
-    <value>Security answer is incorrect. Please re-enter.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityAnswerInvalidText1" xml:space="preserve">
-    <value>The security answer {0} is invalid.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityAnswerMaximumLength1" xml:space="preserve">
-    <value>The security answer value cannot exceed 64 characters.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityAnswerMissing1" xml:space="preserve">
-    <value>Security Answer missing.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityAnswerRequired1" xml:space="preserve">
-    <value>You must specify a security answer.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityQuestionMaximumLength1" xml:space="preserve">
-    <value>The security question value cannot exceed 64 characters.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityQuestionMissing1" xml:space="preserve">
-    <value>We are unable to reset your password online.  Please contact Patterson Medical on 08448 730 035.</value>
-    <comment>MembershipProvider</comment>
-  </data>
-  <data name="SecurityQuestionRequired1" xml:space="preserve">
-    <value>You must specify a security question.</value>
-    <comment>MembershipProvider</comment>
   </data>
 </root>
