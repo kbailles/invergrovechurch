@@ -57,6 +57,7 @@ angular.module('app.controllers')
         ];
 
         $scope.sermons = fakeSermons;
+        $scope.titleFilter = ''; //Initialize filter
 
         $scope.filteredSpeakers = function () {
             //TODO: Add defensive coding...

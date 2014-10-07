@@ -101,19 +101,27 @@
         -ms-transition: all .5s ease-in-out !important;
     }
 
-        .subscribe-btn:hover {
-            background-color: #0488CD;
-            color: #fff;
-        }
 
-    .btn:focus, .subscribe-btn, .progress .progress-bar, .accordionMod .panel-heading .current, #current:after, .tp-leftarrow.default:hover, .tp-rightarrow.default:hover, .nivo-prevNav:hover, .nivo-nextNav:hover, .contact-box:hover, #options li a.selected, .ch-info-front {
+    .btn:focus, .progress .progress-bar, .accordionMod .panel-heading .current, #current:after, .tp-leftarrow.default:hover, .tp-rightarrow.default:hover, .nivo-prevNav:hover, .nivo-nextNav:hover, .contact-box:hover, #options li a.selected, .ch-info-front {
         background: #2eaef0;
     }
-
-    .btn-color, .subscribe-btn {
+    
+    .btn-color-blue {
         background: #2eaef0;
         cursor: pointer;
     }
+        .btn-color-blue:hover {
+            background-color: #0488CD;
+            color: #fff;
+        }
+    .btn-color-red {
+        background: #E24747;
+        cursor: pointer;
+    }
+        .btn-color-red:hover {
+            background-color: #E24747;
+            color: #fff;
+        }
 
     .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
         border-top-left-radius: 0;
@@ -134,6 +142,9 @@
     }
     .tags-container {
         display: inline-block;
+    }
+    .btn:hover, .btn:focus {
+        color: #fff;
     }
 </style>
 
@@ -196,25 +207,25 @@
                 <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
                     <div class="widget search-form" style="margin-bottom: 35px;">
                         <div class="input-group">
-                            <input type="text" placeholder="Search..." class="search-input form-control" ng-model="searchText">
+                            <input type="text" placeholder="Search..." class="search-input form-control" ng-model="titleFilter">
                             <span class="input-group-btn">
-                                <button type="submit" class="subscribe-btn btn" ng-click="titleFilter = searchText"><i class="glyphicon glyphicon-search"></i></button>
+                                <button type="submit" class="subscribe-btn btn" ng-class="titleFilter.length > 0 ? 'btn-color-red' : 'btn-color-blue'" ng-click="titleFilter = ''"><i class="glyphicon" ng-class="titleFilter.length <= 0 ? 'glyphicon-search' : 'glyphicon-remove'"></i></button>
                             </span>
                         </div>
                     </div>
                     <div class="widget speakers" style="margin-bottom: 35px;">
                         <h3 class="title">Speakers</h3>
                         <ul>
-                            <li ng-repeat="(key, value) in filteredSpeakers()">
-                                <a href="#" ng-click="$parent.speakerFilter = key.toString()">{{key}} ({{value}})</a>
+                            <li ng-repeat="(key, value) in filteredSpeakers()" ng-show="!$parent.speakerFilter || $parent.speakerFilter == key">
+                                <a href="#" ng-click="$parent.speakerFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.speakerFilter && $parent.speakerFilter == key" ng-click="$parent.speakerFilter = ''"><i class="glyphicon glyphicon-remove"></i></a>
                             </li>
                         </ul>
                     </div>
                     <div class="widget tags" style="margin-bottom: 35px;">
                         <h3 class="title">Tags</h3>
                         <ul>
-                            <li ng-repeat="(key, value) in filteredTags()">
-                                <a href="#" ng-click="$parent.tagFilter = key.toString()">{{key}} ({{value}})</a>
+                            <li ng-repeat="(key, value) in filteredTags()" ng-show="!$parent.tagFilter || $parent.tagFilter == key">
+                                <a href="#" ng-click="$parent.tagFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.tagFilter && $parent.tagFilter == key" ng-click="$parent.tagFilter = ''"><i class="glyphicon glyphicon-remove"></i></a>
                             </li>
                         </ul>
                     </div>

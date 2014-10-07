@@ -108,19 +108,26 @@ vertical-align: top;
         -ms-transition: all .5s ease-in-out !important;
     }
 
-        .subscribe-btn:hover {
-            background-color: #0488CD;
-            color: #fff;
-        }
-
     .btn:focus, .subscribe-btn, .progress .progress-bar, .accordionMod .panel-heading .current, #current:after, .tp-leftarrow.default:hover, .tp-rightarrow.default:hover, .nivo-prevNav:hover, .nivo-nextNav:hover, .contact-box:hover, #options li a.selected, .ch-info-front {
         background: #2eaef0;
     }
 
-    .btn-color, .subscribe-btn {
+    .btn-color-blue {
         background: #2eaef0;
         cursor: pointer;
     }
+        .btn-color-blue:hover {
+            background-color: #0488CD;
+            color: #fff;
+        }
+    .btn-color-red {
+        background: #E24747;
+        cursor: pointer;
+    }
+        .btn-color-red:hover {
+            background-color: #E24747;
+            color: #fff;
+        }
 
     .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
         border-top-left-radius: 0;
@@ -193,7 +200,7 @@ vertical-align: top;
                         <div class="input-group">
                             <input type="text" value="Search..." onfocus="if(this.value=='Search...')this.value='';" onblur="if(this.value=='')this.value='Search...';" class="search-input form-control">
                             <span class="input-group-btn">
-                                <button type="submit" class="subscribe-btn btn"><i class="glyphicon glyphicon-search"></i></button>
+                                <button type="submit" class="subscribe-btn btn btn-color-blue"><i class="glyphicon glyphicon-search"></i></button>
                             </span>
                         </div>
                     </div>
