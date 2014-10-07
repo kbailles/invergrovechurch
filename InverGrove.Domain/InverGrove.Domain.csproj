@@ -115,7 +115,6 @@
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Enums\PhoneNumberFormatType.cs" />
     <Compile Include="Enums\ZipCodeFormatType.cs" />
-    <Compile Include="Notifications\Email.cs" />
     <Compile Include="Providers\MembershipProvider.cs" />
     <Compile Include="Providers\ProfileProvider.cs" />
     <Compile Include="Providers\RoleProvider.cs" />
@@ -153,6 +152,7 @@
     </Compile>
     <Compile Include="Services\AttendanceService.cs" />
     <Compile Include="Services\ContactService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\MembershipService.cs" />
     <Compile Include="Services\ProfileService.cs" />
     <Compile Include="Services\SessionStateService.cs" />
