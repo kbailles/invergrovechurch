@@ -50,6 +50,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IMembershipService>().ImplementedBy<MembershipService>().LifeStyle.Transient);
             container.Register(Component.For<IProfileService>().ImplementedBy<ProfileService>().LifeStyle.Transient);
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifeStyle.Transient);
+            container.Register(Component.For<IEmailService>().ImplementedBy<EmailService>().LifeStyle.Transient);
         }
 
         private static void AddControllers(IWindsorContainer container)
