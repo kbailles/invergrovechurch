@@ -184,11 +184,11 @@
                                 <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")" ng-bind="sermon.title"></a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
-                                        <i class="glyphicon glyphicon-user"></i>
+                                        <i class="fa fa-user"></i>
                                         {{ sermon.speaker }}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
-                                        <i class="glyphicon glyphicon-tags"></i>
+                                        <i class="fa fa-tags"></i>
                                         <div class="tags-container" ng-repeat="tag in sermon.tags">
                                             {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
                                         </div>
@@ -209,7 +209,7 @@
                         <div class="input-group">
                             <input type="text" placeholder="Search..." class="search-input form-control" ng-model="titleFilter">
                             <span class="input-group-btn">
-                                <button type="submit" class="subscribe-btn btn" ng-class="titleFilter.length > 0 ? 'btn-color-red' : 'btn-color-blue'" ng-click="titleFilter = ''"><i class="glyphicon" ng-class="titleFilter.length <= 0 ? 'glyphicon-search' : 'glyphicon-remove'"></i></button>
+                                <button type="submit" class="subscribe-btn btn" ng-class="titleFilter.length > 0 ? 'btn-color-red' : 'btn-color-blue'" ng-click="titleFilter = ''"><i class="fa" ng-class="titleFilter.length <= 0 ? 'fa-search' : 'fa-remove'"></i></button>
                             </span>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                         <h3 class="title">Filter by Speakers</h3>
                         <ul>
                             <li ng-repeat="(key, value) in filteredSpeakers()" ng-show="!$parent.speakerFilter || $parent.speakerFilter == key">
-                                <a href="#" ng-click="$parent.speakerFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.speakerFilter && $parent.speakerFilter == key" ng-click="$parent.speakerFilter = ''"><i class="glyphicon glyphicon-remove"></i></a>
+                                <a href="#" ng-click="$parent.speakerFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.speakerFilter && $parent.speakerFilter == key" ng-click="$parent.speakerFilter = ''"><i class="fa fa-remove"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -225,7 +225,7 @@
                         <h3 class="title">Filter by Tags</h3>
                         <ul>
                             <li ng-repeat="(key, value) in filteredTags()" ng-show="!$parent.tagFilter || $parent.tagFilter == key">
-                                <a href="#" ng-click="$parent.tagFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.tagFilter && $parent.tagFilter == key" ng-click="$parent.tagFilter = ''"><i class="glyphicon glyphicon-remove"></i></a>
+                                <a href="#" ng-click="$parent.tagFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.tagFilter && $parent.tagFilter == key" ng-click="$parent.tagFilter = ''"><i class="fa fa-remove"></i></a>
                             </li>
                         </ul>
                     </div>
