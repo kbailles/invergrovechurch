@@ -188,7 +188,7 @@
                                         {{ sermon.speaker }}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
-                                        <i class="fa fa-tags"></i>
+                                        <i class="fa" ng-class="sermon.tags.length > 1 ? 'fa-tags' : 'fa-tag'"></i>
                                         <div class="tags-container" ng-repeat="tag in sermon.tags">
                                             {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
                                         </div>
