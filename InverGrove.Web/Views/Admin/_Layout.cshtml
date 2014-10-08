@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="app" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Inver Grove Church of Christ</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Components/html5-boilerplate/css/normalize.css" rel="stylesheet" />
+    <link href="~/Components/html5-boilerplate/css/main.css" rel="stylesheet" />
+    <link href="~/Components/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/less/app.min.css" rel="stylesheet" />
+
+    <!-- -------------------- -->
+    <!-- TODO: Create bundles -->
+    <!-- -------------------- -->
+
+    <script src="~/Scripts/jquery/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/prb0ymj.js"></script>
+    <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
+</head>
+<body ng-controller="AppCtrl">
+    <div class="container wrapper">
+        <header>
+            <div class="top-bar">
+                <div class="container">
+                    <div class="pull-left">
+                        <a href="#"><i class="glyphicon glyphicon-earphone"></i>(651) 457-1189</a>
+                        <a href="#"><i class="glyphicon glyphicon-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-bar" sticky>
+                <div class="container">
+                    <div class="logo pull-left">
+                        <h1><a href="@Url.Action("Index", "Home")"><img src="~/Content/Images/churchlogo.png"></a></h1>
+                    </div>
+
+                    <div class="mobile navbar-header">
+                        <div class="mobile navbar-header">
+                            <button class="navbar-toggle collapsed" ng-click="navbarCollapsed = !navbarCollapsed">
+                                <i class="glyphicon glyphicon-align-justify"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <nav class="collapse navbar-collapse" collapse="navbarCollapsed">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{active: isActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                            <li ng-class="{active: isActive('/Sermon/')}"><a href="@Url.Action("ViewAll", "Sermon")">Sermons</a></li>
+                            <li ng-class="{active: isActive('/Contact/')}"><a href="@Url.Action("ContactUs", "Contact")">Contact Us</a></li>
+                            <li><a href="@Url.Action("Login", "Account")">Members</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+            @RenderBody()
+        </main>
+
+        <footer>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            © Copyright 2014 Inver Grove church of Christ. All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- ./footer-bottom -->
+        </footer>
+
+        <!-- scroll to top -->
+        <a class="scrollup" scroll-up>
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="~/Components/angular/angular.min.js"></script>
+    <script src="~/Components/angular-route/angular-route.min.js"></script>
+    <script src="~/Components/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+    <script src="~/Components/lodash/lodash.min.js"></script>
+
+    <script src="~/Components/sticky/jquery.sticky.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="~/Components/gmaps/jquery.gmap.min.js"></script>
+
+    <!-- -------------------- -->
+    <!-- TODO: Create bundles -->
+    <!-- -------------------- -->
+
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/factories/LocationFactory.js"></script>
+    <script src="~/Scripts/directives.js"></script>
+
+    <script src="~/Scripts/controllers/AppController.js"></script>
+    <script src="~/Scripts/controllers/HomeController.js"></script>
+    <script src="~/Scripts/controllers/ContactController.js"></script>
+    <script src="~/Scripts/controllers/SermonController.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
