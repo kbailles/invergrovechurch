@@ -181,7 +181,7 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong ng-bind="sermon.date | date : 'dd'"></strong><i ng-bind="sermon.date | date : 'MMM'"></i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="@Url.Action("SermonDetail", "Sermon")" ng-bind="sermon.title"></a></h3>
+                                <h3 class="sermon-title"><a href="#" ng-bind="sermon.title" ng-click="sermonDetail(sermon.sermonId)"></a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="fa fa-user"></i>

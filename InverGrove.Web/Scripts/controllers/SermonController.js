@@ -2,12 +2,12 @@
 
 angular.module('app.controllers')
 
-    .controller('SermonCtrl', ['$scope', '$http', function ($scope, $http) {
+    .controller('SermonCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
 
         var fakeSermons = [
             {
                 date: new Date(2014, 9, 26),
-                sermonId: 5,
+                sermonId: 171447693,
                 speaker: 'Antoine Halloway',
                 tags: [
                     'Be Bold'
@@ -16,7 +16,7 @@ angular.module('app.controllers')
             },
             {
                 date: new Date(2014, 9, 25),
-                sermonId: 4,
+                sermonId: 171447888,
                 speaker: 'Antoine Halloway',
                 tags: [
                     'Be Bold',
@@ -26,7 +26,7 @@ angular.module('app.controllers')
             },
             {
                 date: new Date(2014, 9, 24),
-                sermonId: 3,
+                sermonId: 171447578,
                 speaker: 'Antoine Halloway',
                 tags: [
                     'Be Bold',
@@ -36,7 +36,7 @@ angular.module('app.controllers')
             },
             {
                 date: new Date(2014, 9, 23),
-                sermonId: 2,
+                sermonId: 171447641,
                 speaker: 'Antoine Halloway',
                 tags: [
                     'Be Bold',
@@ -46,7 +46,7 @@ angular.module('app.controllers')
             },
             {
                 date: new Date(2014, 9, 22),
-                sermonId: 1,
+                sermonId: 171447791,
                 speaker: 'Antoine Halloway',
                 tags: [
                     'Be Bold',
@@ -67,4 +67,8 @@ angular.module('app.controllers')
             //TODO: Add defensive coding...
             return _.mapValues(_.groupBy(_.chain($scope.sermons).pluck('tags').flatten().value()), function (r) { return r.length; });
         };
+
+        $scope.sermonDetail = function (sermonId) {
+            $window.location.href = 'SermonDetail?sermonId=' + sermonId;
+        }
     }]);
