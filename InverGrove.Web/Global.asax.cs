@@ -12,7 +12,7 @@ namespace InverGrove.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        private static readonly IWindsorContainer container = new WindsorContainer();
+        private static readonly IWindsorContainer container = IocFactory.Instance;
 
         protected void Application_Start()
         {
@@ -23,7 +23,9 @@ namespace InverGrove.Web
             ContainerConfig.RegisterTypes(container);
 
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container));
-            //GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),Container.Resolve<IHttpControllerActivator>());
+
+            // WebApi Containr Resolution:
+            GlobalConfiguration.Configuration.Services.Replace(typeof(IHttpControllerActivator),container.Resolve<IHttpControllerActivator>());
 
             Database.SetInitializer(new InverGroveInitializer());
 

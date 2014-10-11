@@ -84,10 +84,10 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Factories\ApiControllerFactory.cs" />
     <Compile Include="Factories\ControllerFactory.cs" />
+    <Compile Include="Factories\IocFactory.cs" />
     <Compile Include="Factories\ObjectFactory.cs" />
     <Compile Include="Factories\DataContextFactory.cs" />
     <Compile Include="Interfaces\IContactService.cs" />
-    <Compile Include="Interfaces\IContainer.cs" />
     <Compile Include="Interfaces\IEmailService.cs" />
     <Compile Include="Interfaces\IEntityRepository.cs" />
     <Compile Include="Interfaces\IProfileFactory.cs" />

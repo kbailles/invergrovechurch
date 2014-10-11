@@ -1,15 +1,14 @@
 ﻿using System.Linq;
+using System.Web.Http.Controllers;
+using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using InverGrove.Data;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
-using Invergrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Repositories;
 using InverGrove.Domain.Services;
-using InverGrove.Repositories;
 using InverGrove.Web.Controllers;
 
 namespace InverGrove.Web
@@ -27,6 +26,8 @@ namespace InverGrove.Web
 
         private static void RegisterFactories(IWindsorContainer container)
         {
+            var apiControllerFactory = new ApiControllerFactory(container);
+            container.Register(Component.For<IHttpControllerActivator>().Instance(apiControllerFactory).LifeStyle.Singleton);
             container.Register(Component.For<IMembershipFactory>().ImplementedBy<MembershipFactory>().LifeStyle.Transient);
         }
 
@@ -61,6 +62,11 @@ namespace InverGrove.Web
             foreach (var controllerType in assemblyTypes.Where(p => typeof(IController).IsAssignableFrom(p)))
             {
                 container.Register(Component.For<IController>().ImplementedBy(controllerType).Named(controllerType.Name.ToLower()).LifeStyle.Transient);
+            }
+
+            foreach (var apiControllerType in assemblyTypes.Where(a => typeof (System.Web.Http.ApiController).IsAssignableFrom(a)))
+            {
+                container.Register(Component.For<IHttpController>().ImplementedBy(apiControllerType).Named(apiControllerType.Name.ToLower()).LifeStyle.Transient);
             }
         }
     }

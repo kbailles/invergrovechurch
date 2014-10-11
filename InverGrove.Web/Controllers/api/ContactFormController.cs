@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
-using Microsoft.Ajax.Utilities;
 
 namespace InverGrove.Web.Controllers.api
 {
     public class ContactFormController : ApiController
     {
-
         private readonly IEmailService emailService;
 
         public ContactFormController(IEmailService emailService)
@@ -25,7 +19,7 @@ namespace InverGrove.Web.Controllers.api
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new[] { "value1", "value2" };
         }
 
         // GET api/<controller>/5
@@ -49,7 +43,7 @@ namespace InverGrove.Web.Controllers.api
                 return this.BadRequest(this.ModelState);
             }
 
-            return this.Ok<Contact>(contact);
+            return this.Ok(contact);
             //answer.UserId = User.Identity.Name;
 
             //var isCorrect = await this.StoreAsync(answer);

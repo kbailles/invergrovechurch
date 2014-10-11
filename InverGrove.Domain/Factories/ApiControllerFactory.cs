@@ -1,31 +1,26 @@
-﻿
-
-
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
+using Castle.Windsor;
 using InverGrove.Domain.Exceptions;
-using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Factories
 {        
     /// <summary>
     /// Used to resolve the ApiController for WebApi
     /// </summary>
-    public class ApiControllerFactory
+    public class ApiControllerFactory : IHttpControllerActivator
     {
-
-        private readonly IContainer container;
+        private readonly IWindsorContainer container;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiControllerFactory"/> class.
         /// </summary>
         /// <param name="container">The container.</param>
-        public ApiControllerFactory(IContainer container = null)
+        public ApiControllerFactory(IWindsorContainer container = null)
         {
-            // will have to do this differntly than what is shown here.
-            //this.container = container ?? Ioc.Instance;
+            this.container = container ?? IocFactory.Instance;
         }
 
         /// <summary>
@@ -38,8 +33,7 @@ namespace InverGrove.Domain.Factories
         /// An <see cref="T:System.Web.Http.Controllers.IHttpController" /> object.
         /// </returns>
         /// <remarks>Not checking the controllerDescriptor as we don't care about its state.</remarks>
-        public IHttpController Create(HttpRequestMessage request,
-            HttpControllerDescriptor controllerDescriptor, Type controllerType)
+        public IHttpController Create(HttpRequestMessage request, HttpControllerDescriptor controllerDescriptor, Type controllerType)
         {
             if (request == null)
             {
@@ -54,8 +48,7 @@ namespace InverGrove.Domain.Factories
 
             // Adds the given resource to a list of resources that will be disposed
             // by a host once the request is disposed.
-            request.RegisterForDispose(
-                new Release(() => this.container.Release(controller)));
+            request.RegisterForDispose(new Release(() => this.container.Release(controller)));
 
             return controller;
         }
