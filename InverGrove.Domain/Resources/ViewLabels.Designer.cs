@@ -61,7 +61,34 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm password.
+        ///   Looks up a localized string similar to Address One.
+        /// </summary>
+        public static string AddressOneLabel {
+            get {
+                return ResourceManager.GetString("AddressOneLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address Two.
+        /// </summary>
+        public static string AddressTwoLabel {
+            get {
+                return ResourceManager.GetString("AddressTwoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string CityLabel {
+            get {
+                return ResourceManager.GetString("CityLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string ConfirmPasswordLabel {
             get {
@@ -70,7 +97,7 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current password.
+        ///   Looks up a localized string similar to Current Password.
         /// </summary>
         public static string CurrentPasswordLabel {
             get {
@@ -79,7 +106,61 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New password.
+        ///   Looks up a localized string similar to Email Address.
+        /// </summary>
+        public static string EmailLabel {
+            get {
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string FirstNameLabel {
+            get {
+                return ResourceManager.GetString("FirstNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        public static string GenderLabel {
+            get {
+                return ResourceManager.GetString("GenderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string LastNameLabel {
+            get {
+                return ResourceManager.GetString("LastNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marital Status.
+        /// </summary>
+        public static string MaritalStatusLabel {
+            get {
+                return ResourceManager.GetString("MaritalStatusLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle Initial.
+        /// </summary>
+        public static string MiddleInitialLabel {
+            get {
+                return ResourceManager.GetString("MiddleInitialLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password.
         /// </summary>
         public static string NewPasswordLabel {
             get {
@@ -115,6 +196,15 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Person Type.
+        /// </summary>
+        public static string PersonTypeLabel {
+            get {
+                return ResourceManager.GetString("PersonTypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me?.
         /// </summary>
         public static string RememberMeLabel {
@@ -124,11 +214,29 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string StateLabel {
+            get {
+                return ResourceManager.GetString("StateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User name.
         /// </summary>
         public static string UserNameLabel {
             get {
                 return ResourceManager.GetString("UserNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postal Code.
+        /// </summary>
+        public static string ZipCodeLabel {
+            get {
+                return ResourceManager.GetString("ZipCodeLabel", resourceCulture);
             }
         }
     }

@@ -44,10 +44,10 @@ namespace InverGrove.Data.Entities
         [StringLength(10)]
         public string Zip { get; set; }
 
-        [StringLength(100)]
+        [StringLength(254)]
         public string EmailPrimary { get; set; }
 
-        [StringLength(100)]
+        [StringLength(254)]
         public string EmailSecondary { get; set; }
 
         [StringLength(20)]

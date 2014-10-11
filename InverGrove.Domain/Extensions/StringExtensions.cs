@@ -16,6 +16,7 @@ namespace InverGrove.Domain.Extensions
            RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
         private static readonly Regex nonNumerics = new Regex(RegularExpressions.NonNumericRegEx, RegexOptions.Compiled);
+        private const int EmailAddressMaximumLength = 254;
 
         /// <summary>
         /// Formats the string as a US phone number.
@@ -117,6 +118,16 @@ namespace InverGrove.Domain.Extensions
         /// </returns>
         public static bool IsValidEmail(this string s)
         {
+            if (string.IsNullOrEmpty(s))
+            {
+                return false;
+            }
+
+            if (s.Length > EmailAddressMaximumLength)
+            {
+                return false;
+            }
+
             return validEmail.IsMatch(s);
         }
 

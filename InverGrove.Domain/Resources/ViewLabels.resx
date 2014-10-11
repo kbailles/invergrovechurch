@@ -124,13 +124,13 @@
     <value>Password</value>
   </data>
   <data name="CurrentPasswordLabel" xml:space="preserve">
-    <value>Current password</value>
+    <value>Current Password</value>
   </data>
   <data name="NewPasswordLabel" xml:space="preserve">
-    <value>New password</value>
+    <value>New Password</value>
   </data>
   <data name="ConfirmPasswordLabel" xml:space="preserve">
-    <value>Confirm password</value>
+    <value>Confirm Password</value>
   </data>
   <data name="RememberMeLabel" xml:space="preserve">
     <value>Remember me?</value>
@@ -140,5 +140,41 @@
   </data>
   <data name="PasswordQuestionLabel" xml:space="preserve">
     <value>Password Question</value>
+  </data>
+  <data name="AddressOneLabel" xml:space="preserve">
+    <value>Address One</value>
+  </data>
+  <data name="AddressTwoLabel" xml:space="preserve">
+    <value>Address Two</value>
+  </data>
+  <data name="CityLabel" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="FirstNameLabel" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GenderLabel" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="LastNameLabel" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="MaritalStatusLabel" xml:space="preserve">
+    <value>Marital Status</value>
+  </data>
+  <data name="MiddleInitialLabel" xml:space="preserve">
+    <value>Middle Initial</value>
+  </data>
+  <data name="PersonTypeLabel" xml:space="preserve">
+    <value>Person Type</value>
+  </data>
+  <data name="StateLabel" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="ZipCodeLabel" xml:space="preserve">
+    <value>Postal Code</value>
   </data>
 </root>

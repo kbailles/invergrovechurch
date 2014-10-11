@@ -59,5 +59,30 @@ namespace InverGrove.Domain.ViewModels
         [Display(ResourceType = typeof(ViewLabels), Name = "PasswordAnswerLabel")]
         [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "SecurityAnswerMaximumLength", MinimumLength = 6)]
         public string PasswordAnswer { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>
+        /// The first name.
+        /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "FirstNameRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "FirstNameLabel")]
+        [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "FirstLastNameLengthError", MinimumLength = 1)]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "LastNameRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "LastNameLabel")]
+        [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "FirstLastNameLengthError", MinimumLength = 1)]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the middle initial.
+        /// </summary>
+        /// <value>
+        /// The middle initial.
+        /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "MiddleInitialLabel")]
+        public string MiddleInitial { get; set; }
     }
 }

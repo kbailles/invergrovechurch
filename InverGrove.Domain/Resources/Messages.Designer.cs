@@ -61,6 +61,15 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address is required..
+        /// </summary>
+        public static string AddressOneRequired {
+            get {
+                return ResourceManager.GetString("AddressOneRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The application name is too long..
         /// </summary>
         public static string ApplicationNameTooLong {
@@ -151,6 +160,24 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum characters is 50..
+        /// </summary>
+        public static string FirstLastNameLengthError {
+            get {
+                return ResourceManager.GetString("FirstLastNameLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name is required..
+        /// </summary>
+        public static string FirstNameRequired {
+            get {
+                return ResourceManager.GetString("FirstNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The user name or password provided is incorrect..
         /// </summary>
         public static string IncorrectPasswordErrorMessage {
@@ -165,6 +192,15 @@ namespace InverGrove.Domain.Resources {
         public static string InvalidApplicationName {
             get {
                 return ResourceManager.GetString("InvalidApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name is required..
+        /// </summary>
+        public static string LastNameRequired {
+            get {
+                return ResourceManager.GetString("LastNameRequired", resourceCulture);
             }
         }
         

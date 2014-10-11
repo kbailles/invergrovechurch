@@ -3,8 +3,9 @@
     public static class RegularExpressions
     {
         public const string AlphaNumericRegEx = @"[^a-zA-Z0-9]";
-
-        public const string ValidEmailRegEx = @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+        
+        public const string ValidEmailRegEx = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/" +
+            @"=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
 
         /// <summary>
         /// regex look ahead defect in Internet Explorer 7

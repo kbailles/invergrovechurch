@@ -263,4 +263,16 @@
   <data name="ParameterNullExceptionUnableToDetermineDeclaringType" xml:space="preserve">
     <value> Unable to determine the method's declaring type.</value>
   </data>
+  <data name="FirstLastNameLengthError" xml:space="preserve">
+    <value>Maximum characters is 50.</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>First name is required.</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Last name is required.</value>
+  </data>
+  <data name="AddressOneRequired" xml:space="preserve">
+    <value>Address is required.</value>
+  </data>
 </root>
