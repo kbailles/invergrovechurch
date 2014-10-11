@@ -9,11 +9,11 @@ namespace InverGrove.Web.Controllers.api
 {
     public class ContactFormController : ApiController
     {
-        private readonly IEmailService emailService;
+        // private readonly IEmailService emailService;
 
-        public ContactFormController(IEmailService emailService)
+        public ContactFormController(/*IEmailService emailService*/)
         {
-            this.emailService = emailService;
+            //this.emailService = emailService;
         }
 
         // GET api/<controller>
