@@ -1,4 +1,5 @@
-﻿using System.Web.Security;
+﻿using System.Collections.Generic;
+using System.Web.Security;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -31,6 +32,12 @@ namespace InverGrove.Domain.Interfaces
         /// <returns></returns>
         IMembership CreateMembershipUser(string userName, string password, string emailAddress, string passwordQuestion,
             string passwordAnswer, bool isApproved, MembershipPasswordFormat passwordFormat);
+
+        /// <summary>
+        /// Gets all membership users.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IMembership> GetAllMembershipUsers();
 
         /// <summary>
         /// Updates the membership.

@@ -147,5 +147,13 @@ namespace InverGrove.Domain.Interfaces
         /// The date modified.
         /// </value>
         DateTime DateModified { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user.
+        /// </summary>
+        /// <value>
+        /// The user.
+        /// </value>
+        IUser User { get; set; }
     }
 }

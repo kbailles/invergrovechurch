@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
 using InverGrove.Domain.Extensions;
@@ -11,18 +12,15 @@ namespace InverGrove.Domain.Services
     public class MembershipService : IMembershipService
     {
         private readonly IMembershipFactory membershipFactory;
-        private readonly IUserService userService;
         private readonly IMembershipRepository membershipRepository;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MembershipService"/> class.
+        /// Initializes a new instance of the <see cref="MembershipService" /> class.
         /// </summary>
-        /// <param name="userService">The user service.</param>
         /// <param name="membershipFactory">The membership factory.</param>
         /// <param name="membershipRepository">The membership repository.</param>
-        public MembershipService(IUserService userService = null, IMembershipFactory membershipFactory = null, IMembershipRepository membershipRepository = null)
+        public MembershipService(IMembershipFactory membershipFactory = null, IMembershipRepository membershipRepository = null)
         {
-            this.userService = userService ?? UserService.Create();
             this.membershipFactory = membershipFactory ?? MembershipFactory.Create();
             this.membershipRepository = membershipRepository ?? MembershipRepository.Create();
         }
@@ -156,6 +154,23 @@ namespace InverGrove.Domain.Services
             }
 
             return success;
+        }
+
+        /// <summary>
+        /// Gets all membership users.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<IMembership> GetAllMembershipUsers()
+        {
+            var membershipUsers = this.membershipRepository.Get(includeProperties: "User");
+            var membershipUserList = new List<IMembership>();
+
+            foreach (var membership in membershipUsers)
+            {
+                membershipUserList.Add(membership.ToModel());
+            }
+
+            return membershipUserList;
         }
         
     }

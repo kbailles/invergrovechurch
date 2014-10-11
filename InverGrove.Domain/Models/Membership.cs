@@ -148,6 +148,14 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The date modified.
         /// </value>
-        public DateTime DateModified { get; set; } 
+        public DateTime DateModified { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user.
+        /// </summary>
+        /// <value>
+        /// The user.
+        /// </value>
+        public IUser User { get; set; }
     }
 }

@@ -758,7 +758,17 @@ namespace InverGrove.Domain.Providers
         /// </returns>
         public override MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords)
         {
-            throw new NotImplementedException();
+            var membershipUsers = this.membershipService.GetAllMembershipUsers().ToSafeList();
+            totalRecords = membershipUsers.Count;
+            var pagedMembershipUsers = membershipUsers.Skip(pageIndex*pageSize).Take(pageSize);
+            MembershipUserCollection membershipUserCollection = new MembershipUserCollection();
+
+            foreach (var membershipUser in pagedMembershipUsers)
+            {
+                membershipUserCollection.Add(membershipUser.ToMembershipUser(membershipUser.User.UserName));
+            }
+
+            return membershipUserCollection;
         }
 
         /// <summary>

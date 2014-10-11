@@ -1,4 +1,6 @@
-﻿namespace InverGrove.Domain.Interfaces
+﻿using System.Collections.Generic;
+
+namespace InverGrove.Domain.Interfaces
 {
     public interface IUserService
     {
@@ -25,5 +27,11 @@
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException">user</exception>
         bool UpdateUser(IUser user);
+
+        /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IUser> GetAllUsers();
     }
 }

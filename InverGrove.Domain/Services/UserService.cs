@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
@@ -100,6 +101,15 @@ namespace InverGrove.Domain.Services
             }
 
             return success;
+        }
+
+        /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<IUser> GetAllUsers()
+        {
+            return this.userRepository.Get().Select(user => user.ToModel()).Cast<IUser>().ToSafeList();
         }
     }
 }
