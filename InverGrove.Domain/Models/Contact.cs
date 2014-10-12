@@ -16,6 +16,7 @@ namespace InverGrove.Domain.Models
 
         public bool IsVisitorCard { get; set; }
         public bool IsOnlineContactForm { get; set; }
+        public string Subject { get; set; }
         public string Comments { get; set; }
         public DateTime DateSubmitted { get; set; }
     }

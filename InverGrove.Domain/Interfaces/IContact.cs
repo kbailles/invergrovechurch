@@ -12,6 +12,7 @@ namespace InverGrove.Domain.Interfaces
         string Zip { get; set; }
         string Email { get; set; }
         string Phone { get; set; }
+        string Subject { get; set; }
         bool IsVisitorCard { get; set; }
         bool IsOnlineContactForm { get; set; }
         string Comments { get; set; }

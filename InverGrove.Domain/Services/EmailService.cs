@@ -7,6 +7,8 @@ namespace InverGrove.Domain.Services
 {
     public class EmailService : IEmailService
     {
+        private MailAddress fromAddress = new MailAddress("DoNotReply@nowhere.com");
+
 
 
         public EmailService()
@@ -16,9 +18,30 @@ namespace InverGrove.Domain.Services
 
         public bool SendContactMail(IContact contact)
         {
+            Guard.ArgumentNotNull(contact, "contact");
+
             // (1) assemble mailMessage
-            // (2) invoke SnedMail(args)
-            // (3) update DB for mail sent.
+            MailMessage mailMesage = new MailMessage
+                                     {
+                                         From = this.fromAddress,
+                                         Subject =  contact.Subject,
+                                         Body = contact.Comments
+                                     };
+
+            mailMesage.To.Add(contact.Email); // will not let me do this in object builder
+            bool isSent = this.SendMail(mailMesage);
+
+            // --------- TODO -------------------------
+            //---------- UPDATE THE DB FOR MESSGE SENT
+            // ----------------------------------------
+
+
+
+            if (isSent)
+            {
+                return true;
+            }
+
 
             return false;
         }
@@ -31,7 +54,7 @@ namespace InverGrove.Domain.Services
 
             try
             {
-                smtp.Send(mailMessage);
+                //smtp.Send(mailMessage);
                 return true;
             }
             catch (Exception ex)

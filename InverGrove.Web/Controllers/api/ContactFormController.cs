@@ -9,11 +9,11 @@ namespace InverGrove.Web.Controllers.api
 {
     public class ContactFormController : ApiController
     {
-        // private readonly IEmailService emailService;
+        private readonly IEmailService mailService;
 
-        public ContactFormController(/*IEmailService emailService*/)
+        public ContactFormController(IEmailService mailService)
         {
-            //this.emailService = emailService;
+            this.mailService = mailService;
         }
 
         // GET api/<controller>
@@ -42,6 +42,8 @@ namespace InverGrove.Web.Controllers.api
             {
                 return this.BadRequest(this.ModelState);
             }
+
+            bool hasSent = this.mailService.SendContactMail(contact);
 
             return this.Ok(contact);
             //answer.UserId = User.Identity.Name;
