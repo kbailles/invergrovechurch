@@ -35,8 +35,6 @@ namespace InverGrove.Domain.Services
             //---------- UPDATE THE DB FOR MESSGE SENT
             // ----------------------------------------
 
-
-
             if (isSent)
             {
                 return true;
@@ -50,11 +48,12 @@ namespace InverGrove.Domain.Services
         {
             Guard.ArgumentNotNull(mailMessage, "MailMessage");
 
-            SmtpClient smtp = new SmtpClient(/*emailServer*/);
+
+            SmtpClient smtpClient = new SmtpClient("localhost"); //  or 127.0.0.1
 
             try
             {
-                //smtp.Send(mailMessage);
+                //smtpClient.Send(mailMessage);
                 return true;
             }
             catch (Exception ex)
