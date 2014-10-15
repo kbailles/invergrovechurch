@@ -62,5 +62,7 @@ namespace InverGrove.Domain.Services
                 throw new Exception("Email client failed to send group email. " + ex.Message);
             }
         }
+
+
     }
 }

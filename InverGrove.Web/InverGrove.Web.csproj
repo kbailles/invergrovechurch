@@ -495,10 +495,6 @@
       <Project>{6ebdbeb0-4c34-4318-a6fc-6117cd949148}</Project>
       <Name>InverGrove.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InverGrove.Repositories\InverGrove.Repositories.csproj">
-      <Project>{6aa1bf82-d5c0-4a13-b7a6-49f0b94fb2b1}</Project>
-      <Name>InverGrove.Repositories</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

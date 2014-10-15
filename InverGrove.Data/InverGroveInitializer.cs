@@ -40,27 +40,6 @@ namespace InverGrove.Data
             roles.ForEach(s => context.Roles.Add(s));
             context.SaveChanges();
 
-            // -------------------------------------------------- start ENTITY user
-            // Assign Lance, Heidi, and Keenan SiteAdmin
-            var users = new List<User>
-                           {
-                               new User
-                               {
-                                    UserName = "lancebailles@hotmail.com",
-                                    DateCreated = DateTime.Now,
-                                    DateModified = DateTime.Now /* ,
-                                    UserRoles = new List<UserRole>().Add("SiteAdmin") */
-                                
-
-                               },
-                           };
-
-            roles.ForEach(s => context.Roles.Add(s));
-            context.SaveChanges();
-
-            // -------------------------------------------------- ENTIGY USER end
-
-
             var personTypes = new List<PersonType>
                           {
                               new PersonType
