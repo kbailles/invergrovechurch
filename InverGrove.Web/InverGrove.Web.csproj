@@ -318,7 +318,6 @@
     <Content Include="Content\less\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
-    <Content Include="Controllers\Admin\gitkeep.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
@@ -414,6 +413,8 @@
     <Content Include="Components\font-awesome\scss\_spinning.scss" />
     <Content Include="Components\font-awesome\scss\_stacked.scss" />
     <Content Include="Components\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Member\Views\web.config" />
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
@@ -444,6 +445,9 @@
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminSermonController.cs" />
+    <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\ContactFormController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -485,6 +489,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\AdminSermon\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Member\Controllers\" />
+    <Folder Include="Areas\Member\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">

@@ -16,7 +16,8 @@ namespace InverGrove.Web
 
         protected void Application_Start()
         {
-            // re-add the registger areas if we use areas.
+            AreaRegistration.RegisterAllAreas();
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);

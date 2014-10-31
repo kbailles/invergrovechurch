@@ -1,12 +1,22 @@
 ﻿using System.Web.Mvc;
+using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Web.Controllers
 {
     public class SermonController : Controller
     {
+        private readonly ISermonService sermonService;
+
+        public SermonController(ISermonService sermonService)
+        {
+            this.sermonService = sermonService;
+        }
+
         [HttpGet]
         public ActionResult ViewAll()
         {
+            var sermons = this.sermonService.GetSermons();
+
             return View("_Sermons");
         }
 

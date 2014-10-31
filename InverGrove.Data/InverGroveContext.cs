@@ -152,6 +152,14 @@ namespace InverGrove.Data
         public IDbSet<Role> Roles { get; set; }
 
         /// <summary>
+        /// Gets or sets the sermons.
+        /// </summary>
+        /// <value>
+        /// The sermons.
+        /// </value>
+        public IDbSet<Sermon> Sermons { get; set; }
+
+        /// <summary>
         /// Gets or sets the users.
         /// </summary>
         /// <value>
@@ -545,6 +553,14 @@ namespace InverGrove.Data
                 .HasMany(e => e.UserRoles)
                 .WithRequired(e => e.Role)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Sermon>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Sermon>()
+                .Property(e => e.Tags)
+                .IsUnicode(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.UserName)

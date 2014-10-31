@@ -124,7 +124,7 @@ namespace InverGrove.Domain.Extensions
                 return profile;
             }
 
-            profile.ProfileId = profileModel.ProfileId;               ;
+            profile.ProfileId = profileModel.ProfileId;               
             profile.PersonId = profileModel.PersonId;
             profile.ReceiveEmailNotification = profileModel.ReceiveEmailNotification;
             profile.IsActive = profileModel.IsActive;
@@ -190,6 +190,56 @@ namespace InverGrove.Domain.Extensions
             roles.AddRange(entityRoles.Select(entityRole => entityRole.ToModel()));
 
             return roles;
+        }
+
+        public static Data.Entities.Sermon ToEntity(this Sermon sermonModel)
+        {
+            var sermon = new Data.Entities.Sermon();
+
+            if (sermonModel == null)
+            {
+                return sermon;
+            }
+
+            sermon.Date = sermonModel.Date;
+            sermon.SermonId = sermonModel.SermonId;
+            sermon.SoundCloudId = sermonModel.SoundCloudId;
+            sermon.Tags = sermonModel.Tags;
+            sermon.Title = sermonModel.Title;
+
+            return sermon;
+        }
+
+        public static Sermon ToModel(this Data.Entities.Sermon sermonEntity)
+        {
+            var sermon = new Sermon();
+
+            if (sermonEntity == null)
+            {
+                return sermon;
+            }
+
+            sermon.Date = sermonEntity.Date;
+            sermon.SermonId = sermonEntity.SermonId;
+            sermon.SoundCloudId = sermonEntity.SoundCloudId;
+            sermon.Tags = sermonEntity.Tags;
+            sermon.Title = sermonEntity.Title;
+
+            return sermon;
+        }
+
+        public static IEnumerable<Sermon> ToModelCollection(this IEnumerable<Data.Entities.Sermon> entitySermons)
+        {
+            var sermons = new List<Sermon>();
+
+            if (entitySermons == null)
+            {
+                return sermons;
+            }
+
+            sermons.AddRange(entitySermons.Select(entitySermon => entitySermon.ToModel()));
+
+            return sermons;
         }
     }
 }

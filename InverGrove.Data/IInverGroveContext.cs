@@ -113,6 +113,14 @@ namespace InverGrove.Data
         IDbSet<Role> Roles { get; set; }
 
         /// <summary>
+        /// Gets or sets the sermons.
+        /// </summary>
+        /// <value>
+        /// The sermons.
+        /// </value>
+        IDbSet<Sermon> Sermons { get; set; }
+
+        /// <summary>
         /// Gets or sets the users.
         /// </summary>
         /// <value>

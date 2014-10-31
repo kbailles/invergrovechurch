@@ -66,6 +66,7 @@
     <Compile Include="Entities\Relative.cs" />
     <Compile Include="Entities\Responsibility.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Sermon.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="IInverGroveContext.cs" />

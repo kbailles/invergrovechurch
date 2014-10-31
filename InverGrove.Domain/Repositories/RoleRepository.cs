@@ -49,7 +49,7 @@ namespace InverGrove.Domain.Repositories
 
             this.Insert(newEntityRole);
 
-            this.dataContext.Commit();
+            this.Save();
 
             return newEntityRole.RoleId;
         }

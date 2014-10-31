@@ -39,6 +39,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IMembershipRepository>().ImplementedBy<MembershipRepository>().LifeStyle.PerWebRequest);
             container.Register(Component.For<IUserRoleRepository>().ImplementedBy<UserRoleRepository>().LifeStyle.Transient);
             container.Register(Component.For<IRoleRepository>().ImplementedBy<RoleRepository>().LifeStyle.Transient);
+            container.Register(Component.For<ISermonRepository>().ImplementedBy<SermonRepository>().LifeStyle.Transient);
             container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifeStyle.PerWebRequest);
             container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.PerWebRequest);
             container.Register(Component.For<IContactRepository>().ImplementedBy<ContactRepository>().LifeStyle.PerWebRequest);
@@ -52,6 +53,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IProfileService>().ImplementedBy<ProfileService>().LifeStyle.Transient);
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifeStyle.Transient);
             container.Register(Component.For<IEmailService>().ImplementedBy<EmailService>().LifeStyle.Transient);
+            container.Register(Component.For<ISermonService>().ImplementedBy<SermonService>().LifeStyle.Transient);
         }
 
         private static void AddControllers(IWindsorContainer container)
