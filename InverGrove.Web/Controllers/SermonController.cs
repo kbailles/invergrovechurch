@@ -15,7 +15,7 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult ViewAll()
         {
-            //var sermons = this.sermonService.GetSermons();
+            var sermons = this.sermonService.GetSermons();
 
             return View("_Sermons");
         }
