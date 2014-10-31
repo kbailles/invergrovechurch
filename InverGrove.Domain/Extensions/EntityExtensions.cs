@@ -124,7 +124,7 @@ namespace InverGrove.Domain.Extensions
                 return profile;
             }
 
-            profile.ProfileId = profileModel.ProfileId;               
+            profile.ProfileId = profileModel.ProfileId;
             profile.PersonId = profileModel.PersonId;
             profile.ReceiveEmailNotification = profileModel.ReceiveEmailNotification;
             profile.IsActive = profileModel.IsActive;
