@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Profile;
+using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
@@ -48,7 +49,7 @@ namespace InverGrove.Domain.Providers
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ParameterNullException("config");
             }
             if (string.IsNullOrEmpty(name))
             {
@@ -73,11 +74,11 @@ namespace InverGrove.Domain.Providers
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ParameterNullException("context");
             }
             if (collection == null)
             {
-                throw new ArgumentNullException("collection");
+                throw new ParameterNullException("collection");
             }
 
             SettingsPropertyValueCollection spvc = new SettingsPropertyValueCollection();
@@ -101,12 +102,12 @@ namespace InverGrove.Domain.Providers
         {
             if (context == null)
             {
-                throw new ArgumentNullException("context");
+                throw new ParameterNullException("context");
             }
 
             if (collection == null)
             {
-                throw new ArgumentNullException("collection");
+                throw new ParameterNullException("collection");
             }
 
             string userName = context["UserName"] as string;
@@ -114,7 +115,7 @@ namespace InverGrove.Domain.Providers
             if (string.IsNullOrEmpty(userName))
             {
                 // ReSharper disable once NotResolvedInText
-                throw new ArgumentNullException("context['UserName']");
+                throw new ParameterNullException("context['UserName']");
             }
 
             var profileModel = this.profileFactory.Create(collection);

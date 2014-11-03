@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using InverGrove.Domain.Interfaces;
 using Invergrove.Domain.Models;
+using InverGrove.Domain.Resources;
+using InverGrove.Domain.ValueTypes;
 
 namespace InverGrove.Domain.Models
 {
@@ -20,6 +24,9 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The first name.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "FirstNameRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "FirstNameLabel")]
+        [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "FirstLastNameLengthError", MinimumLength = 1)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -28,7 +35,19 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The last name.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "LastNameRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "LastNameLabel")]
+        [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "FirstLastNameLengthError", MinimumLength = 1)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the middle initial.
+        /// </summary>
+        /// <value>
+        /// The middle initial.
+        /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "MiddleInitialLabel")]
+        public string MiddleInitial { get; set; }
 
         /// <summary>
         /// Gets or sets the address one.
@@ -36,6 +55,9 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The address one.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "AddressOneRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "AddressOneLabel")]
+        [StringLength(200, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "AddressLengthErrorMessage", MinimumLength = 1)]
         public string AddressOne { get; set; }
 
         /// <summary>
@@ -44,6 +66,8 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The address two.
         /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "AddressTwoLabel")]
+        [StringLength(200, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "AddressLengthErrorMessage", MinimumLength = 1)]
         public string AddressTwo { get; set; }
 
         /// <summary>
@@ -52,6 +76,9 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The city.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "CityRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "CityLabel")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "CityLengthErrorMessage", MinimumLength = 1)]
         public string City { get; set; }
 
         /// <summary>
@@ -60,6 +87,8 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The state.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "StateRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "StateLabel")]
         public string State { get; set; }
 
         /// <summary>
@@ -68,6 +97,9 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The zip code.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PostalCodeRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "ZipCodeLabel")]
+        [RegularExpression(RegularExpressions.PasswordRegEx, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PostalCodeInvalidErrorMessage")]
         public string ZipCode { get; set; }
 
         /// <summary>
@@ -76,6 +108,9 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The primary email.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "EmailRequiredErrorMessage")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "EmailLabel")]
+        [EmailAddress]
         public string PrimaryEmail { get; set; }
 
         /// <summary>
@@ -84,23 +119,17 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The secondary email.
         /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "SecondaryEmailLabel")]
+        [EmailAddress]
         public string SecondaryEmail { get; set; }
 
         /// <summary>
-        /// Gets or sets the primary phone.
+        /// Gets or sets the phone numbers.
         /// </summary>
         /// <value>
-        /// The primary phone.
+        /// The phone numbers.
         /// </value>
-        public string PrimaryPhone { get; set; }
-
-        /// <summary>
-        /// Gets or sets the secondary phone.
-        /// </summary>
-        /// <value>
-        /// The secondary phone.
-        /// </value>
-        public string SecondaryPhone { get; set; }
+        public IList<PhoneNumber> PhoneNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the date of birth.
@@ -132,6 +161,8 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The gender.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "GenderRequiredErrorMessage")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "GenderLabel")]
         public string Gender { get; set; }
 
         /// <summary>
@@ -140,6 +171,8 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The marital status id.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "MaritalStatusRequiredErrorMessage")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "MaritalStatusLabel")]
         public int MaritalStatusId { get; set; }
 
         /// <summary>
@@ -148,6 +181,8 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The person type id.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PersonTypeRequiredErrorMessage")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "PersonTypeLabel")]
         public int PersonTypeId { get; set; }
     }
 }

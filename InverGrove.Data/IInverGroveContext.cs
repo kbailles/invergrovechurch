@@ -73,6 +73,22 @@ namespace InverGrove.Data
         IDbSet<PersonType> PersonTypes { get; set; }
 
         /// <summary>
+        /// Gets or sets the phone numbers.
+        /// </summary>
+        /// <value>
+        /// The phone numbers.
+        /// </value>
+        IDbSet<PhoneNumber> PhoneNumbers { get; set; }
+            
+        /// <summary>
+        /// Gets or sets the phone number types.
+        /// </summary>
+        /// <value>
+        /// The phone number types.
+        /// </value>
+        IDbSet<PhoneNumberType> PhoneNumberTypes { get; set; }
+
+        /// <summary>
         /// Gets or sets the profiles.
         /// </summary>
         /// <value>

@@ -20,6 +20,28 @@ namespace InverGrove.Domain.ViewModels
         [Compare("Password", ErrorMessageResourceType = typeof (Messages), ErrorMessageResourceName = "ConfirmPasswordErrorMessage")]
         public string ConfirmPassword { get; set; }
 
+        /// <summary>
+        /// Gets or sets the password question.
+        /// </summary>
+        /// <value>
+        /// The password question.
+        /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "SecurityQuestionRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "PasswordQuestionLabel")]
+        [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "SecurityQuestionMaximumLength", MinimumLength = 6)]
+        public string PasswordQuestion { get; set; }
+
+        /// <summary>
+        /// Gets or sets the password answer.
+        /// </summary>
+        /// <value>
+        /// The password answer.
+        /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "SecurityAnswerRequired")]
+        [Display(ResourceType = typeof(ViewLabels), Name = "PasswordAnswerLabel")]
+        [StringLength(64, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "SecurityAnswerMaximumLength", MinimumLength = 6)]
+        public string PasswordAnswer { get; set; }
+
         public string Code { get; set; }
 
     }

@@ -14,6 +14,7 @@ namespace InverGrove.Data.Entities
             this.Profiles = new HashSet<Profile>();
             this.Relatives = new HashSet<Relative>();
             this.Relatives1 = new HashSet<Relative>();
+            this.PhoneNumbers = new HashSet<PhoneNumber>();
         }
 
         public int PersonId { get; set; }
@@ -50,17 +51,11 @@ namespace InverGrove.Data.Entities
         [StringLength(254)]
         public string EmailSecondary { get; set; }
 
-        [StringLength(20)]
-        public string PhonePrimary { get; set; }
-
-        [StringLength(20)]
-        public string PhoneSecondary { get; set; }
-
         [Column(TypeName = "date")]
-        public DateTime? DateOfBrith { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         [Required]
-        [StringLength(8)]
+        [StringLength(1)]
         public string Gender { get; set; }
 
         [StringLength(100)]
@@ -68,6 +63,10 @@ namespace InverGrove.Data.Entities
 
         [StringLength(100)]
         public string IndividualPhoto { get; set; }
+
+        public DateTime DateCreated { get; set; }
+
+        public DateTime DateModified { get; set; }
 
         public int MaritalStatusId { get; set; }
 
@@ -82,5 +81,7 @@ namespace InverGrove.Data.Entities
         public virtual ICollection<Relative> Relatives { get; set; }
 
         public virtual ICollection<Relative> Relatives1 { get; set; }
+
+        public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
     }
 }

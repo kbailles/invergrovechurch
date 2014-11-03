@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using InverGrove.Domain.Models;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -27,6 +29,14 @@ namespace InverGrove.Domain.Interfaces
         /// The last name.
         /// </value>
         string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the middle initial.
+        /// </summary>
+        /// <value>
+        /// The middle initial.
+        /// </value>
+        string MiddleInitial { get; set; }
 
         /// <summary>
         /// Gets or sets the address one.
@@ -85,20 +95,12 @@ namespace InverGrove.Domain.Interfaces
         string SecondaryEmail { get; set; }
 
         /// <summary>
-        /// Gets or sets the primary phone.
+        /// Gets or sets the phone numbers.
         /// </summary>
         /// <value>
-        /// The primary phone.
+        /// The phone numbers.
         /// </value>
-        string PrimaryPhone { get; set; }
-
-        /// <summary>
-        /// Gets or sets the secondary phone.
-        /// </summary>
-        /// <value>
-        /// The secondary phone.
-        /// </value>
-        string SecondaryPhone { get; set; }
+        IList<PhoneNumber> PhoneNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the date of birth.

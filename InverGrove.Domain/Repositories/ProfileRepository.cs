@@ -10,7 +10,7 @@ namespace InverGrove.Domain.Repositories
     public class ProfileRepository : EntityRepository<Data.Entities.Profile, int>, IProfileRepository
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RoleRepository"/> class.
+        /// Initializes a new instance of the <see cref="ProfileRepository"/> class.
         /// </summary>
         /// <param name="dataContext">The data context.</param>
         public ProfileRepository(IInverGroveContext dataContext)
@@ -45,12 +45,16 @@ namespace InverGrove.Domain.Repositories
             profile.DateModified = currentDate;
 
             Data.Entities.Profile profileEntity = ((Profile)profile).ToEntity();
+            profileEntity.IsDisabled = false;
+            profileEntity.IsValidated = true;
+            profileEntity.Person = null;
+            profileEntity.User = null;
 
             this.Insert(profileEntity);
 
             this.Save();
 
-            return profileEntity.ProfileId; 
+            return profileEntity.ProfileId;
         }
 
         /// <summary>

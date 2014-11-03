@@ -177,4 +177,19 @@
   <data name="ZipCodeLabel" xml:space="preserve">
     <value>Postal Code</value>
   </data>
+  <data name="PhoneNumberLabel" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="SecondaryEmailLabel" xml:space="preserve">
+    <value>Secondary Email Address</value>
+  </data>
+  <data name="IsActiveLabel" xml:space="preserve">
+    <value>Is Active</value>
+  </data>
+  <data name="IsBaptizedLabel" xml:space="preserve">
+    <value>Is Baptized</value>
+  </data>
+  <data name="IsLocalLabel" xml:space="preserve">
+    <value>Is Local</value>
+  </data>
 </root>

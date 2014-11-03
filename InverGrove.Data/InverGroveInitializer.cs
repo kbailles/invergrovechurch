@@ -98,6 +98,24 @@ namespace InverGrove.Data
             passwordFormats.ForEach(s => context.PasswordFormats.Add(s));
             context.SaveChanges();
 
+            var phoneNumberTypes = new List<PhoneNumberType>
+                                  {
+                                      new PhoneNumberType
+                                      {
+                                          Description = "Home"
+                                      },
+                                      new PhoneNumberType
+                                      {
+                                          Description = "Mobile"
+                                      },
+                                      new PhoneNumberType
+                                      {
+                                          Description = "Work"
+                                      }
+                                  };
+            phoneNumberTypes.ForEach(s => context.PhoneNumberTypes.Add(s));
+            context.SaveChanges();
+
             var relationTypes = new List<RelationType>
                                 {
                                     new RelationType { RelationTypeDescription = "Husband" },

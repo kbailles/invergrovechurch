@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web.Profile;
 using InverGrove.Domain.Extensions;
+using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Repositories;
@@ -31,6 +32,26 @@ namespace InverGrove.Domain.Services
             this.profileRepository = profileRepository ?? ProfileRepository.Create();
         }
 
+        /// <summary>
+        /// Adds the profile.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
+        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
+        /// <param name="isActive">if set to <c>true</c> [is active].</param>
+        /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
+        /// <returns></returns>
+        public int AddProfile(int userId, int personId, bool isBaptized, bool isLocal, bool isActive, bool isValidated)
+        {
+            var profile = ProfileFactory.Instance.Create(userId, personId, isBaptized, isLocal, isActive, isValidated);
+            profile.IsDisabled = false;
+            profile.ReceiveEmailNotification = false;
+
+            var profileId = this.profileRepository.Add(profile);
+
+            return profileId;
+        }
 
         /// <summary>
         /// Gets the property values.

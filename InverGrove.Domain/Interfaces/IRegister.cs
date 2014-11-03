@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 using System.Web.Mvc;
-using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
-using InverGrove.Domain.Resources;
 
-namespace InverGrove.Domain.ViewModels
+namespace InverGrove.Domain.Interfaces
 {
-    public class Register : IRegister
+    public interface IRegister
     {
         /// <summary>
         /// Gets or sets the name of the user.
@@ -15,9 +12,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The name of the user.
         /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "UserNameLabel")]
-        public string UserName { get; set; }
+        string UserName { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
@@ -25,11 +20,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The password.
         /// </value>
-        [Required]
-        [StringLength(100, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PasswordErrorMessage", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(ResourceType = typeof(ViewLabels), Name = "PasswordLabel")]
-        public string Password { get; set; }
+        string Password { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is baptized.
@@ -37,9 +28,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// <c>true</c> if this instance is baptized; otherwise, <c>false</c>.
         /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "IsBaptizedLabel")]
-        public bool IsBaptized { get; set; }
+        bool IsBaptized { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is local.
@@ -47,9 +36,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         ///   <c>true</c> if this instance is local; otherwise, <c>false</c>.
         /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "IsLocalLabel")]
-        public bool IsLocal { get; set; }
+        bool IsLocal { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is active.
@@ -57,9 +44,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
         /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "IsActiveLabel")]
-        public bool IsActive { get; set; }
+        bool IsActive { get; set; }
 
         /// <summary>
         /// Gets or sets the person.
@@ -67,7 +52,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The person.
         /// </value>
-        public Person Person { get; set; }
+        Person Person { get; set; }
 
         /// <summary>
         /// Gets or sets the marital status list.
@@ -75,7 +60,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The marital status list.
         /// </value>
-        public IEnumerable<SelectListItem> MaritalStatusList { get; set; }
+        IEnumerable<SelectListItem> MaritalStatusList { get; set; }
 
         /// <summary>
         /// Gets or sets the person type list.
@@ -83,6 +68,6 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The person type list.
         /// </value>
-        public IEnumerable<SelectListItem> PersonTypeList { get; set; }
+        IEnumerable<SelectListItem> PersonTypeList { get; set; }
     }
 }

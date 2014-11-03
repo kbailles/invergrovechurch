@@ -110,6 +110,5 @@ namespace InverGrove.Domain.Models
         /// The person.
         /// </value>
         public IPerson Person { get; set; }
-       
     }
 }

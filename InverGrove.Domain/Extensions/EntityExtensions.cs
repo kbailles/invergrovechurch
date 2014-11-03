@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using InverGrove.Domain.Models;
+using InverGrove.Data.Entities;
+using Membership = InverGrove.Domain.Models.Membership;
+using Person = InverGrove.Domain.Models.Person;
+using Profile = InverGrove.Domain.Models.Profile;
+using Role = InverGrove.Domain.Models.Role;
+using Sermon = InverGrove.Domain.Models.Sermon;
+using User = InverGrove.Domain.Models.User;
 
 namespace InverGrove.Domain.Extensions
 {
@@ -113,6 +119,93 @@ namespace InverGrove.Domain.Extensions
             userModel.IsAnonymous = user.IsAnonymous;
 
             return userModel;
+        }
+
+        public static Data.Entities.Person ToEntity(this Person personModel)
+        {
+            var person = new Data.Entities.Person();
+
+            if (personModel == null)
+            {
+                return person;
+            }
+
+            person.PersonId = personModel.PersonId;
+            person.FirstName = personModel.FirstName;
+            person.LastName = personModel.LastName;
+            person.MiddleInitial = personModel.MiddleInitial;
+            person.Address1 = personModel.AddressOne;
+            person.Address2 = personModel.AddressTwo;
+            person.City = personModel.City;
+            person.DateOfBirth = personModel.DateOfBirth;
+            person.EmailPrimary = personModel.PrimaryEmail;
+            person.EmailSecondary = personModel.SecondaryEmail;
+            person.Gender = personModel.Gender;
+            person.GroupPhoto = personModel.GroupPhotoFilePath;
+            person.IndividualPhoto = personModel.IndividualPhotoFilePath;
+            person.MaritalStatusId = personModel.MaritalStatusId;
+            person.PersonTypeId = personModel.PersonTypeId;
+            person.State = personModel.State;
+            var modelPhoneNumbers = personModel.PhoneNumbers.ToSafeList();
+
+            if (modelPhoneNumbers.Count > 0)
+            {
+                foreach (var modelPhoneNumber in modelPhoneNumbers)
+                {
+                    person.PhoneNumbers.Add(new PhoneNumber
+                    {
+                        AreaCode = modelPhoneNumber.AreaCode,
+                        Phone = modelPhoneNumber.Phone,
+                        PhoneNumberTypeId = modelPhoneNumber.PhoneNumberTypeId,
+                        PhoneNumberType = null
+                    });
+                }
+            }
+
+            return person;
+        }
+
+        public static Person ToModel(this Data.Entities.Person person)
+        {
+            var personModel = new Person();
+
+            if (person == null)
+            {
+                return personModel;
+            }
+
+            personModel.PersonId = person.PersonId;
+            personModel.FirstName = person.FirstName;
+            personModel.LastName = person.LastName;
+            personModel.MiddleInitial = person.MiddleInitial;
+            personModel.AddressOne = person.Address1;
+            personModel.AddressTwo = person.Address2;
+            personModel.City = person.City;
+            personModel.DateOfBirth = person.DateOfBirth;
+            personModel.PrimaryEmail = person.EmailPrimary;
+            personModel.SecondaryEmail = person.EmailSecondary;
+            personModel.Gender = person.Gender;
+            personModel.GroupPhotoFilePath = person.GroupPhoto;
+            personModel.IndividualPhotoFilePath = person.IndividualPhoto;
+            personModel.MaritalStatusId = person.MaritalStatusId;
+            personModel.PersonTypeId = person.PersonTypeId;
+            personModel.State = person.State;
+            var entityPhoneNumbers = person.PhoneNumbers.ToSafeList();
+
+            if (entityPhoneNumbers.Count > 0)
+            {
+                foreach (var entityPhoneNumber in entityPhoneNumbers)
+                {
+                    personModel.PhoneNumbers.Add(new Models.PhoneNumber
+                    {
+                        AreaCode = entityPhoneNumber.AreaCode,
+                        Phone = entityPhoneNumber.Phone,
+                        PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId
+                    });
+                }
+            }
+
+            return personModel;
         }
 
         public static Data.Entities.Profile ToEntity(this Profile profileModel)

@@ -15,7 +15,6 @@ namespace InverGrove.Domain.Helpers
 
         /// <summary>
         /// Gets the state select list.
-        /// NOTE:  Had to cast the IDictionary object to a SelectListItem List because - MVC 3 only allows for Dictionary<int, string> not <string, string>
         /// </summary>
         /// <returns></returns>
         public IEnumerable<SelectListItem> GetStateSelectList()

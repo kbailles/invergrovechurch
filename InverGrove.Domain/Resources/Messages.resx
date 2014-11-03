@@ -275,4 +275,52 @@
   <data name="AddressOneRequired" xml:space="preserve">
     <value>Address is required.</value>
   </data>
+  <data name="AddressLengthErrorMessage" xml:space="preserve">
+    <value>Address length is invalid. Must be between 1 and 200 characters.</value>
+  </data>
+  <data name="AreaCodeInvalidErrorMessage" xml:space="preserve">
+    <value>Area Code is invalid.</value>
+  </data>
+  <data name="CityLengthErrorMessage" xml:space="preserve">
+    <value>City length is invalid.  Must be between 1 and 100 characters.</value>
+  </data>
+  <data name="CityRequired" xml:space="preserve">
+    <value>City is required.</value>
+  </data>
+  <data name="EmailRequiredErrorMessage" xml:space="preserve">
+    <value>Email is required.</value>
+  </data>
+  <data name="PhoneNumberFormatErrorMessage" xml:space="preserve">
+    <value>Phone Number format is invalid.</value>
+  </data>
+  <data name="PhoneNumberRequiredErrorMessage" xml:space="preserve">
+    <value>Phone Number required.</value>
+  </data>
+  <data name="PostalCodeInvalidErrorMessage" xml:space="preserve">
+    <value>Postal Code format is invalid.</value>
+  </data>
+  <data name="PostalCodeLengthErrorMessage" xml:space="preserve">
+    <value>Postal Code is length is invalid. Must be between 5 and 10 characters.</value>
+  </data>
+  <data name="PostalCodeRequired" xml:space="preserve">
+    <value>Postal Code is required.</value>
+  </data>
+  <data name="StateRequired" xml:space="preserve">
+    <value>State is required.</value>
+  </data>
+  <data name="AreaCodeRequired" xml:space="preserve">
+    <value>Area Code is required.</value>
+  </data>
+  <data name="PhoneNumberTypeRequired" xml:space="preserve">
+    <value>Please select a phone number type.</value>
+  </data>
+  <data name="GenderRequiredErrorMessage" xml:space="preserve">
+    <value>Gender is required.</value>
+  </data>
+  <data name="MaritalStatusRequiredErrorMessage" xml:space="preserve">
+    <value>Please select a Marital Status.</value>
+  </data>
+  <data name="PersonTypeRequiredErrorMessage" xml:space="preserve">
+    <value>Please select a Person Type.</value>
+  </data>
 </root>

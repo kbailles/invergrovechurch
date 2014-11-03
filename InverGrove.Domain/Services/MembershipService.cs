@@ -125,7 +125,7 @@ namespace InverGrove.Domain.Services
 
             IMembership membership = this.membershipFactory.Create(password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
             var newMembership = this.membershipRepository.Add(membership, userName);
-            
+
             return newMembership;
         }
 

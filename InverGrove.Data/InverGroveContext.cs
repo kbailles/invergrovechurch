@@ -112,6 +112,22 @@ namespace InverGrove.Data
         public IDbSet<PersonType> PersonTypes { get; set; }
 
         /// <summary>
+        /// Gets or sets the phone numbers.
+        /// </summary>
+        /// <value>
+        /// The phone numbers.
+        /// </value>
+        public IDbSet<PhoneNumber> PhoneNumbers { get; set; }
+
+        /// <summary>
+        /// Gets or sets the phone number types.
+        /// </summary>
+        /// <value>
+        /// The phone number types.
+        /// </value>
+        public IDbSet<PhoneNumberType> PhoneNumberTypes { get; set; }
+
+        /// <summary>
         /// Gets or sets the profiles.
         /// </summary>
         /// <value>
@@ -239,9 +255,9 @@ namespace InverGrove.Data
         /// </returns>
         /// <remarks>This method is virtual</remarks>
         /// <code>
-        ///     context.Database.SqlQuery&lt;EntityType&gt;( 
-        ///     "EXEC ProcName @param1, @param2", 
-        ///     new SqlParameter("param1", param1), 
+        ///     context.Database.SqlQuery&lt;EntityType&gt;(
+        ///     "EXEC ProcName @param1, @param2",
+        ///     new SqlParameter("param1", param1),
         ///     new SqlParameter("param2", param2));
         /// </code>
         /// <code>
@@ -288,12 +304,12 @@ namespace InverGrove.Data
         /// <summary>
         /// Asynchronously saves all changes made in this context to the underlying database.
         /// </summary>
-        /// <returns>A task that represents the asynchronous save operation. 
+        /// <returns>A task that represents the asynchronous save operation.
         /// The task result contains the number of objects written to the underlying database.</returns>
         /// <throws>System.InvalidOperationException: Thrown if the context has been disposed.</throws>
         /// <remarks>
-        /// Multiple active operations on the same context instance are not supported. 
-        /// Use 'await' to ensure that any asynchronous operations have completed before 
+        /// Multiple active operations on the same context instance are not supported.
+        /// Use 'await' to ensure that any asynchronous operations have completed before
         /// calling another method on this context.
         /// </remarks>
         public async Task<int> CommitAsync()
@@ -302,7 +318,7 @@ namespace InverGrove.Data
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether [disable proxy creation]. The default 
+        /// Gets or sets a value indicating whether [disable proxy creation]. The default
         /// value is set to <c>true</c>
         /// </summary>
         /// <value>
@@ -316,7 +332,7 @@ namespace InverGrove.Data
 
         /// <summary>
         /// Gets or sets a value indicating whether [validate on save].
-        /// Default value is 
+        /// Default value is
         /// <c>true</c>
         /// </summary>
         /// <value>
@@ -329,10 +345,10 @@ namespace InverGrove.Data
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the 
-        /// DbChangeTracker.DetectChanges() method is called automatically 
-        /// by methods of System.Data.Entity.DbContext and related classes.  
-        /// The default value is 
+        /// Gets or sets a value indicating whether the
+        /// DbChangeTracker.DetectChanges() method is called automatically
+        /// by methods of System.Data.Entity.DbContext and related classes.
+        /// The default value is
         /// <c>true</c>.
         /// </summary>
         /// <value>
@@ -348,12 +364,12 @@ namespace InverGrove.Data
         /// Asynchronously saves all changes made in this context to the underlying database.
         /// </summary>
         /// <param name="cancellationToken">A System.Threading.CancellationToken to observe while waiting for the task to complete.</param>
-        /// <returns>A task that represents the asynchronous save operation. 
+        /// <returns>A task that represents the asynchronous save operation.
         /// The task result contains the number of objects written to the underlying database.</returns>
         /// <throws>System.InvalidOperationException: Thrown if the context has been disposed.</throws>
         /// <remarks>
-        /// Multiple active operations on the same context instance are not supported. 
-        /// Use 'await' to ensure that any asynchronous operations have completed before 
+        /// Multiple active operations on the same context instance are not supported.
+        /// Use 'await' to ensure that any asynchronous operations have completed before
         /// calling another method on this context.
         /// </remarks>
         public virtual async Task<int> CommitAsync(CancellationToken cancellationToken)
@@ -482,14 +498,6 @@ namespace InverGrove.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<Person>()
-                .Property(e => e.PhonePrimary)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Person>()
-                .Property(e => e.PhoneSecondary)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Person>()
                 .Property(e => e.Gender)
                 .IsUnicode(false);
 
@@ -500,6 +508,11 @@ namespace InverGrove.Data
             modelBuilder.Entity<Person>()
                 .Property(e => e.IndividualPhoto)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.PhoneNumbers)
+                .WithRequired(e => e.Person)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Person>()
                 .HasMany(e => e.Profiles)
@@ -521,6 +534,23 @@ namespace InverGrove.Data
             modelBuilder.Entity<PersonType>()
                 .HasMany(e => e.People)
                 .WithRequired(e => e.PersonType)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PhoneNumber>()
+                .Property(e => e.AreaCode)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PhoneNumber>()
+                .Property(e => e.Phone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PhoneNumberType>()
+                .Property(e => e.Description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PhoneNumberType>()
+                .HasMany(e => e.PhoneNumbers)
+                .WithRequired(e => e.PhoneNumberType)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<RelationType>()

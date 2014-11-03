@@ -148,6 +148,8 @@
     <Compile Include="Enums\PhoneNumberFormatType.cs" />
     <Compile Include="Enums\ZipCodeFormatType.cs" />
     <Compile Include="Interfaces\ISermon.cs" />
+    <Compile Include="Interfaces\IPhoneNumber.cs" />
+    <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Sermon.cs" />
     <Compile Include="Providers\MembershipProvider.cs" />
     <Compile Include="Providers\ProfileProvider.cs" />
@@ -155,9 +157,10 @@
     <Compile Include="Repositories\ContactRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
     <Compile Include="Interfaces\ISermonRepository.cs" />
+    <Compile Include="Interfaces\IPersonRepository.cs" />
     <Compile Include="Repositories\MembershipRepository.cs" />
+    <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\ProfileRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\SermonRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -190,8 +193,12 @@
     <Compile Include="Services\ContactService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Interfaces\ISermonService.cs" />
+    <Compile Include="Interfaces\IRegistrationService.cs" />
+    <Compile Include="Interfaces\IPersonService.cs" />
     <Compile Include="Services\MembershipService.cs" />
+    <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\ProfileService.cs" />
+    <Compile Include="Services\RegistrationService.cs" />
     <Compile Include="Services\SermonService.cs" />
     <Compile Include="Services\SessionStateService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -200,6 +207,7 @@
     <Compile Include="ValueTypes\RegularExpressions.cs" />
     <Compile Include="ViewModels\AttendancePerson.cs" />
     <Compile Include="Interfaces\ILoginUser.cs" />
+    <Compile Include="Interfaces\IRegister.cs" />
     <Compile Include="ViewModels\LoginUser.cs" />
     <Compile Include="ViewModels\Register.cs" />
     <Compile Include="ViewModels\ResetPassword.cs" />

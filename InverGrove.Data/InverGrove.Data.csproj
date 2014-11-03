@@ -61,6 +61,8 @@
     <Compile Include="Entities\PasswordFormat.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PersonType.cs" />
+    <Compile Include="Entities\PhoneNumber.cs" />
+    <Compile Include="Entities\PhoneNumberType.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\RelationType.cs" />
     <Compile Include="Entities\Relative.cs" />

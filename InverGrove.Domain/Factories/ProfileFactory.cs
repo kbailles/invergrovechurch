@@ -20,6 +20,29 @@ namespace InverGrove.Domain.Factories
         }
 
         /// <summary>
+        /// Creates the specified user identifier.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
+        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
+        /// <param name="isActive">if set to <c>true</c> [is active].</param>
+        /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
+        /// <returns></returns>
+        public IProfile Create(int userId, int personId, bool isBaptized, bool isLocal, bool isActive, bool isValidated)
+        {
+            return new Profile
+            {
+                IsActive = isActive,
+                IsBaptized = isBaptized,
+                IsLocal = isLocal,
+                IsValidated = isValidated,
+                PersonId = personId,
+                UserId = userId
+            };
+        }
+
+        /// <summary>
         /// Creates the Profile from the specified collection.
         /// </summary>
         /// <param name="collection">The collection.</param>
@@ -85,6 +108,6 @@ namespace InverGrove.Domain.Factories
             }
 
             return spvc;
-        } 
+        }
     }
 }

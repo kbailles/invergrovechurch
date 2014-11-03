@@ -5,6 +5,18 @@ namespace InverGrove.Domain.Interfaces
     public interface IProfileService
     {
         /// <summary>
+        /// Adds the profile.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
+        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
+        /// <param name="isActive">if set to <c>true</c> [is active].</param>
+        /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
+        /// <returns></returns>
+        int AddProfile(int userId, int personId, bool isBaptized, bool isLocal, bool isActive, bool isValidated);
+
+        /// <summary>
         /// Gets the property values.
         /// </summary>
         /// <param name="username">The username.</param>

@@ -40,7 +40,7 @@ namespace InverGrove.Domain.Repositories
         {
             if (membership == null)
             {
-                throw new ParameterNullException("profile");
+                throw new ParameterNullException("membership");
             }
 
             var timestamp = DateTime.Now;
@@ -60,14 +60,13 @@ namespace InverGrove.Domain.Repositories
             membershipEntity.DateLockedOut = null;
             membershipEntity.DateLastActivity = timestamp;
             membershipEntity.DateLastLogin = timestamp;
-            membershipEntity.IsApproved = true;
             membershipEntity.FailedPasswordAnswerAttemptWindowStart = timestamp;
             membershipEntity.FailedPasswordAttemptWindowStart = timestamp;
 
             this.Insert(membershipEntity);
 
             this.Save();
-            
+
             return membershipEntity.ToModel();
         }
 

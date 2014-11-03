@@ -18,30 +18,6 @@
         /// </value>
         string Password { get; set; }
 
-        ///// <summary>
-        ///// Gets or sets the old password.
-        ///// </summary>
-        ///// <value>
-        ///// The old password.
-        ///// </value>
-        //string OldPassword { get; set; }
-
-        ///// <summary>
-        ///// Gets or sets the new password.
-        ///// </summary>
-        ///// <value>
-        ///// The new password.
-        ///// </value>
-        //string NewPassword { get; set; }
-
-        ///// <summary>
-        ///// Gets or sets the confirm password.
-        ///// </summary>
-        ///// <value>
-        ///// The confirm password.
-        ///// </value>
-        //string ConfirmPassword { get; set; }
-
         /// <summary>
         /// Gets or sets a value indicating whether [remember me].
         /// </summary>

@@ -57,7 +57,7 @@ namespace InverGrove.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] // this is going to be moved to the Admin area
         public ActionResult Register(Register model)
         {
             if (ModelState.IsValid)
@@ -66,7 +66,7 @@ namespace InverGrove.Web.Controllers
                 try
                 {
                     MembershipCreateStatus status;
-                    Membership.CreateUser(model.UserName, model.Password, "", model.PasswordQuestion, model.PasswordAnswer, true, out status);
+                   //Membership.CreateUser(model.UserName, model.Password, "", model.PasswordQuestion, model.PasswordAnswer, true, out status);
                     //WebSecurity.Login(model.UserName, model.Password);
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");

@@ -49,11 +49,12 @@ namespace InverGrove.Domain.Factories
             var membership = new Membership
                              {
                                  PasswordSalt = password.GetRandomSalt(),
-                                 PasswordFormatId = (int)inverGrovePasswordFormat
+                                 PasswordFormatId = (int)inverGrovePasswordFormat,
+                                 IsApproved = isApproved,
+                                 PasswordQuestion = passwordQuestion
                              };
 
             membership.Password = password.FormatPasscode(inverGrovePasswordFormat, membership.PasswordSalt);
-            membership.PasswordQuestion = passwordQuestion;
             membership.PasswordAnswer = passwordAnswer.ToLowerInvariant().Sha256Hash();
             membership.FailedPasswordAttemptWindowStart = DateTime.MinValue.IsSqlSafeDate();
             membership.FailedPasswordAnswerAttemptWindowStart = DateTime.MinValue.IsSqlSafeDate();

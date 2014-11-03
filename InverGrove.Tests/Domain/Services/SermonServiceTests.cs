@@ -15,7 +15,7 @@ namespace InverGrove.Tests.Domain.Services
     {
         private SermonService sermonService;
         private Mock<ISermonRepository> sermonRepository;
-        
+
         [TestInitialize]
         public void Setup()
         {
