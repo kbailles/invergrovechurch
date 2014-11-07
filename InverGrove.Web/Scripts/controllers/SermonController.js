@@ -8,7 +8,7 @@ angular.module('app.controllers')
             {
                 date: new Date(2014, 9, 26),
                 sermonId: 171447693,
-                speaker: 'Antoine Halloway',
+                speaker: 'floyd Hanson',
                 tags: [
                     'Be Bold'
                 ],
@@ -17,7 +17,7 @@ angular.module('app.controllers')
             {
                 date: new Date(2014, 9, 25),
                 sermonId: 171447888,
-                speaker: 'Antoine Halloway',
+                speaker: 'Jimmy Echols',
                 tags: [
                     'Be Bold',
                     'Test2'
@@ -47,7 +47,7 @@ angular.module('app.controllers')
             {
                 date: new Date(2014, 9, 22),
                 sermonId: 171447791,
-                speaker: 'Antoine Halloway',
+                speaker: 'Jimmy Echols',
                 tags: [
                     'Be Bold',
                     'Test2'

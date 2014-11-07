@@ -11,6 +11,14 @@
         int Add(IProfile profile);
 
         /// <summary>
+        /// Adds the person profile.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <param name="profile">The profile.</param>
+        /// <returns></returns>
+        int AddPersonProfile(IPerson person, IProfile profile);
+
+        /// <summary>
         /// Updates the specified profile.
         /// </summary>
         /// <param name="profile">The profile.</param>

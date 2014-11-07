@@ -100,11 +100,16 @@
     <Compile Include="Enums\SortDirection.cs" />
     <Compile Include="Exceptions\LockTimeoutException.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
+    <Compile Include="Exceptions\ParameterOutOfRangeException.cs" />
     <Compile Include="Exceptions\UndisposedLockException.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\Guard.cs" />
+    <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
+    <Compile Include="Interfaces\IPersonTypeRepository.cs" />
+    <Compile Include="Repositories\MaritalStatusRepository.cs" />
+    <Compile Include="Repositories\PersonTypeRepository.cs" />
+    <Compile Include="Utils\Guard.cs" />
     <Compile Include="Extensions\MembershipExtensions.cs" />
     <Compile Include="Extensions\PasswordFormatExtensions.cs" />
     <Compile Include="Extensions\ProfileExtensions.cs" />
@@ -222,6 +227,7 @@
     <EmbeddedResource Include="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ViewLabels.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

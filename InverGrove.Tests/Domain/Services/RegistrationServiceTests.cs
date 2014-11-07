@@ -13,7 +13,6 @@ namespace InverGrove.Tests.Domain.Services
     public class RegistrationServiceTests
     {
         private Mock<IMembershipService> membershipService;
-        private Mock<IPersonService> personService;
         private Mock<IProfileService> profileService;
         private RegistrationService registrationService;
 
@@ -21,9 +20,8 @@ namespace InverGrove.Tests.Domain.Services
         public void SetUp()
         {
             this.membershipService = new Mock<IMembershipService>();
-            this.personService = new Mock<IPersonService>();
             this.profileService = new Mock<IProfileService>();
-            this.registrationService = new RegistrationService(this.membershipService.Object, this.personService.Object, this.profileService.Object);
+            this.registrationService = new RegistrationService(this.membershipService.Object, this.profileService.Object);
         }
 
         [TestMethod]
@@ -45,7 +43,8 @@ namespace InverGrove.Tests.Domain.Services
         {
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
-                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(new InverGrove.Domain.Models.Membership { MembershipId = 0, UserId = 0 });
+                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(
+                    new InverGrove.Domain.Models.Membership { MembershipId = 0, UserId = 0 });
 
             this.registrationService.RegisterUser(new Register { Person = new Person() });
 
@@ -53,29 +52,16 @@ namespace InverGrove.Tests.Domain.Services
         }
 
         [TestMethod]
-        public void RegisterUser_Should_Call_AddPerson_On_PersonService()
-        {
-            this.membershipService.Setup(
-                m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
-                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 });
-
-            this.registrationService.RegisterUser(new Register { Person = new Person() });
-
-            this.personService.Verify(p => p.AddPerson(It.IsAny<IPerson>()));
-        }
-
-        [TestMethod]
         public void RegisterUser_Should_Call_AddProfile_On_ProfileService()
         {
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
-                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 });
-
-            this.personService.Setup(p => p.AddPerson(It.IsAny<IPerson>())).Returns(3);
+                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(
+                    new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 });
 
             this.registrationService.RegisterUser(new Register { Person = new Person() });
 
-            this.profileService.Verify(p => p.AddProfile(It.IsAny<int>(), It.IsAny<int>(), false, false, false, true));
+            this.profileService.Verify(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, false, true));
         }
     }
 }

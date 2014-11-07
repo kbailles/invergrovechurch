@@ -7,6 +7,7 @@ using Castle.Windsor;
 using InverGrove.Data;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Providers;
 using InverGrove.Domain.Repositories;
 using InverGrove.Domain.Services;
 using InverGrove.Web.Controllers;
@@ -22,6 +23,8 @@ namespace InverGrove.Web
             RegisterRepositories(container);
             RegisterServices(container);
             RegisterFactories(container);
+
+            container.Register(Component.For<IProfileProvider>().ImplementedBy<ProfileProvider>().LifeStyle.Transient);
         }
 
         private static void RegisterFactories(IWindsorContainer container)
@@ -33,22 +36,22 @@ namespace InverGrove.Web
 
         private static void RegisterRepositories(IWindsorContainer container)
         {
-            container.Register(Component.For<IDataContextFactory>().ImplementedBy<DataContextFactory>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IDataContextFactory>().ImplementedBy<DataContextFactory>().LifeStyle.Transient);
             container.Register(Component.For<IInverGroveContext>().ImplementedBy<InverGroveContext>().LifeStyle.Transient);
-            //container.Register(Component.For<IPersonRepository>().ImplementedBy<PersonRepository>().LifeStyle.Transient);
-            container.Register(Component.For<IMembershipRepository>().ImplementedBy<MembershipRepository>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IMembershipRepository>().ImplementedBy<MembershipRepository>().LifeStyle.Transient);
             container.Register(Component.For<IUserRoleRepository>().ImplementedBy<UserRoleRepository>().LifeStyle.Transient);
             container.Register(Component.For<IRoleRepository>().ImplementedBy<RoleRepository>().LifeStyle.Transient);
             container.Register(Component.For<ISermonRepository>().ImplementedBy<SermonRepository>().LifeStyle.Transient);
-            container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifeStyle.PerWebRequest);
-            container.Register(Component.For<IPersonRepository>().ImplementedBy<PersonRepository>().LifeStyle.PerWebRequest);
-            container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.PerWebRequest);
-            container.Register(Component.For<IContactRepository>().ImplementedBy<ContactRepository>().LifeStyle.PerWebRequest);
+            container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IPersonRepository>().ImplementedBy<PersonRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IContactRepository>().ImplementedBy<ContactRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IMaritalStatusRepository>().ImplementedBy<MaritalStatusRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IPersonTypeRepository>().ImplementedBy<PersonTypeRepository>().LifeStyle.Transient);
         }
 
         private static void RegisterServices(IWindsorContainer container)
         {
-            // container.Register(Component.For<IPersonService>().ImplementedBy<PersonService>().LifeStyle.Transient);
             container.Register(Component.For<IAttendanceService>().ImplementedBy<AttendanceService>().LifeStyle.Transient);
             container.Register(Component.For<IMembershipService>().ImplementedBy<MembershipService>().LifeStyle.Transient);
             container.Register(Component.For<IProfileService>().ImplementedBy<ProfileService>().LifeStyle.Transient);
@@ -57,7 +60,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IRegistrationService>().ImplementedBy<RegistrationService>().LifeStyle.Transient);
             container.Register(Component.For<ISermonService>().ImplementedBy<SermonService>().LifeStyle.Transient);
             container.Register(Component.For<IPersonService>().ImplementedBy<PersonService>().LifeStyle.Transient);
-
+            container.Register(Component.For<ISessionStateService>().ImplementedBy<SessionStateService>().LifeStyle.Transient);
         }
 
         private static void AddControllers(IWindsorContainer container)

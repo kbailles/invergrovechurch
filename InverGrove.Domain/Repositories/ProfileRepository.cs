@@ -58,6 +58,46 @@ namespace InverGrove.Domain.Repositories
         }
 
         /// <summary>
+        /// Adds the person profile.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <param name="profile">The profile.</param>
+        /// <returns></returns>
+        /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">
+        /// person
+        /// or
+        /// profile
+        /// </exception>
+        public int AddPersonProfile(IPerson person, IProfile profile)
+        {
+            if (person == null)
+            {
+                throw new ParameterNullException("person");
+            }
+
+            if (profile == null)
+            {
+                throw new ParameterNullException("profile");
+            }
+
+            var currentDate = DateTime.Now;
+            profile.DateCreated = currentDate;
+            profile.DateModified = currentDate;
+
+            Data.Entities.Profile profileEntity = ((Profile)profile).ToEntity();
+            profileEntity.IsDisabled = false;
+            profileEntity.IsValidated = true;
+            profileEntity.Person = ((Person)person).ToEntity();
+            profileEntity.User = null;
+
+            this.Insert(profileEntity);
+
+            this.Save();
+
+            return profileEntity.ProfileId;
+        }
+
+        /// <summary>
         /// Updates the specified profile.
         /// </summary>
         /// <param name="profile">The profile.</param>

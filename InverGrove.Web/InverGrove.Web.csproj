@@ -284,6 +284,8 @@
     <Content Include="Components\rs-plugin\js\jquery.themepunch.revolution.min.js" />
     <Content Include="Components\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="Components\sticky\jquery.sticky.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\rs-plugin\style.css" />
     <Content Include="Content\images\1corinthians_biblestudy.png" />
@@ -318,9 +320,13 @@
     <Content Include="Content\less\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\common\gitkeep.txt" />
     <Content Include="Scripts\controllers\SermonController.js" />
     <Content Include="Scripts\directives.js" />
@@ -415,6 +421,13 @@
     <Content Include="Components\font-awesome\scss\_variables.scss" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Member\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Registration\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Person.cshtml" />
     <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
@@ -431,6 +444,7 @@
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
     <Content Include="Scripts\models\gitkeep.txt" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\services\gitkeep.txt" />
     <Content Include="Tests\controllers\AppControllerTest.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
@@ -447,6 +461,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSermonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\ContactFormController.cs" />
@@ -490,7 +505,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\AdminSermon\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Member\Controllers\" />
     <Folder Include="Areas\Member\Views\Shared\" />
   </ItemGroup>

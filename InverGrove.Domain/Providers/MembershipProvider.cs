@@ -9,12 +9,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Security;
 using InverGrove.Domain.Enums;
+using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Helpers;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Resources;
 using InverGrove.Domain.Services;
+using InverGrove.Domain.Utils;
 using Membership = InverGrove.Domain.Models.Membership;
 
 namespace InverGrove.Domain.Providers
@@ -221,17 +223,17 @@ namespace InverGrove.Domain.Providers
         {
             if (string.IsNullOrEmpty(username))
             {
-                throw new ArgumentNullException("username");
+                throw new ParameterNullException("username");
             }
 
             if (string.IsNullOrEmpty(oldPassword))
             {
-                throw new ArgumentNullException("oldPassword");
+                throw new ParameterNullException("oldPassword");
             }
 
             if (string.IsNullOrEmpty(newPassword))
             {
-                throw new ArgumentNullException("newPassword");
+                throw new ParameterNullException("newPassword");
             }
 
             this.CheckNewPasswordValidity(oldPassword, newPassword);
@@ -323,17 +325,17 @@ namespace InverGrove.Domain.Providers
 
             if (string.IsNullOrEmpty(securityAnswer))
             {
-                throw new ArgumentNullException("securityAnswer");
+                throw new ParameterNullException("securityAnswer");
             }
 
             if (string.IsNullOrEmpty(newPassword))
             {
-                throw new ArgumentNullException("newPassword");
+                throw new ParameterNullException("newPassword");
             }
 
             if (string.IsNullOrEmpty(username))
             {
-                throw new ArgumentNullException("username");
+                throw new ParameterNullException("username");
             }
 
             if (!this.passwordRegex.IsMatch(newPassword))
@@ -372,7 +374,7 @@ namespace InverGrove.Domain.Providers
         {
             if (string.IsNullOrEmpty(userName))
             {
-                throw new ArgumentNullException("userName");
+                throw new ParameterNullException("userName");
             }
 
             return this.membershipService.GetMembershipByUserName(userName);
@@ -389,11 +391,11 @@ namespace InverGrove.Domain.Providers
         {
             if (string.IsNullOrEmpty(securityQuestion))
             {
-                throw new ArgumentNullException("securityQuestion");
+                throw new ParameterNullException("securityQuestion");
             }
             if (string.IsNullOrEmpty(securityAnswer))
             {
-                throw new ArgumentNullException("securityAnswer");
+                throw new ParameterNullException("securityAnswer");
             }
 
             var strippedSecurityAnswer = securityAnswer.ToSecurityAnswer();
@@ -476,8 +478,8 @@ namespace InverGrove.Domain.Providers
         /// </returns>
         public override bool ValidateUser(string username, string password)
         {
-            Guard.ArgumentNotNullOrEmpty("username", username);
-            Guard.ArgumentNotNullOrEmpty("password", password);
+            Guard.ParameterNotNullOrEmpty("username", username);
+            Guard.ParameterNotNullOrEmpty("password", password);
 
             var account = this.GetMembershipData(username: username);
 
@@ -652,7 +654,7 @@ namespace InverGrove.Domain.Providers
         {
             if (providerUserKey == null)
             {
-                throw new ArgumentNullException("providerUserKey");
+                throw new ParameterNullException("providerUserKey");
             }
 
             return this.GetUser(providerUserKey.ToString(), userIsOnline);
@@ -671,7 +673,7 @@ namespace InverGrove.Domain.Providers
         {
             if (string.IsNullOrEmpty(username))
             {
-                throw new ArgumentNullException("username");
+                throw new ParameterNullException("username");
             }
 
             var membership = this.membershipService.GetMembershipByUserName(username);
@@ -723,7 +725,7 @@ namespace InverGrove.Domain.Providers
         {
             if (string.IsNullOrEmpty(email))
             {
-                throw new ArgumentNullException("email");
+                throw new ParameterNullException("email");
             }
             throw new NotImplementedException();
         }
@@ -741,7 +743,7 @@ namespace InverGrove.Domain.Providers
         {
             if (string.IsNullOrEmpty(username))
             {
-                throw new ArgumentNullException("username");
+                throw new ParameterNullException("username");
             }
             throw new NotImplementedException();
         }
@@ -809,7 +811,7 @@ namespace InverGrove.Domain.Providers
         /// <param name="pageSize">The size of the page of results to return.</param>
         /// <param name="totalRecords">The total number of matched users.</param>
         /// <returns>
-        /// A <see cref="T:System.Web.Security.MembershipUserCollection"/> collection that contains a page of 
+        /// A <see cref="T:System.Web.Security.MembershipUserCollection"/> collection that contains a page of
         /// <paramref name="pageSize"/><see cref="T:System.Web.Security.MembershipUser"/> objects beginning at
         ///  the page specified by <paramref name="pageIndex"/>.
         /// </returns>
@@ -826,17 +828,15 @@ namespace InverGrove.Domain.Providers
         /// <param name="config">A collection of the name/value pairs representing the provider-specific
         ///  attributes specified in the configuration for this provider.</param>
         /// <exception cref="T:System.ArgumentNullException">The name of the provider is null.</exception>
-        ///   
         /// <exception cref="T:System.ArgumentException">The name of the provider has a length of zero.</exception>
-        ///   
         /// <exception cref="T:System.InvalidOperationException">An attempt is made to call
-        ///  <see cref="M:System.Configuration.Provider.ProviderBase.Initialize(System.String,System.Collections.Specialized.NameValueCollection)"/> 
+        ///  <see cref="M:System.Configuration.Provider.ProviderBase.Initialize(System.String,System.Collections.Specialized.NameValueCollection)"/>
         /// on a provider after the provider has already been initialized.</exception>
         public override void Initialize(string name, NameValueCollection config)
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ParameterNullException("config");
             }
 
             if (string.IsNullOrEmpty(name))
@@ -903,10 +903,6 @@ namespace InverGrove.Domain.Providers
             return (Membership)membership;
         }
 
-        /// <summary>
-        /// Updates the last login date.
-        /// </summary>
-        /// <param name="membership">The membership.</param>
         private void UpdateLastLoginData(Membership membership)
         {
             var user = this.userService.GetUser(membership.UserId);
@@ -948,11 +944,6 @@ namespace InverGrove.Domain.Providers
             return this.UpdateMembershipData(membership);
         }
 
-        /// <summary>
-        /// Checks the new password validity.
-        /// </summary>
-        /// <param name="oldPassword">The old password.</param>
-        /// <param name="newPassword">The new password.</param>
         private void CheckNewPasswordValidity(string oldPassword, string newPassword)
         {
             var errorMessage = new StringBuilder();

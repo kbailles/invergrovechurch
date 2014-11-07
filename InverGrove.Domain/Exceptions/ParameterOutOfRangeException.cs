@@ -6,7 +6,7 @@ using InverGrove.Domain.Resources;
 
 namespace InverGrove.Domain.Exceptions
 {
-    public class ParameterNullException : ArgumentNullException
+    public class ParameterOutOfRangeException : ArgumentOutOfRangeException
     {
         private readonly string parameterName;
         private Type failingParamterType;
@@ -18,8 +18,8 @@ namespace InverGrove.Domain.Exceptions
         /// </summary>
         /// <param name="parameterName">Name of the parameter.</param>
         /// <param name="declaringMethodStackFrame">The declaring method stack frame.</param>
-        public ParameterNullException(string parameterName, int declaringMethodStackFrame = 1)
-            : base(parameterName, new ArgumentException(parameterName))
+        public ParameterOutOfRangeException(string parameterName, int declaringMethodStackFrame = 1)
+            : base(parameterName, new ArgumentOutOfRangeException(parameterName))
         {
             this.declaringMethod = new StackFrame(declaringMethodStackFrame).GetMethod();
             this.declaringType = this.DeclaringMethod.DeclaringType;

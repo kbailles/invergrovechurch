@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Security;
+using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
@@ -35,6 +36,55 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
+        /// Creates the membership user.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="emailAddress">The email address.</param>
+        /// <param name="passwordQuestion">The password question.</param>
+        /// <param name="passwordAnswer">The password answer.</param>
+        /// <param name="isApproved">if set to <c>true</c> [is approved].</param>
+        /// <param name="passwordFormat">The password format.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// userName
+        /// or
+        /// password
+        /// or
+        /// passwordQuestion
+        /// or
+        /// passwordAnswer
+        /// </exception>
+        public IMembership CreateMembershipUser(string userName, string password, string emailAddress, string passwordQuestion,
+                                            string passwordAnswer, bool isApproved, MembershipPasswordFormat passwordFormat)
+        {
+            if (string.IsNullOrEmpty(userName))
+            {
+                throw new ParameterNullException("userName");
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                throw new ParameterNullException("password");
+            }
+
+            if (string.IsNullOrEmpty(passwordQuestion))
+            {
+                throw new ParameterNullException("passwordQuestion");
+            }
+
+            if (string.IsNullOrEmpty(passwordAnswer))
+            {
+                throw new ParameterNullException("passwordAnswer");
+            }
+
+            IMembership membership = this.membershipFactory.Create(password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
+            var newMembership = this.membershipRepository.Add(membership, userName);
+
+            return newMembership;
+        }
+
+        /// <summary>
         /// Gets the name of the membership by user.
         /// </summary>
         /// <param name="userName">Name of the user.</param>
@@ -44,7 +94,7 @@ namespace InverGrove.Domain.Services
         {
             if (string.IsNullOrEmpty(userName))
             {
-                throw new ArgumentNullException("userName");
+                throw new ParameterNullException("userName");
             }
 
             var foundMember = this.membershipRepository.Get(m => m.User.UserName == userName).FirstOrDefault();
@@ -81,55 +131,6 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Creates the membership user.
-        /// </summary>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="password">The password.</param>
-        /// <param name="emailAddress">The email address.</param>
-        /// <param name="passwordQuestion">The password question.</param>
-        /// <param name="passwordAnswer">The password answer.</param>
-        /// <param name="isApproved">if set to <c>true</c> [is approved].</param>
-        /// <param name="passwordFormat">The password format.</param>
-        /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// userName
-        /// or
-        /// password
-        /// or
-        /// passwordQuestion
-        /// or
-        /// passwordAnswer
-        /// </exception>
-        public IMembership CreateMembershipUser(string userName, string password, string emailAddress, string passwordQuestion,
-                                            string passwordAnswer, bool isApproved, MembershipPasswordFormat passwordFormat)
-        {
-            if (string.IsNullOrEmpty(userName))
-            {
-                throw new ArgumentNullException("userName");
-            }
-
-            if (string.IsNullOrEmpty(password))
-            {
-                throw new ArgumentNullException("password");
-            }
-
-            if (string.IsNullOrEmpty(passwordQuestion))
-            {
-                throw new ArgumentNullException("passwordQuestion");
-            }
-
-            if (string.IsNullOrEmpty(passwordAnswer))
-            {
-                throw new ArgumentNullException("passwordAnswer");
-            }
-
-            IMembership membership = this.membershipFactory.Create(password, isApproved, passwordQuestion, passwordAnswer, passwordFormat);
-            var newMembership = this.membershipRepository.Add(membership, userName);
-
-            return newMembership;
-        }
-
-        /// <summary>
         /// Updates the membership.
         /// </summary>
         /// <param name="membership">The membership.</param>
@@ -139,7 +140,7 @@ namespace InverGrove.Domain.Services
         {
             if (membership == null)
             {
-                throw new ArgumentNullException("membership");
+                throw new ParameterNullException("membership");
             }
 
             bool success = true;
@@ -172,6 +173,5 @@ namespace InverGrove.Domain.Services
 
             return membershipUserList;
         }
-        
     }
 }

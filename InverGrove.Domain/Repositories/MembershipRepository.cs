@@ -43,25 +43,7 @@ namespace InverGrove.Domain.Repositories
                 throw new ParameterNullException("membership");
             }
 
-            var timestamp = DateTime.Now;
-            Membership membershipEntity = ((Models.Membership)membership).ToEntity();
-
-            membershipEntity.FailedPasswordAnswerAttemptCount = 0;
-            membershipEntity.FailedPasswordAttemptCount = 0;
-            membershipEntity.IsLockedOut = false;
-            membershipEntity.DateCreated = timestamp;
-            membershipEntity.DateModified = timestamp;
-            membershipEntity.User = ObjectFactory.Create<User>();
-            membershipEntity.User.UserName = userName;
-            membershipEntity.User.DateCreated = timestamp;
-            membershipEntity.User.DateModified = timestamp;
-            membershipEntity.User.LastActivityDate = timestamp;
-            membershipEntity.User.IsAnonymous = false;
-            membershipEntity.DateLockedOut = null;
-            membershipEntity.DateLastActivity = timestamp;
-            membershipEntity.DateLastLogin = timestamp;
-            membershipEntity.FailedPasswordAnswerAttemptWindowStart = timestamp;
-            membershipEntity.FailedPasswordAttemptWindowStart = timestamp;
+            Membership membershipEntity = this.GetNewMembershipEntity(membership, userName);
 
             this.Insert(membershipEntity);
 
@@ -108,6 +90,31 @@ namespace InverGrove.Domain.Repositories
             this.Update(membershipEntity);
 
             this.Save();
+        }
+
+        private Membership GetNewMembershipEntity(IMembership membership, string userName)
+        {
+            var timestamp = DateTime.Now;
+            Membership membershipEntity = ((Models.Membership)membership).ToEntity();
+
+            membershipEntity.FailedPasswordAnswerAttemptCount = 0;
+            membershipEntity.FailedPasswordAttemptCount = 0;
+            membershipEntity.IsLockedOut = false;
+            membershipEntity.DateCreated = timestamp;
+            membershipEntity.DateModified = timestamp;
+            membershipEntity.User = ObjectFactory.Create<User>();
+            membershipEntity.User.UserName = userName;
+            membershipEntity.User.DateCreated = timestamp;
+            membershipEntity.User.DateModified = timestamp;
+            membershipEntity.User.LastActivityDate = timestamp;
+            membershipEntity.User.IsAnonymous = false;
+            membershipEntity.DateLockedOut = null;
+            membershipEntity.DateLastActivity = timestamp;
+            membershipEntity.DateLastLogin = timestamp;
+            membershipEntity.FailedPasswordAnswerAttemptWindowStart = timestamp;
+            membershipEntity.FailedPasswordAttemptWindowStart = timestamp;
+
+            return membershipEntity;
         }
     }
 }

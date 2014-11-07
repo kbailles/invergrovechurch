@@ -7,6 +7,7 @@ using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Repositories;
+using InverGrove.Domain.Utils;
 using InverGrove.Domain.ValueTypes;
 
 namespace InverGrove.Domain.Services
@@ -51,6 +52,30 @@ namespace InverGrove.Domain.Services
             var profileId = this.profileRepository.Add(profile);
 
             return profileId;
+        }
+
+        /// <summary>
+        /// Adds the person profile.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
+        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
+        /// <param name="isActive">if set to <c>true</c> [is active].</param>
+        /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
+        /// <returns></returns>
+        public bool AddPersonProfile(IPerson person, int userId, bool isBaptized, bool isLocal, bool isActive, bool isValidated)
+        {
+            Guard.ParameterNotNull(person, "person");
+            Guard.ParameterNotOutOfRange(userId, "userId");
+
+            var profile = ProfileFactory.Instance.Create(userId, 0, isBaptized, isLocal, isActive, isValidated);
+            profile.IsDisabled = false;
+            profile.ReceiveEmailNotification = false;
+
+            var profileId = this.profileRepository.AddPersonProfile(person, profile);
+
+            return profileId > 0;
         }
 
         /// <summary>

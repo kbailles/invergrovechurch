@@ -48,9 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Services\MembershipServiceTests.cs" />
     <Compile Include="Domain\Services\PersonServiceTests.cs" />
+    <Compile Include="Domain\Services\ProfileServiceTests.cs" />
     <Compile Include="Domain\Services\RegistrationServiceTests.cs" />
     <Compile Include="Domain\Services\SermonServiceTests.cs" />
+    <Compile Include="Domain\Utils\GuardTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
