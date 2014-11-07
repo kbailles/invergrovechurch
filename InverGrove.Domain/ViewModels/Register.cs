@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Resources;
@@ -68,6 +69,62 @@ namespace InverGrove.Domain.ViewModels
         /// The person.
         /// </value>
         public Person Person { get; set; }
+
+        /// <summary>
+        /// Gets or sets the marital status id.
+        /// </summary>
+        /// <value>
+        /// The marital status id.
+        /// </value>
+        public int MaritalStatusId
+        {
+            get
+            {
+                if (this.Person == null)
+                {
+                    this.Person = ObjectFactory.Create<Person>();
+                }
+
+                return this.Person.MaritalStatusId;
+            }
+            set
+            {
+                if (this.Person == null)
+                {
+                    this.Person = ObjectFactory.Create<Person>();
+                }
+
+                this.Person.MaritalStatusId = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the person type id.
+        /// </summary>
+        /// <value>
+        /// The person type id.
+        /// </value>
+        public int PersonTypeId
+        {
+            get
+            {
+                if (this.Person == null)
+                {
+                    this.Person = ObjectFactory.Create<Person>();
+                }
+
+                return this.Person.PersonTypeId;
+            }
+            set
+            {
+                if (this.Person == null)
+                {
+                    this.Person = ObjectFactory.Create<Person>();
+                }
+
+                this.Person.PersonTypeId = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the marital status list.

@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.ViewModels;
 
@@ -14,11 +16,28 @@ namespace InverGrove.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Registration
+        [HttpGet]
         public ActionResult Index()
         {
             var model = (Register)this.registrationService.GetRegisterViewModel();
 
-            return View(model);
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index(Register register)
+        {
+            if (register == null)
+            {
+                throw new ParameterNullException("register");
+            }
+
+            if (ModelState.IsValid)
+            {
+                this.registrationService.RegisterUser(register);
+            }
+
+            return this.View(register);
         }
     }
 }
