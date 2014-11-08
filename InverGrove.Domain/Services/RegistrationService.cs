@@ -99,6 +99,9 @@ namespace InverGrove.Domain.Services
                     userToRegister.IsBaptized, userToRegister.IsLocal, userToRegister.IsActive, true);
             }
 
+            //todo: add user role.
+            //todo: add email to registered user
+
             return success;
         }
     }

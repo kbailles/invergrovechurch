@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using InverGrove.Domain.Enums;
+using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.ValueTypes;
 
 namespace InverGrove.Domain.Extensions
@@ -275,12 +276,12 @@ namespace InverGrove.Domain.Extensions
         {
             if (s == null)
             {
-                throw new ArgumentNullException("s");
+                throw new ParameterNullException("s");
             }
 
             if (salt == null)
             {
-                throw new ArgumentNullException("salt");
+                throw new ParameterNullException("salt");
             }
 
             string passcode = s;

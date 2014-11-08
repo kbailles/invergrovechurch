@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Security;
+using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using Membership = InverGrove.Domain.Models.Membership;
@@ -31,17 +32,17 @@ namespace InverGrove.Domain.Factories
         {
             if (string.IsNullOrEmpty(password))
             {
-                throw new ArgumentNullException("password");
+                throw new ParameterNullException("password");
             }
 
             if (string.IsNullOrEmpty(passwordQuestion))
             {
-                throw new ArgumentNullException("passwordQuestion");
+                throw new ParameterNullException("passwordQuestion");
             }
 
             if (string.IsNullOrEmpty(passwordAnswer))
             {
-                throw new ArgumentNullException("passwordAnswer");
+                throw new ParameterNullException("passwordAnswer");
             }
 
             var inverGrovePasswordFormat = passwordFormat.ToInverGrovePasswordFormat();
