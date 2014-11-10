@@ -54,7 +54,7 @@ namespace InverGrove.Domain.Services
 
             try
             {
-                //smtpClient.Send(mailMessage);
+                smtpClient.Send(mailMessage);
                 return true;
             }
             catch (Exception ex)
