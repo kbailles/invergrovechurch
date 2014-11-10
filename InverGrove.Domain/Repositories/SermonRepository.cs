@@ -21,7 +21,13 @@ namespace InverGrove.Domain.Repositories
                 throw new ParameterNullException("newSermon");
             }
 
-            var newEntitySermon = ((Models.Sermon) newSermon).ToEntity();
+            var currentDate = DateTime.Now;
+            newSermon.DateModified = currentDate;
+
+            var newEntitySermon = ((Models.Sermon)newSermon).ToEntity();
+            newEntitySermon.DateCreated = currentDate;
+            newEntitySermon.User = null;
+
             this.Insert(newEntitySermon);
 
             try
@@ -34,6 +40,29 @@ namespace InverGrove.Domain.Repositories
             }
 
             return newEntitySermon.SermonId;
+        }
+
+        public void Update(ISermon sermon)
+        {
+            if (sermon == null)
+            {
+                throw new ParameterNullException("sermon");
+            }
+
+            var currentDate = DateTime.Now;
+            sermon.DateModified = currentDate;
+
+            var entitySermon = ((Models.Sermon)sermon).ToEntity();
+            this.Update(entitySermon);
+
+            try
+            {
+                this.Save();
+            }
+            catch (SqlException ex)
+            {
+                throw new ApplicationException("Error when attempting to update sermon in SermonRepository: " + ex.Message);
+            }
         }
     }
 }

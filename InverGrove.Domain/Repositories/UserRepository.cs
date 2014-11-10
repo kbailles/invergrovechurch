@@ -28,7 +28,7 @@ namespace InverGrove.Domain.Repositories
         /// <returns></returns>
         public new static IUserRepository Create()
         {
-            return new UserRepository(InverGroveContext.Create());  
+            return new UserRepository(InverGroveContext.Create());
         }
 
         /// <summary>

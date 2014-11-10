@@ -294,7 +294,9 @@ namespace InverGrove.Domain.Extensions
                 return sermon;
             }
 
-            sermon.Date = sermonModel.Date;
+            sermon.DateModified = sermonModel.DateModified;
+            sermon.ModifiedByUserId = sermonModel.ModifiedByUserId;
+            sermon.SermonDate = sermonModel.SermonDate;
             sermon.SermonId = sermonModel.SermonId;
             sermon.SoundCloudId = sermonModel.SoundCloudId;
             sermon.Tags = sermonModel.Tags;
@@ -312,7 +314,10 @@ namespace InverGrove.Domain.Extensions
                 return sermon;
             }
 
-            sermon.Date = sermonEntity.Date;
+            sermon.DateCreated = sermonEntity.DateCreated;
+            sermon.DateModified = sermonEntity.DateModified;
+            sermon.ModifiedByUserId = sermonEntity.ModifiedByUserId;
+            sermon.SermonDate = sermonEntity.SermonDate;
             sermon.SermonId = sermonEntity.SermonId;
             sermon.SoundCloudId = sermonEntity.SoundCloudId;
             sermon.Tags = sermonEntity.Tags;

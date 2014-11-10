@@ -44,7 +44,7 @@ namespace InverGrove.Domain.Factories
                 throw new ParameterNullException("controllerType");
             }
 
-            var controllerName = controllerType.Name.ToLower();
+            var controllerName = controllerType.FullName.ToLower();
             var controller = this.container.Resolve<IHttpController>(controllerName);
 
             // Adds the given resource to a list of resources that will be disposed

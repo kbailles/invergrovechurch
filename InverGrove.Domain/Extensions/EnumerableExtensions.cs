@@ -26,7 +26,7 @@ namespace InverGrove.Domain.Extensions
             }
             return enumerable.ToList();
         }
-       
+
         /// <summary>
         ///   Orders a queryable by a property with the specified name in the specified direction
         /// </summary>

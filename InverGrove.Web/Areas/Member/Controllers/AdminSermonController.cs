@@ -2,7 +2,7 @@
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Interfaces;
 
-namespace InverGrove.Web.Areas.Admin.Controllers
+namespace InverGrove.Web.Areas.Member.Controllers
 {
     [Authorize(Roles = "MemberAdmin, SiteAdmin")]
     public class AdminSermonController : Controller

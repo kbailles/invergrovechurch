@@ -32,8 +32,8 @@
             <div class="top-bar">
                 <div class="container">
                     <div class="pull-left">
-                        <a href="#"><i class="glyphicon glyphicon-earphone"></i>(651) 457-1189</a>
-                        <a href="#"><i class="glyphicon glyphicon-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
+                        <a href="#"><i class="fa fa-phone"></i>(651) 457-1189</a>
+                        <a href="#"><i class="fa fa-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
                     </div>
                 </div>
             </div>
@@ -47,17 +47,15 @@
                     <div class="mobile navbar-header">
                         <div class="mobile navbar-header">
                             <button class="navbar-toggle collapsed" ng-click="navbarCollapsed = !navbarCollapsed">
-                                <i class="glyphicon glyphicon-align-justify"></i>
+                                <i class="fa fa-bars"></i>
                             </button>
                         </div>
                     </div>
 
                     <nav class="collapse navbar-collapse" collapse="navbarCollapsed">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{active: isActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                            <li ng-class="{active: isActive('/Sermon/')}"><a href="@Url.Action("ViewAll", "AdminSermon")">Sermons</a></li>
-                            <li ng-class="{active: isActive('/Contact/')}"><a href="@Url.Action("ContactUs", "Contact")">Contact Us</a></li>
-                            <li><a href="@Url.Action("Login", "Account")">Members</a></li>
+                            <li ng-class="{active: isActive('')}"><a href="@Url.Action("Index", "Home")">Users</a></li>
+                            <li ng-class="{active: isActive('/Sermon/')}"><a href="@Url.Action("ViewAll", "Sermon")">Sermons</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -72,20 +70,11 @@
         </main>
 
         <footer>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            © Copyright 2014 Inver Grove church of Christ. All Rights Reserved.
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- ./footer-bottom -->
         </footer>
 
         <!-- scroll to top -->
         <a class="scrollup" scroll-up>
-            <i class="glyphicon glyphicon-chevron-up"></i>
+            <i class="fa fa-angle-up"></i>
         </a>
     </div>
 
@@ -99,8 +88,6 @@
     <script src="~/Components/lodash/lodash.min.js"></script>
 
     <script src="~/Components/sticky/jquery.sticky.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="~/Components/gmaps/jquery.gmap.min.js"></script>
 
     <!-- -------------------- -->
     <!-- TODO: Create bundles -->

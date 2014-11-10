@@ -14,6 +14,9 @@ namespace InverGrove.Tests.Domain.Services
     {
         private Mock<IMembershipService> membershipService;
         private Mock<IProfileService> profileService;
+        private Mock<IMaritalStatusRepository> maritalStatusRepository;
+        private Mock<IPersonTypeRepository> personTypeRepository;
+
         private RegistrationService registrationService;
 
         [TestInitialize]
@@ -21,7 +24,11 @@ namespace InverGrove.Tests.Domain.Services
         {
             this.membershipService = new Mock<IMembershipService>();
             this.profileService = new Mock<IProfileService>();
-            this.registrationService = new RegistrationService(this.membershipService.Object, this.profileService.Object);
+            this.maritalStatusRepository = new Mock<IMaritalStatusRepository>();
+            this.personTypeRepository = new Mock<IPersonTypeRepository>();
+
+            this.registrationService = new RegistrationService(this.membershipService.Object, this.profileService.Object,
+                this.maritalStatusRepository.Object, this.personTypeRepository.Object);
         }
 
         [TestMethod]

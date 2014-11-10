@@ -10,7 +10,7 @@ namespace InverGrove.Data.Entities
         public int SermonId { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime SermonDate { get; set; }
 
         [StringLength(128)]
         public string Tags { get; set; }
@@ -21,5 +21,17 @@ namespace InverGrove.Data.Entities
 
         [Required]
         public int SoundCloudId { get; set; }
+
+        [Required]
+        public DateTime DateCreated { get; set; }
+
+        [Required]
+        public DateTime DateModified { get; set; }
+
+        [Required]
+        public int ModifiedByUserId { get; set; }
+
+        [ForeignKey("ModifiedByUserId")]
+        public virtual User User { get; set; }
     }
 }

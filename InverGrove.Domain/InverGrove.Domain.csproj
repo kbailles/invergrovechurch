@@ -107,6 +107,7 @@
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
     <Compile Include="Interfaces\IPersonTypeRepository.cs" />
+    <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Repositories\MaritalStatusRepository.cs" />
     <Compile Include="Repositories\PersonTypeRepository.cs" />
     <Compile Include="Utils\Guard.cs" />
@@ -152,7 +153,6 @@
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Enums\PhoneNumberFormatType.cs" />
     <Compile Include="Enums\ZipCodeFormatType.cs" />
-    <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IPhoneNumber.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Sermon.cs" />

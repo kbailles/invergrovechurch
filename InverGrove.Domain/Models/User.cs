@@ -52,6 +52,6 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The date modified.
         /// </value>
-        public DateTime DateModified { get; set; }  
+        public DateTime DateModified { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace InverGrove.Data.Entities
             this.Profiles = new HashSet<Profile>();
             this.UserRoles = new HashSet<UserRole>();
             this.Responsibilities = new HashSet<Responsibility>();
+            this.Sermons = new HashSet<Sermon>();
         }
 
         public int UserId { get; set; }
@@ -41,8 +42,10 @@ namespace InverGrove.Data.Entities
 
         public virtual ICollection<Profile> Profiles { get; set; }
 
-        public virtual ICollection<UserRole> UserRoles { get; set; }
-
         public virtual ICollection<Responsibility> Responsibilities { get; set; }
+
+        public virtual ICollection<Sermon> Sermons { get; set; }
+
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

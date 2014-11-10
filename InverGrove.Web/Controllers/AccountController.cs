@@ -26,7 +26,7 @@ namespace InverGrove.Web.Controllers
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    return Redirect(returnUrl ?? Url.Action("Index", "Home"));
+                    return Redirect(Url.Action("Index", "Home"));
                 }
 
                 // If we got this far, something failed, redisplay form

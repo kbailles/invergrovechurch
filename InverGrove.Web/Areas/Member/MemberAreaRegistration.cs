@@ -2,17 +2,17 @@
 
 namespace InverGrove.Web.Areas.Member
 {
-    public class MemberAreaRegistration : AreaRegistration 
+    public class MemberAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Member";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Member_default",

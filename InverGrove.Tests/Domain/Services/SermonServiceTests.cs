@@ -24,7 +24,7 @@ namespace InverGrove.Tests.Domain.Services
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ParameterNullException), "A userId of null was inappropriately allowed.")]
+        [ExpectedException(typeof(ParameterNullException))]
         public void AddSermon_Should_Throw_If_Sermon_Is_Null()
         {
             this.sermonService.AddSermon(null);
@@ -35,7 +35,7 @@ namespace InverGrove.Tests.Domain.Services
         {
             var sermon = new Sermon
             {
-                Date = DateTime.Now,
+                SermonDate = DateTime.Now,
                 SermonId = 1,
                 SoundCloudId = 12345,
                 Tags = "Tag1,Tag2",
@@ -50,12 +50,63 @@ namespace InverGrove.Tests.Domain.Services
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ParameterOutOfRangeException))]
+        public void DeleteSermon_Should_Throw_When_SermonId_Is_Less_Than_Or_Equal_To_Zero()
+        {
+            this.sermonService.DeleteSermon(0);
+        }
+
+        [TestMethod]
+        public void DeleteSermon_Should_Call_Delete_On_SermonRepository()
+        {
+            var sermonId = 1;
+
+            this.sermonService.DeleteSermon(sermonId);
+
+            this.sermonRepository.Verify(s => s.Delete(sermonId));
+        }
+
+        [TestMethod]
         public void GetSermons_Should_Call_Get_On_SermonRepository()
         {
             this.sermonService.GetSermons();
 
-            this.sermonRepository.Verify(s => s.Get(It.IsAny<Expression<Func<Data.Entities.Sermon, bool>>>(), 
+            this.sermonRepository.Verify(s => s.Get(It.IsAny<Expression<Func<Data.Entities.Sermon, bool>>>(),
                 It.IsAny<Func<IQueryable<Data.Entities.Sermon>, IOrderedQueryable<Data.Entities.Sermon>>>(), false, It.IsAny<string>()));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ParameterNullException))]
+        public void UpdateSermon_Should_Throw_When_Sermon_Is_Null()
+        {
+            this.sermonService.UpdateSermon(null);
+        }
+
+        [TestMethod]
+        public void UpdateSermon_Should_Call_Update_On_SermonRepostiroy()
+        {
+            var sermon = new Sermon
+            {
+                SermonDate = DateTime.Now,
+                SermonId = 1,
+                SoundCloudId = 12345,
+                Tags = "Tag1,Tag2",
+                Title = "Sermon Test"
+            };
+
+            this.sermonService.UpdateSermon(sermon);
+
+            this.sermonRepository.Verify(s => s.Update(sermon));
+        }
+
+        [TestMethod]
+        public void UpdateSermon_Should_Return_False_When_Update_On_SermonRepository_Throws_Exception()
+        {
+            this.sermonRepository.Setup(s => s.Update(It.IsAny<ISermon>())).Throws(new ApplicationException());
+
+            var result = this.sermonService.UpdateSermon(new Sermon());
+
+            Assert.IsFalse(result);
         }
     }
 }

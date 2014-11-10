@@ -70,12 +70,12 @@ namespace InverGrove.Web
 
             foreach (var controllerType in assemblyTypes.Where(p => typeof(IController).IsAssignableFrom(p)))
             {
-                container.Register(Component.For<IController>().ImplementedBy(controllerType).Named(controllerType.Name.ToLower()).LifeStyle.Transient);
+                container.Register(Component.For<IController>().ImplementedBy(controllerType).Named(controllerType.FullName.ToLower()).LifeStyle.Transient);
             }
 
             foreach (var apiControllerType in assemblyTypes.Where(a => typeof (System.Web.Http.ApiController).IsAssignableFrom(a)))
             {
-                container.Register(Component.For<IHttpController>().ImplementedBy(apiControllerType).Named(apiControllerType.Name.ToLower()).LifeStyle.Transient);
+                container.Register(Component.For<IHttpController>().ImplementedBy(apiControllerType).Named(apiControllerType.FullName.ToLower()).LifeStyle.Transient);
             }
         }
     }

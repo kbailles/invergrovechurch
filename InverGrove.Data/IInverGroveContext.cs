@@ -79,7 +79,7 @@ namespace InverGrove.Data
         /// The phone numbers.
         /// </value>
         IDbSet<PhoneNumber> PhoneNumbers { get; set; }
-            
+
         /// <summary>
         /// Gets or sets the phone number types.
         /// </summary>

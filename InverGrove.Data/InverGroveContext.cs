@@ -593,6 +593,11 @@ namespace InverGrove.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
+                .HasMany(e => e.Sermons)
+                .WithRequired(e => e.User)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
                 .Property(e => e.UserName)
                 .IsUnicode(false);
 

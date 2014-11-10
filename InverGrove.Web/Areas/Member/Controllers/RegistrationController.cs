@@ -1,10 +1,9 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.ViewModels;
 
-namespace InverGrove.Web.Areas.Admin.Controllers
+namespace InverGrove.Web.Areas.Member.Controllers
 {
     public class RegistrationController : Controller
     {
