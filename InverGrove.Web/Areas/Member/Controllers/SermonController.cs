@@ -5,11 +5,11 @@ using InverGrove.Domain.Interfaces;
 namespace InverGrove.Web.Areas.Member.Controllers
 {
     [Authorize(Roles = "MemberAdmin, SiteAdmin")]
-    public class AdminSermonController : Controller
+    public class SermonController : Controller
     {
         private readonly ISermonService sermonService;
 
-        public AdminSermonController(ISermonService sermonService)
+        public SermonController(ISermonService sermonService)
         {
             this.sermonService = sermonService;
         }

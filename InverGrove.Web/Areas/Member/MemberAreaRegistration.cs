@@ -17,7 +17,7 @@ namespace InverGrove.Web.Areas.Member
             context.MapRoute(
                 "Member_default",
                 "Member/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional }, new[] { "InverGrove.Web.Areas.Member.Controllers" }
             );
         }
     }

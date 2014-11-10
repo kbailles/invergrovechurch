@@ -7,15 +7,17 @@ namespace InverGrove.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("Content/{*pathInfo}"); // prevents validation routines from returning false from here and confuse the router  
-            routes.IgnoreRoute("bundles/{*pathInfo}"); 
+            routes.IgnoreRoute("Content/{*pathInfo}"); // prevents validation routines from returning false from here and confuse the router
+            routes.IgnoreRoute("bundles/{*pathInfo}");
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            var route = routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, namespaces: new[] { "InverGrove.Web.Controllers" }
             );
+
+            route.DataTokens["UseNamespaceFallback"] = false;
         }
     }
 }
