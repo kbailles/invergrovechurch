@@ -57,6 +57,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IProfileService>().ImplementedBy<ProfileService>().LifeStyle.Transient);
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifeStyle.Transient);
             container.Register(Component.For<IEmailService>().ImplementedBy<EmailService>().LifeStyle.Transient);
+            container.Register(Component.For<IContactService>().ImplementedBy<ContactService>().LifeStyle.Transient);
             container.Register(Component.For<IRegistrationService>().ImplementedBy<RegistrationService>().LifeStyle.Transient);
             container.Register(Component.For<ISermonService>().ImplementedBy<SermonService>().LifeStyle.Transient);
             container.Register(Component.For<IPersonService>().ImplementedBy<PersonService>().LifeStyle.Transient);

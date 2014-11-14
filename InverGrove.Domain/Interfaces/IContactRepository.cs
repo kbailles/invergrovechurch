@@ -8,5 +8,6 @@ namespace InverGrove.Domain.Interfaces
     public interface IContactRepository
     {
         IEnumerable<Contact> GetAllContacts();
+        int AddContact(IContact contact);
     }
 }
