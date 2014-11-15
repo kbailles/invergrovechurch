@@ -8,7 +8,7 @@ angular.module('igchurch.controllers')
             {
                 date: new Date(2014, 9, 26),
                 sermonId: 171447693,
-                speaker: 'floyd Hanson',
+                speaker: 'Antoine Halloway',
                 tags: [
                     'Be Bold'
                 ],
@@ -17,10 +17,9 @@ angular.module('igchurch.controllers')
             {
                 date: new Date(2014, 9, 25),
                 sermonId: 171447888,
-                speaker: 'Jimmy Echols',
+                speaker: 'Antoine Halloway',
                 tags: [
-                    'Be Bold',
-                    'Test2'
+                    'Be Bold'
                 ],
                 title: 'Boldly Trust Jesus'
             },
@@ -29,8 +28,7 @@ angular.module('igchurch.controllers')
                 sermonId: 171447578,
                 speaker: 'Antoine Halloway',
                 tags: [
-                    'Be Bold',
-                    'Test1'
+                    'Be Bold'
                 ],
                 title: 'Speak Boldly'
             },
@@ -39,20 +37,45 @@ angular.module('igchurch.controllers')
                 sermonId: 171447641,
                 speaker: 'Antoine Halloway',
                 tags: [
-                    'Be Bold',
-                    'Test1'
+                    'Be Bold'
                 ],
                 title: 'Boldly Believe in the Son of God'
             },
             {
                 date: new Date(2014, 9, 22),
                 sermonId: 171447791,
-                speaker: 'Jimmy Echols',
+                speaker: 'Antoine Halloway',
                 tags: [
-                    'Be Bold',
-                    'Test2'
+                    'Be Bold'
                 ],
                 title: 'Boldly Seek After God'
+            },
+            {
+                date: new Date(2014, 9, 21),
+                sermonId: 171447331,
+                speaker: 'Antoine Halloway',
+                tags: [
+                    'Be Bold'
+                ],
+                title: 'Biblical Boldness'
+            },
+            {
+                date: new Date(2014, 9, 21),
+                sermonId: 171447455,
+                speaker: 'Antoine Halloway',
+                tags: [
+                    'Be Bold'
+                ],
+                title: 'Boldly Imitate Christ'
+            },
+            {
+                date: new Date(2014, 9, 21),
+                sermonId: 171447516,
+                speaker: 'Antoine Halloway',
+                tags: [
+                    'Be Bold'
+                ],
+                title: 'Live Boldly'
             }
         ];
 
