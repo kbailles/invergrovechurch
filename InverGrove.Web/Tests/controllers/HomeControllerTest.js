@@ -1,31 +1,25 @@
+/// <reference path="../dependencies/core.references.js" />
 
-/// <reference path="../dependencies/jasmine.js" />
-
-/// <reference path="../../Components/angular/angular.js" />
-/// <reference path="../../Components/angular-mocks/angular-mocks.js" />
-/// <reference path="../../Components/angular-route/angular-route.js" />
-
-/// <reference path="../../Components/angular-bootstrap/ui-bootstrap.js" />
-
-/// <reference path="../../Scripts/app.js" />
-/// <reference path="../../Scripts/factories/LocationFactory.js" />
+/*
+ * File being tested
+ */
 /// <reference path="../../Scripts/controllers/HomeController.js" />
 
 'use strict';
 
 describe('HomeCtrl', function () {
     //setup
-    beforeEach(module('app.services')); //HomeCtrl is dependent on LocationFactory which exists in app.services
-    beforeEach(module('app.controllers'));
+    var appName = igchurch.constants.APP_NAME;
+    beforeEach(module(appName + '.controllers'));
 
     it('should be defined', inject(function ($controller) {
         //arrange
-        var myCtrl1 = $controller('HomeCtrl', { $scope: {} });
+        var homeCtrl = $controller('HomeCtrl', { $scope: {} });
 
         //act
 
         //assert
-        expect(myCtrl1).toBeDefined();
+        expect(homeCtrl).toBeDefined();
     }));
 
     //...

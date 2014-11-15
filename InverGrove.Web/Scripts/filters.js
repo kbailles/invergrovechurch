@@ -1,3 +1,0 @@
-﻿'user strict'
-
-//Reserved

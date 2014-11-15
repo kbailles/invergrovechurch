@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('app.services')
+angular.module('igchurch.services')
 
     .factory('LocationFactory', function () {
         var churchLocation = {

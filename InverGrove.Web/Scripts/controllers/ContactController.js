@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.controllers')
+angular.module('igchurch.controllers')
 
     .controller('ContactCtrl', ['$scope', '$http', 'LocationFactory', function ($scope, $http, locationFactory) {
         $scope.churchLocation = locationFactory;

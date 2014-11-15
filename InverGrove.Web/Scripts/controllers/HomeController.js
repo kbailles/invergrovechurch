@@ -1,7 +1,12 @@
-'use strict';
+(function() {
+    'use strict';
 
-angular.module('app.controllers')
+    var appName = igchurch.constants.APP_NAME;
 
-    .controller('HomeCtrl', ['$scope', 'LocationFactory', function ($scope, locationFactory) {
-        $scope.churchLocation = locationFactory;
-    }]);
+    angular.module(appName + '.controllers')
+        .controller('HomeCtrl', HomeController);
+
+    function HomeController() {
+        var vm = this;
+    }
+})();

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.directives').directive('sticky', function () {
+angular.module('igchurch.directives').directive('sticky', function () {
     return {
         restrict: 'A',
         link: function(scope, element) {
@@ -9,7 +9,7 @@ angular.module('app.directives').directive('sticky', function () {
     };
 });
 
-angular.module('app.directives').directive('gMap', function () {
+angular.module('igchurch.directives').directive('gMap', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -18,7 +18,7 @@ angular.module('app.directives').directive('gMap', function () {
     };
 });
 
-angular.module('app.directives').directive('revoslider', function () {
+angular.module('igchurch.directives').directive('revoslider', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -32,7 +32,7 @@ angular.module('app.directives').directive('revoslider', function () {
     };
 });
 
-angular.module('app.directives').directive('scrollUp', function () {
+angular.module('igchurch.directives').directive('scrollUp', function () {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {

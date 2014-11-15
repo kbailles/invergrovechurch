@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('app.controllers')
+angular.module('igchurch.controllers')
 
     .controller('SermonCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
 
