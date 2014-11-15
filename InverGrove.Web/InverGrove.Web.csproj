@@ -339,6 +339,7 @@
     <Content Include="Scripts\directives\stickyElementDirective.js" />
     <Content Include="Scripts\factories\factories.module.js" />
     <Content Include="Scripts\factories\googleMapChurchLocationFactory.js" />
+    <Content Include="Scripts\factories\homePageRevoSliderOptionsFactory.js" />
     <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
     <Content Include="Content\less\app.less" />
     <Content Include="Components\html5-boilerplate\.bower.json" />
