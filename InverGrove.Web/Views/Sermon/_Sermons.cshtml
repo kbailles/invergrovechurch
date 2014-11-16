@@ -148,7 +148,7 @@
     }
 </style>
 
-<div class="sermons-wrapper" ng-controller="SermonCtrl">
+<div class="sermons-wrapper" ng-controller="SermonCtrl as vm">
 
     <div class="breadcrumb-wrapper">
         <div class="container">
@@ -175,21 +175,21 @@
                 <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                     <h3 class="title">Listen to Sermons</h3>
 
-                    <article class="sermon hentry" ng-repeat="sermon in sermons | filter: { speaker: speakerFilter, tags: tagFilter, title: titleFilter }">
+                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons">
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
-                                    <a class="date" href="#"><strong ng-bind="sermon.date | date : 'dd'"></strong><i ng-bind="sermon.date | date : 'MMM'"></i></a>
+                                    <a class="date" href="#"><strong ng-bind="sermon.Date | date : 'dd'"></strong><i ng-bind="sermon.Date | date : 'MMM'"></i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#" ng-bind="sermon.title" ng-click="sermonDetail(sermon.sermonId)"></a></h3>
+                                <h3 class="sermon-title"><a href="#" ng-bind="sermon.Title" ng-click="sermonDetail(sermon.SermonId)"></a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="fa fa-user"></i>
-                                        {{ sermon.speaker }}
+                                        {{ sermon.Speaker }}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
-                                        <i class="fa" ng-class="sermon.tags.length > 1 ? 'fa-tags' : 'fa-tag'"></i>
-                                        <div class="tags-container" ng-repeat="tag in sermon.tags">
+                                        <i class="fa" ng-class="sermon.Tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
+                                        <div class="tags-container" ng-repeat="tag in sermon.Tags.split(',')">
                                             {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
                                         </div>
                                     </div>
@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <div class="widget search-form" style="margin-bottom: 35px;">
+                    @*<div class="widget search-form" style="margin-bottom: 35px;">
                         <div class="input-group">
                             <input type="text" placeholder="Search..." class="search-input form-control" ng-model="titleFilter">
                             <span class="input-group-btn">
@@ -228,7 +228,7 @@
                                 <a href="#" ng-click="$parent.tagFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" style="font-size: 14px;color: #E24747;vertical-align: middle;" ng-show="$parent.tagFilter && $parent.tagFilter == key" ng-click="$parent.tagFilter = ''"><i class="fa fa-remove"></i></a>
                             </li>
                         </ul>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
