@@ -15,12 +15,14 @@ namespace InverGrove.Tests.Domain.Services
     {
         private SermonService sermonService;
         private Mock<ISermonRepository> sermonRepository;
+        private Sermon sermon;
 
         [TestInitialize]
         public void Setup()
         {
             this.sermonRepository = new Mock<ISermonRepository>();
             this.sermonService = new SermonService(this.sermonRepository.Object);
+            this.sermon = this.OneSermon();
         }
 
         [TestMethod]
@@ -33,18 +35,9 @@ namespace InverGrove.Tests.Domain.Services
         [TestMethod]
         public void AddSermon_Should_Call_Add_On_SermonRepository_When_Sermon_Is_Not_Null()
         {
-            var sermon = new Sermon
-            {
-                SermonDate = DateTime.Now,
-                SermonId = 1,
-                SoundCloudId = 12345,
-                Tags = "Tag1,Tag2",
-                Title = "Sermon Test"
-            };
-
             this.sermonRepository.Setup(s => s.Add(It.IsAny<ISermon>()));
 
-            this.sermonService.AddSermon(sermon);
+            this.sermonService.AddSermon(this.sermon);
 
             this.sermonRepository.VerifyAll();
         }
@@ -100,18 +93,8 @@ namespace InverGrove.Tests.Domain.Services
         [TestMethod]
         public void UpdateSermon_Should_Call_Update_On_SermonRepostiroy()
         {
-            var sermon = new Sermon
-            {
-                SermonDate = DateTime.Now,
-                SermonId = 1,
-                SoundCloudId = 12345,
-                Tags = "Tag1,Tag2",
-                Title = "Sermon Test"
-            };
-
-            this.sermonService.UpdateSermon(sermon);
-
-            this.sermonRepository.Verify(s => s.Update(sermon));
+            this.sermonService.UpdateSermon(this.sermon);
+            this.sermonRepository.Verify(s => s.Update(this.sermon));
         }
 
         [TestMethod]
@@ -122,6 +105,18 @@ namespace InverGrove.Tests.Domain.Services
             var result = this.sermonService.UpdateSermon(new Sermon());
 
             Assert.IsFalse(result);
+        }
+
+        private Sermon OneSermon()
+        {
+          return  new Sermon
+                        {
+                            SermonDate = DateTime.Now,
+                            SermonId = 1,
+                            SoundCloudId = 12345,
+                            Tags = "Tag1,Tag2",
+                            Title = "Sermon Test"
+                        };
         }
     }
 }

@@ -17,8 +17,15 @@ namespace InverGrove.Domain.Services
         {
             Guard.ParameterNotNull(contact, "contact");
 
-            var isAdded = this.contactRepository.AddContact(contact);
-            return true;
+            try
+            {
+                this.contactRepository.Add(contact);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

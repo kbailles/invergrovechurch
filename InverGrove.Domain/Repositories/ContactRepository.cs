@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using InverGrove.Data;
 using InverGrove.Domain.Exceptions;
-using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 
@@ -21,7 +20,7 @@ namespace InverGrove.Domain.Repositories
             return contacts;
         }
 
-        public int AddContact(IContact contact)
+        public int Add(IContact contact)
         {
             if (contact == null)
             {

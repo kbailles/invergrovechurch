@@ -1,4 +1,5 @@
 ﻿
+using System;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Services;
@@ -25,12 +26,20 @@ namespace InverGrove.Tests.Domain.Services
         [TestMethod]
         public void AddContact_CallsRepository_ExpectsVerify()
         {
-            this.mockRepository.Setup(r => r.AddContact(It.IsAny<Contact>())).Verifiable();
+            this.mockRepository.Setup(r => r.Add(It.IsAny<Contact>())).Verifiable();
             this.contactService.AddContact(this.oneContact);
 
             this.mockRepository.VerifyAll();
         }
 
+        [TestMethod]
+        public void AddContact_RepositoryThrowsError_ExpectsFalse()
+        {
+            this.mockRepository.Setup(r => r.Add(It.IsAny<Contact>())).Throws(new ApplicationException());
+            var result = this.contactService.AddContact(this.oneContact);
+
+            Assert.IsFalse(result);
+        }
 
         private Contact OneContact()
         {
