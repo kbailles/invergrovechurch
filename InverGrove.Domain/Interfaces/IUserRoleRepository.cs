@@ -12,6 +12,13 @@ namespace InverGrove.Domain.Interfaces
         void AddUsersToRoles(IList<string> users, IList<string> roles);
 
         /// <summary>
+        /// Adds the user to role.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="roleId">The role identifier.</param>
+        void AddUserToRole(int userId, int roleId);
+
+        /// <summary>
         /// Removes the users from roles.
         /// </summary>
         /// <param name="users">The users.</param>

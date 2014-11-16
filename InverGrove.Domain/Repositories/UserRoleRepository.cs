@@ -45,6 +45,41 @@ namespace InverGrove.Domain.Repositories
         }
 
         /// <summary>
+        /// Adds the user to role.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <param name="roleId">The role identifier.</param>
+        /// <exception cref="System.ApplicationException">Error when attempting to persist user with userId:  + userId +  to role:  + roleId +  in UserRoleRepository:  + ex.Message</exception>
+        public void AddUserToRole(int userId, int roleId)
+        {
+            if ((userId > 0) && (roleId > 0))
+            {
+                var timeStamp = DateTime.Now;
+
+                var userRole = new UserRole
+                {
+                    DateCreated = timeStamp,
+                    DateModified = timeStamp,
+                    RoleId = roleId,
+                    UserId = userId,
+                    User = null,
+                    Role = null
+                };
+
+                this.Insert(userRole);
+
+                try
+                {
+                    this.Save();
+                }
+                catch (SqlException ex)
+                {
+                    throw new ApplicationException("Error when attempting to persist user with userId: " + userId + " to role: " + roleId + " in UserRoleRepository: " + ex.Message);
+                }
+            }
+        }
+
+        /// <summary>
         /// Removes the users from roles.
         /// </summary>
         /// <param name="users">The users.</param>

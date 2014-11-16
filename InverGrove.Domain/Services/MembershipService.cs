@@ -46,15 +46,20 @@ namespace InverGrove.Domain.Services
         /// <param name="isApproved">if set to <c>true</c> [is approved].</param>
         /// <param name="passwordFormat">The password format.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// userName
+        /// <exception cref="ParameterNullException">userName
         /// or
         /// password
         /// or
         /// passwordQuestion
         /// or
-        /// passwordAnswer
-        /// </exception>
+        /// passwordAnswer</exception>
+        /// <exception cref="System.ArgumentNullException">userName
+        /// or
+        /// password
+        /// or
+        /// passwordQuestion
+        /// or
+        /// passwordAnswer</exception>
         public IMembership CreateMembershipUser(string userName, string password, string emailAddress, string passwordQuestion,
                                             string passwordAnswer, bool isApproved, MembershipPasswordFormat passwordFormat)
         {

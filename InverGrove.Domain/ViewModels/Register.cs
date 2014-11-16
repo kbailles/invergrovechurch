@@ -127,6 +127,14 @@ namespace InverGrove.Domain.ViewModels
         }
 
         /// <summary>
+        /// Gets or sets the role identifier.
+        /// </summary>
+        /// <value>
+        /// The role identifier.
+        /// </value>
+        public int RoleId { get; set; }
+
+        /// <summary>
         /// Gets or sets the marital status list.
         /// </summary>
         /// <value>
@@ -141,5 +149,13 @@ namespace InverGrove.Domain.ViewModels
         /// The person type list.
         /// </value>
         public IEnumerable<SelectListItem> PersonTypeList { get; set; }
+
+        /// <summary>
+        /// Gets or sets the roles.
+        /// </summary>
+        /// <value>
+        /// The roles.
+        /// </value>
+        public IEnumerable<SelectListItem> Roles { get; set; }
     }
 }

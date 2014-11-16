@@ -22,6 +22,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="control-label col-md-2">User Role</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.RoleId, Model.Roles)
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label col-md-2">Marital Status</label>
             <div class="col-md-10">
                 @Html.DropDownListFor(m => m.MaritalStatusId, Model.MaritalStatusList)

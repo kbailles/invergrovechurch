@@ -55,6 +55,14 @@ namespace InverGrove.Domain.Interfaces
         Person Person { get; set; }
 
         /// <summary>
+        /// Gets or sets the role identifier.
+        /// </summary>
+        /// <value>
+        /// The role identifier.
+        /// </value>
+        int RoleId { get; set; }
+
+        /// <summary>
         /// Gets or sets the marital status list.
         /// </summary>
         /// <value>
@@ -69,5 +77,13 @@ namespace InverGrove.Domain.Interfaces
         /// The person type list.
         /// </value>
         IEnumerable<SelectListItem> PersonTypeList { get; set; }
+
+        /// <summary>
+        /// Gets or sets the roles.
+        /// </summary>
+        /// <value>
+        /// The roles.
+        /// </value>
+        IEnumerable<SelectListItem> Roles { get; set; }
     }
 }
