@@ -13,7 +13,15 @@
     function BaseController($location) {
         var vm = this;
 
-        vm.isRouteActive = function(route) {
+        /*
+         * Public declarations
+         */
+        vm.isRouteActive = isRouteActive;
+
+        /*
+         * Private declarations
+         */
+        function isRouteActive(route) {
             return !route ? '/' === $location.path() : $location.absUrl().indexOf(route) > -1;
         }
     }

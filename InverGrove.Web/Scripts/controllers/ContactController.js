@@ -30,15 +30,16 @@
 
     ContactController.$inject = ['$http'];
 
-    function ContactController() {
+    function ContactController($http) {
         var vm = this;
 
-        $http.post('/api/contactform', contact).success(function (data, status, headers, config) {
-            $scope.working = false;
-        }).error(function (data, status, headers, config) {
-
-            $scope.title = "Oops... something went wrong";
-            $scope.working = false;
-        });
+        vm.basicContact = function () {
+            $http.post('/api/contactform', contact).success(function(data, status, headers, config) {
+                //$scope.working = false;
+            }).error(function(data, status, headers, config) {
+                //$scope.title = "Oops... something went wrong";
+                //$scope.working = false;
+            });
+        }
     }
 })();

@@ -6,14 +6,22 @@
     angular.module(appName + '.controllers')
         .controller('SermonCtrl', SermonController);
 
-    SermonController.$inject = ['SermonService'];
+    SermonController.$inject = ['SermonService', '$window'];
 
-    function SermonController(SermonService) {
-        var vm = this,
-            sermons = [];
+    function SermonController(SermonService, $window) {
+        var vm = this;
+
+        /*
+         * Public declarations
+         */
+        vm.sermons = [];
+        vm.viewSermon = viewSermon;
 
         activate();
 
+        /*
+         * Private declarations
+         */
         function activate() {
             return getSermons();
         }

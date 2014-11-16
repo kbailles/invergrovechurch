@@ -67,6 +67,21 @@ namespace InverGrove.Tests.Domain.Services
         }
 
         [TestMethod]
+        public void GetSermon_Should_Call_GetById_On_SermonRepository()
+        {
+            this.sermonService.GetSermon(1);
+
+            this.sermonRepository.Verify(s => s.GetById(It.IsAny<int>()));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ParameterOutOfRangeException))]
+        public void GetSermon_Should_Throw_When_SermonId_Is_Less_Than_Or_Equal_To_Zero()
+        {
+            this.sermonService.GetSermon(0);
+        }
+
+        [TestMethod]
         public void GetSermons_Should_Call_Get_On_SermonRepository()
         {
             this.sermonService.GetSermons();

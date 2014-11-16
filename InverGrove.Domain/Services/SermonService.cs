@@ -44,6 +44,18 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
+        /// Gets the sermon.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        public ISermon GetSermon(int sermonId)
+        {
+            Guard.ParameterNotOutOfRange(sermonId, "sermonId");
+
+            return this.sermonRepository.GetById(sermonId).ToModel();
+        }
+
+        /// <summary>
         /// Gets the sermons.
         /// </summary>
         /// <returns></returns>

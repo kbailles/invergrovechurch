@@ -18,6 +18,13 @@ namespace InverGrove.Domain.Interfaces
         void DeleteSermon(int sermonId);
 
         /// <summary>
+        /// Gets the sermon.
+        /// </summary>
+        /// <param name="sermonId">The identifier.</param>
+        /// <returns></returns>
+        ISermon GetSermon(int sermonId);
+
+        /// <summary>
         /// Gets the sermons.
         /// </summary>
         /// <returns></returns>

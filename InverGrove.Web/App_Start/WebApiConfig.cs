@@ -23,7 +23,6 @@ namespace InverGrove.Web
 
             // BELOW - Forces JSON-only as return type from API Controllers. - PLEASE DO NOT DELETE
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
-           
         }
     }
 }

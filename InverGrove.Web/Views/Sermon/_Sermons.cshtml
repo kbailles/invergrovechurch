@@ -179,17 +179,17 @@
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
-                                    <a class="date" href="#"><strong ng-bind="sermon.Date | date : 'dd'"></strong><i ng-bind="sermon.Date | date : 'MMM'"></i></a>
+                                    <a class="date" href="#"><strong ng-bind="sermon.sermonDate | date : 'dd'"></strong><i ng-bind="sermon.sermonDate | date : 'MMM'"></i></a>
                                 </div>
-                                <h3 class="sermon-title"><a href="#" ng-bind="sermon.Title" ng-click="sermonDetail(sermon.SermonId)"></a></h3>
+                                <h3 class="sermon-title"><a href="#" ng-bind="sermon.title" ng-click="vm.viewSermon(sermon.sermonId)"></a></h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="fa fa-user"></i>
-                                        {{ sermon.Speaker }}
+                                        {{ sermon.speaker }}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
-                                        <i class="fa" ng-class="sermon.Tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
-                                        <div class="tags-container" ng-repeat="tag in sermon.Tags.split(',')">
+                                        <i class="fa" ng-class="sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
+                                        <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
                                             {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
                                         </div>
                                     </div>
