@@ -97,6 +97,7 @@
     <Compile Include="Enums\MaritalStatusType.cs" />
     <Compile Include="Enums\PersonType.cs" />
     <Compile Include="Enums\RelationType.cs" />
+    <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Enums\SortDirection.cs" />
     <Compile Include="Exceptions\LockTimeoutException.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
