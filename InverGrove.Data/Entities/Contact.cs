@@ -34,7 +34,10 @@ namespace InverGrove.Data.Entities
 
         public bool IsOnlineContactForm { get; set; }
 
-        [Column(TypeName = "ntext")]
+        [StringLength(50)]
+        public string Subject { get; set; }
+
+        [Column(TypeName = "ntext"), StringLength(200)]
         public string Comments { get; set; }
 
         public DateTime DateSubmitted { get; set; }

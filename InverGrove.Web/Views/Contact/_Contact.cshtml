@@ -31,23 +31,23 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Name: <span class="warning">*</span></label>
-                                <input class="form-control" id="name" name="name" ng-model="contact.name" type="text" value="" required="">
+                                <input class="form-control" id="name" name="name" ng-model="contact.name" type="text" value="" required="" maxlength="100">
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Email: <span class="warning">*</span></label>
-                                <input class="form-control" id="email" name="email" ng-model="contact.email" type="text" value="" required="">
+                                <input class="form-control" id="email" name="email" ng-model="contact.email" type="text" value="" required="" maxlength="100">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label>Subject: <span class="warning">*</span></label>
-                                <input class="form-control" id="subject" name="subject" ng-model="contact.subject" type="text" value="" required="">
+                                <input class="form-control" id="subject" name="subject" ng-model="contact.subject" type="text" value="" required="" maxlength="100">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label>Message: <span class="warning">*</span></label>
-                                <textarea class="form-control" id="text" name="text" ng-model="contact.comments" rows="3" cols="40" required=""></textarea>
+                                <textarea class="form-control" id="text" name="text" ng-model="contact.comments" rows="3" cols="40" required="" maxlength="240"></textarea>
                             </div>
                         </div>
                     </fieldset>

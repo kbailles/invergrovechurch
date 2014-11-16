@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Services\ContactServiceTests.cs" />
     <Compile Include="Domain\Services\MembershipServiceTests.cs" />
     <Compile Include="Domain\Services\PersonServiceTests.cs" />
     <Compile Include="Domain\Services\ProfileServiceTests.cs" />
