@@ -22,6 +22,22 @@ namespace InverGrove.Domain.Models
         public DateTime SermonDate { get; set; }
 
         /// <summary>
+        /// Gets or sets the speaker.
+        /// </summary>
+        /// <value>
+        /// The speaker.
+        /// </value>
+        public string Speaker { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sound cloud identifier.
+        /// </summary>
+        /// <value>
+        /// The sound cloud identifier.
+        /// </value>
+        public int SoundCloudId { get; set; }
+
+        /// <summary>
         /// Gets or sets the tags.
         /// </summary>
         /// <value>
@@ -36,14 +52,6 @@ namespace InverGrove.Domain.Models
         /// The title.
         /// </value>
         public string Title { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sound cloud identifier.
-        /// </summary>
-        /// <value>
-        /// The sound cloud identifier.
-        /// </value>
-        public int SoundCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the date created.

@@ -12,15 +12,18 @@ namespace InverGrove.Data.Entities
         [Required]
         public DateTime SermonDate { get; set; }
 
+        [StringLength(75)]
+        public string Speaker { get; set; }
+
+        [Required]
+        public int SoundCloudId { get; set; }
+
         [StringLength(128)]
         public string Tags { get; set; }
 
         [Required]
         [StringLength(128)]
         public string Title { get; set; }
-
-        [Required]
-        public int SoundCloudId { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }

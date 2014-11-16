@@ -209,6 +209,119 @@ namespace InverGrove.Data
 
             context.UserRoles.Add(keenanAdminRole);
             context.SaveChanges();
+
+            var sermon1 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 26),
+                                  SoundCloudId = 171447693,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Boldly Respond to the Invitation",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon1);
+
+            var sermon2 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 25),
+                                  SoundCloudId = 171447888,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Boldly Trust Jesus",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon2);
+
+            var sermon3 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 24),
+                                  SoundCloudId = 171447578,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Speak Boldly",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon3);
+
+            var sermon4 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 23),
+                                  SoundCloudId = 171447641,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Boldly Believe in the Son of God",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon4);
+
+            var sermon5 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 22),
+                                  SoundCloudId = 171447791,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Boldly Seek After God",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon5);
+
+            var sermon6 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 21),
+                                  SoundCloudId = 171447331,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Biblical Boldness",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon6);
+
+            var sermon7 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 21),
+                                  SoundCloudId = 171447455,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Boldly Imitate Christ",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon7);
+
+            var sermon8 = new Sermon
+                              {
+                                  SermonDate = new DateTime(2014, 9, 21),
+                                  SoundCloudId = 171447516,
+                                  Speaker = "Antoine Halloway",
+                                  Tags = "Be Bold",
+                                  Title = "Live Boldly",
+                                  ModifiedByUserId = 1,
+                                  DateCreated = timeStamp,
+                                  DateModified = timeStamp,
+                                  User = null
+                              };
+            context.Sermons.Add(sermon8);
+            context.SaveChanges();
         }
 
         // These are just copied here so we can add some defaut users

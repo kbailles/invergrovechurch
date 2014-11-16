@@ -299,6 +299,7 @@ namespace InverGrove.Domain.Extensions
             sermon.SermonDate = sermonModel.SermonDate;
             sermon.SermonId = sermonModel.SermonId;
             sermon.SoundCloudId = sermonModel.SoundCloudId;
+            sermon.Speaker = sermonModel.Speaker;
             sermon.Tags = sermonModel.Tags;
             sermon.Title = sermonModel.Title;
 
@@ -320,6 +321,7 @@ namespace InverGrove.Domain.Extensions
             sermon.SermonDate = sermonEntity.SermonDate;
             sermon.SermonId = sermonEntity.SermonId;
             sermon.SoundCloudId = sermonEntity.SoundCloudId;
+            sermon.Speaker = sermonEntity.Speaker;
             sermon.Tags = sermonEntity.Tags;
             sermon.Title = sermonEntity.Title;
 

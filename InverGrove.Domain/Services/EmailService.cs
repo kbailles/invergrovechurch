@@ -19,7 +19,7 @@ namespace InverGrove.Domain.Services
 
         public bool SendContactMail(IContact contact)
         {
-            Guard.ArgumentNotNull(contact, "contact");
+            Guard.ParameterNotNull(contact, "contact");
 
             // (1) assemble mailMessage
             MailMessage mailMesage = new MailMessage
@@ -45,9 +45,9 @@ namespace InverGrove.Domain.Services
             return false;
         }
 
-        private bool SendMail(MailMessage mailMessage)
+        public bool SendMail(MailMessage mailMessage)
         {
-            Guard.ArgumentNotNull(mailMessage, "MailMessage");
+            Guard.ParameterNotNull(mailMessage, "MailMessage");
 
 
             SmtpClient smtpClient = new SmtpClient("localhost"); //  or 127.0.0.1
@@ -63,7 +63,5 @@ namespace InverGrove.Domain.Services
                 throw new Exception("Email client failed to send group email. " + ex.Message);
             }
         }
-
-
     }
 }
