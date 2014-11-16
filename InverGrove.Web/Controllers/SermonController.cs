@@ -13,18 +13,8 @@ namespace InverGrove.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetSermons()
+        public ActionResult ViewSermons()
         {
-            var sermons = this.sermonService.GetSermons();
-
-            return Json(sermons, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        public ActionResult ViewAll()
-        {
-            var sermons = this.sermonService.GetSermons();
-
             return View("_Sermons");
         }
 
