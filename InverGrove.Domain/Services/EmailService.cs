@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Mail;
-using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
 
