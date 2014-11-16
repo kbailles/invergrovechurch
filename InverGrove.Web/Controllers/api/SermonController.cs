@@ -20,9 +20,9 @@ namespace InverGrove.Web.Controllers.api
             return sermons;
         }
 
-        public ISermon Get(int id)
+        public ISermon Get(int sermonId)
         {
-            var sermon = this.sermonService.GetSermon(id);
+            var sermon = this.sermonService.GetSermon(sermonId);
 
             return sermon;
         }

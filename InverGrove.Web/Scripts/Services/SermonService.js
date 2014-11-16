@@ -10,6 +10,16 @@
 
     function SermonService($http) {
 
+        this.getSermon = function (sermonId) {
+
+            return $http({ method: 'GET', url: '/api/Sermon', params: { sermonId: sermonId } }).
+                success(function(data, status, headers, config) {
+                    return data;
+                }).
+                error(function(data, status, headers, config) {
+                });
+        }
+
         this.getSermons = function () {
 
             return $http({ method: 'GET', url: '/api/Sermon' }).

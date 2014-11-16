@@ -156,9 +156,9 @@ vertical-align: top;
                     <div class="breadcrumbs pull-right">
                         <ul>
                             <li>You are here:</li>
-                            <li><strong>Home</strong></li>
-                            <li><strong>Sermons</strong></li>
-                            <li>We Have Such a High Priest</li>
+                            <li><a href="@Url.Action("Index", "Home")"><strong>Home</strong></a></li>
+                            <li><a href="@Url.Action("ViewSermons", "Sermon")"><strong>Sermons</strong></a></li>
+                            <li>@Model.Title</li>
                         </ul>
                     </div>
                 </div>
