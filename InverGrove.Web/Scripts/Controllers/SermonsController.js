@@ -44,7 +44,8 @@
         }
 
         function filteredTags() {
-            return _.mapValues(_.groupBy(_.chain(vm.sermons).pluck('tags').split(',').flatten().value()), function (r) { return r.length; });
+            //TODO: REFACTOR THIS IMMEDIATELY
+            return _.mapValues(_.groupBy(_.chain(vm.sermons).pluck('tags').flatten().invoke('split', ',').flatten().invoke('trim').value()), function (r) { return r.length; });
         }
     }
 })();
