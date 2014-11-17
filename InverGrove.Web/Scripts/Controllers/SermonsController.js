@@ -16,6 +16,9 @@
          */
         vm.sermons = [];
         vm.sermonDetail = sermonDetail;
+        vm.titleFilter = '';
+        vm.filteredSpeakers = filteredSpeakers;
+        vm.filteredTags = filteredTags;
 
         activate();
 
@@ -34,6 +37,14 @@
 
         function sermonDetail(sermonId) {
             $window.location.href = 'SermonDetail?sermonId=' + sermonId;
+        }
+
+        function filteredSpeakers() {
+            return _.mapValues(_.groupBy(vm.sermons, 'speaker'), function (r) { return r.length; });
+        }
+
+        function filteredTags() {
+            return _.mapValues(_.groupBy(_.chain(vm.sermons).pluck('tags').split(',').flatten().value()), function (r) { return r.length; });
         }
     }
 })();

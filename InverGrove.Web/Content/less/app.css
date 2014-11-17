@@ -31,6 +31,16 @@ a {
   color: #2eaef0;
   text-decoration: none;
 }
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: #777777;
+}
+a .remove {
+  font-size: 14px;
+  color: #e24747;
+  vertical-align: middle;
+}
 .breadcrumb-wrapper {
   background: #ffffff;
 }
@@ -107,6 +117,19 @@ a {
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+.btn-warning {
+  background: #e24747;
+  color: #ffffff !important;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out !important;
+  -moz-transition: all 0.5s ease-in-out !important;
+  -o-transition: all 0.5s ease-in-out !important;
+  -ms-transition: all 0.5s ease-in-out !important;
+  transition: all 0.5s ease-in-out !important;
+}
+.btn-warning:hover {
+  background: #e24747;
 }
 .contact-box {
   background: #ffffff;
@@ -282,6 +305,22 @@ h3.title:after {
   top: 12px;
   width: 99%;
 }
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+.input-group-addon,
+.input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: table-cell;
+}
 .logo h1 {
   margin: 13px 0;
 }
@@ -421,6 +460,92 @@ h3.title:after {
 .scrollup i {
   left: 1px;
   top: 3px;
+}
+.sermons-content {
+  padding: 60px 0 0;
+}
+.sermon-date a.date {
+  background: #ffffff;
+  border-radius: 2px;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 55px;
+}
+.sermon-date a.date i {
+  background-color: #0488cd;
+  border-top: 1px solid #f3f3f3;
+  color: #ffffff;
+  display: block;
+  font-size: 11px;
+  font-style: normal;
+}
+.sermon-date a.date strong {
+  color: #0488cd;
+  display: block;
+  font-size: 27px;
+  font-weight: normal;
+}
+.sermon-desc p {
+  margin-bottom: 0;
+}
+.sermon-entry-meta-comments {
+  font-size: 14px;
+  display: inline-block;
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+.sermon-entry-meta-speaker {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.sermon-entry-meta-tags {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.sermon-meta i {
+  margin-right: 4px;
+}
+.sermon-meta-date {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.sermon-divider {
+  background: url('../images/bg_off.png') repeat;
+  content: "";
+  height: 5px;
+  margin: 20px 0;
+}
+.sermon-title {
+  margin-top: 0;
+}
+.subscribe-btn {
+  height: 44px;
+  padding: 6px 16px;
+  background-image: none;
+  color: #ffffff;
+  text-shadow: none;
+  font-size: 16px;
+  border: none;
+  text-shadow: none !important;
+  -webkit-transition: all 0.5s ease-in-out !important;
+  -moz-transition: all 0.5s ease-in-out !important;
+  -o-transition: all 0.5s ease-in-out !important;
+  -ms-transition: all 0.5s ease-in-out !important;
+}
+.tags-container {
+  display: inline-block;
 }
 .top-bar {
   background-color: #272727;
