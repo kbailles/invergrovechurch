@@ -328,7 +328,8 @@
     <Content Include="Scripts\app.routes.js" />
     <Content Include="Scripts\Controllers\BaseController.js" />
     <Content Include="Scripts\Controllers\controllers.module.js" />
-    <Content Include="Scripts\Controllers\SermonController.js" />
+    <Content Include="Scripts\Controllers\SermonDetailController.js" />
+    <Content Include="Scripts\Controllers\SermonsController.js" />
     <Content Include="Scripts\Controllers\ContactController.js" />
     <Content Include="Scripts\Controllers\HomeController.js" />
     <Content Include="Scripts\Bootstrap\modernizr-2.6.2.min.js" />

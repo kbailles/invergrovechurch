@@ -19,11 +19,9 @@ namespace InverGrove.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult SermonDetail(int sermonId)
+        public ActionResult SermonDetail()
         {
-            var sermon = this.sermonService.GetSermon(sermonId);
-
-            return View("_SermonDetail", sermon);
+            return PartialView("_SermonDetail");
         }
     }
 }

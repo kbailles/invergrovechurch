@@ -4,18 +4,18 @@
     var appName = igchurch.constants.APP_NAME;
 
     angular.module(appName + '.controllers')
-        .controller('SermonCtrl', SermonController);
+        .controller('SermonsCtrl', SermonsController);
 
-    SermonController.$inject = ['SermonService', '$window'];
+    SermonsController.$inject = ['SermonService', '$window'];
 
-    function SermonController(SermonService, $window) {
+    function SermonsController(SermonService, $window) {
         var vm = this;
 
         /*
          * Public declarations
          */
         vm.sermons = [];
-        vm.viewSermon = viewSermon;
+        vm.sermonDetail = sermonDetail;
 
         activate();
 
@@ -32,7 +32,7 @@
             });
         }
 
-        function viewSermon(sermonId) {
+        function sermonDetail(sermonId) {
             $window.location.href = 'SermonDetail?sermonId=' + sermonId;
         }
     }
