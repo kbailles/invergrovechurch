@@ -1,6 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
+using InverGrove.Domain.Factories;
+using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Resources;
+using InverGrove.Domain.Utils;
 using InverGrove.Domain.ViewModels;
 using WebMatrix.WebData;
 
@@ -9,6 +12,13 @@ namespace InverGrove.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly IMembershipProvider membershipProvider;
+
+        public AccountController(IMembershipProvider membershipProvider)
+        {
+            this.membershipProvider = membershipProvider;
+        }
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -48,70 +58,54 @@ namespace InverGrove.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpGet]
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult ResetPassword(string code)
         {
-            return View();
+            var resetModel = ObjectFactory.Create<ResetPassword>();
+            resetModel.Code = code;
+
+            return string.IsNullOrEmpty(code) ? View("Error") : View(resetModel);
         }
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken] // this is going to be moved to the Admin area
-        public ActionResult Register(Register model)
+        [ValidateAntiForgeryToken]
+        public ActionResult ResetPassword(ResetPassword model)
         {
-            if (ModelState.IsValid)
+            Guard.ParameterNotNull(model, "model");
+
+            if (model.Password != model.ConfirmPassword)
             {
-                // Attempt to register the user
-                try
-                {
-                    MembershipCreateStatus status;
-                   //Membership.CreateUser(model.UserName, model.Password, "", model.PasswordQuestion, model.PasswordAnswer, true, out status);
-                    //WebSecurity.Login(model.UserName, model.Password);
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (MembershipCreateUserException e)
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-                }
+                ModelState.AddModelError("Password", Messages.ConfirmPasswordErrorMessage);
             }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-        [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
-        {
-            return code == null ? View("Error") : View();
-        }
+            var user = Membership.GetUser(model.UserName, true);
 
-        //
-        // POST: /Account/ResetPassword
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult ResetPassword(ResetPassword model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    var user = Membership.GetUser(model.UserName, true);
-        //    if (user == null)
-        //    {
-        //        // Don't reveal that the user does not exist
-        //        return RedirectToAction("ResetPasswordConfirmation", "Account");
-        //    }
-        //    var result = Membership. await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
-        //    if (result.Succeeded)
-        //    {
-        //        return RedirectToAction("ResetPasswordConfirmation", "Account");
-        //    }
-        //    AddErrors(result);
-        //    return View();
-        //}
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+
+            var result = this.membershipProvider.ChangePassword(model.UserName, model.Code, model.Password);
+
+            if (result)
+            {
+                result = this.membershipProvider.UpdateSecurityQuestionAnswer(model.UserName, model.PasswordQuestion, model.PasswordAnswer);
+            }
+
+            if (result)
+            {
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+
+            return View();
+        }
 
         //
         // GET: /Account/ResetPasswordConfirmation

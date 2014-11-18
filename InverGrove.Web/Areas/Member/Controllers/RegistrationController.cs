@@ -18,7 +18,9 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = (Register)this.registrationService.GetRegisterViewModel();
+            var userIsSiteAdmin = User.IsInRole("SiteAdmin");
+
+            var model = (Register)this.registrationService.GetRegisterViewModel(userIsSiteAdmin);
 
             return this.View(model);
         }

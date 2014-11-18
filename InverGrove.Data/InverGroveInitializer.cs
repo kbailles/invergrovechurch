@@ -131,7 +131,7 @@ namespace InverGrove.Data
             var timeStamp = DateTime.Now;
             const string password = "Welcome1";
             var passwordSalt = this.GetRandomSalt(password);
-            var passwordAnswer = this.Sha256Hash("because");
+            var passwordAnswer = this.HashPasscode("because", passwordSalt);
 
             var keenanSiteAdminMembership = new Membership
             {

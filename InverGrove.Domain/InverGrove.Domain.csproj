@@ -109,6 +109,7 @@
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
     <Compile Include="Interfaces\IPersonTypeRepository.cs" />
     <Compile Include="Interfaces\ISermon.cs" />
+    <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Repositories\MaritalStatusRepository.cs" />
     <Compile Include="Repositories\PersonTypeRepository.cs" />
     <Compile Include="Utils\Guard.cs" />

@@ -7,8 +7,9 @@ namespace InverGrove.Domain.Interfaces
         /// <summary>
         /// Gets the register view model.
         /// </summary>
+        /// <param name="hasSiteAdminRole">if set to <c>true</c> [has site admin role].</param>
         /// <returns></returns>
-        IRegister GetRegisterViewModel();
+        IRegister GetRegisterViewModel(bool hasSiteAdminRole);
 
         /// <summary>
         /// Registers the user.

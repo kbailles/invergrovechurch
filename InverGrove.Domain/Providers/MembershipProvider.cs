@@ -21,7 +21,7 @@ using Membership = InverGrove.Domain.Models.Membership;
 
 namespace InverGrove.Domain.Providers
 {
-    public class MembershipProvider : System.Web.Security.MembershipProvider
+    public class MembershipProvider : System.Web.Security.MembershipProvider, IMembershipProvider
     {
         private readonly object syncRoot = new object();
         private string applicationName;

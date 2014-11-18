@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Security;
+using InverGrove.Domain.Enums;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
@@ -55,8 +56,11 @@ namespace InverGrove.Domain.Factories
                                  PasswordQuestion = passwordQuestion
                              };
 
+            var strippedSecurityAnswer = passwordAnswer.ToSecurityAnswer();
+            var hashedSecurityAnswer = strippedSecurityAnswer.FormatPasscode(inverGrovePasswordFormat, membership.PasswordSalt);
+
             membership.Password = password.FormatPasscode(inverGrovePasswordFormat, membership.PasswordSalt);
-            membership.PasswordAnswer = passwordAnswer.ToLowerInvariant().Sha256Hash();
+            membership.PasswordAnswer = (inverGrovePasswordFormat == InverGrovePasswordFormat.Hashed) ? hashedSecurityAnswer : strippedSecurityAnswer;
             membership.FailedPasswordAttemptWindowStart = DateTime.MinValue.IsSqlSafeDate();
             membership.FailedPasswordAnswerAttemptWindowStart = DateTime.MinValue.IsSqlSafeDate();
 

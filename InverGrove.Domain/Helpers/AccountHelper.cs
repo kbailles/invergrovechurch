@@ -1,7 +1,6 @@
 ﻿using InverGrove.Domain.Enums;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
-using Membership = InverGrove.Domain.Models.Membership;
 
 namespace InverGrove.Domain.Helpers
 {

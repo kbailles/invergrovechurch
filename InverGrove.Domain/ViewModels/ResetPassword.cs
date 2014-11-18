@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using InverGrove.Domain.Resources;
+using InverGrove.Domain.ValueTypes;
 
 namespace InverGrove.Domain.ViewModels
 {
@@ -13,11 +14,13 @@ namespace InverGrove.Domain.ViewModels
         [StringLength(100, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PasswordErrorMessage", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(ViewLabels), Name = "PasswordLabel")]
+        [RegularExpression(RegularExpressions.PasswordRegEx, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "ChangePasswordNotCorrect")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(ResourceType = typeof(ViewLabels), Name = "ConfirmPasswordLabel")]
         [Compare("Password", ErrorMessageResourceType = typeof (Messages), ErrorMessageResourceName = "ConfirmPasswordErrorMessage")]
+        [RegularExpression(RegularExpressions.PasswordRegEx, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "ChangePasswordNotCorrect")]
         public string ConfirmPassword { get; set; }
 
         /// <summary>
