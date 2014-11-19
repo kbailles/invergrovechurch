@@ -8,7 +8,7 @@
 
     ContactController.$inject = ['MessageService', '$window'];
 
-    function ContactController(MessageService, $route) {
+    function ContactController(MessageService, $window) {
         var vm = this;
 
         /*
