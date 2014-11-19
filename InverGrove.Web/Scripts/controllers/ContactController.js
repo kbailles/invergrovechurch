@@ -6,7 +6,7 @@
     angular.module(appName + '.controllers')
         .controller('ContactCtrl', ContactController);
 
-    ContactController.$inject = ['MessageService', '$route'];
+    ContactController.$inject = ['MessageService', '$window'];
 
     function ContactController(MessageService, $route) {
         var vm = this;
@@ -27,11 +27,11 @@
         }
 
         function sendContactUsMessage() {
-            MessageService.sendMessage(vm.contactUsObj).then(function (success) {
+            MessageService.sendMessage(vm.contactUsObj).then(function (response) {
 
-                if (success) {
+                if (response.status === 200 /* Response status OK */) {
                     //For now reload the page when we send a contact us message...
-                    $route.reload();
+                    $window.location.reload();
                 } else {
 
                 }
