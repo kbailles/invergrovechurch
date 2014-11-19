@@ -38,7 +38,7 @@ namespace InverGrove.Web.Controllers.api
 
         // POST api/Trivia
         [ResponseType(typeof(Contact))]
-        public async Task<IHttpActionResult> Post([FromBody]Contact contact)
+        public async Task<IHttpActionResult> Post(Contact contact)
         {
             if (!ModelState.IsValid)
             {

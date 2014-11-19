@@ -10,5 +10,15 @@
 
     function MessageService($http) {
 
+        this.sendMessage = function (messageObj) {
+
+            return $http.post('/api/ContactForm', messageObj).
+                success(function (data, status, headers, config) {
+                    return true;
+                }).
+                error(function (data, status, headers, config) {
+                    return false;
+                });
+        }
     }
 })();

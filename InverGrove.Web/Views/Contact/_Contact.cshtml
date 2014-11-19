@@ -1,5 +1,4 @@
-﻿
-<div class="contact-wrapper" ng-controller="ContactCtrl">
+﻿<div class="contact-wrapper" ng-controller="ContactCtrl as vm">
     <div class="breadcrumb-wrapper">
         <div class="container">
             <div class="row">
@@ -25,35 +24,39 @@
                 <div id="ContactForm" class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                     <h3 class="title">Send Us an Email</h3>
                     <p>To send us your questions, comments or concerns, fill out the information below and then click the Send button.</p>
-                    <div class="divider"></div>
-                    <!-- removed -->
-                    <fieldset class="reply">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Name: <span class="warning">*</span></label>
-                                <input class="form-control" id="name" name="name" ng-model="contact.name" type="text" value="" required="" maxlength="100">
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Email: <span class="warning">*</span></label>
-                                <input class="form-control" id="email" name="email" ng-model="contact.email" type="text" value="" required="" maxlength="100">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <label>Subject: <span class="warning">*</span></label>
-                                <input class="form-control" id="subject" name="subject" ng-model="contact.subject" type="text" value="" required="" maxlength="100">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <label>Message: <span class="warning">*</span></label>
-                                <textarea class="form-control" id="text" name="text" ng-model="contact.comments" rows="3" cols="40" required="" maxlength="240"></textarea>
-                            </div>
-                        </div>
-                    </fieldset>
 
-                    <button ng-click="basicContact(contact)" ng-disabled="working" class="btn btn-normal btn-color submit bottom-pad">Send</button>
+                    <div class="divider"></div>
+
+                    <form name="form" novalidate>
+                        <fieldset class="reply">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Name: <span class="warning">*</span></label>
+                                    <input class="form-control" name="cName" ng-model="vm.contactUsObj.Name" type="text" maxlength="100" required>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Email: <span class="warning">*</span></label>
+                                    <input class="form-control" name="cEmail" ng-model="vm.contactUsObj.Email" type="text" maxlength="100" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label>Subject: <span class="warning">*</span></label>
+                                    <input class="form-control" name="cSubject" ng-model="vm.contactUsObj.Subject" type="text" maxlength="100" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label>Message: <span class="warning">*</span></label>
+                                    <textarea class="form-control" name="cComments" ng-model="vm.contactUsObj.Comments" rows="3" cols="40" maxlength="240" required></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <button ng-disabled="form.$invalid" ng-click="vm.sendContactUsMessage()" class="btn btn-normal btn-color submit bottom-pad">Send</button>
                         <div class="clearfix"></div>
+                    </form>
+
                     <!-- remoed close form tag here -->
                 </div>
                 <div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">

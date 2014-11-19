@@ -1,25 +1,3 @@
-//'use strict';
-
-//angular.module('igchurch.controllers')
-
-//    .controller('ContactCtrl', ['$scope', '$http', 'LocationFactory', function ($scope, $http, locationFactory) {
-//        $scope.churchLocation = locationFactory;
-//        $scope.working = false;
-
-//        $scope.basicContact = function (contact) {
-//            $scope.working = true;
-//            debugger;
-//            $http.post('/api/contactform', contact).success(function (data, status, headers, config) {
-//                $scope.working = false;
-//            }).error(function (data, status, headers, config) {
-
-//                $scope.title = "Oops... something went wrong";
-//                $scope.working = false;
-//            });
-
-//        };
-//    }]);
-
 (function () {
     'use strict';
 
@@ -28,17 +6,35 @@
     angular.module(appName + '.controllers')
         .controller('ContactCtrl', ContactController);
 
-    ContactController.$inject = ['$http'];
+    ContactController.$inject = ['MessageService', '$route'];
 
-    function ContactController($http) {
+    function ContactController(MessageService, $route) {
         var vm = this;
 
-        vm.basicContact = function () {
-            $http.post('/api/contactform', contact).success(function(data, status, headers, config) {
-                //$scope.working = false;
-            }).error(function(data, status, headers, config) {
-                //$scope.title = "Oops... something went wrong";
-                //$scope.working = false;
+        /*
+         * Public declarations
+         */
+        vm.contactUsObj = {};
+        vm.sendContactUsMessage = sendContactUsMessage;
+
+        activate();
+
+        /*
+         * Private declarations
+         */
+        function activate() {
+
+        }
+
+        function sendContactUsMessage() {
+            MessageService.sendMessage(vm.contactUsObj).then(function (success) {
+
+                if (success) {
+                    //For now reload the page when we send a contact us message...
+                    $route.reload();
+                } else {
+
+                }
             });
         }
     }

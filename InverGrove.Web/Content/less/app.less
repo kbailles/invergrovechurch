@@ -118,6 +118,12 @@ a {
     background: @blue-light;
   }
 }
+.btn-normal {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 30px;
+}
 .btn-special {
   border-radius: 4px;
   font-weight: 400;
@@ -143,6 +149,9 @@ a {
   &:hover {
     background: @warning;
   }
+}
+button[disabled] {
+    background-color: @gray !important;
 }
 .contact-box {
   background: @white;
@@ -427,6 +436,9 @@ h3.title {
       }
     }
   }
+}
+form .ng-dirty.ng-invalid {
+    border: 1px solid @warning;
 }
 .our-location {
   padding-bottom: 25px;

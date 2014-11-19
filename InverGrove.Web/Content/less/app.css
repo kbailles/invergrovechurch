@@ -105,6 +105,12 @@ a .remove {
 .btn-color:hover {
   background: #0488cd;
 }
+.btn-normal {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 30px;
+}
 .btn-special {
   border-radius: 4px;
   font-weight: 400;
@@ -130,6 +136,9 @@ a .remove {
 }
 .btn-warning:hover {
   background: #e24747;
+}
+button[disabled] {
+  background-color: #777777 !important;
 }
 .contact-box {
   background: #ffffff;
@@ -414,6 +423,9 @@ h3.title:after {
   .need-ride .need-ride-content .btn {
     float: none !important;
   }
+}
+form .ng-dirty.ng-invalid {
+  border: 1px solid #e24747;
 }
 .our-location {
   padding-bottom: 25px;
