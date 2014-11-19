@@ -25,6 +25,7 @@ namespace InverGrove.Web
             RegisterFactories(container);
 
             container.Register(Component.For<IProfileProvider>().ImplementedBy<ProfileProvider>().LifeStyle.Transient);
+            container.Register(Component.For<IMembershipProvider>().ImplementedBy<MembershipProvider>().LifeStyle.Transient);
         }
 
         private static void RegisterFactories(IWindsorContainer container)
