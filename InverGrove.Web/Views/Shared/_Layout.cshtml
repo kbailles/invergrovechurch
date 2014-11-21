@@ -74,6 +74,7 @@
                 <!--[if lt IE 7]>
                     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
                 <![endif]-->
+                <div loading-overlay></div>
 
                 @RenderBody()
             </main>
@@ -137,6 +138,7 @@
         <script src="~/Components/angular/angular.js"></script>
         <script src="~/Components/angular-route/angular-route.js"></script>
         <script src="~/Components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="~/Components/bootstrap-ui/ui-bootstrap-tpls-0.12.0.min.js"></script>
 
         <script src="~/Components/lodash/lodash.min.js"></script>
 
@@ -171,6 +173,7 @@
         <script src="~/Scripts/directives/revosliderDirective.js"></script>
         <script src="~/Scripts/directives/scrollUpDirective.js"></script>
         <script src="~/Scripts/directives/stickyElementDirective.js"></script>
+        <script src="~/Scripts/directives/loadingOverlayDirective.js"></script>
 
         @RenderSection("Scripts", required: false)
     </body>

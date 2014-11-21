@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="contact-content">
+    <div class="contact-content" ng-cloak>
         <div class="container">
             <div class="row">
                 <div id="ContactForm" class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
@@ -26,6 +26,8 @@
                     <p>To send us your questions, comments or concerns, fill out the information below and then click the Send button.</p>
 
                     <div class="divider"></div>
+
+                    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
 
                     <form name="form" novalidate>
                         <fieldset class="reply">
@@ -36,7 +38,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label>Email: <span class="warning">*</span></label>
-                                    <input class="form-control" name="email" ng-model="vm.contactUsObj.email" type="text" maxlength="100" required>
+                                    <input class="form-control" name="email" ng-model="vm.contactUsObj.email" type="email" maxlength="100" required>
                                 </div>
                             </div>
                             <div class="row">

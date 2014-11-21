@@ -10,6 +10,10 @@ namespace('igchurch.constants').APP_NAME = 'igchurch';
          * Angular modules
          */
         'ngRoute',
+        /*
+         * Bootstrap modules
+         */
+        'ui.bootstrap',
         /**
          * Our reusable app code modules
          */

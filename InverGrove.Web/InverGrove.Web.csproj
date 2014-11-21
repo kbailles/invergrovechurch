@@ -200,6 +200,7 @@
     <Content Include="Components\angular-ui-router\src\viewScroll.js" />
     <Content Include="Components\angular\angular.js" />
     <Content Include="Components\angular\angular.min.js" />
+    <Content Include="Components\bootstrap-ui\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="Components\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Components\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Components\bootstrap\css\bootstrap.css" />
@@ -335,6 +336,7 @@
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\directives\directives.module.js" />
     <Content Include="Scripts\directives\googleMapDirective.js" />
+    <Content Include="Scripts\directives\loadingOverlayDirective.js" />
     <Content Include="Scripts\directives\revosliderDirective.js" />
     <Content Include="Scripts\directives\scrollUpDirective.js" />
     <Content Include="Scripts\directives\stickyElementDirective.js" />

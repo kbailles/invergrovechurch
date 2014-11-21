@@ -6,16 +6,21 @@
     angular.module(appName + '.controllers')
         .controller('ContactCtrl', ContactController);
 
-    ContactController.$inject = ['MessageService', '$window'];
+    ContactController.$inject = ['MessageService', '$scope'];
 
-    function ContactController(MessageService, $window) {
+    function ContactController(MessageService, $scope) {
         var vm = this;
 
         /*
          * Public declarations
          */
+        vm.closeAlert = closeAlert;
         vm.contactUsObj = {};
         vm.sendContactUsMessage = sendContactUsMessage;
+        vm.resetContactUsForm = resetContactUsForm;
+
+        //ui.bootstrap watches $scope object
+        $scope.alerts = [];
 
         activate();
 
@@ -27,15 +32,29 @@
         }
 
         function sendContactUsMessage() {
+            $scope.$emit('loading-started');
+
             MessageService.sendMessage(vm.contactUsObj).then(function (response) {
 
                 if (response.status === 200 /* Response status OK */) {
-                    //For now reload the page when we send a contact us message...
-                    $window.location.reload();
+                    $scope.alerts.push({ type: 'success', msg: 'Message successfully sent!' });
+                    vm.resetContactUsForm();
                 } else {
-
+                    $scope.alerts.push({ type: 'danger', msg: 'Ops! We were unable to send your message!' });
                 }
+
+                $scope.$emit('loading-complete');
             });
+        }
+
+        function resetContactUsForm() {
+            vm.contactUsObj = {};
+            $scope.form.$setPristine();
+        }
+
+        function closeAlert(index) {
+            //ui.bootstrap watches $scope object
+            $scope.alerts.splice(index, 1);
         }
     }
 })();
