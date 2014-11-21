@@ -51,14 +51,14 @@
                         </div>
 
                         <div class="mobile navbar-header">
-                            @*<div class="mobile navbar-header">
-                                <button class="navbar-toggle collapsed" ng-click="navbarCollapsed = !navbarCollapsed">
+                            <div class="mobile navbar-header">
+                                <button class="navbar-toggle collapsed" ng-click="base.toggleNavBar()">
                                     <i class="fa fa-bars"></i>
                                 </button>
-                            </div>*@
+                            </div>
                         </div>
 
-                        <nav class="collapse navbar-collapse" collapse="navbarCollapsed">
+                        <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed">
                             <ul class="nav navbar-nav">
                                 <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
                                 <li ng-class="{active: base.isRouteActive('/Sermon/')}"><a href="@Url.Action("ViewSermons", "Sermon")">Sermons</a></li>

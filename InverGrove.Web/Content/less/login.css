@@ -485,10 +485,9 @@ h3.title:after {
 }
 @media (max-width: 767px) {
   .navbar-collapse {
-    border-top-width: 0px;
+    border-top-width: 0;
     box-shadow: none;
     float: none;
-    margin-left: 0 !important;
     width: auto;
   }
 }

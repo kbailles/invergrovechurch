@@ -7,27 +7,35 @@
         .controller('BaseCtrl', BaseController);
 
     BaseController.$inject = [
+        '$scope',
         '$location'
     ];
 
-    function BaseController($location) {
-        var vm = this;
+    function BaseController($scope, $location) {
+        var base = this;
 
         /*
          * Public declarations
          */
-        vm.isRouteActive = isRouteActive;
-        vm.goToPath = goToPath;
+        base.navBarCollapsed = true;
+        base.toggleNavBar = toggleNabBar;
+
+        base.isRouteActive = isRouteActive;
+        base.goToPath = goToPath;
 
         /*
          * Private declarations
          */
+        function goToPath(path) {
+            window.location.href = path;
+        }
+
         function isRouteActive(route) {
             return !route ? '/' === $location.path() : $location.absUrl().indexOf(route) > -1;
         }
 
-        function goToPath(path) {
-            window.location.href = path;
+        function toggleNabBar() {
+            base.navBarCollapsed = !base.navBarCollapsed;
         }
     }
 })();
