@@ -16,9 +16,15 @@
          */
         vm.sermons = [];
         vm.sermonDetail = sermonDetail;
+
         vm.titleFilter = '';
+        vm.speakerFilter = '';
+        vm.tagsFilter = [];
+
         vm.filteredSpeakers = filteredSpeakers;
         vm.filteredTags = filteredTags;
+
+        vm.toggleTagChecked = toggleTagChecked;
 
         activate();
 
@@ -44,8 +50,17 @@
         }
 
         function filteredTags() {
-            //TODO: REFACTOR THIS IMMEDIATELY
             return _.mapValues(_.groupBy(_.chain(vm.sermons).pluck('tags').flatten().invoke('split', ',').flatten().invoke('trim').value()), function (r) { return r.length; });
+        }
+
+        function toggleTagChecked(value) {
+            var index = vm.tagsFilter.indexOf(value);
+
+            if (index > -1) {
+                vm.tagsFilter.splice(index, 1);
+            } else {
+                vm.tagsFilter.push(value);
+            }
         }
     }
 })();

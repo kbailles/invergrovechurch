@@ -12,7 +12,7 @@
 a:hover,
 a:focus {
   text-decoration: none;
-  background-color: #2eaef0;
+  color: #2eaef0;
 }
 body {
   background: url('../images/graymatte.png') repeat;

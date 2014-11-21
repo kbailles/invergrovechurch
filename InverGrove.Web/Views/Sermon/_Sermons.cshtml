@@ -29,7 +29,7 @@
                 <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                     <h3 class="title">Listen to Sermons</h3>
 
-                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter, tags: vm.tagFilter }">
+                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter } | selectedTags: vm.tagsFilter">
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
@@ -69,19 +69,24 @@
                     </div>
 
                     <div class="widget speakers" style="margin-bottom: 35px;">
-                        <h3 class="title">Filter by Speakers</h3>
-                        <ul>
-                            <li ng-repeat="(key, value) in vm.filteredSpeakers()" ng-show="!$parent.vm.speakerFilter || $parent.vm.speakerFilter == key">
-                                <a href="#" ng-click="$parent.vm.speakerFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" class="remove" ng-show="$parent.vm.speakerFilter && $parent.vm.speakerFilter == key" ng-click="$parent.vm.speakerFilter = ''"><i class="fa fa-remove"></i></a>
-                            </li>
-                        </ul>
+                        <h3 class="title">Filter by Speaker</h3>
+                        <div style="padding-left: 20px;">
+                            <select ng-model="vm.speakerFilter" class="form-control">
+                                <option value="">Select speaker</option>
+                                <option ng-repeat="(key, value) in vm.filteredSpeakers()" value="{{key}}">{{key}} ({{value}})</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="widget tags" style="margin-bottom: 35px;">
                         <h3 class="title">Filter by Tags</h3>
-                        <ul>
-                            <li ng-repeat="(key, value) in vm.filteredTags()" ng-show="!$parent.vm..tagFilter || $parent.vm.tagFilter == key">
-                                <a href="#" ng-click="$parent.vm.tagFilter = key.toString()">{{key}} ({{value}})</a> <a href="#" class="remove" ng-show="$parent.vm.tagFilter && $parent.vm.tagFilter == key" ng-click="$parent.vm.tagFilter = ''"><i class="fa fa-remove"></i></a>
+                        <ul style="list-style: none;padding-left: 20px;">
+                            <li ng-repeat="(key, value) in vm.filteredTags()">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-click="vm.toggleTagChecked(key)"> {{key}} ({{value}})
+                                    </label>
+                                </div>
                             </li>
                         </ul>
                     </div>

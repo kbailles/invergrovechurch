@@ -20,6 +20,7 @@ namespace('igchurch.constants').APP_NAME = 'igchurch';
         appName + '.controllers',
         appName + '.directives',
         appName + '.factories',
+        appName + '.filters',
         appName + '.services'
     ]);
 })();
