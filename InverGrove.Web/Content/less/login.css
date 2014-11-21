@@ -1,4 +1,20 @@
-﻿body {
+﻿.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: inherit;
+  background-color: inherit;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  background-color: #2eaef0;
+}
+body {
   background: url('../images/graymatte.png') repeat;
   color: #767676;
   font-family: 'pt-sans', sans-serif;

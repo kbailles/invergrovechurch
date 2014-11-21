@@ -2,6 +2,20 @@
 @import "mixins.less";
 @import "variables.less";
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.nav > li > a {
+    &:hover,&:focus {
+        text-decoration: inherit;
+        background-color: inherit;
+    }
+}
+a {
+    &:hover,&:focus {
+        text-decoration: none;
+        background-color: @blue-lighter;
+    }
+}
+
 body {
   background: url('@{img-file-path-base}graymatte.png') repeat;
   color: @gray-dark;
