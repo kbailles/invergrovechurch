@@ -17,12 +17,17 @@
          * Public declarations
          */
         vm.isRouteActive = isRouteActive;
+        vm.goToPath = goToPath;
 
         /*
          * Private declarations
          */
         function isRouteActive(route) {
             return !route ? '/' === $location.path() : $location.absUrl().indexOf(route) > -1;
+        }
+
+        function goToPath(path) {
+            window.location.href = path;
         }
     }
 })();
