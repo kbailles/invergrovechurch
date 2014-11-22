@@ -35,13 +35,13 @@
                             </div>
                             <div class="sermon-entry-meta-speaker">
                                 <i class="fa fa-user"></i>
-                                <a href="#" class="sermon-entry-meta-author">{{vm.sermon.speaker}}</a>
+                                <span>{{vm.sermon.speaker}}</span>
                             </div>
                             <div class="sermon-entry-meta-tags">
                                 <i class="fa" ng-class="vm.sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
-                                <a href="#" ng-repeat="tag in vm.sermon.tags.split(',')">
+                                <span ng-repeat="tag in vm.sermon.tags.split(',')">
                                     {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
-                                </a>
+                                </span>
                             </div>
                         </div>
                     </header>
