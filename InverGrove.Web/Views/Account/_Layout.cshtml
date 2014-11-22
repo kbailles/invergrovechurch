@@ -3,12 +3,12 @@
 <!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="app" class="no-js">
+<html lang="en" ng-app="igchurch" class="no-js">
  <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My AngularJS App</title>
+    <title>Inver Grove church of Christ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Components/html5-boilerplate/css/normalize.css" rel="stylesheet" />
@@ -25,8 +25,9 @@
     <script src="~/Scripts/bootstrap/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="//use.typekit.net/prb0ymj.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
+    <script src="~/Scripts/common/namespace.js"></script>
 </head>
-<body ng-controller="AppCtrl">
+<body ng-controller="BaseCtrl as base">
     <div class="wrapper">
         <header>
             <div class="bottom-bar">
@@ -38,7 +39,7 @@
             </div>
         </header>
 
-        <main ng-controller="AuthCtrl">
+        <main>
             <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
@@ -50,15 +51,23 @@
     <!-- In production use:
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
     -->
-    <script src="../../components/angular/angular.js"></script>
-    <script src="../../components/angular-route/angular-route.js"></script>
-    <script src="../../components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="~/Components/angular/angular.js"></script>
+    <script src="~/Components/angular-route/angular-route.js"></script>
+    <script src="~/Components/angular-bootstrap/ui-bootstrap.min.js"></script>
 
-    <script src="~/Scripts/app.js"></script>
-    <script src="~/Scripts/directives.js"></script>
+    <script src="~/Scripts/app.module.js"></script>
+    <script src="~/Scripts/app.routes.js"></script>
 
-    <script src="~/Scripts/controllers/AppController.js"></script>
-    <script src="~/Scripts/controllers/AuthenticationController.js"></script>
+    <script src="~/Scripts/factories/factories.module.js"></script>
+
+    <script src="~/Scripts/filters/filters.module.js"></script>
+
+    <script src="~/Scripts/services/services.module.js"></script>
+
+    <script src="~/Scripts/controllers/controllers.module.js"></script>
+    <script src="~/Scripts/controllers/BaseController.js"></script>
+
+    <script src="~/Scripts/directives/directives.module.js"></script>
 
 </body>
 </html>
