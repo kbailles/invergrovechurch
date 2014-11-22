@@ -108,6 +108,14 @@ a {
     }
   }
 }
+@media (max-width: 767px) {
+    .breadcrumb-wrapper {
+        text-align: center;
+    }
+    .breadcrumbs.pull-right {
+        float: none !important;
+    }
+}
 .bottom-bar {
   background: @blue-darkest;
   -webkit-box-shadow: 0 3px 3px -3px rgba(0,0,0,0.2);
@@ -579,6 +587,16 @@ form .ng-dirty.ng-valid {
     height: 400px;
   }
 }
+@media (max-width: 767px) {
+    .phone-email a {
+        display: block;
+        margin: 0 0 10px;
+        text-align: center;
+    }
+    .top-bar .pull-left {
+        float: none !important;
+    }
+}
 .reply {
   input {
     margin: 0 0 20px;
@@ -597,29 +615,29 @@ form .ng-dirty.ng-valid {
   }
 }
 .scrollup {
-  background: @gray-lighter;
-  border-radius: 2px;
-  bottom: 20px;
-  color: @white-dark;
-  cursor: pointer;
-  display: none;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  filter: alpha(opacity=80);
-  font-size: 28px;
-  height: 40px;
-  opacity: 0.8;
-  position: fixed;
-  right: 20px;
-  text-align: center;
-  width: 40px;
-  z-index: 9999;
-  &:hover {
+    background: @gray-lighter;
+    border-radius: 2px;
+    bottom: 40px;
     color: @white-dark;
-  }
-  i {
-    left: 1px;
-    top: 3px;
-  }
+    cursor: pointer;
+    display: none;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    filter: alpha(opacity=80);
+    font-size: 28px;
+    height: 40px;
+    opacity: 0.8;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    width: 40px;
+    z-index: 9999;
+    &:hover {
+        color: @white-dark;
+    }
+    i {
+        left: 1px;
+        top: 3px;
+    }
 }
 .sermons-content {
     padding: 60px 0 0;

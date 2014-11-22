@@ -97,6 +97,14 @@ a .remove {
   content: " ";
   margin: 0;
 }
+@media (max-width: 767px) {
+  .breadcrumb-wrapper {
+    text-align: center;
+  }
+  .breadcrumbs.pull-right {
+    float: none !important;
+  }
+}
 .bottom-bar {
   background: #252c34;
   -webkit-box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.2);
@@ -564,6 +572,16 @@ form .ng-dirty.ng-valid {
 .our-location .church-location {
   height: 400px;
 }
+@media (max-width: 767px) {
+  .phone-email a {
+    display: block;
+    margin: 0 0 10px;
+    text-align: center;
+  }
+  .top-bar .pull-left {
+    float: none !important;
+  }
+}
 .reply input {
   margin: 0 0 20px;
 }
@@ -582,7 +600,7 @@ form .ng-dirty.ng-valid {
 .scrollup {
   background: #9e9e9e;
   border-radius: 2px;
-  bottom: 20px;
+  bottom: 40px;
   color: #fafafa;
   cursor: pointer;
   display: none;
