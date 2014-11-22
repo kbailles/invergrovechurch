@@ -27,7 +27,7 @@
             <div class="row">
 
                 <div class="sidebar col-lg-3 col-lg-push-9 col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 col-xs-12">
-                    <div class="widget search-form" style="margin-bottom: 35px;">
+                    <div class="widget search-form">
                         <div class="input-group">
                             <input type="text" placeholder="Search..." class="search-input form-control" ng-model="vm.titleFilter">
                             <span class="input-group-btn">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
 
-                    <div class="widget speakers" style="margin-bottom: 35px;">
+                    <div class="widget speakers">
                         <h3 class="title">Filter by Speaker</h3>
                         <div style="padding-left: 20px;">
                             <select ng-model="vm.speakerFilter" class="form-control">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
 
-                    <div class="widget tags" style="margin-bottom: 35px;">
+                    <div class="widget tags">
                         <h3 class="title">Filter by Tags</h3>
                         <ul style="list-style: none;padding-left: 20px;">
                             <li ng-repeat="(key, value) in vm.filteredTags()">
