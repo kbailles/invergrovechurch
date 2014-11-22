@@ -1,11 +1,17 @@
-﻿using System.Web.Security;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Web.Security;
+using InverGrove.Data;
+using InverGrove.Data.Entities;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Services;
 using InverGrove.Domain.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Person = InverGrove.Domain.Models.Person;
 
 namespace InverGrove.Tests.Domain.Services
 {
@@ -54,6 +60,9 @@ namespace InverGrove.Tests.Domain.Services
         [TestMethod]
         public void RegisterUser_Should_Call_CreateMembershipUser_On_MembershipService()
         {
+            this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
+                It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
+                It.IsAny<string>())).Returns(new List<UserRole>());
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(
@@ -69,6 +78,10 @@ namespace InverGrove.Tests.Domain.Services
         {
             var newMembership = new InverGrove.Domain.Models.Membership {MembershipId = 4, UserId = 1};
             var newUser = new Register {Person = new Person(), RoleId = 2};
+
+            this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
+                It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
+                It.IsAny<string>())).Returns(new List<UserRole>());
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
@@ -85,6 +98,10 @@ namespace InverGrove.Tests.Domain.Services
         {
             var newMembership = new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 };
             var newUser = new Register { Person = new Person(), RoleId = 2 };
+
+            this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
+                It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
+                It.IsAny<string>())).Returns(new List<UserRole>());
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
@@ -102,6 +119,10 @@ namespace InverGrove.Tests.Domain.Services
         {
             var newMembership = new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 };
             var newUser = new Register { Person = new Person(), RoleId = 2 };
+
+            this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
+                It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
+                It.IsAny<string>())).Returns(new List<UserRole>());
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
@@ -112,6 +133,27 @@ namespace InverGrove.Tests.Domain.Services
             this.registrationService.RegisterUser(newUser);
 
             this.emailService.VerifyAll();
+        }
+
+        [TestMethod]
+        public void RegisterUser_Should_Call_Get_On_UserRoleRepository()
+        {
+            var newMembership = new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 };
+            var newUser = new Register { Person = new Person(), RoleId = 2 };
+
+            this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
+                It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
+                It.IsAny<string>())).Returns(new List<UserRole>{new UserRole{User = new User{UserId = 1, UserName = "AlreadyHere"}}});
+            this.membershipService.Setup(
+                m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
+                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
+            this.profileService.Setup(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, false, true)).Returns(true);
+            this.userRoleRepository.Setup(u => u.AddUserToRole(newMembership.UserId, newUser.RoleId));
+            this.emailService.Setup(e => e.SendNewUserEmail(It.IsAny<IRegister>()));
+
+            this.registrationService.RegisterUser(newUser);
+
+            this.userRoleRepository.VerifyAll();
         }
     }
 }

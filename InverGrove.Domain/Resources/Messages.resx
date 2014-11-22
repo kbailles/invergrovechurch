@@ -323,4 +323,34 @@
   <data name="PersonTypeRequiredErrorMessage" xml:space="preserve">
     <value>Please select a Person Type.</value>
   </data>
+  <data name="CreateMemberProviderError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="CreateMemberUnknownErorr" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="CreateMemberUserRejected" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="DuplicateUserEmail" xml:space="preserve">
+    <value>A user name for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="InvalidPasswordAnswer" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidPasswordQuestion" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>The user name provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="UsernameAlreadyExists" xml:space="preserve">
+    <value>User name already exists. Please enter a different user name.</value>
+  </data>
 </root>

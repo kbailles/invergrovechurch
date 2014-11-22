@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using InverGrove.Domain.Exceptions;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.ViewModels;
 
@@ -25,7 +26,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return this.View(model);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Index(Register register)
         {
             if (register == null)
@@ -35,7 +36,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
 
             if (ModelState.IsValid)
             {
-                this.registrationService.RegisterUser(register);
+                var creationResult = this.registrationService.RegisterUser(register);
+
+                if (!creationResult.Success)
+                {
+                    ModelState.AddModelError("", creationResult.MembershipCreateStatus.ErrorCodeToString());
+                }
             }
 
             return this.View(register);

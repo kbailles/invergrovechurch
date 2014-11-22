@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Security;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -155,5 +156,13 @@ namespace InverGrove.Domain.Interfaces
         /// The user.
         /// </value>
         IUser User { get; set; }
+
+        /// <summary>
+        /// Gets or sets the membership create status.
+        /// </summary>
+        /// <value>
+        /// The membership create status.
+        /// </value>
+        MembershipCreateStatus MembershipCreateStatus { get; set; }
     }
 }

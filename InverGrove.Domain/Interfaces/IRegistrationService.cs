@@ -17,6 +17,6 @@ namespace InverGrove.Domain.Interfaces
         /// <param name="userToRegister">The user to register.</param>
         /// <returns></returns>
         /// <exception cref="ParameterNullException">userToRegister</exception>
-        bool RegisterUser(IRegister userToRegister);
+        IRegisterUserResult RegisterUser(IRegister userToRegister);
     }
 }

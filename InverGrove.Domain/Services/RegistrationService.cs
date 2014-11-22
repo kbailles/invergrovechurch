@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using InverGrove.Domain.Enums;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Models;
 using InverGrove.Domain.ViewModels;
 using MembershipProvider = InverGrove.Domain.Providers.MembershipProvider;
 
@@ -111,7 +113,7 @@ namespace InverGrove.Domain.Services
         /// <param name="userToRegister">The user to register.</param>
         /// <returns></returns>
         /// <exception cref="ParameterNullException">userToRegister</exception>
-        public bool RegisterUser(IRegister userToRegister)
+        public IRegisterUserResult RegisterUser(IRegister userToRegister)
         {
             if (ReferenceEquals(null, userToRegister))
             {
@@ -123,7 +125,16 @@ namespace InverGrove.Domain.Services
                 throw new ParameterNullException("userToRegister.Person");
             }
 
-            bool success = false;
+            var registerUserResult = RegisterUserResult.Create();
+
+            var existingUserName = this.userRoleRepository.Get(u => u.User.UserName == userToRegister.UserName).FirstOrDefault();
+
+            if (existingUserName != null)
+            {
+                registerUserResult.MembershipCreateStatus = MembershipCreateStatus.DuplicateUserName;
+
+                return registerUserResult;
+            }
 
             string generatedPassword = MembershipProvider.GeneratePassword(GeneratedPasswordLength, NumberNonAlphaNumericCharacters);
 
@@ -133,7 +144,7 @@ namespace InverGrove.Domain.Services
 
             if ((newMembership.MembershipId > 0) && (newMembership.UserId > 0))
             {
-                success = this.profileService.AddPersonProfile(userToRegister.Person, newMembership.UserId,
+                registerUserResult.Success = this.profileService.AddPersonProfile(userToRegister.Person, newMembership.UserId,
                     userToRegister.IsBaptized, userToRegister.IsLocal, userToRegister.IsActive, true);
                 this.userRoleRepository.AddUserToRole(newMembership.UserId, userToRegister.RoleId);
 
@@ -143,7 +154,7 @@ namespace InverGrove.Domain.Services
                 this.emailService.SendNewUserEmail(userToRegister);
             }
 
-            return success;
+            return registerUserResult;
         }
     }
 }
