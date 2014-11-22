@@ -6,7 +6,7 @@ using Castle.Windsor;
 using InverGrove.Domain.Exceptions;
 
 namespace InverGrove.Domain.Factories
-{        
+{
     /// <summary>
     /// Used to resolve the ApiController for WebApi
     /// </summary>

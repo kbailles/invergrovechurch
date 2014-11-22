@@ -46,30 +46,6 @@ namespace InverGrove.Domain.Factories
             }
         }
 
-        //// <summary>
-        ///// Creates the specified controller by using the specified request context.
-        ///// </summary>
-        ///// <param name="requestContext">The request context.</param>
-        ///// <param name="controllerName">The name of the controller.</param>
-        ///// <returns>
-        ///// The controller.
-        ///// </returns> this one was used when implementing IControllerFactory, but doesn't work when trying to register other controllers
-        ///  in Areas that have the same name, so using the DefaultControllerFactory inheritance instead so we can get the controllerType and resolve by full namespace name.
-        //public IController CreateController(RequestContext requestContext, string controllerName)
-        //{
-        //    try
-        //    {
-        //        controllerName = controllerName.ToLower() + "controller";
-        //        var controller = this.container.Resolve<IController>(controllerFullName.ToLower());
-
-        //        return controller;
-        //    }
-        //    catch (ComponentNotFoundException)
-        //    {
-        //        throw new HttpException(404, "The controller " + controllerName + " was not found");
-        //    }
-        //}
-
         public override void ReleaseController(IController controller)
         {
             this.container.Release(controller);
@@ -79,6 +55,5 @@ namespace InverGrove.Domain.Factories
         {
             return SessionStateBehavior.Default;
         }
-
     }
 }
