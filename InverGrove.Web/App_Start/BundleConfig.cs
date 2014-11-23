@@ -11,8 +11,8 @@ namespace InverGrove.Web
             bundles.Add(new StyleBundle("~/Components/css/core").Include(
                 "~/Components/html5-boilerplate/css/normalize.css",
                 "~/Components/html5-boilerplate/css/main.css",
-                "~/Components/bootstrap/css/bootstrap.min.css",
-                "~/Components/font-awesome/css/font-awesome.min.css"));
+                "~/Components/bootstrap/css/bootstrap.min.css")
+                .Include("~/Components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new StyleBundle("~/Content/css/core").Include(
                 "~/Content/less/app.min.css"));
