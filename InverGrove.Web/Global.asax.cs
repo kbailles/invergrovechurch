@@ -2,6 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
 using InverGrove.Data;
@@ -17,6 +18,8 @@ namespace InverGrove.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
