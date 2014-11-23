@@ -478,7 +478,7 @@
     <Compile Include="Areas\Member\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\api\ContactFormController.cs" />
+    <Compile Include="Controllers\api\ContactController.cs" />
     <Compile Include="Controllers\api\SermonController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

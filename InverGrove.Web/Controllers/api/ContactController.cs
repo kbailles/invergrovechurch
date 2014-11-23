@@ -7,12 +7,12 @@ using InverGrove.Domain.Models;
 
 namespace InverGrove.Web.Controllers.api
 {
-    public class ContactFormController : ApiController
+    public class ContactController : ApiController
     {
         private readonly IEmailService mailService;
         private readonly IContactService contactService;
 
-        public ContactFormController(IEmailService mailService, IContactService contactService)
+        public ContactController(IEmailService mailService, IContactService contactService)
         {
             this.mailService = mailService;
             this.contactService = contactService;

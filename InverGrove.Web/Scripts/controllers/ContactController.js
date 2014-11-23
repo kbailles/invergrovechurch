@@ -33,7 +33,7 @@
 
         function sendContactUsMessage() {
             $scope.$emit('loading-started');
-
+ 
             MessageService.sendMessage(vm.contactUsObj).then(function (response) {
 
                 if (response.status === 200 /* Response status OK */) {
