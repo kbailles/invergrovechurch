@@ -30,10 +30,10 @@ namespace InverGrove.Web
 
             //Revolution Slider bundles
             bundles.Add(new StyleBundle("~/Content/css/revoslider").Include(
-                "~/Content/css/rs-plugin/style.css"));
+                "~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new StyleBundle("~/Components/css/revoslider").Include(
-                "~/Components/rs-plugin/css/settings.css"));
+                "~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/revoslider").Include(
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
