@@ -8,38 +8,44 @@ namespace InverGrove.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Core bundles
-            bundles.Add(new StyleBundle("~/bundles/css/core").Include(
+            bundles.Add(new StyleBundle("~/Components/css/core").Include(
                 "~/Components/html5-boilerplate/css/normalize.css",
                 "~/Components/html5-boilerplate/css/main.css",
                 "~/Components/bootstrap/css/bootstrap.min.css",
-                "~/Components/font-awesome/css/font-awesome.min.css",
+                "~/Components/font-awesome/css/font-awesome.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/core").Include(
                 "~/Content/less/app.min.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/scripts/core").Include(
-                "~/Scripts/jquery/jquery-2.1.1.min.js",
+            bundles.Add(new ScriptBundle("~/Components/scripts/core").Include(
                 "~/Components/lodash/lodash.min.js",
-                "~/Scripts/common/namespace.js",
-                "~/Scripts/bootstrap/modernizr-2.6.2.min.js",
                 "~/Components/angular/angular.min.js",
                 "~/Components/angular-route/angular-route.min.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.12.0.min.js"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(
+                "~/Scripts/jquery/jquery-2.1.1.min.js",
+                "~/Scripts/common/namespace.js",
+                "~/Scripts/bootstrap/modernizr-2.6.2.min.js"));
+
             //Revolution Slider bundles
-            bundles.Add(new StyleBundle("~/bundles/css/revoslider").Include(
-                "~/Content/css/rs-plugin/style.css",
+            bundles.Add(new StyleBundle("~/Content/css/revoslider").Include(
+                "~/Content/css/rs-plugin/style.css"));
+
+            bundles.Add(new StyleBundle("~/Components/css/revoslider").Include(
                 "~/Components/rs-plugin/css/settings.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/scripts/revoslider").Include(
+            bundles.Add(new ScriptBundle("~/Components/scripts/revoslider").Include(
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
                 "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js"));
 
             //Plugins bundles
-            bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(
+            bundles.Add(new ScriptBundle("~/Components/scripts/plugins").Include(
                 "~/Components/gmaps/jquery.gmap.min.js",
                 "~/Components/sticky/jquery.sticky.js"));
 
             //Public area bundles
-            bundles.Add(new ScriptBundle("~/bundles/scripts/area/public").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
                 "~/Scripts/app.module.js",
                 "~/Scripts/app.routes.js",
                 //Factories

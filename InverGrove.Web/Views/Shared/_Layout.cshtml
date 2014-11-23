@@ -11,8 +11,10 @@
     <title>Inver Grove church of Christ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/bundles/css/core")
-    @Styles.Render("~/bundles/css/revoslider")
+    @Styles.Render("~/Components/css/core")
+    @Styles.Render("~/Content/css/core")
+    @Styles.Render("~/Content/css/revoslider")
+    @Styles.Render("~/Components/css/revoslider")
 
     <script type="text/javascript" src="//use.typekit.net/prb0ymj.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
@@ -117,11 +119,12 @@
         </a>
     </div>
 
-    @Scripts.Render("~/bundles/scripts/core")
-    @Scripts.Render("~/bundles/scripts/revoslider")
-    @Scripts.Render("~/bundles/scripts/plugins")
+    @Scripts.Render("~/Scripts/scripts/core")
+    @Scripts.Render("~/Components/scripts/core")
+    @Scripts.Render("~/Components/scripts/revoslider")
+    @Scripts.Render("~/Components/scripts/plugins")
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    @Scripts.Render("~/bundles/scripts/area/public")
+    @Scripts.Render("~/Scripts/scripts/area/public")
 
     @RenderSection("Scripts", required: false)
 </body>
