@@ -8,10 +8,10 @@
 
     function homePageRevoSliderOptions() {
         var sliderSetup = {
-            delay: 9000,
+            delay: 7000,
             startwidth: 1170,
             startheight: 370,
-            hideThumbs: 10
+            hideThumbs: 10,
         };
         return sliderSetup;
     }
