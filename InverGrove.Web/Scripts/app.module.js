@@ -1,5 +1,3 @@
-namespace('igchurch.constants').APP_NAME = 'igchurch';
-
 (function() {
     'use strict';
 
