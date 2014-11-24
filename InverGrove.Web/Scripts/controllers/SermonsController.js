@@ -6,9 +6,9 @@
     angular.module(appName + '.controllers')
         .controller('SermonsCtrl', SermonsController);
 
-    SermonsController.$inject = ['SermonService', '$window'];
+    SermonsController.$inject = ['SermonService', '$scope', '$window'];
 
-    function SermonsController(SermonService, $window) {
+    function SermonsController(SermonService, $scope, $window) {
         var vm = this;
 
         /*
@@ -36,8 +36,11 @@
         }
 
         function getSermons() {
+            $scope.$emit('loading-started');
+
             return SermonService.getSermons().then(function (data) {
                 vm.sermons = data.data;
+                $scope.$emit('loading-complete');
             });
         }
 
