@@ -10,8 +10,19 @@
 
     function routes($routeProvider) {
         $routeProvider
-            .when('/', { templateUrl: '/Home/Home', controller: 'HomeCtrl', controllerAs: 'vm' })
-            .when('/Sermon/SermonDetail/:id', { templateUrl: '/Sermon/SermonDetail', controller: 'SermonDetailCtrl', controllerAs: 'vm' })
+
+            .when('/', {
+                templateUrl: '/Home/Home',
+                controller: 'HomeCtrl',
+                controllerAs: 'vm'
+            })
+
+            .when('/Sermon/SermonDetail/:id', {
+                templateUrl: '/Sermon/SermonDetail',
+                controller: 'SermonDetailCtrl',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/' });
     }
 })();
