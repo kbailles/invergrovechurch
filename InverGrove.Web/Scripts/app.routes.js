@@ -20,7 +20,13 @@
             .when('/Sermon/SermonDetail/:id', {
                 templateUrl: '/Sermon/SermonDetail',
                 controller: 'SermonDetailCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    sermon: ['$route', 'SermonService', function ($route, SermonService) {
+                        var sermonId = $route.current.params.id;
+                        return SermonService.getSermon(sermonId);
+                    }]
+                }
             })
 
             .otherwise({ redirectTo: '/' });

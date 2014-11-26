@@ -22,7 +22,7 @@
 
         this.getSermons = function () {
 
-            return $http({ method: 'GET', url: '/api/Sermon' }).
+            return $http({ cache: true, method: 'GET', url: '/api/Sermon' }).
                 success(function(data, status, headers, config) {
                     return data;
                 }).

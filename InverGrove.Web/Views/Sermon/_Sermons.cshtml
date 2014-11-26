@@ -41,7 +41,7 @@
                         <div style="padding-left: 20px;">
                             <select ng-model="vm.speakerFilter" class="form-control">
                                 <option value="">Select speaker</option>
-                                <option ng-repeat="(key, value) in vm.filteredSpeakers()" value="{{key}}">{{key}} ({{value}})</option>
+                                <option ng-repeat="(key, value) in base.filteredSpeakers()" value="{{key}}">{{key}} ({{value}})</option>
                             </select>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <div class="widget tags">
                         <h3 class="title">Filter by Tags</h3>
                         <ul style="list-style: none;padding-left: 20px;">
-                            <li ng-repeat="(key, value) in vm.filteredTags()">
+                            <li ng-repeat="(key, value) in base.filteredTags()">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" ng-click="vm.toggleTagChecked(key)"> {{key}} ({{value}})
@@ -63,7 +63,7 @@
                 <div class="sermons-block col-lg-9 col-lg-pull-3 col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4 col-xs-12">
                     <h3 class="title">Listen to Sermons</h3>
 
-                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter } | selectedTags: vm.tagsFilter">
+                    <article class="sermon hentry" ng-repeat="sermon in base.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter } | selectedTags: vm.tagsFilter">
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
