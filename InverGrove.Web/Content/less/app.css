@@ -739,4 +739,9 @@ form .ng-dirty.ng-valid {
 .worship-info strong {
   font-size: 16px;
 }
+@media (max-width: 377px) {
+  .worship-info h3.title:after {
+    top: 42px;
+  }
+}
 /*# sourceMappingURL=app.css.map */

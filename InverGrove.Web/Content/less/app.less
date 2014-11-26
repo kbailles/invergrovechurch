@@ -758,10 +758,16 @@ form .ng-dirty.ng-valid {
     margin-bottom: 35px;
 }
 .worship-info {
-  margin-bottom: 30px;
-  min-height: 100px;
+    margin-bottom: 30px;
+    min-height: 100px;
 
-  strong {
-    font-size: 16px;
-  }
+    strong {
+        font-size: 16px;
+    }
+
+    @media (max-width: 377px) {
+        h3.title:after {
+            top: 42px;
+        }
+    }
 }
