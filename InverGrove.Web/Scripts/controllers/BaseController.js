@@ -7,12 +7,11 @@
         .controller('BaseCtrl', BaseController);
 
     BaseController.$inject = [
-        '$scope',
         '$location',
         'SermonService'
     ];
 
-    function BaseController($scope, $location, SermonService) {
+    function BaseController($location, SermonService) {
         var base = this;
 
         /*
