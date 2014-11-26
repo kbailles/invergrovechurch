@@ -45,6 +45,9 @@ namespace InverGrove.Web
                 "~/Components/gmaps/jquery.gmap.min.js",
                 "~/Components/sticky/jquery.sticky.js"));
 
+            //Login area bundles
+            bundles.Add(new StyleBundle("~/Scripts/css/area/login").Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
+
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
                 "~/Scripts/app.module.js",
