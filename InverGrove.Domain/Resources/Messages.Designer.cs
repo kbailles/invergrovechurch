@@ -61,6 +61,15 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AddRange called on LogServiceEventArgs with an empty enumerable. This exception was added simply as a notice that the attempt to log multiple exceptions has failed, catastrophically..
+        /// </summary>
+        public static string AddRangeFailed {
+            get {
+                return ResourceManager.GetString("AddRangeFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address length is invalid. Must be between 1 and 200 characters..
         /// </summary>
         public static string AddressLengthErrorMessage {
@@ -232,6 +241,15 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The LogService defaultLog has been created and enabled..
+        /// </summary>
+        public static string DefaultLogCreated {
+            get {
+                return ResourceManager.GetString("DefaultLogCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A user name for that e-mail address already exists. Please enter a different e-mail address..
         /// </summary>
         public static string DuplicateUserEmail {
@@ -246,6 +264,24 @@ namespace InverGrove.Domain.Resources {
         public static string EmailRequiredErrorMessage {
             get {
                 return ResourceManager.GetString("EmailRequiredErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogService - Error log request made, but message contained no data..
+        /// </summary>
+        public static string ErrorMessageEmpty {
+            get {
+                return ResourceManager.GetString("ErrorMessageEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogService - Fatal log request made, but message contained no data..
+        /// </summary>
+        public static string FatalLogMessageEmpty {
+            get {
+                return ResourceManager.GetString("FatalLogMessageEmpty", resourceCulture);
             }
         }
         
@@ -273,6 +309,15 @@ namespace InverGrove.Domain.Resources {
         public static string GenderRequiredErrorMessage {
             get {
                 return ResourceManager.GetString("GenderRequiredErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url not set.
+        /// </summary>
+        public static string HttpMessageEventArgsUrlNotSet {
+            get {
+                return ResourceManager.GetString("HttpMessageEventArgsUrlNotSet", resourceCulture);
             }
         }
         
@@ -349,6 +394,15 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LogService - Request sent to {0}(Exception ex), however the Exception object was null..
+        /// </summary>
+        public static string LogExceptionNull {
+            get {
+                return ResourceManager.GetString("LogExceptionNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a Marital Status..
         /// </summary>
         public static string MaritalStatusRequiredErrorMessage {
@@ -417,6 +471,15 @@ namespace InverGrove.Domain.Resources {
         public static string NotConfiguredToSupportPasswordResets {
             get {
                 return ResourceManager.GetString("NotConfiguredToSupportPasswordResets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Null exception object sent to DebugLog..
+        /// </summary>
+        public static string NullExceptionObject {
+            get {
+                return ResourceManager.GetString("NullExceptionObject", resourceCulture);
             }
         }
         
@@ -672,6 +735,15 @@ namespace InverGrove.Domain.Resources {
         public static string UsernameAlreadyExists {
             get {
                 return ResourceManager.GetString("UsernameAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogService - Warning log request made, but message contained no data..
+        /// </summary>
+        public static string WarnLogMessageEmpty {
+            get {
+                return ResourceManager.GetString("WarnLogMessageEmpty", resourceCulture);
             }
         }
     }

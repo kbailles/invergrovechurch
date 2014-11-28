@@ -24,6 +24,8 @@ namespace InverGrove.Web
             RegisterServices(container);
             RegisterFactories(container);
 
+            var logService = new LogService("", false);
+            container.Register(Component.For<ILogService>().Instance(logService).LifeStyle.Singleton);
             container.Register(Component.For<IProfileProvider>().ImplementedBy<ProfileProvider>().LifeStyle.Transient);
             container.Register(Component.For<IMembershipProvider>().ImplementedBy<MembershipProvider>().LifeStyle.Transient);
         }

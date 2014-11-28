@@ -353,4 +353,33 @@
   <data name="UsernameAlreadyExists" xml:space="preserve">
     <value>User name already exists. Please enter a different user name.</value>
   </data>
+  <data name="DefaultLogCreated" xml:space="preserve">
+    <value>The LogService defaultLog has been created and enabled.</value>
+  </data>
+  <data name="AddRangeFailed" xml:space="preserve">
+    <value>AddRange called on LogServiceEventArgs with an empty enumerable. This exception was added simply as a notice that the attempt to log multiple exceptions has failed, catastrophically.</value>
+  </data>
+  <data name="ErrorMessageEmpty" xml:space="preserve">
+    <value>LogService - Error log request made, but message contained no data.</value>
+    <comment>LogService</comment>
+  </data>
+  <data name="FatalLogMessageEmpty" xml:space="preserve">
+    <value>LogService - Fatal log request made, but message contained no data.</value>
+    <comment>LogService</comment>
+  </data>
+  <data name="HttpMessageEventArgsUrlNotSet" xml:space="preserve">
+    <value>Url not set</value>
+  </data>
+  <data name="LogExceptionNull" xml:space="preserve">
+    <value>LogService - Request sent to {0}(Exception ex), however the Exception object was null.</value>
+    <comment>LogService</comment>
+  </data>
+  <data name="NullExceptionObject" xml:space="preserve">
+    <value>Null exception object sent to DebugLog.</value>
+    <comment>LogService</comment>
+  </data>
+  <data name="WarnLogMessageEmpty" xml:space="preserve">
+    <value>LogService - Warning log request made, but message contained no data.</value>
+    <comment>LogService</comment>
+  </data>
 </root>
