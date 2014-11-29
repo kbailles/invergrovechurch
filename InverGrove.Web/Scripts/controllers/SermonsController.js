@@ -17,7 +17,7 @@
         vm.sermonDetail = sermonDetail;
 
         vm.titleFilter = '';
-        vm.speakerFilter = '';
+        // vm.speakerFilter = '';
         vm.tagsFilter = [];
 
         vm.toggleTagChecked = toggleTagChecked;

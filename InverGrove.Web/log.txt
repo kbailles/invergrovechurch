@@ -1,1 +1,4 @@
 2014-11-28 09:53:19.2650|INFO|InverGrove.Domain.Services.LogService|The LogService defaultLog has been created and enabled.
+2014-11-28 20:57:22.7113|INFO|InverGrove.Domain.Services.LogService|The LogService defaultLog has been created and enabled.
+2014-11-28 21:34:31.9108|INFO|InverGrove.Domain.Services.LogService|The LogService defaultLog has been created and enabled.
+2014-11-29 09:32:39.5675|INFO|InverGrove.Domain.Services.LogService|The LogService defaultLog has been created and enabled.
