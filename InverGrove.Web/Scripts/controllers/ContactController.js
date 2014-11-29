@@ -33,6 +33,7 @@
 
         function sendContactUsMessage() {
             $scope.$emit('loading-started');
+            $scope.alerts.length = 0;
  
             MessageService.sendMessage(vm.contactUsObj).then(function (response) {
 
@@ -42,6 +43,11 @@
                 } else {
                     $scope.alerts.push({ type: 'danger', msg: 'Ops! We were unable to send your message!' });
                 }
+
+                $scope.$emit('loading-complete');
+            },
+            function (error) {
+                $scope.alerts.push({ type: 'danger', msg: 'Ops! We were unable to send your message!' });
 
                 $scope.$emit('loading-complete');
             });

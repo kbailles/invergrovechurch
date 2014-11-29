@@ -53,3 +53,5 @@ Icon
 # ignore bin & obj folders
 bin/
 obj/
+*.log
+*/log.txt
