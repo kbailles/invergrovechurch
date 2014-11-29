@@ -77,7 +77,7 @@ namespace InverGrove.Tests.Domain.Services
         public void RegisterUser_Should_Call_AddProfile_On_ProfileService()
         {
             var newMembership = new InverGrove.Domain.Models.Membership {MembershipId = 4, UserId = 1};
-            var newUser = new Register {Person = new Person(), RoleId = 2};
+            var newUser = new Register { Person = new Person(), RoleId = 2, UserName = "nUser" };
 
             this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
                 It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
@@ -97,7 +97,7 @@ namespace InverGrove.Tests.Domain.Services
         public void RegisterUser_Should_Call_AddUserToRole_On_UserRoleRepository()
         {
             var newMembership = new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 };
-            var newUser = new Register { Person = new Person(), RoleId = 2 };
+            var newUser = new Register { Person = new Person(), RoleId = 2, UserName = "nUser" };
 
             this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
                 It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
@@ -118,7 +118,7 @@ namespace InverGrove.Tests.Domain.Services
         public void RegisterUser_Should_Call_SendNewUserEmail_On_EmailService()
         {
             var newMembership = new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 };
-            var newUser = new Register { Person = new Person(), RoleId = 2 };
+            var newUser = new Register { Person = new Person(), RoleId = 2, UserName = "nUser" };
 
             this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
                 It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
@@ -138,19 +138,15 @@ namespace InverGrove.Tests.Domain.Services
         [TestMethod]
         public void RegisterUser_Should_Call_Get_On_UserRoleRepository()
         {
-            var newMembership = new InverGrove.Domain.Models.Membership { MembershipId = 4, UserId = 1 };
-            var newUser = new Register { Person = new Person(), RoleId = 2 };
+            var newUser = new Register { Person = new Person(), RoleId = 2, UserName = "AlreadyHere" };
 
             this.userRoleRepository.Setup(u => u.Get(It.IsAny<Expression<Func<UserRole, bool>>>(),
                 It.IsAny<Func<IQueryable<UserRole>, IOrderedQueryable<UserRole>>>(), It.IsAny<bool>(),
-                It.IsAny<string>())).Returns(new List<UserRole>{new UserRole{User = new User{UserId = 1, UserName = "AlreadyHere"}}});
-            this.membershipService.Setup(
-                m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
-                    It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
-            this.profileService.Setup(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, false, true)).Returns(true);
-            this.userRoleRepository.Setup(u => u.AddUserToRole(newMembership.UserId, newUser.RoleId));
-            this.emailService.Setup(e => e.SendNewUserEmail(It.IsAny<IRegister>()));
-
+                It.IsAny<string>())).Returns(new List<UserRole> 
+                { 
+                    new UserRole { User = new User{UserId = 1, UserName = "AlreadyHere" }
+                }});
+            
             this.registrationService.RegisterUser(newUser);
 
             this.userRoleRepository.VerifyAll();
