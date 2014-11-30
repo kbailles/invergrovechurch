@@ -46,7 +46,28 @@ namespace InverGrove.Web
                 "~/Components/sticky/jquery.sticky.js"));
 
             //Login area bundles
-            bundles.Add(new StyleBundle("~/Scripts/css/area/login").Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
+            bundles.Add(new StyleBundle("~/Content/css/area/login").Include(
+                "~/Content/less/login.min.css", new CssRewriteUrlTransform()));
+
+            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/login").Include(
+                "~/Scripts/app.module.js",
+                "~/Scripts/app.routes.js",
+                //Factories
+                "~/Scripts/factories/factories.module.js",
+                //Filters
+                "~/Scripts/filters/filters.module.js",
+                //Services
+                "~/Scripts/services/services.module.js",
+                "~/Scripts/services/MessageService.js",
+                //Controllers
+                "~/Scripts/controllers/controllers.module.js",
+                "~/Scripts/controllers/AccountController.js",
+                //Directives
+                "~/Scripts/directives/directives.module.js",
+                "~/Scripts/directives/googleMapDirective.js",
+                "~/Scripts/directives/scrollUpDirective.js",
+                "~/Scripts/directives/stickyElementDirective.js",
+                "~/Scripts/directives/loadingOverlayDirective.js"));
 
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
