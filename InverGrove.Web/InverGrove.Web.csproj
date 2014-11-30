@@ -300,8 +300,8 @@
     <Content Include="Content\images\bg_off.png" />
     <Content Include="Content\images\churchlogo.png" />
     <Content Include="Content\images\graymatte.png" />
-    <Content Include="Content\images\ig_coversample.png" />
     <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\open_bible.png" />
     <Content Include="Content\less\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>

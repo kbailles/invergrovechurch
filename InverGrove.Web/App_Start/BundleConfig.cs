@@ -46,10 +46,10 @@ namespace InverGrove.Web
                 "~/Components/sticky/jquery.sticky.js"));
 
             //Login area bundles
-            bundles.Add(new StyleBundle("~/Content/css/area/login").Include(
+            bundles.Add(new StyleBundle("~/Content/css/area/account").Include(
                 "~/Content/less/login.min.css", new CssRewriteUrlTransform()));
 
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/login").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/account").Include(
                 "~/Scripts/app.module.js",
                 "~/Scripts/app.routes.js",
                 //Factories
@@ -58,7 +58,6 @@ namespace InverGrove.Web
                 "~/Scripts/filters/filters.module.js",
                 //Services
                 "~/Scripts/services/services.module.js",
-                "~/Scripts/services/MessageService.js",
                 //Controllers
                 "~/Scripts/controllers/controllers.module.js",
                 "~/Scripts/controllers/AccountController.js",
