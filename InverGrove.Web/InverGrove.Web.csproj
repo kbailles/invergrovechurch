@@ -294,6 +294,14 @@
     <Content Include="Components\sticky\jquery.sticky.js" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\rs-plugin\style.css" />
+    <Content Include="Content\images\1corinthians_biblestudy.png" />
+    <Content Include="Content\images\2corinthians_biblestudy.png" />
+    <Content Include="Content\images\bebold_banner.png" />
+    <Content Include="Content\images\bg_off.png" />
+    <Content Include="Content\images\churchlogo.png" />
+    <Content Include="Content\images\graymatte.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\open_bible.png" />
     <Content Include="Content\less\app.css">
       <DependentUpon>app.less</DependentUpon>
     </Content>
