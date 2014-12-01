@@ -1,6 +1,8 @@
 ﻿using System;
 using InverGrove.Domain.Interfaces;
 using Invergrove.Domain.Models;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace InverGrove.Domain.Models
 {
@@ -108,7 +110,17 @@ namespace InverGrove.Domain.Models
         /// </summary>
         /// <value>
         /// The person.
-        /// </value>
+        [JsonConverter(typeof(InverGrove.Domain.Utils.ModelConverter<Person, IPerson>))]
         public IPerson Person { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the role.
+        /// </summary>
+        /// <value>
+        /// The role.
+        /// </value>
+        [JsonConverter(typeof(InverGrove.Domain.Utils.ModelCollectionConverter<Role, IRole>))]
+        public IList<IRole> Roles { get; set; }
     }
 }

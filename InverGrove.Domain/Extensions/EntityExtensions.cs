@@ -1,13 +1,7 @@
-﻿using System;
+﻿using InverGrove.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using InverGrove.Data.Entities;
-using Membership = InverGrove.Domain.Models.Membership;
-using Person = InverGrove.Domain.Models.Person;
-using Profile = InverGrove.Domain.Models.Profile;
-using Role = InverGrove.Domain.Models.Role;
-using Sermon = InverGrove.Domain.Models.Sermon;
-using User = InverGrove.Domain.Models.User;
 
 namespace InverGrove.Domain.Extensions
 {
@@ -152,7 +146,7 @@ namespace InverGrove.Domain.Extensions
             {
                 foreach (var modelPhoneNumber in modelPhoneNumbers)
                 {
-                    person.PhoneNumbers.Add(new PhoneNumber
+                    person.PhoneNumbers.Add(new Data.Entities.PhoneNumber
                     {
                         AreaCode = modelPhoneNumber.AreaCode,
                         Phone = modelPhoneNumber.Phone,
@@ -196,7 +190,7 @@ namespace InverGrove.Domain.Extensions
             {
                 foreach (var entityPhoneNumber in entityPhoneNumbers)
                 {
-                    personModel.PhoneNumbers.Add(new Models.PhoneNumber
+                    personModel.PhoneNumbers.Add(new PhoneNumber
                     {
                         AreaCode = entityPhoneNumber.AreaCode,
                         Phone = entityPhoneNumber.Phone,
@@ -283,6 +277,38 @@ namespace InverGrove.Domain.Extensions
             roles.AddRange(entityRoles.Select(entityRole => entityRole.ToModel()));
 
             return roles;
+        }
+
+        public static UserRole ToModel(this Data.Entities.UserRole entityUserRole)
+        {
+            var userRoleModel = new UserRole();
+
+            if (entityUserRole == null)
+            {
+                return userRoleModel;
+            }
+
+            userRoleModel.RoleId = entityUserRole.RoleId;
+            userRoleModel.UserId = entityUserRole.UserId;
+
+            userRoleModel.Role = entityUserRole.Role.ToModel();
+            userRoleModel.User = entityUserRole.User.ToModel();
+
+            return userRoleModel;
+        }
+
+        public static IEnumerable<UserRole> ToModelCollection(this IEnumerable<Data.Entities.UserRole> entityUserRoles)
+        {
+            var userRoles = new List<UserRole>();
+
+            if (entityUserRoles == null)
+            {
+                return userRoles;
+            }
+
+            userRoles.AddRange(entityUserRoles.Select(entityRole => entityRole.ToModel()));
+
+            return userRoles;
         }
 
         public static Data.Entities.Sermon ToEntity(this Sermon sermonModel)

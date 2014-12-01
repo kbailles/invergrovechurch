@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -98,6 +99,15 @@ namespace InverGrove.Domain.Interfaces
         /// <value>
         /// The person.
         /// </value>
+        /// Gets or sets the role.
         IPerson Person { get; set; }
+
+        /// <summary>
+        /// Gets or sets the roles.
+        /// </summary>
+        /// <value>
+        /// The roles.
+        /// </value>
+        IList<IRole> Roles { get; set; }
     }
 }
