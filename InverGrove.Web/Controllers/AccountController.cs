@@ -27,7 +27,6 @@ namespace InverGrove.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginUser model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -35,7 +34,7 @@ namespace InverGrove.Web.Controllers
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    return Redirect(Url.Action("Index", "Home"));
+                    return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
                 }
 
                 // If we got this far, something failed, redisplay form

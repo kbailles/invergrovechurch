@@ -6,16 +6,15 @@
     angular.module(appName + '.controllers')
         .controller('AccountCtrl', AccountController);
 
-    AccountController.$inject = ['$scope'];
+    AccountController.$inject = ['$scope', '$http'];
 
-    function AccountController($scope) {
+    function AccountController($scope, $http) {
         var vm = this;
 
         /*
          * Public declarations
          */
         vm.loginCredentials = {};
-        vm.login = login;
 
         //ui.bootstrap watches $scope object
         $scope.alerts = [];
@@ -23,7 +22,5 @@
         /*
          * Private declarations
          */
-        function login() {
-        }
     }
 })();

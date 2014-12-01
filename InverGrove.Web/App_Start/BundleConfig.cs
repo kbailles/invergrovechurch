@@ -99,6 +99,33 @@ namespace InverGrove.Web
                 "~/Scripts/directives/loadingOverlayDirective.js"));
 
             //Member area bundles
+            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(
+                "~/Scripts/app.module.js",
+                "~/Scripts/app.routes.js",
+                //Factories
+                "~/Scripts/factories/factories.module.js",
+                "~/Scripts/factories/googleMapChurchLocationFactory.js",
+                //Filters
+                "~/Scripts/filters/filters.module.js",
+                "~/Scripts/filters/selectedTagsFilter.js",
+                //Services
+                "~/Scripts/services/services.module.js",
+                "~/Scripts/Services/SermonService.js",
+                "~/Scripts/services/MessageService.js",
+                //Controllers
+                "~/Scripts/controllers/controllers.module.js",
+                "~/Scripts/controllers/BaseController.js",
+                "~/Scripts/controllers/HomeController.js",
+                "~/Scripts/controllers/ContactController.js",
+                "~/Scripts/controllers/SermonsController.js",
+                "~/Scripts/controllers/SermonDetailController.js",
+                //Directives
+                "~/Scripts/directives/directives.module.js",
+                "~/Scripts/directives/googleMapDirective.js",
+                "~/Scripts/directives/revosliderDirective.js",
+                "~/Scripts/directives/scrollUpDirective.js",
+                "~/Scripts/directives/stickyElementDirective.js",
+                "~/Scripts/directives/loadingOverlayDirective.js"));
         }
     }
 }

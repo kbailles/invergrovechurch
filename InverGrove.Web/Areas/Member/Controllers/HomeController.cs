@@ -4,10 +4,16 @@ namespace InverGrove.Web.Areas.Member.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Member/Home
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Home()
+        {
+            return PartialView("_Home");
         }
     }
 }
