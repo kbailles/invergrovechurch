@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using InverGrove.Domain.Interfaces;
 
@@ -17,7 +18,7 @@ namespace InverGrove.Web.Controllers.api
         {
             var sermons = this.sermonService.GetSermons();
 
-            return sermons;
+            return sermons.OrderByDescending(sermon => sermon.SermonDate);
         }
 
         public ISermon Get(int sermonId)
