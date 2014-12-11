@@ -321,6 +321,20 @@ namespace InverGrove.Data
                                   User = null
                               };
             context.Sermons.Add(sermon8);
+
+            var sermon9 = new Sermon
+            {
+                SermonDate = new DateTime(2014, 12, 7),
+                SoundCloudId = 180947413,
+                Speaker = "Rennie Frazier",
+                Tags = "Revelation",
+                Title = "A Dead Church with a Living Hope",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.Add(sermon9);
             context.SaveChanges();
         }
 
