@@ -67,11 +67,13 @@ namespace InverGrove.Tests.Domain.Services
         [TestMethod]
         public void WriteToDebugLog_With_Null_Exception_Object_Returns_False()
         {
+#if DEBUG
             Exception e = null;
             // ReSharper disable ExpressionIsAlwaysNull
             bool actual = this.logService.WriteToDebugLog(e);
             // ReSharper restore ExpressionIsAlwaysNull
             Assert.AreEqual(false, actual);
+#endif
         }
 
         [TestMethod]
