@@ -4,11 +4,11 @@
     var appName = igchurch.constants.APP_NAME;
 
     angular.module(appName + '.controllers')
-        .controller('SermonsCtrl', SermonsController);
+        .controller('ViewSermonsCtrl', ViewSermonsController);
 
-    SermonsController.$inject = ['$window'];
+    ViewSermonsController.$inject = ['$window'];
 
-    function SermonsController($window) {
+    function ViewSermonsController($window) {
         var vm = this;
 
         /*

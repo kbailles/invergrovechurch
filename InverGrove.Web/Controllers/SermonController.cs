@@ -7,7 +7,7 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult ViewSermons()
         {
-            return View("_Sermons");
+            return View("_ViewSermons");
         }
 
         [HttpGet]

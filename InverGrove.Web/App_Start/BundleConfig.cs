@@ -88,7 +88,7 @@ namespace InverGrove.Web
                 "~/Scripts/controllers/BaseController.js",
                 "~/Scripts/controllers/HomeController.js",
                 "~/Scripts/controllers/ContactController.js",
-                "~/Scripts/controllers/SermonsController.js",
+                "~/Scripts/controllers/ViewSermonsController.js",
                 "~/Scripts/controllers/SermonDetailController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",
@@ -117,8 +117,9 @@ namespace InverGrove.Web
                 "~/Scripts/controllers/BaseController.js",
                 "~/Scripts/controllers/HomeController.js",
                 "~/Scripts/controllers/ContactController.js",
-                "~/Scripts/controllers/SermonsController.js",
+                "~/Scripts/controllers/ManageSermonsController.js",
                 "~/Scripts/controllers/SermonDetailController.js",
+                "~/Scripts/controllers/ViewSermonsController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",
                 "~/Scripts/directives/googleMapDirective.js",

@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Security.Principal;
+using System.Web.Mvc;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Models;
+using InverGrove.Domain.Utils;
 
 namespace InverGrove.Web.Areas.Member.Controllers
 {
@@ -14,21 +17,38 @@ namespace InverGrove.Web.Areas.Member.Controllers
             this.sermonService = sermonService;
         }
 
-        // GET: Admin/Sermon
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
+        public ActionResult ManageSermons()
+        {
+            return PartialView("_ManageSermons");
+        }
+
         [HttpPost]
-        public ActionResult Add(Domain.Models.Sermon sermon)
+        public ActionResult Add(Sermon sermon)
         {
             if (sermon == null)
             {
                 throw new ParameterNullException("sermon");
             }
 
+            sermon.ModifiedByUserId = 1;
             var sermonId = this.sermonService.AddSermon(sermon);
+
+            return this.View();
+        }
+
+        //[HttpPost]
+        public ActionResult Delete(int sermonId)
+        {
+            Guard.ParameterNotOutOfRange(sermonId, "sermonId");
+
+            this.sermonService.DeleteSermon(sermonId);
 
             return this.View();
         }

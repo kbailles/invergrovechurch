@@ -338,7 +338,7 @@
     <Content Include="Scripts\controllers\BaseController.js" />
     <Content Include="Scripts\controllers\controllers.module.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
-    <Content Include="Scripts\controllers\SermonsController.js" />
+    <Content Include="Scripts\controllers\ViewSermonsController.js" />
     <Content Include="Scripts\controllers\ContactController.js" />
     <Content Include="Scripts\controllers\HomeController.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.min.js" />
@@ -505,7 +505,7 @@
     <Content Include="Views\Contact\_Contact.cshtml" />
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Account\_Layout.cshtml" />
-    <Content Include="Views\Sermon\_Sermons.cshtml" />
+    <Content Include="Views\Sermon\_ViewSermons.cshtml" />
     <Content Include="Views\Sermon\_SermonDetail.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
@@ -534,6 +534,9 @@
       <Project>{6ebdbeb0-4c34-4318-a6fc-6117cd949148}</Project>
       <Name>InverGrove.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\controllers\ManageSermonsController.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

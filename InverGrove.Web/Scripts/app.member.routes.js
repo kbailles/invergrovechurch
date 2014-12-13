@@ -17,6 +17,12 @@
             	controllerAs: 'vm'
             })
 
+            .when('/Member/Sermon/ManageSermons', {
+                templateUrl: '/Member/Sermon/ManageSermons',
+                controller: 'ManageSermonsCtrl',
+                controllerAs: 'vm'
+            })
+
             .when('/Sermon/SermonDetail/:id', {
             	templateUrl: '/Sermon/SermonDetail',
             	controller: 'SermonDetailCtrl',
