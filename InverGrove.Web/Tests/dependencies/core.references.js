@@ -8,6 +8,7 @@
 
 /// <reference path="../../Scripts/common/namespace.js" />
 
+/// <reference path="../../Scripts/namespace.variables.js" />
 /// <reference path="../../Scripts/app.module.js" />
 /// <reference path="../../Scripts/controllers/controllers.module.js" />
 /// <reference path="../../Scripts/directives/directives.module.js" />

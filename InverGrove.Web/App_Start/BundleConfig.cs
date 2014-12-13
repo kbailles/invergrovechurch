@@ -101,7 +101,7 @@ namespace InverGrove.Web
             //Member area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(
                 "~/Scripts/app.module.js",
-                "~/Scripts/app.routes.js",
+                "~/Scripts/app.member.routes.js",
                 //Factories
                 "~/Scripts/factories/factories.module.js",
                 "~/Scripts/factories/googleMapChurchLocationFactory.js",

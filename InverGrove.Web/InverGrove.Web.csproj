@@ -353,6 +353,9 @@
     <Content Include="Scripts\factories\homePageRevoSliderOptionsFactory.js" />
     <Content Include="Scripts\filters\filters.module.js" />
     <Content Include="Scripts\filters\selectedTagsFilter.js" />
+    <Content Include="Scripts\app.member.routes.js" />
+    <Content Include="Areas\Member\Views\Sermon\_ManageSermons.cshtml" />
+    <Content Include="Areas\Member\Views\Sermon\_AddSermon.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
