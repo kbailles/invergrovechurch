@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using InverGrove.Domain.Interfaces;
@@ -8,37 +9,33 @@ namespace InverGrove.Domain.Services
 {
     public class EmailService : IEmailService
     {
-        private readonly MailAddress fromAddress = new MailAddress("DoNotReply@nowhere.com");
+        private readonly ILogService logService;
+        private const string ToAddress = "lancebailles@hotmail.com";
 
+        public EmailService(ILogService logService)
+        {
+            this.logService = logService;
+        }
+
+        /// <summary>
+        /// Sends the contact mail.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <returns></returns>
         public bool SendContactMail(IContact contact)
         {
             Guard.ParameterNotNull(contact, "contact");
 
-            // (1) assemble mailMessage
             MailMessage mailMesage = new MailMessage
                                      {
-                                         From = this.fromAddress,
+                                         From = new MailAddress(contact.Email),
                                          Subject =  contact.Subject,
                                          Body = contact.Comments
                                      };
 
-            mailMesage.To.Add(contact.Email); // will not let me do this in object builder
-            bool isSent = true;
+            mailMesage.To.Add(ToAddress); // will not let me do this in object builder
 
-            try
-            {
-                this.SendMail(mailMesage);
-            }
-            catch (Exception)
-            {
-                isSent = false;
-            }
-
-            // --------- TODO -------------------------
-            //---------- UPDATE THE DB FOR MESSGE SENT
-            // ----------------------------------------
-
-            return isSent;
+            return this.SendMail(mailMesage);
         }
 
         /// <summary>
@@ -57,50 +54,50 @@ namespace InverGrove.Domain.Services
                 message.Append(registeredUser.Person.FirstName);
                 message.Append(",");
                 message.Append("<br><br>");
-                message.Append("This is a message to inform you that a new user account has been added for you to access the member area at http://wwww.invergrovechurch.com.");
-                message.Append("<br> Please click on the following link to access the site and change your password: http://www.invergrove.com/Account/ResetPassword?code=");
+                message.Append(
+                    "This is a message to inform you that a new user account has been added for you to access the member area at http://wwww.invergrovechurch.com.");
+                message.Append(
+                    "<br> Please click on the following link to access the site and change your password: http://www.invergrove.com/Account/ResetPassword?code=");
                 message.Append(registeredUser.Password);
 
                 var mailMessage = new MailMessage
-                {
-                    IsBodyHtml = true,
-                    Subject = "Inver Grove Church Notification",
-                    From = fromAddress,
-                    Body = message.ToString()
-                };
+                                  {
+                                      IsBodyHtml = true,
+                                      Subject = "Inver Grove Church Notification",
+                                      Body = message.ToString()
+                                  };
 
                 mailMessage.To.Add(registeredUser.Person.PrimaryEmail);
 
-                try
-                {
-                    this.SendMail(mailMessage);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                return this.SendMail(mailMessage);
             }
 
-            return true;
+            return false;
         }
 
-        private void SendMail(MailMessage mailMessage)
+        private bool SendMail(MailMessage mailMessage)
         {
-            Guard.ParameterNotNull(mailMessage, "MailMessage");
+            Guard.ParameterNotNull(mailMessage, "mailMessage");
+            bool success = true;
 
+            SmtpClient smtpClient = new SmtpClient {DeliveryMethod = SmtpDeliveryMethod.Network};
 
-            SmtpClient smtpClient = new SmtpClient("localhost"); //  or 127.0.0.1
+            //
+            //                        {
+            //                            Credentials = new NetworkCredential("you@InverGroveChurch.com", "glock34")
+            //                        }; //  or "localhost", "mail.InverGroveChurch.com"
 
             try
             {
                 smtpClient.Send(mailMessage);
-                //return true;
             }
             catch (Exception ex)
             {
-                //return false; // should add logging here...
-                throw new ApplicationException("Email client failed to send group email. " + ex.Message);
+                success = false;
+                this.logService.WriteToErrorLog("Email client failed to send email with subject: " + mailMessage.Subject + " error message: " + ex.Message);
             }
+
+            return success;
         }
     }
 }

@@ -353,6 +353,8 @@
     <Content Include="Scripts\factories\homePageRevoSliderOptionsFactory.js" />
     <Content Include="Scripts\filters\filters.module.js" />
     <Content Include="Scripts\filters\selectedTagsFilter.js" />
+    <None Include="Properties\PublishProfiles\invergrovechurch.com - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\invergrovechurch.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />

@@ -56,3 +56,6 @@ obj/
 *.log
 */log.txt
 DbConnection.txt
+invergrovechurch.com.publishsettings
+InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy.pubxml
+InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy (2).pubxml

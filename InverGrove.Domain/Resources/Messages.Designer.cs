@@ -721,6 +721,15 @@ namespace InverGrove.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occurred when attepting to send email message..
+        /// </summary>
+        public static string SendMailError {
+            get {
+                return ResourceManager.GetString("SendMailError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State is required..
         /// </summary>
         public static string StateRequired {

@@ -4,6 +4,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
+using InverGrove.Domain.Resources;
 
 namespace InverGrove.Web.Controllers.api
 {
@@ -45,9 +46,14 @@ namespace InverGrove.Web.Controllers.api
                 return this.BadRequest(this.ModelState);
             }
 
-
-            //bool hasSent = this.mailService.SendContactMail(contact);
             bool isAdded = this.contactService.AddContact(contact);
+
+            bool hasSent = this.mailService.SendContactMail(contact);
+
+            if (!hasSent)
+            {
+                return this.BadRequest(Messages.SendMailError);
+            }
 
             return this.Ok(contact);
             //answer.UserId = User.Identity.Name;

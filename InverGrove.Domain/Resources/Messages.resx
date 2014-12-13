@@ -382,4 +382,7 @@
     <value>LogService - Warning log request made, but message contained no data.</value>
     <comment>LogService</comment>
   </data>
+  <data name="SendMailError" xml:space="preserve">
+    <value>Error occurred when attepting to send email message.</value>
+  </data>
 </root>

@@ -1,15 +1,27 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using InverGrove.Data.Entities;
 
-namespace InverGrove.Data
+namespace InverGrove.Data.Migrations
 {
-    public class InverGroveInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<InverGroveContext>
+    using System;
+    using System.Data.Entity.Migrations;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<InverGroveContext>
     {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+
         protected override void Seed(InverGroveContext context)
         {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data. E.g.
+
             var roles = new List<Role>
                            {
                                new Role
@@ -38,7 +50,7 @@ namespace InverGrove.Data
                                }
                            };
 
-            roles.ForEach(s => context.Roles.Add(s));
+            roles.ForEach(s => context.Roles.AddOrUpdate(r => r.Description, s));
             context.SaveChanges();
 
             var personTypes = new List<PersonType>
@@ -68,7 +80,7 @@ namespace InverGrove.Data
                                   PersonTypeDescription = "Child"
                               }
                           };
-            personTypes.ForEach(s => context.PersonTypes.Add(s));
+            personTypes.ForEach(s => context.PersonTypes.AddOrUpdate(p => p.PersonTypeDescription, s));
             context.SaveChanges();
 
             var maritalStatuses = new List<MaritalStatus>
@@ -78,7 +90,7 @@ namespace InverGrove.Data
                                       new MaritalStatus { MaritalStatusDescription = "Divorced" },
                                       new MaritalStatus { MaritalStatusDescription = "Unknown" }
                                   };
-            maritalStatuses.ForEach(s => context.MaritalStatuses.Add(s));
+            maritalStatuses.ForEach(s => context.MaritalStatuses.AddOrUpdate(m => m.MaritalStatusDescription, s));
             context.SaveChanges();
 
             var passwordFormats = new List<PasswordFormat>
@@ -96,7 +108,7 @@ namespace InverGrove.Data
                                           PasswordFormatDescription = "Encrypted", DateCreated = DateTime.Now, DateModified = DateTime.Now
                                       }
                                   };
-            passwordFormats.ForEach(s => context.PasswordFormats.Add(s));
+            passwordFormats.ForEach(s => context.PasswordFormats.AddOrUpdate(p => p.PasswordFormatDescription, s));
             context.SaveChanges();
 
             var phoneNumberTypes = new List<PhoneNumberType>
@@ -114,7 +126,7 @@ namespace InverGrove.Data
                                           Description = "Work"
                                       }
                                   };
-            phoneNumberTypes.ForEach(s => context.PhoneNumberTypes.Add(s));
+            phoneNumberTypes.ForEach(s => context.PhoneNumberTypes.AddOrUpdate(p => p.Description, s));
             context.SaveChanges();
 
             var relationTypes = new List<RelationType>
@@ -124,10 +136,20 @@ namespace InverGrove.Data
                                     new RelationType { RelationTypeDescription = "Brother" },
                                     new RelationType { RelationTypeDescription = "Sister" }
                                 };
-            relationTypes.ForEach(s => context.RelationTypes.Add(s));
+            relationTypes.ForEach(s => context.RelationTypes.AddOrUpdate(r => r.RelationTypeDescription, s));
             context.SaveChanges();
 
             var timeStamp = DateTime.Now;
+            var keenanUser = new User
+                             {
+                                 UserName = "kbailles",
+                                 DateCreated = timeStamp,
+                                 DateModified = timeStamp,
+                                 IsAnonymous = false,
+                                 LastActivityDate = timeStamp
+                             };
+            context.Users.AddOrUpdate(u => u.UserName, keenanUser);
+
             const string password = "Welcome1";
             var passwordSalt = this.GetRandomSalt();
             var passwordAnswer = this.HashPasscode("because", passwordSalt);
@@ -147,17 +169,11 @@ namespace InverGrove.Data
                 PasswordQuestion = "why",
                 PasswordAnswer = passwordAnswer,
                 PasswordSalt = passwordSalt,
-                User = new User
-                {
-                    UserName = "kbailles",
-                    DateCreated = timeStamp,
-                    DateModified = timeStamp,
-                    IsAnonymous = false,
-                    LastActivityDate = timeStamp
-                },
+                UserId = keenanUser.UserId,
+                User = null
             };
 
-            context.Memberships.Add(keenanSiteAdminMembership);
+            context.Memberships.AddOrUpdate(m => m.UserId, keenanSiteAdminMembership);
             context.SaveChanges();
 
             var profileEntity = new Profile
@@ -193,7 +209,7 @@ namespace InverGrove.Data
                 User = null
             };
 
-            context.Profiles.Add(profileEntity);
+            context.Profiles.AddOrUpdate(p => p.UserId, profileEntity);
             context.SaveChanges();
 
             var keenanAdminRole = new UserRole
@@ -206,120 +222,120 @@ namespace InverGrove.Data
                 User = null
             };
 
-            context.UserRoles.Add(keenanAdminRole);
+            context.UserRoles.AddOrUpdate(s => new { s.UserId, s.RoleId }, keenanAdminRole);
             context.SaveChanges();
 
             var sermon1 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 26),
-                                  SoundCloudId = 171447693,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Boldly Respond to the Invitation",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon1);
+            {
+                SermonDate = new DateTime(2014, 9, 26),
+                SoundCloudId = 171447693,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Boldly Respond to the Invitation",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon1);
 
             var sermon2 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 25),
-                                  SoundCloudId = 171447888,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Boldly Trust Jesus",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon2);
+            {
+                SermonDate = new DateTime(2014, 9, 25),
+                SoundCloudId = 171447888,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Boldly Trust Jesus",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon2);
 
             var sermon3 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 24),
-                                  SoundCloudId = 171447578,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Speak Boldly",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon3);
+            {
+                SermonDate = new DateTime(2014, 9, 24),
+                SoundCloudId = 171447578,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Speak Boldly",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon3);
 
             var sermon4 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 23),
-                                  SoundCloudId = 171447641,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Boldly Believe in the Son of God",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon4);
+            {
+                SermonDate = new DateTime(2014, 9, 23),
+                SoundCloudId = 171447641,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Boldly Believe in the Son of God",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon4);
 
             var sermon5 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 22),
-                                  SoundCloudId = 171447791,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Boldly Seek After God",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon5);
+            {
+                SermonDate = new DateTime(2014, 9, 22),
+                SoundCloudId = 171447791,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Boldly Seek After God",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon5);
 
             var sermon6 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 21),
-                                  SoundCloudId = 171447331,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Biblical Boldness",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon6);
+            {
+                SermonDate = new DateTime(2014, 9, 21),
+                SoundCloudId = 171447331,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Biblical Boldness",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon6);
 
             var sermon7 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 21),
-                                  SoundCloudId = 171447455,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Boldly Imitate Christ",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon7);
+            {
+                SermonDate = new DateTime(2014, 9, 21),
+                SoundCloudId = 171447455,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Boldly Imitate Christ",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon7);
 
             var sermon8 = new Sermon
-                              {
-                                  SermonDate = new DateTime(2014, 9, 21),
-                                  SoundCloudId = 171447516,
-                                  Speaker = "Antoine Halloway",
-                                  Tags = "Be Bold",
-                                  Title = "Live Boldly",
-                                  ModifiedByUserId = 1,
-                                  DateCreated = timeStamp,
-                                  DateModified = timeStamp,
-                                  User = null
-                              };
-            context.Sermons.Add(sermon8);
+            {
+                SermonDate = new DateTime(2014, 9, 21),
+                SoundCloudId = 171447516,
+                Speaker = "Antoine Halloway",
+                Tags = "Be Bold",
+                Title = "Live Boldly",
+                ModifiedByUserId = 1,
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                User = null
+            };
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon8);
 
             var sermon9 = new Sermon
             {
@@ -333,7 +349,7 @@ namespace InverGrove.Data
                 DateModified = timeStamp,
                 User = null
             };
-            context.Sermons.Add(sermon9);
+            context.Sermons.AddOrUpdate(s => s.SoundCloudId, sermon9);
             context.SaveChanges();
         }
 
