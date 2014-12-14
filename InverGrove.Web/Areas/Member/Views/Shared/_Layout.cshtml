@@ -33,7 +33,7 @@
             <div class="bottom-bar" sticky>
                 <div class="container">
                     <div class="logo pull-left">
-                        <h1><a href="@Url.Action("Index", "Home")"><img src="~/Content/Images/churchlogo.png"></a></h1>
+                        <h1><a href="@Url.Action("Index", "Home", new { area = "Member" })"><img src="~/Content/Images/churchlogo.png"></a></h1>
                     </div>
 
                     <div class="mobile navbar-header">
@@ -46,7 +46,7 @@
 
                     <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{active: base.isRouteActive('')}"><a href="/">Home</a></li>
+                            <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home", new { area = "Member" })">Home</a></li>
                             <li ng-class="{active: base.isRouteActive('/ManageSermons')}"><a ng-href="#/ManageSermons">Manage Sermons</a></li>
                             <li ng-class="{active: base.isRouteActive('/Sermon/')}"><a href="javascript:void(0);">Manage Users</a></li>
                             <li ng-class="{active: base.isRouteActive('/Contact/')}"><a href="javascript:void(0);">Directory</a></li>
