@@ -116,6 +116,7 @@
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\MembershipCreateStatusExtensions.cs" />
+    <Compile Include="Factories\AuthenticatedUserFactory.cs" />
     <Compile Include="Factories\LogConfigurationFactory.cs" />
     <Compile Include="Factories\NotLoggerFilter.cs" />
     <Compile Include="Interfaces\ILogService.cs" />
@@ -232,6 +233,8 @@
     <Compile Include="ViewModels\AttendancePerson.cs" />
     <Compile Include="Interfaces\ILoginUser.cs" />
     <Compile Include="Interfaces\IRegister.cs" />
+    <Compile Include="ViewModels\AuthenticatedUser.cs" />
+    <Compile Include="Interfaces\IAuthenticatedUser.cs" />
     <Compile Include="ViewModels\LoginUser.cs" />
     <Compile Include="ViewModels\Register.cs" />
     <Compile Include="ViewModels\ResetPassword.cs" />
