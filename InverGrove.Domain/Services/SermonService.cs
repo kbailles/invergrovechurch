@@ -41,6 +41,7 @@ namespace InverGrove.Domain.Services
             Guard.ParameterNotOutOfRange(sermonId, "sermonId");
 
             this.sermonRepository.Delete(sermonId);
+            this.sermonRepository.Save();
         }
 
         /// <summary>

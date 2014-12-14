@@ -17,22 +17,10 @@
             	controllerAs: 'vm'
             })
 
-            .when('/Member/Sermon/ManageSermons', {
+            .when('/ManageSermons', {
                 templateUrl: '/Member/Sermon/ManageSermons',
                 controller: 'ManageSermonsCtrl',
                 controllerAs: 'vm'
-            })
-
-            .when('/Sermon/SermonDetail/:id', {
-            	templateUrl: '/Sermon/SermonDetail',
-            	controller: 'SermonDetailCtrl',
-            	controllerAs: 'vm',
-            	resolve: {
-            		sermon: ['$route', 'SermonService', function ($route, SermonService) {
-            			var sermonId = $route.current.params.id;
-            			return SermonService.getSermon(sermonId);
-            		}]
-            	}
             })
 
             .otherwise({ redirectTo: '/' });

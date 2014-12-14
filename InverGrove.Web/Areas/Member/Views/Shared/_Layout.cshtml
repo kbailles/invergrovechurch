@@ -23,8 +23,9 @@
             <div class="top-bar">
                 <div class="container">
                     <div class="pull-left phone-email">
-                        <a href="tel:6514571189"><i class="fa fa-phone"></i>(651) 457-1189</a>
-                        <a href="#"><i class="fa fa-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
+                    </div>
+                    <div class="pull-right user-actions">
+                        <a href="#"><i class="fa fa-user"></i>Welcome, Keenan</a>
                     </div>
                 </div>
             </div>
@@ -45,10 +46,10 @@
 
                     <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                            <li ng-class="{active: base.isRouteActive('/Member/Sermon/ManagerSermons')}"><a ng-href="#/Member/Sermon/ManageSermons">Manage Sermons</a></li>
-                            <li ng-class="{active: base.isRouteActive('/Sermon/')}"><a href="@Url.Action("ViewSermons", "Sermon")">Manage Users</a></li>
-                            <li ng-class="{active: base.isRouteActive('/Contact/')}"><a href="@Url.Action("ContactUs", "Contact")">Directory</a></li>
+                            <li ng-class="{active: base.isRouteActive('')}"><a href="/">Home</a></li>
+                            <li ng-class="{active: base.isRouteActive('/ManageSermons')}"><a ng-href="#/ManageSermons">Manage Sermons</a></li>
+                            <li ng-class="{active: base.isRouteActive('/Sermon/')}"><a href="javascript:void(0);">Manage Users</a></li>
+                            <li ng-class="{active: base.isRouteActive('/Contact/')}"><a href="javascript:void(0);">Directory</a></li>
                         </ul>
                     </nav>
                 </div>
