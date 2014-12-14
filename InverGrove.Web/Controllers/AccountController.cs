@@ -5,6 +5,7 @@ using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Resources;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.ViewModels;
+using Microsoft.Ajax.Utilities;
 
 namespace InverGrove.Web.Controllers
 {
@@ -16,6 +17,16 @@ namespace InverGrove.Web.Controllers
         public AccountController(IMembershipProvider membershipProvider)
         {
             this.membershipProvider = membershipProvider;
+        }
+
+        [AllowAnonymous]
+        public JsonResult GetAuthenticatedUser()
+        {
+            RolePrincipal rolePrincipal = (RolePrincipal)this.User;
+            var roles = rolePrincipal.GetRoles();
+            var authenticatedUser = AuthenticatedUserFactory.Instance.Create(this.User.Identity.Name, this.User.Identity.IsAuthenticated, roles);
+
+            return this.Json(authenticatedUser, JsonRequestBehavior.AllowGet);
         }
 
         [AllowAnonymous]
