@@ -5,7 +5,6 @@ using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Resources;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.ViewModels;
-using Microsoft.Ajax.Utilities;
 
 namespace InverGrove.Web.Controllers
 {
@@ -14,6 +13,10 @@ namespace InverGrove.Web.Controllers
     {
         private readonly IMembershipProvider membershipProvider;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="membershipProvider">The membership provider.</param>
         public AccountController(IMembershipProvider membershipProvider)
         {
             this.membershipProvider = membershipProvider;
@@ -30,9 +33,16 @@ namespace InverGrove.Web.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
+            }
+
             return View();
         }
 

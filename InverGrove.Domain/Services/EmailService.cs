@@ -53,10 +53,10 @@ namespace InverGrove.Domain.Services
                 message.Append(registeredUser.Person.FirstName);
                 message.Append(",");
                 message.Append("<br><br>");
-                message.Append(
-                    "This is a message to inform you that a new user account has been added for you to access the member area at http://wwww.invergrovechurch.com.");
-                message.Append(
-                    "<br> Please click on the following link to access the site and change your password: http://www.invergrove.com/Account/ResetPassword?code=");
+                message.Append("This is a message to inform you that a new user account has been added");
+                message.Append(" for you to access the member area at http://wwww.invergrovechurch.com.");
+                message.Append("<br> Please click on the following link to access the site and change your password: ");
+                message.Append("http://www.invergrove.com/Account/ResetPassword?code=");
                 message.Append(registeredUser.Password);
 
                 var mailMessage = new MailMessage
@@ -79,12 +79,7 @@ namespace InverGrove.Domain.Services
             Guard.ParameterNotNull(mailMessage, "mailMessage");
             bool success = true;
 
-            SmtpClient smtpClient = new SmtpClient {DeliveryMethod = SmtpDeliveryMethod.Network};
-
-            //
-            //                        {
-            //                            Credentials = new NetworkCredential("you@InverGroveChurch.com", "glock34")
-            //                        }; //  or "localhost", "mail.InverGroveChurch.com"
+            SmtpClient smtpClient = new SmtpClient { DeliveryMethod = SmtpDeliveryMethod.Network };//  or "localhost"
 
             try
             {
