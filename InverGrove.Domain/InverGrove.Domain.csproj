@@ -111,6 +111,7 @@
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Exceptions\ParameterOutOfRangeException.cs" />
     <Compile Include="Exceptions\UndisposedLockException.cs" />
+    <Compile Include="Extensions\JsonResultExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Factories\AuthenticatedUserFactory.cs" />
     <Compile Include="Factories\LogConfigurationFactory.cs" />
     <Compile Include="Factories\NotLoggerFilter.cs" />
+    <Compile Include="Helpers\JsonCamelCaseResolverResult.cs" />
     <Compile Include="Interfaces\ILogService.cs" />
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
     <Compile Include="Interfaces\IPersonTypeRepository.cs" />

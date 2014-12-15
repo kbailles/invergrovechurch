@@ -12,7 +12,7 @@
 
         this.sendMessage = function (messageObj) {
 
-            return $http.post('/api/Contact', messageObj).
+            return $http.post('/Contact/ContactUs', messageObj).
                 success(function (data, status, headers, config) {
                     return true;
                 }).

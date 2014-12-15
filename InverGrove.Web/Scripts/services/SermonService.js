@@ -12,7 +12,7 @@
 
         this.getSermon = function (sermonId) {
 
-            return $http({ method: 'GET', url: '/api/Sermon', params: { sermonId: sermonId } }).
+            return $http({ method: 'GET', url: '/Sermon/GetById', params: { sermonId: sermonId } }).
                 success(function(data, status, headers, config) {
                     return data;
                 }).
@@ -22,7 +22,7 @@
 
         this.getSermons = function () {
 
-            return $http({ cache: true, method: 'GET', url: '/api/Sermon' }).
+            return $http({ cache: true, method: 'GET', url: '/Sermon/GetAll' }).
                 success(function(data, status, headers, config) {
                     return data;
                 }).
