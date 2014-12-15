@@ -81,7 +81,7 @@ namespace InverGrove.Web
                 "~/Scripts/filters/selectedTagsFilter.js",
                 //Services
                 "~/Scripts/services/services.module.js",
-                "~/Scripts/Services/SermonService.js",
+                "~/Scripts/services/SermonService.js",
                 "~/Scripts/services/MessageService.js",
                 //Controllers
                 "~/Scripts/controllers/controllers.module.js",
@@ -110,7 +110,7 @@ namespace InverGrove.Web
                 "~/Scripts/filters/selectedTagsFilter.js",
                 //Services
                 "~/Scripts/services/services.module.js",
-                "~/Scripts/Services/SermonService.js",
+                "~/Scripts/services/SermonService.js",
                 "~/Scripts/services/MessageService.js",
                 //Controllers
                 "~/Scripts/controllers/controllers.module.js",
