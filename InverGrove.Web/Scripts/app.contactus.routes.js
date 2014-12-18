@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function () {
     'use strict';
 
     var appName = igchurch.constants.APP_NAME;
@@ -11,12 +11,12 @@
     function routes($routeProvider) {
         $routeProvider
 
-            .when('/', {
-                templateUrl: '/Home/Home',
-                controller: 'HomeCtrl',
+            .when('/ContactUs', {
+                templateUrl: '/Contact/ContactUs',
+                controller: 'ContactCtrl',
                 controllerAs: 'vm'
             })
 
-            .otherwise({ redirectTo: '/' });
+            .otherwise({ redirectTo: '/ContactUs' });
     }
 })();

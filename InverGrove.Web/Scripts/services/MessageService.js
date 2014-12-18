@@ -6,7 +6,9 @@
     angular.module(appName + '.services')
         .service('MessageService', MessageService);
 
-    MessageService.$inject = ['$http'];
+    MessageService.$inject = [
+        '$http'
+    ];
 
     function MessageService($http) {
 

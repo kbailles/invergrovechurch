@@ -6,7 +6,10 @@
     angular.module(appName + '.controllers')
         .controller('SermonDetailCtrl', SermonDetailController);
 
-    SermonDetailController.$inject = ['$sce', 'sermon'];
+    SermonDetailController.$inject = [
+        '$sce',
+        'sermon'
+    ];
 
     function SermonDetailController($sce, sermon) {
         var vm = this;

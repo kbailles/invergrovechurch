@@ -6,7 +6,9 @@
     angular.module(appName + '.directives')
         .directive('igScrollUp', igScrollUp);
 
-    igScrollUp.$inject = ['$window'];
+    igScrollUp.$inject = [
+        '$window'
+    ];
 
     function igScrollUp(window) {
         var directive = {

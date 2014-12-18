@@ -6,7 +6,8 @@
     angular.module(appName + '.controllers')
         .controller('ManageSermonsCtrl', ManageSermonsController);
 
-    ManageSermonsController.$inject = [];
+    ManageSermonsController.$inject = [
+    ];
 
     function ManageSermonsController() {
         var vm = this;

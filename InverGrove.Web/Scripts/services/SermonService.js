@@ -6,7 +6,9 @@
     angular.module(appName + '.services')
         .service('SermonService', SermonService);
 
-    SermonService.$inject = ['$http'];
+    SermonService.$inject = [
+        '$http'
+    ];
 
     function SermonService($http) {
 

@@ -6,7 +6,9 @@
     angular.module(appName + '.directives')
         .directive('igGoogleMap', igGoogleMap);
 
-    igGoogleMap.$inject = ['gMapChurchLocation'];
+    igGoogleMap.$inject = [
+        'gMapChurchLocation'
+    ];
 
     function igGoogleMap(gMapChurchLocation) {
         var directive = {

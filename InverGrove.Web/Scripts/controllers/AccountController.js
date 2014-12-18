@@ -6,7 +6,10 @@
     angular.module(appName + '.controllers')
         .controller('AccountCtrl', AccountController);
 
-    AccountController.$inject = ['$scope', '$http'];
+    AccountController.$inject = [
+        '$scope',
+        '$http'
+    ];
 
     function AccountController($scope, $http) {
         var vm = this;

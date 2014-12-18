@@ -6,7 +6,9 @@
     angular.module(appName + '.directives')
         .directive('igRevoslider', igRevoslider);
 
-    igRevoslider.$inject = ['homePageRevoSliderOptions'];
+    igRevoslider.$inject = [
+        'homePageRevoSliderOptions'
+    ];
 
     function igRevoslider(homePageRevoSliderOptions) {
         var directive = {

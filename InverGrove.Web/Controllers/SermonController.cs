@@ -31,9 +31,15 @@ namespace InverGrove.Web.Controllers
         }
 
         [HttpGet]
+        public ActionResult Index()
+        {
+            return View("Index");
+        }
+
+        [HttpGet]
         public ActionResult ViewSermons()
         {
-            return View("_ViewSermons");
+            return PartialView("_ViewSermons");
         }
 
         [HttpGet]

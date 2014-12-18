@@ -329,7 +329,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app.contactus.routes.js" />
     <Content Include="Scripts\app.module.js" />
+    <Content Include="Scripts\app.sermon.routes.js" />
     <Content Include="Scripts\common\class.js" />
     <Content Include="Scripts\common\logger.js" />
     <Content Include="Scripts\common\namespace.js" />
@@ -500,7 +502,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Contact\_Contact.cshtml" />
+    <Content Include="Views\Contact\_ContactUs.cshtml" />
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Account\_Layout.cshtml" />
     <Content Include="Views\Sermon\_ViewSermons.cshtml" />
@@ -513,6 +515,8 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Sermon\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

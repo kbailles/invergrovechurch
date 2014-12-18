@@ -7,11 +7,10 @@
         .controller('BaseCtrl', BaseController);
 
     BaseController.$inject = [
-        '$location',
-        'SermonService'
+        '$location'
     ];
 
-    function BaseController($location, SermonService) {
+    function BaseController($location) {
         var base = this;
 
         /*
@@ -23,35 +22,12 @@
         base.isRouteActive = isRouteActive;
         base.goToPath = goToPath;
 
-        base.filteredSpeakers = filteredSpeakers;
-        base.filteredTags = filteredTags;
-
-        base.sermons = [];
-
         activate();
 
         /*
          * Private declarations
          */
         function activate() {
-            return getSermons();
-        }
-
-        /*
-         * Prefetch sermons to make Sermons page load faster...
-         */
-        function getSermons() {
-            return SermonService.getSermons().then(function (data) {
-                base.sermons = data.data;
-            });
-        }
-
-        function filteredSpeakers() {
-            return _.mapValues(_.groupBy(base.sermons, 'speaker'), function (r) { return r.length; });
-        }
-
-        function filteredTags() {
-            return _.mapValues(_.groupBy(_.chain(base.sermons).pluck('tags').flatten().invoke('split', ',').flatten().invoke('trim').value()), function (r) { return r.length; });
         }
 
         function goToPath(path) {

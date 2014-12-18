@@ -6,15 +6,22 @@
     angular.module(appName + '.controllers')
         .controller('ViewSermonsCtrl', ViewSermonsController);
 
-    ViewSermonsController.$inject = ['$window'];
+    ViewSermonsController.$inject = [
+        '$window',
+        'sermons'
+    ];
 
-    function ViewSermonsController($window) {
+    function ViewSermonsController($window, sermons) {
         var vm = this;
 
         /*
          * Public declarations
          */
+        vm.filteredSpeakers = filteredSpeakers;
+        vm.filteredTags = filteredTags;
         vm.sermonDetail = sermonDetail;
+
+        vm.sermons = sermons.data;
 
         vm.titleFilter = '';
         vm.speakerFilter = '';
@@ -28,6 +35,23 @@
          * Private declarations
          */
         function activate() {
+        }
+
+        function filteredSpeakers() {
+            return _.mapValues(_.groupBy(vm.sermons, 'speaker'), function (r) { return r.length; });
+        }
+
+        function filteredTags() {
+            var sermonTags =
+                _.chain(vm.sermons)
+                 .pluck('tags')
+                 .flatten()
+                 .invoke('split', ',')
+                 .flatten()
+                 .invoke('trim')
+                 .value();
+
+            return _.mapValues(_.groupBy(sermonTags), function (r) { return r.length; });
         }
 
         function sermonDetail(sermonId) {

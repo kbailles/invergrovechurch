@@ -6,7 +6,10 @@
     angular.module(appName + '.controllers')
         .controller('ContactCtrl', ContactController);
 
-    ContactController.$inject = ['MessageService', '$scope'];
+    ContactController.$inject = [
+        'MessageService',
+        '$scope'
+    ];
 
     function ContactController(MessageService, $scope) {
         var vm = this;
