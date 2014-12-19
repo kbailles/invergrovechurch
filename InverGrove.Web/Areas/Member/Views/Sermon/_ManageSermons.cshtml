@@ -24,7 +24,7 @@
                 <div class="col-xs-12">
 
                     <h3 class="title">Sermons</h3>
-                    <button ng-disabled="form.$invalid" ng-click="vm.sendContactUsMessage()" disabled class="btn btn-normal btn-color submit bottom-pad">Add Sermon</button>
+                    <button class="btn btn-normal btn-color bottom-pad" ng-click="vm.openAddSermonModal()">Add Sermon</button>
 
                     <table class="table table-striped table-bordered">
                         <thead>
@@ -37,7 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="sermon in base.sermons">
+                            <tr ng-repeat="sermon in vm.sermons">
                                 <td>{{sermon.sermonDate | date:'MMMM d yyyy'}}</td>
                                 <td>{{sermon.title}}</td>
                                 <td>{{ sermon.speaker }}</td>
@@ -46,8 +46,9 @@
                                         {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
                                     </div>
                                 </td>
-                                <td>
-                                    <a class="subscribe-btn btn btn-color btn-warning" ng-href="/Member/Sermon/Delete?sermonId={{sermon.sermonId}}"><i class="fa fa-remove"></i></a>
+                                <td style="text-align: right;">
+                                    <button class="btn btn-color btn-small"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-color btn-small btn-warning"><i class="fa fa-remove"></i></button>
                                 </td>
                             </tr>
                         </tbody>

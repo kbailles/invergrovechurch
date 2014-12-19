@@ -20,7 +20,12 @@
             .when('/ManageSermons', {
                 templateUrl: '/Member/Sermon/ManageSermons',
                 controller: 'ManageSermonsCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    sermons: ['SermonService', function (SermonService) {
+                        return SermonService.getSermons();
+                    }]
+                }
             })
 
             .otherwise({ redirectTo: '/' });

@@ -122,7 +122,7 @@ a {
   box-shadow: 0 3px 3px -3px rgba(0,0,0,0.2);
   position: relative;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 .bottom-pad {
   margin-bottom: 60px;
@@ -161,6 +161,7 @@ a {
 }
 .btn-warning {
   background: @warning;
+  border: 1px solid transparent !important;
   color: @white !important;
   cursor: pointer;
   -webkit-transition: all .5s ease-in-out !important;
@@ -169,7 +170,7 @@ a {
   -ms-transition: all .5s ease-in-out !important;
   transition: all .5s ease-in-out !important;
   &:hover {
-    background: @warning;
+    background: @warning-light;
   }
 }
 button[disabled] {
@@ -369,7 +370,7 @@ h3.title {
 }
 .loading {
     position: fixed;
-    z-index: 99999;
+    z-index: 9999;
     height: 2em;
     width: 2em;
     overflow: show;
@@ -524,14 +525,14 @@ h3.title {
       color: @white;
       padding: 34px 18px 31px 18px;
       &:hover {
-        background-color: @blue !important;
+        background-color: @blue-darker !important;
       }
       @media (max-width: 767px) {
           padding: 17px 18px 15px 18px;
       }
     }
     .active {
-      background-color: @blue;
+      background-color: @blue-darker;
       border-bottom: 3px solid @blue-lighter;
       &:after {
         border-bottom: 6px solid @blue-lighter;
@@ -634,7 +635,7 @@ form .ng-dirty.ng-valid {
     right: 20px;
     text-align: center;
     width: 40px;
-    z-index: 9999;
+    z-index: 999;
     &:hover {
         color: @white-dark;
     }

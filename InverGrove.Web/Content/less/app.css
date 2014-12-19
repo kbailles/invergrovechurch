@@ -54,7 +54,7 @@ a:hover {
 }
 a .remove {
   font-size: 14px;
-  color: #e24747;
+  color: #9e0b0f;
   vertical-align: middle;
 }
 .breadcrumb-wrapper {
@@ -111,7 +111,7 @@ a .remove {
   box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.2);
   position: relative;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 .bottom-pad {
   margin-bottom: 60px;
@@ -149,7 +149,8 @@ a .remove {
   transition: all 0.5s ease-in-out;
 }
 .btn-warning {
-  background: #e24747;
+  background: #9e0b0f;
+  border: 1px solid transparent !important;
   color: #ffffff !important;
   cursor: pointer;
   -webkit-transition: all 0.5s ease-in-out !important;
@@ -159,7 +160,7 @@ a .remove {
   transition: all 0.5s ease-in-out !important;
 }
 .btn-warning:hover {
-  background: #e24747;
+  background: #d12d32;
 }
 button[disabled] {
   background-color: #777777 !important;
@@ -357,7 +358,7 @@ h3.title:after {
 }
 .loading {
   position: fixed;
-  z-index: 99999;
+  z-index: 9999;
   height: 2em;
   width: 2em;
   overflow: show;
@@ -561,7 +562,7 @@ h3.title:after {
   }
 }
 form .ng-dirty.ng-invalid {
-  border: 1px solid #e24747;
+  border: 1px solid #9e0b0f;
 }
 form .ng-dirty.ng-valid {
   border: 1px solid #3c763d;
@@ -617,7 +618,7 @@ form .ng-dirty.ng-valid {
   right: 20px;
   text-align: center;
   width: 40px;
-  z-index: 9999;
+  z-index: 999;
 }
 .scrollup:hover {
   color: #fafafa;
@@ -731,7 +732,7 @@ form .ng-dirty.ng-valid {
   margin-right: 7px;
 }
 .warning {
-  color: #e24747;
+  color: #9e0b0f;
 }
 .widget {
   margin-bottom: 35px;

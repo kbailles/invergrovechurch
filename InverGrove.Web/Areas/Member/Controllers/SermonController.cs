@@ -29,6 +29,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return PartialView("_ManageSermons");
         }
 
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return PartialView("_AddSermon");
+        }
+
         [HttpPost]
         public ActionResult Add(Sermon sermon)
         {

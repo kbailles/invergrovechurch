@@ -7,10 +7,16 @@
         .controller('ManageSermonsCtrl', ManageSermonsController);
 
     ManageSermonsController.$inject = [
+        'sermons',
+        '$modal'
     ];
 
-    function ManageSermonsController() {
+    function ManageSermonsController(sermons, $modal) {
         var vm = this;
+
+        vm.sermons = sermons.data;
+
+        vm.openAddSermonModal = openAddSermonModal;
 
         /*
          * Public declarations
@@ -22,6 +28,32 @@
          * Private declarations
          */
         function activate() {
+        }
+
+        function openAddSermonModal() {
+            var modalInstance = $modal.open({
+                templateUrl: '/Member/Sermon/Add',
+                resolve: {
+                }
+            });
+
+            //modalInstance.result.then(function (selectedItem) {
+            //    $scope.selected = selectedItem;
+            //}, function () {
+            //    $log.info('Modal dismissed at: ' + new Date());
+            //});
+        }
+
+        function addSermon() {
+            
+        }
+
+        function editSermon() {
+            
+        }
+
+        function deleteSermon() {
+            
         }
     }
 })();
