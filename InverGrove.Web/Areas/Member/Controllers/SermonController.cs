@@ -49,6 +49,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return this.View();
         }
 
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return PartialView("_EditSermon");
+        }
+
         //[HttpPost]
         public ActionResult Delete(int sermonId)
         {

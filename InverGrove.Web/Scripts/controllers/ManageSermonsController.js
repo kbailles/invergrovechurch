@@ -8,15 +8,21 @@
 
     ManageSermonsController.$inject = [
         'sermons',
-        '$modal'
+        '$modal',
+        '$scope'
     ];
 
-    function ManageSermonsController(sermons, $modal) {
+    function ManageSermonsController(sermons, $modal, $scope) {
         var vm = this;
 
         vm.sermons = sermons.data;
 
         vm.openAddSermonModal = openAddSermonModal;
+        vm.addSermon = addSermon;
+        vm.editSermon = editSermon;
+        vm.deleteSermon = deleteSermon;
+
+        $scope.sermonToEdit = {};
 
         /*
          * Public declarations
@@ -48,8 +54,17 @@
             
         }
 
-        function editSermon() {
-            
+        function editSermon(sermon) {
+            $scope.sermonToEdit = sermon;
+
+            var modalInstance = $modal.open({
+                templateUrl: '/Member/Sermon/Edit',
+                resolve: {
+                    sermon: function() {
+                        return $scope.sermonToEdit;
+                    }
+                }
+            });
         }
 
         function deleteSermon() {

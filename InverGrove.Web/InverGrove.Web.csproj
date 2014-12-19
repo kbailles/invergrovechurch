@@ -359,6 +359,7 @@
     <Content Include="Areas\Member\Views\Sermon\_ManageSermons.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_AddSermon.cshtml" />
     <Content Include="Areas\Member\Views\Member\_Directory.cshtml" />
+    <Content Include="Areas\Member\Views\Sermon\_EditSermon.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
