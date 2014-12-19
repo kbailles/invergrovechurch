@@ -159,7 +159,8 @@ a .remove {
   -ms-transition: all 0.5s ease-in-out !important;
   transition: all 0.5s ease-in-out !important;
 }
-.btn-warning:hover {
+.btn-warning:hover,
+.btn-warning:focus {
   background: #d12d32;
 }
 button[disabled] {
