@@ -489,6 +489,9 @@ h3.title:after {
   padding: 9px 12px;
   border-radius: 3px !important;
 }
+.modal-footer {
+  text-align: left;
+}
 .navbar-collapse {
   float: right;
   padding-left: 0;
