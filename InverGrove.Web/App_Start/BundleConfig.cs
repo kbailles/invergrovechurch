@@ -126,6 +126,7 @@ namespace InverGrove.Web
                 "~/Scripts/controllers/ContactController.js",
                 "~/Scripts/controllers/ManageSermonsController.js",
                 "~/Scripts/controllers/SermonDetailController.js",
+                "~/Scripts/controllers/SermonModalController.js",
                 "~/Scripts/controllers/ViewSermonsController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",

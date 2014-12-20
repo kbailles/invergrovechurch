@@ -22,6 +22,8 @@
         vm.editSermon = editSermon;
         vm.deleteSermon = deleteSermon;
 
+        vm.tryThis = tryThis;
+
         $scope.sermonToEdit = {};
 
         /*
@@ -42,12 +44,10 @@
                 resolve: {
                 }
             });
+        }
 
-            //modalInstance.result.then(function (selectedItem) {
-            //    $scope.selected = selectedItem;
-            //}, function () {
-            //    $log.info('Modal dismissed at: ' + new Date());
-            //});
+        function tryThis() {
+            alert('Yep!');
         }
 
         function addSermon() {
@@ -58,12 +58,19 @@
             $scope.sermonToEdit = sermon;
 
             var modalInstance = $modal.open({
+                controller: 'SermonModalCtrl',
+                controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Sermon/Edit',
                 resolve: {
                     sermon: function() {
-                        return $scope.sermonToEdit;
+                        return sermon;
                     }
                 }
+            });
+
+            modalInstance.result.then(function () {
+            }, function () {
+                //Clear out modal form here...
             });
         }
 
