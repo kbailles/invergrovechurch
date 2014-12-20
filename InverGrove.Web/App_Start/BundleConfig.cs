@@ -20,7 +20,8 @@ namespace InverGrove.Web
                 "~/Components/html5-boilerplate/css/normalize.css",
                 "~/Components/html5-boilerplate/css/main.css")
                 .Include("~/Components/bootstrap/css/bootstrap.min.css", new CssRewriteUrlTransform())
-                .Include("~/Components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
+                .Include("~/Components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
+                .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new StyleBundle("~/Content/css/core").Include(
                 "~/Content/less/app.min.css"));
@@ -51,7 +52,8 @@ namespace InverGrove.Web
             //Plugins bundles
             bundles.Add(new ScriptBundle("~/Components/scripts/plugins").Include(
                 "~/Components/gmaps/jquery.gmap.min.js",
-                "~/Components/sticky/jquery.sticky.js"));
+                "~/Components/sticky/jquery.sticky.js",
+                "~/Components/pickadate/v2-(deprecated)/source/pickadate.min.js"));
 
             //Login area bundles
             bundles.Add(new StyleBundle("~/Content/css/area/account").Include(
@@ -134,7 +136,8 @@ namespace InverGrove.Web
                 "~/Scripts/directives/revosliderDirective.js",
                 "~/Scripts/directives/scrollUpDirective.js",
                 "~/Scripts/directives/stickyElementDirective.js",
-                "~/Scripts/directives/loadingOverlayDirective.js"));
+                "~/Scripts/directives/loadingOverlayDirective.js",
+                "~/Scripts/directives/pickadateDirective.js"));
         }
     }
 }

@@ -22,10 +22,6 @@
         vm.editSermon = editSermon;
         vm.deleteSermon = deleteSermon;
 
-        vm.tryThis = tryThis;
-
-        $scope.sermonToEdit = {};
-
         /*
          * Public declarations
          */
@@ -40,14 +36,20 @@
 
         function openAddSermonModal() {
             var modalInstance = $modal.open({
+                controller: 'SermonModalCtrl',
+                controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Sermon/Add',
                 resolve: {
+                    sermon: function() {
+                        return {};
+                    }
                 }
             });
-        }
 
-        function tryThis() {
-            alert('Yep!');
+            modalInstance.result.then(function () {
+            }, function () {
+                //Clear out modal form here...
+            });
         }
 
         function addSermon() {
@@ -55,8 +57,6 @@
         }
 
         function editSermon(sermon) {
-            $scope.sermonToEdit = sermon;
-
             var modalInstance = $modal.open({
                 controller: 'SermonModalCtrl',
                 controllerAs: 'modalCtrl',
