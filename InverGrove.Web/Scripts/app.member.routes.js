@@ -17,6 +17,12 @@
             	controllerAs: 'vm'
             })
 
+            .when('/Directory', {
+                templateUrl: '/Member/User/Directory',
+                controller: 'DirectoryCtrl',
+                controllerAs: 'vm'
+            })
+
             .when('/ManageSermons', {
                 templateUrl: '/Member/Sermon/ManageSermons',
                 controller: 'ManageSermonsCtrl',
