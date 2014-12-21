@@ -28,6 +28,10 @@
                 }
             })
 
+            .when('/ManageUsers', {
+                templateUrl: '/Member/User/ManageUsers'
+            })
+
             .otherwise({ redirectTo: '/' });
 	}
 })();
