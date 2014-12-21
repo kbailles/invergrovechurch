@@ -453,6 +453,7 @@
     <Content Include="Content\images\graymatte.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\open_bible.png" />
+    <Content Include="Content\images\team-member-1.jpg" />
     <Content Include="Content\images\team-member-4.jpg" />
     <Content Include="Content\less\app.css">
       <DependentUpon>app.less</DependentUpon>
