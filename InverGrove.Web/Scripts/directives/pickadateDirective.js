@@ -17,7 +17,12 @@
         return directive;
 
         function link(scope, element, attrs) {
-            element.pickadate();
+            element.pickadate({
+                onStart: function () {
+                    var date = new Date();
+                    this.setDate(date.getFullYear(), date.getMonth() + 1, date.getDate());
+                }
+            });
         } // .link
     }
 })();

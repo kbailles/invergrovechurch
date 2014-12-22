@@ -15,21 +15,51 @@
         this.getSermon = function (sermonId) {
 
             return $http({ method: 'GET', url: '/Sermon/GetById', params: { sermonId: sermonId } }).
-                success(function(data, status, headers, config) {
+                success(function (data, status, headers, config) {
                     return data;
                 }).
-                error(function(data, status, headers, config) {
+                error(function (data, status, headers, config) {
                 });
         }
 
         this.getSermons = function () {
 
             return $http({ cache: true, method: 'GET', url: '/Sermon/GetAll' }).
-                success(function(data, status, headers, config) {
+                success(function (data, status, headers, config) {
                     return data;
                 }).
                 error(function (data, status, headers, config) {
-            });
+                });
+        }
+
+        this.add = function (newSermon) {
+
+            return $http({ method: 'POST', url: '/Member/Sermon/Add', data: { sermon: newSermon } }).
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
+        this.delete = function (sermon) {
+
+            return $http({ method: 'POST', url: '/Member/Sermon/Delete', data: { sermonId: sermon.sermonId } }).
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
+        this.update = function (sermon) {
+
+            return $http({ method: 'POST', url: '/Member/Sermon/Edit', data: { sermon: sermon } }).
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                });
         }
     }
 })();

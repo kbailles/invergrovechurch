@@ -8,17 +8,19 @@
 
     SermonModalController.$inject = [
         '$modalInstance',
-        'sermon'
+        'sermon',
+        'SermonService'
     ];
 
-    function SermonModalController($modalInstance, sermon) {
+    function SermonModalController($modalInstance, sermon, SermonService) {
         var vm = this;
 
         /*
          * Public declarations
          */
-        vm.sermon = sermon;
+        vm.sermon = sermon || {};
         vm.sermon.tags = vm.sermon.tags || '';
+        vm.SermonService = SermonService;
         vm.$modalInstance = $modalInstance;
 
         vm.newTag = '';
@@ -49,7 +51,7 @@
 
             var sermonTagsLength = vm.sermon.tags.split(',').length;
 
-            vm.sermon.tags = vm.sermon.tags + (sermonTagsLength > 0 ? ',' : '') + vm.newTag.trim();
+            vm.sermon.tags = vm.sermon.tags + (sermonTagsLength > 1 ? ',' : '') + vm.newTag.trim();
             vm.newTag = '';
         }
 
@@ -64,12 +66,22 @@
             return vm.sermon.tags.split(',').filter(Boolean);
         }
 
-        function addSermon() {
-            alert('Add sermon');
+        function addSermon(sermon) {
+            vm.SermonService.add(sermon).then(function (response) {
+
+            },
+            function (error) {
+
+            });
         }
 
-        function editSermon() {
-            alert('Edit sermon');
+        function editSermon(sermon) {
+            vm.SermonService.update(sermon).then(function (response) {
+
+            },
+            function (error) {
+
+            });
         }
     }
 })();

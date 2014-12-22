@@ -7,17 +7,18 @@
         .controller('ManageSermonsCtrl', ManageSermonsController);
 
     ManageSermonsController.$inject = [
+        'SermonService',
         'sermons',
-        '$modal',
-        '$scope'
+        '$modal'
     ];
 
-    function ManageSermonsController(sermons, $modal, $scope) {
+    function ManageSermonsController(SermonService, sermons, $modal) {
         var vm = this;
 
         vm.sermons = sermons.data;
 
         vm.openAddSermonModal = openAddSermonModal;
+        vm.openEditSermonModal = openEditSermonModal;
         vm.addSermon = addSermon;
         vm.editSermon = editSermon;
         vm.deleteSermon = deleteSermon;
@@ -52,11 +53,25 @@
             });
         }
 
-        function addSermon() {
-            
+        function addSermon(sermon) {
+            SermonService.add(sermon).then(function(response) {
+
+            },
+            function(error) {
+
+            });
         }
 
         function editSermon(sermon) {
+            SermonService.sermon(sermon).then(function (response) {
+
+            },
+            function (error) {
+
+            });
+        }
+
+        function openEditSermonModal(sermon) {
             var modalInstance = $modal.open({
                 controller: 'SermonModalCtrl',
                 controllerAs: 'modalCtrl',
@@ -74,8 +89,13 @@
             });
         }
 
-        function deleteSermon() {
-            
+        function deleteSermon(sermon) {
+            SermonService.delete(sermon).then(function (response) {
+
+            },
+            function (error) {
+
+            });
         }
     }
 })();

@@ -48,7 +48,7 @@ namespace InverGrove.Web.Controllers
                 return this.Json(Messages.SendMailError, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
             }
 
-            return this.Json(contact, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); ;
+            return this.Json(contact, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
     }
 }

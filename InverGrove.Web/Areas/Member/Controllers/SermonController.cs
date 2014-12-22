@@ -1,6 +1,6 @@
-﻿using System.Security.Principal;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using InverGrove.Domain.Exceptions;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
@@ -46,7 +46,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
             sermon.ModifiedByUserId = 1;
             var sermonId = this.sermonService.AddSermon(sermon);
 
-            return this.View();
+            return this.Json(sermonId, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
         [HttpGet]
@@ -55,14 +55,28 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return PartialView("_EditSermon");
         }
 
-        //[HttpPost]
+        [HttpPost]
+        public ActionResult Edit(Sermon sermon)
+        {
+            if (sermon == null)
+            {
+                throw new ParameterNullException("sermon");
+            }
+
+            sermon.ModifiedByUserId = 1;
+            var success = this.sermonService.UpdateSermon(sermon);
+
+            return this.Json(success, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+        }
+
+        [HttpPost]
         public ActionResult Delete(int sermonId)
         {
             Guard.ParameterNotOutOfRange(sermonId, "sermonId");
 
             this.sermonService.DeleteSermon(sermonId);
 
-            return this.View();
+            return this.Json(true, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
     }
 }

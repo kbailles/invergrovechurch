@@ -39,13 +39,13 @@
             <div class="row" style="margin-top: 20px;">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 picker-holder--inline-fixed">
                     <label>Sermon Date: <span class="warning">*</span></label>
-                    <input class="form-control" name="SermonDate" ig-pickadate required />
+                    <input class="form-control" name="SermonDate" ng-model="modalCtrl.sermon.sermonDate" ig-pickadate required />
                 </div>
             </div>
         </fieldset>
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" ng-click="modalCtrl.dismissModal()">Add</button>
+    <button class="btn btn-normal btn-color" ng-click="modalCtrl.addSermon(modalCtrl.sermon)">Add</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>
