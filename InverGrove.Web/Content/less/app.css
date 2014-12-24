@@ -742,6 +742,13 @@ form .ng-dirty.ng-valid {
   line-height: 14px;
   margin-right: 7px;
 }
+.validation-summary-errors {
+  color: #9e0b0f;
+}
+.validation-summary-errors ul {
+  list-style: none;
+  padding-left: 0;
+}
 .warning {
   color: #9e0b0f;
 }

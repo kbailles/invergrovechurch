@@ -11,7 +11,7 @@
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", novalidate = true, name = "form" }))
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "")
 
         <fieldset class="reply">
             <div class="row">
@@ -37,7 +37,7 @@
             </div>
         </fieldset>
 
-        <button ng-disabled="form.$invalid" ng-click="vm.login()" disabled class="btn btn-normal btn-color submit" style="width: 100%;">Login</button>
+        <button ng-disabled="form.$invalid" ng-click="vm.login()" disabled class="btn btn-normal btn-color submit" style="width: 100%;">Log In</button>
         <div class="clearfix"></div>
     }
 </div>

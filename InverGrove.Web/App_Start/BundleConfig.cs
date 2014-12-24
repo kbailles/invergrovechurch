@@ -138,7 +138,8 @@ namespace InverGrove.Web
                 "~/Scripts/directives/scrollUpDirective.js",
                 "~/Scripts/directives/stickyElementDirective.js",
                 "~/Scripts/directives/loadingOverlayDirective.js",
-                "~/Scripts/directives/pickadateDirective.js"));
+                "~/Scripts/directives/pickadateDirective.js",
+                "~/Scripts/directives/buttonLoadingDirective.js"));
         }
     }
 }

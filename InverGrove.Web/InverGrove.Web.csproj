@@ -500,6 +500,7 @@
     <Content Include="Scripts\controllers\ContactController.js" />
     <Content Include="Scripts\controllers\HomeController.js" />
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.min.js" />
+    <Content Include="Scripts\directives\buttonLoadingDirective.js" />
     <Content Include="Scripts\directives\directives.module.js" />
     <Content Include="Scripts\directives\googleMapDirective.js" />
     <Content Include="Scripts\directives\loadingOverlayDirective.js" />

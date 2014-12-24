@@ -19,9 +19,10 @@
 
         vm.openAddSermonModal = openAddSermonModal;
         vm.openEditSermonModal = openEditSermonModal;
-        vm.addSermon = addSermon;
-        vm.editSermon = editSermon;
         vm.deleteSermon = deleteSermon;
+        vm.showDeleteLoading = false;
+
+        vm.$modalInstance = null;
 
         /*
          * Public declarations
@@ -36,7 +37,7 @@
         }
 
         function openAddSermonModal() {
-            var modalInstance = $modal.open({
+            vm.$modalInstance = $modal.open({
                 controller: 'SermonModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Sermon/Add',
@@ -46,33 +47,10 @@
                     }
                 }
             });
-
-            modalInstance.result.then(function () {
-            }, function () {
-                //Clear out modal form here...
-            });
-        }
-
-        function addSermon(sermon) {
-            SermonService.add(sermon).then(function(response) {
-
-            },
-            function(error) {
-
-            });
-        }
-
-        function editSermon(sermon) {
-            SermonService.sermon(sermon).then(function (response) {
-
-            },
-            function (error) {
-
-            });
         }
 
         function openEditSermonModal(sermon) {
-            var modalInstance = $modal.open({
+            vm.$modalInstance = $modal.open({
                 controller: 'SermonModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Sermon/Edit',
@@ -82,20 +60,16 @@
                     }
                 }
             });
-
-            modalInstance.result.then(function () {
-            }, function () {
-                //Clear out modal form here...
-            });
         }
 
         function deleteSermon(sermon) {
-            SermonService.delete(sermon).then(function (response) {
+            vm.showDeleteLoading = true;
+            //SermonService.delete(sermon).then(function (response) {
 
-            },
-            function (error) {
+            //},
+            //function (error) {
 
-            });
+            //});
         }
     }
 })();
