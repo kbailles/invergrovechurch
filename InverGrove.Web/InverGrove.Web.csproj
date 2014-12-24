@@ -652,6 +652,7 @@
     <Content Include="Scripts\services\MessageService.js" />
     <Content Include="Scripts\services\SermonService.js" />
     <Content Include="Scripts\services\services.module.js" />
+    <Content Include="Scripts\services\UserService.js" />
     <Content Include="Tests\controllers\BaseControllerTests.js" />
     <Content Include="Tests\dependencies\core.references.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
