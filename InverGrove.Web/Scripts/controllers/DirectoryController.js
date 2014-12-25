@@ -21,5 +21,8 @@
         /*
          * Private declarations
          */
+        function activate() {
+            
+        }
     }
 })();

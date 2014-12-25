@@ -69,6 +69,12 @@ a {
         vertical-align: middle;
     }
 }
+.avatar {
+    img {
+        border-radius: 100%;
+        max-width: 75px;
+    }
+}
 .breadcrumb-wrapper {
   background: @white;
   .breadcrumbs {
@@ -273,6 +279,42 @@ button[disabled] {
 }
 .bottom-pad-small {
   margin-bottom: 30px;
+}
+.directory-content {
+    .avatar {
+        float: left;
+        margin-right: 15px;
+    }
+
+    @media (max-width: 767px) {
+        .avatar {
+            float: none !important;
+            text-align: center !important;
+        }
+        .user-quick-info {
+            text-align: center !important;
+        }
+    }
+    .user-meta {
+        a {
+            color: @gray-dark;
+            text-decoration: none;
+        }
+        i {
+            line-height: @font-size-base;
+        }
+    }
+    .user-meta-phone,
+    .user-meta-email {
+        display: inline-block;
+        margin: 0 10px 1px 0;
+    }
+    .user-meta-address {
+        address {
+            display: inline-block;
+            margin-bottom: 0;
+        }
+    }
 }
 .divider {
   margin: 60px 0;
