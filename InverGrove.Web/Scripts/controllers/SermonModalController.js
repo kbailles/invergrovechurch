@@ -54,7 +54,7 @@
 
             var sermonTagsLength = vm.sermon.tags.split(',').length;
 
-            vm.sermon.tags = vm.sermon.tags + (sermonTagsLength > 1 ? ',' : '') + vm.newTag.trim();
+            vm.sermon.tags = vm.sermon.tags + (sermonTagsLength > 0 ? ',' : '') + vm.newTag.trim();
             vm.newTag = '';
         }
 
