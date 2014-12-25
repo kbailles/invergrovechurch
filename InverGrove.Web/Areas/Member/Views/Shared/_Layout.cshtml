@@ -26,8 +26,9 @@
                     </div>
                     <div class="pull-right user-actions">
                         <a href="#"><i class="fa fa-user"></i>Welcome, Keenan</a>
-                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {role = "form", @class = "form-inline", @style = "display: inline-block;"}))
+                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { role = "form", @class = "form-inline", @style = "display: inline-block;" }))
                         {
+                            @Html.AntiForgeryToken()
                             <a href="javascript:void(0)" type="submit" onclick="$(this).closest('form').submit();"><i class="fa fa-power-off"></i>Log Out</a>
                         }
                     </div>
