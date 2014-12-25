@@ -543,6 +543,7 @@
     <Content Include="Components\pickadate\v2-%28deprecated%29\pickadate.js\translations\NAMING" />
     <Content Include="Areas\Member\Views\User\_ManageUsers.cshtml" />
     <Content Include="Areas\Member\Views\User\_AddUser.cshtml" />
+    <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />

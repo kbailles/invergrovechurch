@@ -8,11 +8,12 @@
 
     SermonModalController.$inject = [
         '$modalInstance',
+        '$rootScope',
         'sermon',
         'SermonService'
     ];
 
-    function SermonModalController($modalInstance, sermon, SermonService) {
+    function SermonModalController($modalInstance, $rootScope, sermon, SermonService) {
         var vm = this;
 
         /*
@@ -24,6 +25,7 @@
         vm.$modalInstance = $modalInstance;
 
         vm.newTag = '';
+        vm.busy = false;
 
         vm.dismissModal = dismissModal;
         vm.addTag = addTag;
@@ -31,6 +33,7 @@
         vm.tagsAsArray = tagsAsArray;
         vm.addSermon = addSermon;
         vm.editSermon = editSermon;
+        vm.deleteSermon = deleteSermon;
 
         activate();
 
@@ -67,21 +70,18 @@
         }
 
         function addSermon(sermon) {
-            vm.SermonService.add(sermon).then(function (response) {
-
-            },
-            function (error) {
-
-            });
+            vm.busy = true;
+            $rootScope.$broadcast('addSermon', sermon);
         }
 
         function editSermon(sermon) {
-            vm.SermonService.update(sermon).then(function (response) {
+            vm.busy = true;
+            $rootScope.$broadcast('editSermon', sermon);
+        }
 
-            },
-            function (error) {
-
-            });
+        function deleteSermon(sermon) {
+            vm.busy = true;
+            $rootScope.$broadcast('deleteSermon', sermon);
         }
     }
 })();

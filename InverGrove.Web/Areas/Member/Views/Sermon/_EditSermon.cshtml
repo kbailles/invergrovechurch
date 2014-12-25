@@ -46,6 +46,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" ng-click="modalCtrl.editSermon(modalCtrl.sermon)">Save</button>
+    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Saving..." ng-click="modalCtrl.editSermon(modalCtrl.sermon)">Save</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>
