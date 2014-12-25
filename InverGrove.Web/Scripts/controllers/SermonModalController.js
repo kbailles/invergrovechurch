@@ -19,7 +19,7 @@
         /*
          * Public declarations
          */
-        vm.sermon = sermon || {};
+        vm.sermon = angular.copy(sermon) || {};
         vm.sermon.tags = vm.sermon.tags || '';
         vm.SermonService = SermonService;
         vm.$modalInstance = $modalInstance;
@@ -52,7 +52,7 @@
                 return;
             }
 
-            var sermonTagsLength = vm.sermon.tags.split(',').length;
+            var sermonTagsLength = !!vm.sermon.tags ? vm.sermon.tags.split(',').length : 0;
 
             vm.sermon.tags = vm.sermon.tags + (sermonTagsLength > 0 ? ',' : '') + vm.newTag.trim();
             vm.newTag = '';
@@ -69,19 +69,19 @@
             return vm.sermon.tags.split(',').filter(Boolean);
         }
 
-        function addSermon(sermon) {
+        function addSermon() {
             vm.busy = true;
-            $rootScope.$broadcast('addSermon', sermon);
+            $rootScope.$broadcast('addSermon', vm.sermon);
         }
 
-        function editSermon(sermon) {
+        function editSermon() {
             vm.busy = true;
-            $rootScope.$broadcast('editSermon', sermon);
+            $rootScope.$broadcast('editSermon', vm.sermon);
         }
 
-        function deleteSermon(sermon) {
+        function deleteSermon() {
             vm.busy = true;
-            $rootScope.$broadcast('deleteSermon', sermon);
+            $rootScope.$broadcast('deleteSermon', vm.sermon);
         }
     }
 })();

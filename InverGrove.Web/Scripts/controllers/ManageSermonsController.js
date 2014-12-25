@@ -19,8 +19,8 @@
         /*
          * Public declarations
          */
-        vm.SermonService = SermonService;
         vm.sermons = sermons.data;
+        vm.SermonService = SermonService;
 
         vm.openAddSermonModal = openAddSermonModal;
         vm.openEditSermonModal = openEditSermonModal;
@@ -76,6 +76,10 @@
         }
 
         $scope.$on('addSermon', function (event, sermon) {
+            if (!sermon) {
+                return;
+            }
+
             vm.SermonService.add(sermon).then(function (response) {
                 vm.sermons.push(sermon);
             },
@@ -88,20 +92,37 @@
         });
 
         $scope.$on('editSermon', function (event, sermon) {
-            vm.SermonService.update(sermon).then(function (response) {
+            var sermonToEdit = _.find(vm.sermons, function (s) {
+                return s.sermonId === sermon.sermonId;
+            });
 
+            if (!sermonToEdit) {
+                return;
+            }
+
+            vm.SermonService.update(sermon).then(function (response) {
+                var index = vm.sermons.indexOf(sermonToEdit);
+                vm.sermons[index] = sermon;
             },
             function (error) {
 
             })
-            .finally(function() {
+            .finally(function () {
                 vm.$modalInstance.dismiss('cancel');
             });
         });
 
         $scope.$on('deleteSermon', function (event, sermon) {
-            vm.SermonService.delete(sermon).then(function (response) {
-                var index = vm.sermons.indexOf(sermon);
+            var sermonToDelete = _.find(vm.sermons, function (s) {
+                return s.sermonId === sermon.sermonId;
+            });
+
+            if (!sermonToDelete) {
+                return;
+            }
+
+            vm.SermonService.delete(sermonToDelete).then(function (response) {
+                var index = vm.sermons.indexOf(sermonToDelete);
 
                 if (index > -1) {
                     vm.sermons.splice(index, 1);
