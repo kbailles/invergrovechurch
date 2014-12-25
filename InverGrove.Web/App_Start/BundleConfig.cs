@@ -76,7 +76,8 @@ namespace InverGrove.Web
                 "~/Scripts/directives/googleMapDirective.js",
                 "~/Scripts/directives/scrollUpDirective.js",
                 "~/Scripts/directives/stickyElementDirective.js",
-                "~/Scripts/directives/loadingOverlayDirective.js"));
+                "~/Scripts/directives/loadingOverlayDirective.js",
+                "~/Scripts/directives/buttonLoadingDirective.js"));
 
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
@@ -105,7 +106,8 @@ namespace InverGrove.Web
                 "~/Scripts/directives/revosliderDirective.js",
                 "~/Scripts/directives/scrollUpDirective.js",
                 "~/Scripts/directives/stickyElementDirective.js",
-                "~/Scripts/directives/loadingOverlayDirective.js"));
+                "~/Scripts/directives/loadingOverlayDirective.js",
+                "~/Scripts/directives/buttonLoadingDirective.js"));
 
             //Member area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(

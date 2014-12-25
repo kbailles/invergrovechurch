@@ -57,14 +57,9 @@ namespace InverGrove.Web.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
                 }
-
-                // If we got this far, something failed, redisplay form
-                ModelState.AddModelError("", Messages.IncorrectPasswordErrorMessage);
-                ViewBag.ReturnUrl = returnUrl;
-                return View(model);
             }
 
-            ViewBag.ReturnUrl = returnUrl;
+            ModelState.AddModelError("", Messages.IncorrectPasswordErrorMessage);
             return View(model);
         }
 

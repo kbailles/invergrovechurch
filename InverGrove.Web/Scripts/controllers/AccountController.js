@@ -7,17 +7,17 @@
         .controller('AccountCtrl', AccountController);
 
     AccountController.$inject = [
-        '$scope',
-        '$http'
+        '$scope'
     ];
 
-    function AccountController($scope, $http) {
+    function AccountController($scope) {
         var vm = this;
 
         /*
          * Public declarations
          */
-        vm.loginCredentials = {};
+        vm.busy = false;
+        vm.login = login;
 
         //ui.bootstrap watches $scope object
         $scope.alerts = [];
@@ -25,5 +25,9 @@
         /*
          * Private declarations
          */
+        function login() {
+            vm.busy = true;
+            $('form').submit();
+        }
     }
 })();

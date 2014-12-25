@@ -6,9 +6,6 @@
     angular.module(appName + '.directives')
         .directive('btnLoading', btnLoading);
 
-    btnLoading.$inject = [
-    ];
-
     function btnLoading() {
         var directive = {
             link: link,
