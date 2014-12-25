@@ -544,6 +544,8 @@
     <Content Include="Areas\Member\Views\User\_ManageUsers.cshtml" />
     <Content Include="Areas\Member\Views\User\_AddUser.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
+    <Content Include="Areas\Member\Views\User\_DeleteUser.cshtml" />
+    <Content Include="Areas\Member\Views\User\_EditUser.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
