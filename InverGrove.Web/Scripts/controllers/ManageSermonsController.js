@@ -66,7 +66,7 @@
             vm.$modalInstance = $modal.open({
                 controller: 'SermonModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/Sermon/Edit',
+                templateUrl: '/Member/Sermon/Delete',
                 resolve: {
                     sermon: function () {
                         return sermon;
@@ -104,7 +104,7 @@
                 var index = vm.sermons.indexOf(sermon);
 
                 if (index > -1) {
-                    array.splice(index, 1);
+                    vm.sermons.splice(index, 1);
                 }
             },
             function (error) {

@@ -69,6 +69,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return this.Json(success, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return PartialView("_DeleteSermon");
+        }
+
         [HttpPost]
         public ActionResult Delete(int sermonId)
         {
