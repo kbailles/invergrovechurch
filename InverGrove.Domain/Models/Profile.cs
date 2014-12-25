@@ -110,7 +110,7 @@ namespace InverGrove.Domain.Models
         /// </summary>
         /// <value>
         /// The person.
-        [JsonConverter(typeof(InverGrove.Domain.Utils.ModelConverter<Person, IPerson>))]
+        [JsonConverter(typeof(Utils.ModelConverter<Person, IPerson>))]
         public IPerson Person { get; set; }
 
 
@@ -120,7 +120,7 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The role.
         /// </value>
-        [JsonConverter(typeof(InverGrove.Domain.Utils.ModelCollectionConverter<Role, IRole>))]
+        [JsonConverter(typeof(Utils.ModelCollectionConverter<Role, IRole>))]
         public IList<IRole> Roles { get; set; }
     }
 }

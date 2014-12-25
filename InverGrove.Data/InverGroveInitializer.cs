@@ -181,7 +181,7 @@ namespace InverGrove.Data
                     EmailPrimary = "kbailles@outlook.com",
                     FirstName = "Keenan",
                     LastName = "Bailles",
-                    MiddleInitial = "E",
+                    MiddleInitial = "W",
                     MaritalStatus = null,
                     MaritalStatusId = 2,
                     PersonType = null,

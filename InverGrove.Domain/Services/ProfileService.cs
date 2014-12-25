@@ -179,12 +179,12 @@ namespace InverGrove.Domain.Services
 
 			if (userId > 0)
 			{
-				foundProfile = this.profileRepository.Get(p => p.UserId == userId).FirstOrDefault();
+                foundProfile = this.profileRepository.Get(p => p.UserId == userId, includeProperties: "Person").FirstOrDefault();
 			}
 
 			if (!string.IsNullOrEmpty(userName))
 			{
-				foundProfile = this.profileRepository.Get(p => p.User.UserName == userName).FirstOrDefault();                
+				foundProfile = this.profileRepository.Get(p => p.User.UserName == userName, includeProperties:"Person").FirstOrDefault();
 			}
 
 			profile = this.GetProfileModel(foundProfile);
@@ -194,14 +194,12 @@ namespace InverGrove.Domain.Services
 
 		private IProfile GetProfileModel(Data.Entities.Profile foundProfile)
 		{
-			IProfile profile = Profile.Create(); 
+			IProfile profile = Profile.Create();
 
 			if (foundProfile != null)
 			{
 				profile = foundProfile.ToModel();
-				
 				var userRoles = this.userRoleRepository.Get(u => u.User.UserId == profile.UserId, includeProperties: "Role").ToModelCollection().ToSafeList();
-				profile.Person = this.personRepository.Get(p => p.PersonId == profile.PersonId).FirstOrDefault().ToModel();
 
 				if (userRoles.Count > 0)
 				{

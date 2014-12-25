@@ -223,6 +223,11 @@ namespace InverGrove.Domain.Extensions
             profile.DateModified = profileModel.DateModified;
             profile.DateCreated = profileModel.DateCreated;
 
+            if (profileModel.Person != null)
+            {
+                profile.Person = ((Person)profileModel.Person).ToEntity();
+            }
+
             return profile;
         }
 
@@ -246,6 +251,11 @@ namespace InverGrove.Domain.Extensions
             profileModel.UserId = profile.UserId;
             profileModel.DateModified = profile.DateModified;
             profileModel.DateCreated = profile.DateCreated;
+
+            if (profile.Person != null)
+            {
+                profileModel.Person = profile.Person.ToModel();
+            }
 
             return profileModel;
         }
@@ -320,6 +330,7 @@ namespace InverGrove.Domain.Extensions
                 return sermon;
             }
 
+            sermon.DateCreated = sermonModel.DateCreated;
             sermon.DateModified = sermonModel.DateModified;
             sermon.ModifiedByUserId = sermonModel.ModifiedByUserId;
             sermon.SermonDate = sermonModel.SermonDate;

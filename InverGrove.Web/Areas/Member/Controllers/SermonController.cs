@@ -43,7 +43,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
                 throw new ParameterNullException("sermon");
             }
 
-            sermon.ModifiedByUserId = 1;
+            sermon.ModifiedByUserId = this.ControllerContext.HttpContext.Profile.UserId(); ;
             var sermonId = this.sermonService.AddSermon(sermon);
 
             return this.Json(sermonId, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
@@ -63,7 +63,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
                 throw new ParameterNullException("sermon");
             }
 
-            sermon.ModifiedByUserId = 1;
+            sermon.ModifiedByUserId = this.ControllerContext.HttpContext.Profile.UserId();
             var success = this.sermonService.UpdateSermon(sermon);
 
             return this.Json(success, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
