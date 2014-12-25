@@ -7,19 +7,20 @@
         .controller('ManageSermonsCtrl', ManageSermonsController);
 
     ManageSermonsController.$inject = [
-        'SermonService',
         'sermons',
+        'SermonService',
         '$scope',
         '$modal'
     ];
 
-    function ManageSermonsController(SermonService, sermons, $scope, $modal) {
+    function ManageSermonsController(sermons, SermonService, $scope, $modal) {
         var vm = this;
 
         /*
          * Public declarations
          */
         vm.sermons = sermons.data;
+        vm.soundCloudSermons = [];
         vm.SermonService = SermonService;
 
         vm.openAddSermonModal = openAddSermonModal;
@@ -34,6 +35,9 @@
          * Private declarations
          */
         function activate() {
+            SC.get('/users/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', function (tracks) {
+                vm.soundCloudSermons = tracks;
+            });
         }
 
         function openAddSermonModal() {
@@ -44,6 +48,9 @@
                 resolve: {
                     sermon: function() {
                         return {};
+                    },
+                    soundCloudSermons: function() {
+                        return vm.soundCloudSermons;
                     }
                 }
             });
@@ -57,6 +64,9 @@
                 resolve: {
                     sermon: function() {
                         return sermon;
+                    },
+                    soundCloudSermons: function () {
+                        return vm.soundCloudSermons;
                     }
                 }
             });
@@ -70,6 +80,9 @@
                 resolve: {
                     sermon: function () {
                         return sermon;
+                    },
+                    soundCloudSermons: function () {
+                        return vm.soundCloudSermons;
                     }
                 }
             });

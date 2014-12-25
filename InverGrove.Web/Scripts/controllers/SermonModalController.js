@@ -10,10 +10,11 @@
         '$modalInstance',
         '$rootScope',
         'sermon',
+        'soundCloudSermons',
         'SermonService'
     ];
 
-    function SermonModalController($modalInstance, $rootScope, sermon, SermonService) {
+    function SermonModalController($modalInstance, $rootScope, sermon, soundCloudSermons, SermonService) {
         var vm = this;
 
         /*
@@ -21,6 +22,8 @@
          */
         vm.sermon = angular.copy(sermon) || {};
         vm.sermon.tags = vm.sermon.tags || '';
+        vm.soundCloudSermons = soundCloudSermons || [];
+
         vm.SermonService = SermonService;
         vm.$modalInstance = $modalInstance;
 
