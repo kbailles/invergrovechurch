@@ -7,12 +7,13 @@
         .controller('ManageUsersCtrl', ManageUsersController);
 
     ManageUsersController.$inject = [
+        'users',
         'UserService',
         '$scope',
         '$modal'
     ];
 
-    function ManageUsersController(UserService, $scope, $modal) {
+    function ManageUsersController(users, UserService, $scope, $modal) {
         var vm = this;
 
         alert('If you see this, then something is finally working!');
