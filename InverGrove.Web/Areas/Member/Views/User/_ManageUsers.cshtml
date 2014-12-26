@@ -21,43 +21,11 @@
     <div class="manager-users-content" style="padding: 60px 0 0;" ng-cloak>
         <div class="container">
             <div class="row">
+                <p><strong>NOTE:</strong> A <i>user</i> is any person to whom site access might be granted, it is not necessarily a <i>member</i> of the local church.</p>
                 <div class="col-xs-12">
 
-                    <button class="btn btn-normal btn-color bottom-pad" ng-click="vm.openAddSermonModal()">Add User</button>
-
-                    <table class="table table-striped table-bordered" ng-show="vm.sermons.length > 0">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Title</th>
-                                <th>Speaker</th>
-                                <th>Tags</th>
-                                <th style="width: 100px;"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="sermon in vm.sermons">
-                                <td>{{sermon.sermonDate | date:'MMMM d yyyy'}}</td>
-                                <td>{{sermon.title}}</td>
-                                <td>{{ sermon.speaker }}</td>
-                                <td>
-                                    <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
-                                        {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
-                                    </div>
-                                </td>
-                                <td style="text-align: right;">
-                                    <button class="btn btn-color" ng-click="vm.editSermon(sermon)"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-warning"><i class="fa fa-remove"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table class="table table-striped table-bordered" ng-show="vm.sermons.length <= 0">
-                        <tr>
-                            <td>No users found. Click the "Add User" button to add some!</td>
-                        </tr>
-                    </table>
+                    <p>Repeat the data here, if any.</p>
+                    <button class="btn btn-normal btn-color bottom-pad" ng-click="vm.openAddUserModal()">Add User</button>
 
                 </div>
             </div>

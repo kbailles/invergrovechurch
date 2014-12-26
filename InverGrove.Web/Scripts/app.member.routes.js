@@ -35,7 +35,9 @@
             })
 
             .when('/ManageUsers', {
-                templateUrl: '/Member/User/ManageUsers'
+                templateUrl: '/Member/User/ManageUsers',
+                controller: 'ManageUsersCtrl',
+                controllerAs: 'vm'
             })
 
             .otherwise({ redirectTo: '/' });

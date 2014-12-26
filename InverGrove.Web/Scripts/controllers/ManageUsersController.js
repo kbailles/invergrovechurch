@@ -4,21 +4,19 @@
     var appName = igchurch.constants.APP_NAME;
 
     angular.module(appName + '.controllers')
-        .controller('ManageSermonsCtrl', ManageUsersController);
+        .controller('ManageUsersCtrl', ManageUsersController);
 
     ManageUsersController.$inject = [
         'UserService',
-        'users',
         '$scope',
         '$modal'
     ];
 
-    function ManageUsersController(UserService, users, $scope, $modal) {
+    function ManageUsersController(UserService, $scope, $modal) {
         var vm = this;
 
-        /*
-         * Public declarations
-         */
+        alert('If you see this, then something is finally working!');
+
         vm.users = users.data;
         vm.UserService = UserService;
 
@@ -30,58 +28,66 @@
 
         activate();
 
-        /*
-         * Private declarations
-         */
         function activate() {
+            getUsers();
+        }
+
+        function getUsers() {
+            debugger;
+            $scope.$emit('loading-started'); 
+
+            return UserService.GetAll().then(function (data) {
+                vm.users = data.data;
+                $scope.$emit('loading-complete');
+            });
         }
 
         function openAddUserModal() {
             vm.$modalInstance = $modal.open({
-                controller: 'SermonModalCtrl',
+                controller: 'UserModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/Sermon/Add',
+                templateUrl: '/Member/User/Add',
                 resolve: {
-                    sermon: function () {
+                    user: function () {
                         return {};
                     }
                 }
             });
         }
 
-        function openEditUserModal(sermon) {
+        function openEditUserModal(user) {
             vm.$modalInstance = $modal.open({
-                controller: 'SermonModalCtrl',
+                controller: 'UserModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/Sermon/Edit',
+                templateUrl: '/Member/User/Edit',
                 resolve: {
-                    sermon: function () {
-                        return sermon;
+                    user: function () {
+                        return user;
                     }
                 }
             });
         }
 
-        function openDeleteUserModal(sermon) {
+        function openDeleteUserModal(user) {
             vm.$modalInstance = $modal.open({
-                controller: 'SermonModalCtrl',
+                controller: 'UserModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/Sermon/Delete',
+                templateUrl: '/Member/User/Delete',
                 resolve: {
-                    sermon: function () {
-                        return sermon;
+                    user: function () {
+                        return user;
                     }
                 }
             });
         }
 
-        $scope.$on('addSermon', function (event, sermon) {
-            if (!sermon) {
+        $scope.$on('addUser', function (event, user) {
+            if (!user) {
                 return;
             }
 
-            vm.SermonService.add(sermon).then(function (response) {
-                vm.sermons.push(sermon);
+            vm.UserService.add(user).then(function (response) {
+                vm.users.push(user);
             },
             function (error) {
 
@@ -91,18 +97,18 @@
             });
         });
 
-        $scope.$on('editSermon', function (event, sermon) {
-            var sermonToEdit = _.find(vm.sermons, function (s) {
-                return s.sermonId === sermon.sermonId;
+        $scope.$on('editUser', function (event, user) {
+            var userToEdit = _.find(vm.users, function (s) {
+                return s.userId === user.userId;
             });
 
-            if (!sermonToEdit) {
+            if (!userToEdit) {
                 return;
             }
 
-            vm.SermonService.update(sermon).then(function (response) {
-                var index = vm.sermons.indexOf(sermonToEdit);
-                vm.sermons[index] = sermon;
+            vm.UserService.update(user).then(function (response) {
+                var index = vm.users.indexOf(userToEdit);
+                vm.users[index] = user;
             },
             function (error) {
 
@@ -112,20 +118,20 @@
             });
         });
 
-        $scope.$on('deleteSermon', function (event, sermon) {
-            var sermonToDelete = _.find(vm.sermons, function (s) {
-                return s.sermonId === sermon.sermonId;
+        $scope.$on('deleteUser', function (event, user) {
+            var userToDelete = _.find(vm.users, function (s) {
+                return s.userId === user.userId;
             });
 
-            if (!sermonToDelete) {
+            if (!userToDelete) {
                 return;
             }
 
-            vm.SermonService.delete(sermonToDelete).then(function (response) {
-                var index = vm.sermons.indexOf(sermonToDelete);
+            vm.UserService.delete(userToDelete).then(function (response) {
+                var index = vm.users.indexOf(useRAFToDelete);
 
                 if (index > -1) {
-                    vm.sermons.splice(index, 1);
+                    vm.users.splice(index, 1);
                 }
             },
             function (error) {
