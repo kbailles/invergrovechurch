@@ -15,8 +15,6 @@
     function ManageUsersController(UserService, $scope, $modal) {
         var vm = this;
 
-        alert('If you see this, then something is finally working!');
-
         vm.users = [];
         vm.UserService = UserService;
 

@@ -12,7 +12,7 @@
 
         this.getUser = function (userId) {
 
-            return $http({ method: 'GET', url: '/User/GetUser', params: { userdId: userId } }).
+            return $http({ method: 'GET', url: '/ManageUsers/GetUser', params: { userdId: userId } }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).
@@ -22,7 +22,9 @@
 
         this.getAll = function () {
 
-            return $http({ method: 'GET', url: '/User/GetAllUsers' }).
+            debugger;
+
+            return $http({ method: 'GET', url: '/ManageUsers/GetAllUsers' }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).
