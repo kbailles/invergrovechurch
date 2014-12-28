@@ -78,6 +78,15 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<IUser> GetAllUsers()
+        {
+            return this.userRepository.Get().Select(user => user.ToModel()).Cast<IUser>().ToSafeList();
+        }
+
+        /// <summary>
         /// Updates the user.
         /// </summary>
         /// <param name="user">The user.</param>
@@ -104,13 +113,6 @@ namespace InverGrove.Domain.Services
             return success;
         }
 
-        /// <summary>
-        /// Gets all users.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<IUser> GetAllUsers()
-        {
-            return this.userRepository.Get().Select(user => user.ToModel()).Cast<IUser>().ToSafeList();
-        }
+
     }
 }

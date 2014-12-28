@@ -493,7 +493,7 @@
     <Content Include="Scripts\controllers\BaseController.js" />
     <Content Include="Scripts\controllers\controllers.module.js" />
     <Content Include="Scripts\controllers\DirectoryController.js" />
-    <Content Include="Scripts\controllers\ManageUsersController.js" />
+    <Content Include="Scripts\controllers\ManageMembersController.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
     <Content Include="Scripts\controllers\SermonModalController.js" />
     <Content Include="Scripts\controllers\ViewSermonsController.js" />
@@ -516,7 +516,7 @@
     <Content Include="Scripts\app.member.routes.js" />
     <Content Include="Areas\Member\Views\Sermon\_ManageSermons.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_AddSermon.cshtml" />
-    <Content Include="Areas\Member\Views\User\_Directory.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_Directory.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_EditSermon.cshtml" />
     <Content Include="Components\pickadate\.jshintrc" />
     <Content Include="Components\pickadate\.travis.yml" />
@@ -541,11 +541,11 @@
     <Content Include="Components\pickadate\pickadate.jquery.json" />
     <Content Include="Components\pickadate\README.md" />
     <Content Include="Components\pickadate\v2-%28deprecated%29\pickadate.js\translations\NAMING" />
-    <Content Include="Areas\Member\Views\User\_ManageUsers.cshtml" />
-    <Content Include="Areas\Member\Views\User\_AddUser.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_ManageMembers.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_AddUser.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
-    <Content Include="Areas\Member\Views\User\_DeleteUser.cshtml" />
-    <Content Include="Areas\Member\Views\User\_EditUser.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_DeleteUser.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_EditUser.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
@@ -655,7 +655,7 @@
     <Content Include="Scripts\services\MessageService.js" />
     <Content Include="Scripts\services\SermonService.js" />
     <Content Include="Scripts\services\services.module.js" />
-    <Content Include="Scripts\services\UserService.js" />
+    <Content Include="Scripts\services\MemberService.js" />
     <Content Include="Tests\controllers\BaseControllerTests.js" />
     <Content Include="Tests\dependencies\core.references.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
@@ -672,7 +672,7 @@
     <Compile Include="Areas\Member\Controllers\SermonController.cs" />
     <Compile Include="Areas\Member\Controllers\HomeController.cs" />
     <Compile Include="Areas\Member\Controllers\RegistrationController.cs" />
-    <Compile Include="Areas\Member\Controllers\UserController.cs" />
+    <Compile Include="Areas\Member\Controllers\MemberController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />

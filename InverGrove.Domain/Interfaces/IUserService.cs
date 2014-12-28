@@ -21,6 +21,12 @@ namespace InverGrove.Domain.Interfaces
         IUser GetUser(int userId);
 
         /// <summary>
+        /// Gets all users.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IUser> GetAllUsers();
+
+        /// <summary>
         /// Updates the user.
         /// </summary>
         /// <param name="user">The user.</param>
@@ -28,10 +34,5 @@ namespace InverGrove.Domain.Interfaces
         /// <exception cref="System.ArgumentNullException">user</exception>
         bool UpdateUser(IUser user);
 
-        /// <summary>
-        /// Gets all users.
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<IUser> GetAllUsers();
     }
 }

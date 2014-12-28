@@ -4,19 +4,19 @@
     var appName = igchurch.constants.APP_NAME;
 
     angular.module(appName + '.controllers')
-        .controller('ManageUsersCtrl', ManageUsersController);
+        .controller('ManageMembersCtrl', ManageMembersController);
 
-    ManageUsersController.$inject = [
-        'UserService',
+    ManageMembersController.$inject = [
+        'MemberService',
         '$scope',
         '$modal'
     ];
 
-    function ManageUsersController(UserService, $scope, $modal) {
+    function ManageMembersController(MemberService, $scope, $modal) {
         var vm = this;
 
         vm.users = [];
-        vm.UserService = UserService;
+        vm.MemberService = MemberService;
 
         vm.openAddUserModal = openAddUserModal;
         vm.openEditUserModal = openEditUserModal;
@@ -31,10 +31,10 @@
         }
 
         function getUsers() {
-            debugger;
+
             $scope.$emit('loading-started'); 
 
-            return UserService.GetAll().then(function (data) {
+            return MemberService.getAll().then(function (data) {
                 vm.users = data.data;
                 $scope.$emit('loading-complete');
             });
@@ -44,7 +44,7 @@
             vm.$modalInstance = $modal.open({
                 controller: 'UserModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/User/Add',
+                templateUrl: '/Member/Member/Add',
                 resolve: {
                     user: function () {
                         return {};
@@ -57,7 +57,7 @@
             vm.$modalInstance = $modal.open({
                 controller: 'UserModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/User/Edit',
+                templateUrl: '/Member/Member/Edit',
                 resolve: {
                     user: function () {
                         return user;
@@ -70,7 +70,7 @@
             vm.$modalInstance = $modal.open({
                 controller: 'UserModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/User/Delete',
+                templateUrl: '/Member/Member/Delete',
                 resolve: {
                     user: function () {
                         return user;

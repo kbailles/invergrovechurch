@@ -4,15 +4,15 @@
     var appName = igchurch.constants.APP_NAME;
 
     angular.module(appName + '.services')
-        .service('UserService', UserService);
+        .service('MemberService', MemberService);
 
-    UserService.$inject = ['$http'];
+    MemberService.$inject = ['$http'];
 
-    function UserService($http) {
+    function MemberService($http) {
 
         this.getUser = function (userId) {
 
-            return $http({ method: 'GET', url: '/ManageUsers/GetUser', params: { userdId: userId } }).
+            return $http({ method: 'GET', url: '/Member/Member/GetUser', params: { memberdId: memberId } }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).
@@ -22,9 +22,7 @@
 
         this.getAll = function () {
 
-            debugger;
-
-            return $http({ method: 'GET', url: '/ManageUsers/GetAllUsers' }).
+            return $http({ method: 'GET', url: '/Member/Member/GetAllUsers' }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).

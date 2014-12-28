@@ -18,7 +18,7 @@
             })
 
             .when('/Directory', {
-                templateUrl: '/Member/User/Directory',
+                templateUrl: '/Member/Member/Directory',
                 controller: 'DirectoryCtrl',
                 controllerAs: 'vm'
             })
@@ -34,9 +34,9 @@
                 }
             })
 
-            .when('/ManageUsers', {
-                templateUrl: '/Member/User/ManageUsers',
-                controller: 'ManageUsersCtrl',
+            .when('/ManageMembers', {
+                templateUrl: '/Member/Member/ManageMembers',
+                controller: 'ManageMembersCtrl',
                 controllerAs: 'vm'
             })
 
