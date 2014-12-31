@@ -6,11 +6,11 @@ namespace InverGrove.Web.Areas.Member.Controllers
 {
     public class MemberController : Controller
     {
-        private readonly IUserService userService;
+        private readonly IPersonService personService;
 
-        public MemberController(IUserService userService)
+        public MemberController(IPersonService personService)
         {
-            this.userService = userService;
+            this.personService = personService;
         }
 
         [HttpGet]
@@ -28,8 +28,9 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult GetAllUsers()
         {
-            var users = this.userService.GetAllUsers();
-            return this.Json(users, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); 
+            //var people = null; // this.personService.Get;
+            //return this.Json(people, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); 
+            return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
         }
     }
 }

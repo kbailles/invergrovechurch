@@ -202,6 +202,24 @@ namespace InverGrove.Domain.Extensions
             return personModel;
         }
 
+        // ---------------------------------------------------------------------------------------- IEnumerable<IPerson> .ToModelCollection() START
+
+        public static IEnumerable<Person> ToModelCollection(this IEnumerable<Data.Entities.Person> entityPeople)
+        {
+            var people = new List<Person>();
+
+            if (entityPeople == null)
+            {
+                return people;
+            }
+
+            people.AddRange(entityPeople.Select(entityPerson => entityPerson.ToModel()));
+
+            return people;
+        }
+
+        // ---------------------------------------------------------------------------------------- IEnumerable<IPerson> .ToModelCollection()  END
+
         public static Data.Entities.Profile ToEntity(this Profile profileModel)
         {
             var profile = new Data.Entities.Profile();

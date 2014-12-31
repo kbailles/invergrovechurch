@@ -1,4 +1,7 @@
-﻿namespace InverGrove.Domain.Interfaces
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace InverGrove.Domain.Interfaces
 {
     public interface IPersonService
     {
@@ -9,5 +12,11 @@
         /// <returns></returns>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
         int AddPerson(IPerson person);
+
+        /// <summary>
+        /// Gets all people, regardless of active status or any conditions.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IPerson> GetAll();
     }
 }

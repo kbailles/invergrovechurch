@@ -1,4 +1,6 @@
-﻿using InverGrove.Domain.Exceptions;
+﻿using System.Collections.Generic;
+using InverGrove.Domain.Exceptions;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Services
@@ -32,6 +34,14 @@ namespace InverGrove.Domain.Services
             var personId = this.personRepository.Add(person);
 
             return personId;
+        }
+
+
+        public IEnumerable<IPerson> GetAll()
+        {
+            var people = this.personRepository.Get();
+
+            return people.ToModelCollection();
         }
     }
 }
