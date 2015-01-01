@@ -9,7 +9,7 @@ namespace InverGrove.Domain.Services
     public class EmailService : IEmailService
     {
         private readonly ILogService logService;
-        private const string ToAddress = "lancebailles@hotmail.com";
+        private const string ToAddress = "lancebailles@hotmail.com;heidibailles@hotmail.com;kbailles@outlook.com";
 
         public EmailService(ILogService logService)
         {
@@ -32,7 +32,10 @@ namespace InverGrove.Domain.Services
                                          Body = contact.Comments
                                      };
 
-            mailMesage.To.Add(ToAddress); // will not let me do this in object builder
+            foreach (var address in ToAddress.Split(new [] {";"}, StringSplitOptions.RemoveEmptyEntries))
+            {
+                mailMesage.To.Add(address); // will not let me do this in object builder
+            }
 
             return this.SendMail(mailMesage);
         }
