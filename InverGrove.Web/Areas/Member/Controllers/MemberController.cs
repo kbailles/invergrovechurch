@@ -1,5 +1,5 @@
-﻿using InverGrove.Domain.Interfaces;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Extensions;
 
 namespace InverGrove.Web.Areas.Member.Controllers
@@ -29,6 +29,18 @@ namespace InverGrove.Web.Areas.Member.Controllers
         public ActionResult AddAttendance()
         {
             return PartialView("_AddAttendance");
+        }
+
+        [HttpGet]
+        public ActionResult EditAttendance()
+        {
+            return PartialView("_EditAttendance");
+        }
+
+        [HttpGet]
+        public ActionResult DeleteAttendance()
+        {
+            return PartialView("_DeleteAttendance");
         }
 
         [HttpGet]

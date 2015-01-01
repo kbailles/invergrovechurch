@@ -1,5 +1,5 @@
 ﻿<div class="modal-header">
-    <h3 class="modal-title">Add Attendance</h3>
+    <h3 class="modal-title">Edit Attendance</h3>
 </div>
 <div class="modal-body">
     <form novalidate>
@@ -35,7 +35,7 @@
                             <input type="radio" name="inlineRadioOptions2" value="option3"> Absent
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions2" value="option3" checked="checked"> Present
+                            <input type="radio" name="inlineRadioOptions2" value="option3"> Present
                         </label>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             <input type="radio" name="inlineRadioOptions3" value="option2"> Out of Town
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions3" value="option1"> Sick
+                            <input type="radio" name="inlineRadioOptions3" value="option1" checked="checked"> Sick
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="inlineRadioOptions3" value="option3"> Absent
@@ -83,10 +83,10 @@
                             <input type="radio" name="inlineRadioOptions5" value="option1"> Sick
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions5" value="option3"> Absent
+                            <input type="radio" name="inlineRadioOptions5" value="option3" checked="checked"> Absent
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions5" value="option3" checked="checked"> Present
+                            <input type="radio" name="inlineRadioOptions5" value="option3"> Present
                         </label>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <label>Another Person</label>
                     <div class="pull-right">
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions6" value="option2"> Out of Town
+                            <input type="radio" name="inlineRadioOptions6" value="option2" checked="checked"> Out of Town
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="inlineRadioOptions6" value="option1"> Sick
@@ -103,7 +103,7 @@
                             <input type="radio" name="inlineRadioOptions6" value="option3"> Absent
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions6" value="option3" checked="checked"> Present
+                            <input type="radio" name="inlineRadioOptions6" value="option3"> Present
                         </label>
                     </div>
                 </div>
@@ -112,6 +112,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addAttendance()">Add</button>
+    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addAttendance()">Update</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>

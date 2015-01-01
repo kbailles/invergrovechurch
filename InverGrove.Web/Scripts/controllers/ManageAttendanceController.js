@@ -14,6 +14,8 @@
         var vm = this;
 
         vm.openAddAttendanceModal = openAddAttendanceModal;
+        vm.openEditAttendanceModal = openEditAttendanceModal;
+        vm.openDeleteAttendanceModal = openDeleteAttendanceModal;
 
         vm.$modalInstance = null;
 
@@ -27,6 +29,22 @@
                 controller: 'AttendanceModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/AddAttendance'
+            });
+        }
+
+        function openEditAttendanceModal() {
+            vm.$modalInstance = $modal.open({
+                controller: 'AttendanceModalCtrl',
+                controllerAs: 'modalCtrl',
+                templateUrl: '/Member/Member/EditAttendance'
+            });
+        }
+
+        function openDeleteAttendanceModal() {
+            vm.$modalInstance = $modal.open({
+                controller: 'AttendanceModalCtrl',
+                controllerAs: 'modalCtrl',
+                templateUrl: '/Member/Member/DeleteAttendance'
             });
         }
     }

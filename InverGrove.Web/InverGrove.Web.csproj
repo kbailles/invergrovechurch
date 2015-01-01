@@ -550,6 +550,8 @@
     <Content Include="Areas\Member\Views\Member\_EditUser.cshtml" />
     <Content Include="Areas\Member\Views\Member\_ManageAttendance.cshtml" />
     <Content Include="Areas\Member\Views\Member\_AddAttendance.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_EditAttendance.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_DeleteAttendance.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
