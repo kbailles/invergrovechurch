@@ -24,7 +24,9 @@
             })
 
             .when('/ManageAttendance', {
-                templateUrl: '/Member/Member/ManageAttendance'
+                templateUrl: '/Member/Member/ManageAttendance',
+                controller: 'ManageAttendanceCtrl',
+                controllerAs: 'vm'
             })
 
             .when('/ManageSermons', {

@@ -26,6 +26,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [HttpGet]
+        public ActionResult AddAttendance()
+        {
+            return PartialView("_AddAttendance");
+        }
+
+        [HttpGet]
         public ActionResult ManageMembers()
         {
             return PartialView("_ManageMembers");
