@@ -58,6 +58,7 @@
                     <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed">
                         <ul class="nav navbar-nav">
                             <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home", new { area = "Member" })">Home</a></li>
+                            <li ng-class="{active: base.isRouteActive('/ManageAttendance')}"><a ng-href="#/ManageAttendance">Manage Attendance</a></li>
                             <li ng-class="{active: base.isRouteActive('/ManageSermons')}"><a ng-href="#/ManageSermons">Manage Sermons</a></li>
                             <li ng-class="{active: base.isRouteActive('/ManageMembers')}"><a href="#/ManageMembers">Manage Members</a></li>
                             <li ng-class="{active: base.isRouteActive('/Directory')}"><a href="#/Directory">Directory</a></li>

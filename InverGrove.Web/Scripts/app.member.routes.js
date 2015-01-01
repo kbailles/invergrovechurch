@@ -23,6 +23,10 @@
                 controllerAs: 'vm'
             })
 
+            .when('/ManageAttendance', {
+                templateUrl: '/Member/Member/ManageAttendance'
+            })
+
             .when('/ManageSermons', {
                 templateUrl: '/Member/Sermon/ManageSermons',
                 controller: 'ManageSermonsCtrl',

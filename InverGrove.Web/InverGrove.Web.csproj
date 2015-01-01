@@ -490,9 +490,11 @@
     <Content Include="Scripts\common\namespace.js" />
     <Content Include="Scripts\app.routes.js" />
     <Content Include="Scripts\controllers\AccountController.js" />
+    <Content Include="Scripts\controllers\AttendanceModalController.js" />
     <Content Include="Scripts\controllers\BaseController.js" />
     <Content Include="Scripts\controllers\controllers.module.js" />
     <Content Include="Scripts\controllers\DirectoryController.js" />
+    <Content Include="Scripts\controllers\ManageAttendanceController.js" />
     <Content Include="Scripts\controllers\ManageMembersController.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
     <Content Include="Scripts\controllers\SermonModalController.js" />
@@ -546,6 +548,8 @@
     <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
     <Content Include="Areas\Member\Views\Member\_DeleteUser.cshtml" />
     <Content Include="Areas\Member\Views\Member\_EditUser.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_ManageAttendance.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_AddAttendance.cshtml" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
