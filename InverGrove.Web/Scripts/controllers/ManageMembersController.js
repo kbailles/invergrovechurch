@@ -15,12 +15,12 @@
     function ManageMembersController(MemberService, $scope, $modal) {
         var vm = this;
 
-        vm.users = [];
+        vm.members = [];
         vm.MemberService = MemberService;
 
-        vm.openAddUserModal = openAddUserModal;
-        vm.openEditUserModal = openEditUserModal;
-        vm.openDeleteUserModal = openDeleteUserModal;
+        vm.openAddMemberModal = openAddMemberModal;
+        vm.openEditMemberModal = openEditMemberModal;
+        vm.openDeleteMemberModal = openDeleteMemberModal;
 
         vm.$modalInstance = null;
 
@@ -35,14 +35,14 @@
             $scope.$emit('loading-started'); 
 
             return MemberService.getAll().then(function (data) {
-                vm.users = data.data;
+                vm.members = data.data;
                 $scope.$emit('loading-complete');
             });
         }
 
-        function openAddUserModal() {
+        function openAddMemberModal() {
             vm.$modalInstance = $modal.open({
-                controller: 'UserModalCtrl',
+                controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/Add',
                 resolve: {
@@ -53,39 +53,39 @@
             });
         }
 
-        function openEditUserModal(user) {
+        function openEditMemberModal(member) {
             vm.$modalInstance = $modal.open({
-                controller: 'UserModalCtrl',
+                controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/Edit',
                 resolve: {
                     user: function () {
-                        return user;
+                        return member;
                     }
                 }
             });
         }
 
-        function openDeleteUserModal(user) {
+        function openDeleteMemberModal(member) {
             vm.$modalInstance = $modal.open({
-                controller: 'UserModalCtrl',
+                controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/Delete',
                 resolve: {
                     user: function () {
-                        return user;
+                        return member;
                     }
                 }
             });
         }
 
-        $scope.$on('addUser', function (event, user) {
-            if (!user) {
+        $scope.$on('addMember', function (event, member) {
+            if (!member) {
                 return;
             }
 
-            vm.UserService.add(user).then(function (response) {
-                vm.users.push(user);
+            vm.MemberService.add(member).then(function (response) {
+                vm.members.push(member);
             },
             function (error) {
 
@@ -95,18 +95,18 @@
             });
         });
 
-        $scope.$on('editUser', function (event, user) {
-            var userToEdit = _.find(vm.users, function (s) {
-                return s.userId === user.userId;
+        $scope.$on('editMember', function (event, member) {
+            var memberToEdit = _.find(vm.members, function (s) {
+                return s.memberId === member.memberId;
             });
 
-            if (!userToEdit) {
+            if (!memberToEdit) {
                 return;
             }
 
-            vm.UserService.update(user).then(function (response) {
-                var index = vm.users.indexOf(userToEdit);
-                vm.users[index] = user;
+            vm.UserService.update(member).then(function (response) {
+                var index = vm.members.indexOf(memberToEdit);
+                vm.members[index] = member;
             },
             function (error) {
 
@@ -116,20 +116,20 @@
             });
         });
 
-        $scope.$on('deleteUser', function (event, user) {
-            var userToDelete = _.find(vm.users, function (s) {
-                return s.userId === user.userId;
+        $scope.$on('deleteMember', function (event, member) {
+            var memberToDelete = _.find(vm.members, function (s) {
+                return s.memberId === member.memberId;
             });
 
-            if (!userToDelete) {
+            if (!memberToDelete) {
                 return;
             }
 
-            vm.UserService.delete(userToDelete).then(function (response) {
-                var index = vm.users.indexOf(useRAFToDelete);
+            vm.UserService.delete(memberToDelete).then(function (response) {
+                var index = vm.members.indexOf(memberToDelete);
 
                 if (index > -1) {
-                    vm.users.splice(index, 1);
+                    vm.members.splice(index, 1);
                 }
             },
             function (error) {

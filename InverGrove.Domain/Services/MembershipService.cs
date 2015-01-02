@@ -163,7 +163,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Gets all membership users.
+        /// Gets all membership members.
         /// </summary>
         /// <returns></returns>
         public IEnumerable<IMembership> GetAllMembershipUsers()

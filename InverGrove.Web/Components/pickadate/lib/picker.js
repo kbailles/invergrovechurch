@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * pickadate.js v3.5.3, 2014/07/12
  * By Amsul, http://amsul.ca
  * Hosted on http://amsul.github.io/pickadate.js
@@ -675,7 +675,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
 
                             event.preventDefault()
 
-                            // Re-focus onto the element so that users can click away
+                            // Re-focus onto the element so that members can click away
                             // from elements focused within the picker.
                             ELEMENT.focus()
                         }

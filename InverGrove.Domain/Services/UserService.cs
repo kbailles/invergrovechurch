@@ -78,7 +78,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Gets all users.
+        /// Gets all members.
         /// </summary>
         /// <returns></returns>
         public IEnumerable<IUser> GetAllUsers()

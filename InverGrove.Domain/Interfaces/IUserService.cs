@@ -21,7 +21,7 @@ namespace InverGrove.Domain.Interfaces
         IUser GetUser(int userId);
 
         /// <summary>
-        /// Gets all users.
+        /// Gets all members.
         /// </summary>
         /// <returns></returns>
         IEnumerable<IUser> GetAllUsers();

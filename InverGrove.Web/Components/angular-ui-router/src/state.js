@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @ngdoc object
  * @name ui.router.state.$stateProvider
  *
@@ -278,7 +278,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * The builder functions that can be decorated are listed below. Though not all
    * necessarily have a good use case for decoration, that is up to you to decide.
    *
-   * In addition, users can attach custom decorators, which will generate new 
+   * In addition, members can attach custom decorators, which will generate new 
    * properties within the state's internal definition. There is currently no clear 
    * use-case for this beyond accessing internal states (i.e. $state.$current), 
    * however, expect this to become increasingly relevant as we introduce additional 

@@ -52,9 +52,8 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult GetAllUsers()
         {
-            //var people = null; // this.personService.Get;
-            //return this.Json(people, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); 
-            return this.Json(string.Empty, JsonRequestBehavior.AllowGet);
+            var people = this.personService.GetAll();
+            return this.Json(people, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); 
         }
     }
 }

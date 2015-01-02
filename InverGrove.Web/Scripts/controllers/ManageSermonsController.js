@@ -35,7 +35,7 @@
          * Private declarations
          */
         function activate() {
-            SC.get('/users/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', function (tracks) {
+            SC.get('/members/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', function (tracks) {
                 vm.soundCloudSermons = tracks;
             });
         }

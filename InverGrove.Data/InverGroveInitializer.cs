@@ -337,7 +337,7 @@ namespace InverGrove.Data
             context.SaveChanges();
         }
 
-        // These are just copied here so we can add some defaut users
+        // These are just copied here so we can add some defaut members
         private string GetRandomSalt()
         {
             //256 bits

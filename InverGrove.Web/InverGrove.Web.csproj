@@ -544,7 +544,7 @@
     <Content Include="Components\pickadate\README.md" />
     <Content Include="Components\pickadate\v2-%28deprecated%29\pickadate.js\translations\NAMING" />
     <Content Include="Areas\Member\Views\Member\_ManageMembers.cshtml" />
-    <Content Include="Areas\Member\Views\Member\_AddUser.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_AddMember.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
     <Content Include="Areas\Member\Views\Member\_DeleteUser.cshtml" />
     <Content Include="Areas\Member\Views\Member\_EditUser.cshtml" />

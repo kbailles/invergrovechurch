@@ -1,4 +1,4 @@
-/**
+﻿/**
  * State-based routing for AngularJS
  * @version v0.2.11
  * @link http://angular-ui.github.com/
@@ -1277,10 +1277,10 @@ function $UrlMatcherFactory() {
    *
    * // In a config() block, you can then attach URLs with
    * // type-annotated parameters:
-   * $stateProvider.state('users', {
-   *   url: "/users",
+   * $stateProvider.state('members', {
+   *   url: "/members",
    *   // ...
-   * }).state('users.item', {
+   * }).state('members.item', {
    *   url: "/{user:dbObject}",
    *   controller: function($scope, $stateParams) {
    *     // $stateParams.user will now be an object returned from
@@ -2013,7 +2013,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * The builder functions that can be decorated are listed below. Though not all
    * necessarily have a good use case for decoration, that is up to you to decide.
    *
-   * In addition, users can attach custom decorators, which will generate new 
+   * In addition, members can attach custom decorators, which will generate new 
    * properties within the state's internal definition. There is currently no clear 
    * use-case for this beyond accessing internal states (i.e. $state.$current), 
    * however, expect this to become increasingly relevant as we introduce additional 
@@ -3537,7 +3537,7 @@ function $StateRefDirective($state, $timeout) {
  * <pre>
  * <ul>
  *   <li ui-sref-active="active" class="item active">
- *     <a ui-sref="app.user({user: 'bilbobaggins'})" href="/users/bilbobaggins">@bilbobaggins</a>
+ *     <a ui-sref="app.user({user: 'bilbobaggins'})" href="/members/bilbobaggins">@bilbobaggins</a>
  *   </li>
  * </ul>
  * </pre>

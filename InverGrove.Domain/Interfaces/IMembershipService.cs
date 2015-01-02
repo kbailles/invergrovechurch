@@ -34,7 +34,7 @@ namespace InverGrove.Domain.Interfaces
             string passwordAnswer, bool isApproved, MembershipPasswordFormat passwordFormat);
 
         /// <summary>
-        /// Gets all membership users.
+        /// Gets all membership members.
         /// </summary>
         /// <returns></returns>
         IEnumerable<IMembership> GetAllMembershipUsers();

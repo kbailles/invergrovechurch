@@ -176,10 +176,10 @@ namespace InverGrove.Data
         public IDbSet<Sermon> Sermons { get; set; }
 
         /// <summary>
-        /// Gets or sets the users.
+        /// Gets or sets the members.
         /// </summary>
         /// <value>
-        /// The users.
+        /// The members.
         /// </value>
         public IDbSet<User> Users { get; set; }
 

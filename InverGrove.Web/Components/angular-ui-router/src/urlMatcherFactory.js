@@ -670,10 +670,10 @@ function $UrlMatcherFactory() {
    *
    * // In a config() block, you can then attach URLs with
    * // type-annotated parameters:
-   * $stateProvider.state('users', {
-   *   url: "/users",
+   * $stateProvider.state('members', {
+   *   url: "/members",
    *   // ...
-   * }).state('users.item', {
+   * }).state('members.item', {
    *   url: "/{user:dbObject}",
    *   controller: function($scope, $stateParams) {
    *     // $stateParams.user will now be an object returned from

@@ -184,7 +184,7 @@ function $StateRefDirective($state, $timeout) {
  * <pre>
  * <ul>
  *   <li ui-sref-active="active" class="item active">
- *     <a ui-sref="app.user({user: 'bilbobaggins'})" href="/users/bilbobaggins">@bilbobaggins</a>
+ *     <a ui-sref="app.user({user: 'bilbobaggins'})" href="/members/bilbobaggins">@bilbobaggins</a>
  *   </li>
  * </ul>
  * </pre>

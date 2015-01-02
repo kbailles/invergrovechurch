@@ -30,9 +30,9 @@ namespace InverGrove.Domain.Repositories
         }
 
         /// <summary>
-        /// Adds the users to roles.
+        /// Adds the members to roles.
         /// </summary>
-        /// <param name="users">The users.</param>
+        /// <param name="users">The members.</param>
         /// <param name="roles">The roles.</param>
         public void AddUsersToRoles(IList<string> users, IList<string> roles)
         {
@@ -80,9 +80,9 @@ namespace InverGrove.Domain.Repositories
         }
 
         /// <summary>
-        /// Removes the users from roles.
+        /// Removes the members from roles.
         /// </summary>
-        /// <param name="users">The users.</param>
+        /// <param name="users">The members.</param>
         /// <param name="roles">The roles.</param>
         public void RemoveUsersFromRoles(IList<string> users, IList<string> roles)
         {
@@ -107,7 +107,7 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                throw new ApplicationException("Error when attempting to persist users to roles in UserRoleRepository: " + ex.Message);
+                throw new ApplicationException("Error when attempting to persist members to roles in UserRoleRepository: " + ex.Message);
             }
         }
 

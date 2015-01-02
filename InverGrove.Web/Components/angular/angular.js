@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @license AngularJS v1.2.23
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
@@ -16979,7 +16979,7 @@ function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   var type = lowercase(element[0].type);
   ctrl.$$validityState = validity;
 
-  // In composition mode, users are still inputing intermediate text buffer,
+  // In composition mode, members are still inputing intermediate text buffer,
   // hold the listener until composition is done.
   // More about composition events: https://developer.mozilla.org/en-US/docs/Web/API/CompositionEvent
   if (!$sniffer.android) {

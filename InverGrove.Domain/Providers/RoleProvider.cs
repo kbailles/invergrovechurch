@@ -186,7 +186,7 @@ namespace InverGrove.Domain.Providers
         }
 
         /// <summary>
-        /// Adds the users to roles.
+        /// Adds the members to roles.
         /// </summary>
         /// <param name="userNames">The user names.</param>
         /// <param name="roleNames">The role names.</param>
@@ -201,7 +201,7 @@ namespace InverGrove.Domain.Providers
         }
 
         /// <summary>
-        /// Removes the users from roles.
+        /// Removes the members from roles.
         /// </summary>
         /// <param name="userNames">The user names.</param>
         /// <param name="roleNames">The role names.</param>
@@ -216,11 +216,11 @@ namespace InverGrove.Domain.Providers
         }
 
         /// <summary>
-        /// Gets a list of users in the specified role for the configured applicationName.
+        /// Gets a list of members in the specified role for the configured applicationName.
         /// </summary>
-        /// <param name="roleName">The name of the role to get the list of users for.</param>
+        /// <param name="roleName">The name of the role to get the list of members for.</param>
         /// <returns>
-        /// A string array containing the names of all the users who are members of the specified role for the configured applicationName.
+        /// A string array containing the names of all the members who are members of the specified role for the configured applicationName.
         /// </returns>
         public override string[] GetUsersInRole(string roleName)
         {
@@ -254,7 +254,7 @@ namespace InverGrove.Domain.Providers
         }
 
         /// <summary>
-        /// Finds the users in role.
+        /// Finds the members in role.
         /// </summary>
         /// <param name="roleName">Name of the role.</param>
         /// <param name="userNameToMatch">The user name to match.</param>
