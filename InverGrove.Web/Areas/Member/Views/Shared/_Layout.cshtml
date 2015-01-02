@@ -55,12 +55,21 @@
                         </div>
                     </div>
 
-                    <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed">
+                    <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed" role="navigation">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home", new { area = "Member" })">Home</a></li>
-                            <li ng-class="{active: base.isRouteActive('/ManageAttendance')}"><a ng-href="#/ManageAttendance">Manage Attendance</a></li>
-                            <li ng-class="{active: base.isRouteActive('/ManageSermons')}"><a ng-href="#/ManageSermons">Manage Sermons</a></li>
-                            <li ng-class="{active: base.isRouteActive('/ManageMembers')}"><a href="#/ManageMembers">Manage Members</a></li>
+                            <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home", new {area = "Member"})">Home</a></li>
+                            <li ng-class="base.isRouteActive('/ManageAttendance') ? 'active' : (base.isRouteActive('/ManageSermons') ? 'active' : (base.isRouteActive('/ManageMembers') ? 'active' : ''))">
+                                <div dropdown is-open="status.isopen">
+                                    <a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                        Manage <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#/ManageAttendance">Manage Attendance</a></li>
+                                        <li><a href="#/ManageSermons">Manage Sermons</a></li>
+                                        <li><a href="#/ManageMembers">Manage Members</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li ng-class="{active: base.isRouteActive('/Directory')}"><a href="#/Directory">Directory</a></li>
                         </ul>
                     </nav>

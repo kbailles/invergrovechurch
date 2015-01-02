@@ -15,6 +15,16 @@ a {
         color: @blue-lighter;
     }
 }
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+    background-color: inherit;
+    border-color: inherit;
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    color: inherit;
+    background-color: inherit;
+    text-decoration: inherit;
+}
+
 
 body {
   background: url('@{img-file-path-base}graymatte.png') repeat;
@@ -568,13 +578,30 @@ h3.title {
     padding: 0;
     a {
       color: @white;
+      display: inline-block;
       padding: 34px 18px 31px 18px;
-      &:hover {
+      &:hover, &:focus {
         background-color: @blue-darker !important;
       }
       @media (max-width: 767px) {
-          padding: 17px 18px 15px 18px;
+          padding: 17px 18px 15px 18px !important;
+          width: 100% !important;
       }
+    }
+    .dropdown-menu {
+        background-color: @blue-darkest;
+        border-radius: 0;
+        color: @white;
+
+        li {
+            text-align: center;
+            @media (max-width: 767px) {
+                text-align: left;
+            }
+        }
+        a {
+            width: 100%;
+        }
     }
     .active {
       background-color: @blue-darker;

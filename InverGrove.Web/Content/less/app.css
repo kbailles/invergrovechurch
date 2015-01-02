@@ -14,6 +14,18 @@ a:focus {
   text-decoration: none;
   color: #2eaef0;
 }
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: inherit;
+  border-color: inherit;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: inherit;
+  background-color: inherit;
+  text-decoration: inherit;
+}
 body {
   background: url('../images/graymatte.png') repeat;
   color: #767676;
@@ -545,15 +557,34 @@ h3.title:after {
 }
 .navbar-collapse .navbar-nav a {
   color: #ffffff;
+  display: inline-block;
   padding: 34px 18px 31px 18px;
 }
-.navbar-collapse .navbar-nav a:hover {
+.navbar-collapse .navbar-nav a:hover,
+.navbar-collapse .navbar-nav a:focus {
   background-color: #323b44 !important;
 }
 @media (max-width: 767px) {
   .navbar-collapse .navbar-nav a {
-    padding: 17px 18px 15px 18px;
+    padding: 17px 18px 15px 18px !important;
+    width: 100% !important;
   }
+}
+.navbar-collapse .navbar-nav .dropdown-menu {
+  background-color: #252c34;
+  border-radius: 0;
+  color: #ffffff;
+}
+.navbar-collapse .navbar-nav .dropdown-menu li {
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .navbar-collapse .navbar-nav .dropdown-menu li {
+    text-align: left;
+  }
+}
+.navbar-collapse .navbar-nav .dropdown-menu a {
+  width: 100%;
 }
 .navbar-collapse .navbar-nav .active {
   background-color: #323b44;

@@ -32,7 +32,7 @@
 
         function getUsers() {
 
-            $scope.$emit('loading-started'); 
+            $scope.$emit('loading-started');
 
             return MemberService.getAll().then(function (data) {
                 vm.members = data.data;
