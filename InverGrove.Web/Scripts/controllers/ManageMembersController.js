@@ -41,6 +41,7 @@
         }
 
         function openAddMemberModal() {
+            debugger;
             vm.$modalInstance = $modal.open({
                 controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',

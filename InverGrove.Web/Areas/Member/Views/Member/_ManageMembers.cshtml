@@ -10,7 +10,7 @@
                         <ul>
                             <li>You are here:</li>
                             <li><a href="@Url.Action("Index", "Home")"><strong>Home</strong></a></li>
-                            <li>Manage Users</li>
+                            <li>Manage Members</li>
                         </ul>
                     </div>
                 </div>
@@ -21,13 +21,12 @@
     <div class="manager-members-content" style="padding: 60px 0 0;" ng-cloak>
         <div class="container">
             <div class="row">
-                <p><strong>NOTE:</strong> A <i>user</i> is any person to whom site access might be granted, it is not necessarily a <i>member</i> of the local church.</p>
-                <div class="col-xs-12">
+
 
                 <p>Repeat the data here, if any.</p>
-                <button class="btn btn-normal btn-color bottom-pad" >Add User</button>
+                <button class="btn btn-normal btn-color bottom-pad" ng-click="vm.openAddMemberModal()">Add Member</button>
 
-                </div>
+
             </div>
         </div>
     </div>

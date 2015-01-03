@@ -496,6 +496,7 @@
     <Content Include="Scripts\controllers\DirectoryController.js" />
     <Content Include="Scripts\controllers\ManageAttendanceController.js" />
     <Content Include="Scripts\controllers\ManageMembersController.js" />
+    <Content Include="Scripts\controllers\MemberModalController.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
     <Content Include="Scripts\controllers\SermonModalController.js" />
     <Content Include="Scripts\controllers\ViewSermonsController.js" />
