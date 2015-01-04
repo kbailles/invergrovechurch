@@ -50,6 +50,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [HttpGet]
+        public ActionResult AddMember()
+        {
+            return PartialView("_AddMember");
+        }
+
+        [HttpGet]
         public ActionResult GetAllUsers()
         {
             var people = this.personService.GetAll();

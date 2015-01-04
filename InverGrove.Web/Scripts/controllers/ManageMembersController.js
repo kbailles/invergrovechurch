@@ -45,7 +45,7 @@
             vm.$modalInstance = $modal.open({
                 controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/Member/Add',
+                templateUrl: '/Member/Member/AddMember',
                 resolve: {
                     user: function () {
                         return {};
