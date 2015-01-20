@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Extensions;
+using InverGrove.Domain.Utils;
 
 namespace InverGrove.Web.Areas.Member.Controllers
 {
@@ -60,6 +61,15 @@ namespace InverGrove.Web.Areas.Member.Controllers
         {
             var people = this.personService.GetAll();
             return this.Json(people, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); 
+        }
+
+        [HttpPost]
+        public ActionResult Add(IPerson person)
+        {
+            Guard.ArgumentNotNull(person, "person");
+
+            var personAdded = this.personService.AddPerson(person);
+            return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
     }
 }

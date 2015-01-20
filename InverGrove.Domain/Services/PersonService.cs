@@ -31,7 +31,7 @@ namespace InverGrove.Domain.Services
                 throw new ParameterNullException("person");
             }
 
-            var personId = this.personRepository.Add(person);
+            var personId = this.personRepository.Add(person); //QUESTION - Do we really want to return a legit ID to the web layer?
 
             return personId;
         }

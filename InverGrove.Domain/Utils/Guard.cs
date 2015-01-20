@@ -5,7 +5,7 @@ using InverGrove.Domain.Exceptions;
 namespace InverGrove.Domain.Utils
 {
 
-    public static class Guard
+     public static class Guard
     {
 
         /// <summary>

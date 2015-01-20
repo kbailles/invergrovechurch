@@ -41,7 +41,7 @@
         }
 
         function openAddMemberModal() {
-            debugger;
+
             vm.$modalInstance = $modal.open({
                 controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
@@ -81,6 +81,8 @@
         }
 
         $scope.$on('addMember', function (event, member) {
+
+            debugger;
             if (!member) {
                 return;
             }

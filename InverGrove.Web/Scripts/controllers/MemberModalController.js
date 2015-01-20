@@ -9,7 +9,8 @@
         .controller('MemberModalCtrl',MemberModalController);
 
     MemberModalController.$inject = [
-        '$modalInstance'
+        '$modalInstance',
+        '$rootScope'
     ];
 
     function MemberModalController($modalInstance) {
@@ -18,6 +19,9 @@
         /*
          * Public declarations
          */
+        vm.memberObj = {};
+        vm.addMember = addMember;
+        vm.$modalInstance = $modalInstance;
         vm.dismissModal = dismissModal;
 
         activate();
@@ -30,6 +34,11 @@
 
         function dismissModal() {
             $modalInstance.dismiss('cancel');
+        }
+
+        function addMember() {
+            vm.busy = true;
+            $rootScope.$broadcast('addMember', vm.memberObj);
         }
     }
 })();

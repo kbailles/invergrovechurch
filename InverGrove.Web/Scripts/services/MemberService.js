@@ -30,5 +30,15 @@
                 });
         }
 
+        this.add = function (newSermon) {
+
+            return $http({ method: 'POST', url: '/Member/Member/Add', data: { person: newPerson} }).
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
     }
 })();
