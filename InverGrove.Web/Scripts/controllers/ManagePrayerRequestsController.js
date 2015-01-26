@@ -8,19 +8,17 @@
 
     ManagePrayerRequestsController.$inject = [
         'prayerRequests',
-        'PrayerRequestService',
         '$scope',
         '$modal'
     ];
 
-    function ManagePrayerRequestsController(prayerRequests, PrayerRequestService, $scope, $modal) {
+    function ManagePrayerRequestsController(prayerRequests, $scope, $modal) {
         var vm = this;
 
         /*
          * Public declarations
          */
         vm.prayerRequests = prayerRequests.data;
-        vm.PrayerRequestService = PrayerRequestService;
 
         vm.openAddPrayerRequestModal = openAddPrayerRequestModal;
         vm.openEditPrayerRequestModal = openEditPrayerRequestModal;

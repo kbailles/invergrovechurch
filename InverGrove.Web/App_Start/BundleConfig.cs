@@ -28,8 +28,8 @@ namespace InverGrove.Web
 
             bundles.Add(new ScriptBundle("~/Components/scripts/core").Include(
                 "~/Components/lodash/lodash.min.js",
-                "~/Components/angular/angular.min.js",
-                "~/Components/angular-route/angular-route.min.js",
+                "~/Components/angular/angular.js",
+                "~/Components/angular-route/angular-route.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.12.0.min.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(

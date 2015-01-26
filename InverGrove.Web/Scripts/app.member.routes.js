@@ -49,13 +49,23 @@
             .when('/ManageNewsEvents', {
                 templateUrl: '/Member/NewsEvents/ManageNewsAndEvents',
                 controller: 'ManageNewsEventsCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    newsEvents: ['NewsEventsService', function (NewsEventsService) {
+                        return {};
+                    }]
+                }
             })
 
             .when('/ManagePrayerRequests', {
                 templateUrl: '/Member/PrayerRequest/ManagePrayerRequests',
                 controller: 'ManagePrayerRequestsCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    prayerRequests: ['PrayerRequestService', function (PrayerRequestService) {
+                        return {};
+                    }]
+                }
             })
 
             .otherwise({ redirectTo: '/' });

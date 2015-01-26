@@ -7,20 +7,18 @@
         .controller('ManageNewsEventsCtrl', ManageNewsEventsController);
 
     ManageNewsEventsController.$inject = [
-        'sermons',
-        'SermonService',
+        'newsEvents',
         '$scope',
         '$modal'
     ];
 
-    function ManageNewsEventsController(newsEvents, NewsEventsService, $scope, $modal) {
+    function ManageNewsEventsController(newsEvents, $scope, $modal) {
         var vm = this;
 
         /*
          * Public declarations
          */
         vm.newsEvents = newsEvents.data;
-        vm.NewsEventsService = NewsEventsService;
 
         vm.openAddNewsEventModal = openAddNewsEventModal;
         vm.openEditNewsEventModal = openEditNewsEventModal;
