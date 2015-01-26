@@ -48,13 +48,13 @@
 
             .when('/ManageNewsEvents', {
                 templateUrl: '/Member/NewsEvents/ManageNewsAndEvents',
-                controller: 'ManageMembersCtrl',
+                controller: 'ManageNewsEventsCtrl',
                 controllerAs: 'vm'
             })
 
             .when('/ManagePrayerRequests', {
                 templateUrl: '/Member/PrayerRequest/ManagePrayerRequests',
-                controller: 'ManageMembersCtrl',
+                controller: 'ManagePrayerRequestsCtrl',
                 controllerAs: 'vm'
             })
 

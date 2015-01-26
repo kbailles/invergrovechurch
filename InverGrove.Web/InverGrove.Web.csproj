@@ -673,6 +673,8 @@
     <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
     <Content Include="Scripts\namespace.variables.js" />
     <Content Include="Scripts\services\MessageService.js" />
+    <Content Include="Scripts\services\NewsEventsService.js" />
+    <Content Include="Scripts\services\PrayerRequestService.js" />
     <Content Include="Scripts\services\SermonService.js" />
     <Content Include="Scripts\services\services.module.js" />
     <Content Include="Scripts\services\MemberService.js" />
