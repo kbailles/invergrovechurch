@@ -31,11 +31,10 @@
                     <div class="pull-left phone-email">
                     </div>
                     <div class="pull-right user-actions">
-                        <a href="javascript:void(0)"><i class="fa fa-user"></i>Welcome, Keenan</a>
                         @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { role = "form", @style = "display: inline-block;" }))
                         {
                             @Html.AntiForgeryToken()
-                            <a href="javascript:void(0)" type="submit" onclick="$(this).closest('form').submit();"><i class="fa fa-power-off"></i>Log Out</a>
+                            <a href="javascript:void(0)" type="submit" onclick="$(this).closest('form').submit();">Log Out</a>
                         }
                     </div>
                 </div>
