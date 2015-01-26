@@ -46,6 +46,18 @@
                 controllerAs: 'vm'
             })
 
+            .when('/ManageNewsEvents', {
+                templateUrl: '/Member/NewsEvents/ManageNewsAndEvents',
+                controller: 'ManageMembersCtrl',
+                controllerAs: 'vm'
+            })
+
+            .when('/ManagePrayerRequests', {
+                templateUrl: '/Member/PrayerRequest/ManagePrayerRequests',
+                controller: 'ManageMembersCtrl',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/' });
 	}
 })();
