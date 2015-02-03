@@ -40,6 +40,8 @@
             });
         }
 
+  
+
         function openAddMemberModal() {
 
             vm.$modalInstance = $modal.open({
@@ -80,9 +82,9 @@
             });
         }
 
+        // broadcast from the modal
         $scope.$on('addMember', function (event, member) {
 
-            debugger;
             if (!member) {
                 return;
             }

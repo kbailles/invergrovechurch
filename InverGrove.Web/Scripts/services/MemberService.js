@@ -30,7 +30,7 @@
                 });
         }
 
-        this.add = function (newSermon) {
+        this.add = function (newPerson) {
 
             return $http({ method: 'POST', url: '/Member/Member/Add', data: { person: newPerson} }).
                 success(function (data, status, headers, config) {

@@ -13,14 +13,14 @@
         '$rootScope'
     ];
 
-    function MemberModalController($modalInstance) {
+    function MemberModalController($modalInstance, $rootScope) {
         var vm = this;
 
         /*
          * Public declarations
          */
-        vm.memberObj = {};
-        vm.addMember = addMember;
+        vm.personObj = {};
+        vm.addPerson = addPerson;
         vm.$modalInstance = $modalInstance;
         vm.dismissModal = dismissModal;
 
@@ -36,9 +36,9 @@
             $modalInstance.dismiss('cancel');
         }
 
-        function addMember() {
+        function addPerson() {
             vm.busy = true;
-            $rootScope.$broadcast('addMember', vm.memberObj);
+            $rootScope.$broadcast('addMember', vm.personObj);
         }
     }
 })();
