@@ -1,9 +1,8 @@
 ﻿<div class="modal-header">
-    <h3 class="modal-title">Add Member</h3>
+    <h3 class="modal-title">Add A Person To The Church Directory</h3>
 </div>
 <div class="modal-body">
     <form novalidate>
-        <fieldset class="reply">
 
             <div class="row">
                 <div class="col-xs-6">
@@ -17,38 +16,49 @@
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <label>City: <span class="warning">*</span></label>
+                    <label>City:</label>
                     <input class="form-control" ng-model="modalCtrl.personObj.city" type="text" />
                 </div>
                 <div class="col-xs-6">
-                    <label>State: <span class="warning">*</span></label>
+                    <label>State:</label>
                     <input class="form-control" ng-model="modalCtrl.personObj.state" type="text" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <label>Zip Code: <span class="warning">*</span></label>
+                    <label>Zip Code:</label>
                     <input class="form-control" ng-model="modalCtrl.personObj.zipCode" type="text" />
                 </div>
                 <div class="col-xs-6">
-                    <label>Email Address: <span class="warning">*</span></label>
+                    <label>Email Address:</label>
                     <input class="form-control" ng-model="modalCtrl.personObj.primaryEmail" type="text" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <label>Cell Phone: <span class="warning">*</span></label>
-                    <input class="form-control" type="text" />
+                    <label>Cell Phone:</label>
+                    <input class="form-control" type="text"/>
                 </div>
                 <div class="col-xs-6">
-                    <label>Home / Other Phone: <span class="warning">*</span></label>
-                    <input class="form-control" type="text"  />
+                    <label>Home / Other Phone:</label>
+                    <input class="form-control" type="text"/>
                 </div>
             </div>
-        </fieldset>
+            <div class="row">
+                <div class="col-xs-6" >
+                    <input type="checkbox" name="doo">
+                    <label>Member in Directory with User Account</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="checkbox" name="duh">
+                    <label>Member in Directory - No Site Access</label>
+                </div>
+
+            </div>
+
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add</button>
+    <button class="btn btn-normal btn-color" disabled ng-disabled="form.$invalid" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>
