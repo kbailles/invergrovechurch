@@ -7,41 +7,41 @@
             <div class="row">
                 <div class="col-xs-6">
                     <label>First Name: <span class="warning">*</span></label>
-                    <input class="form-control" name="" ng-model="modalCtrl.personObj.firstName" type="text" required />
+                    <input class="form-control" name="firstName" ng-model="modalCtrl.personObj.firstName" type="text" maxlength="50" required />
                 </div>
                 <div class="col-xs-6">
                     <label>Last Name: <span class="warning">*</span></label>
-                    <input class="form-control" ng-model="modalCtrl.personObj.lastName" type="text" required />
+                    <input class="form-control" name="lastName" ng-model="modalCtrl.personObj.lastName" type="text" maxlength="50" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
                     <label>City:</label>
-                    <input class="form-control" ng-model="modalCtrl.personObj.city" type="text" />
+                    <input class="form-control" name="city" ng-model="modalCtrl.personObj.city" maxlength="50" type="text" />
                 </div>
                 <div class="col-xs-6">
                     <label>State:</label>
-                    <input class="form-control" ng-model="modalCtrl.personObj.state" type="text" />
+                    <input class="form-control" name="state" ng-model="modalCtrl.personObj.state" maxlength="50" type="text" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
                     <label>Zip Code:</label>
-                    <input class="form-control" ng-model="modalCtrl.personObj.zipCode" type="text" />
+                    <input class="form-control" name="zipCode" ng-model="modalCtrl.personObj.zipCode" maxlength="5" type="text" />
                 </div>
                 <div class="col-xs-6">
                     <label>Email Address:</label>
-                    <input class="form-control" ng-model="modalCtrl.personObj.primaryEmail" type="text" />
+                    <input class="form-control" name="primaryEmail" ng-model="modalCtrl.personObj.primaryEmail" maxlength="50" type="text" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
                     <label>Cell Phone:</label>
-                    <input class="form-control" type="text"/>
+                    <input class="form-control" name="CellPhone" maxlength="20" type="text" />
                 </div>
                 <div class="col-xs-6">
                     <label>Home / Other Phone:</label>
-                    <input class="form-control" type="text"/>
+                    <input class="form-control" name="Phone" maxlength="20" type="text" />
                 </div>
             </div>
             <div class="row">
@@ -59,6 +59,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" disabled ng-disabled="form.$invalid" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add</button>
+    <button class="btn btn-normal btn-color" ng-disabled="form.$invalid" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>

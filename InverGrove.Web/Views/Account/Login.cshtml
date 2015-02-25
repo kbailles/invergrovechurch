@@ -17,13 +17,13 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Username: <span class="warning">*</span></label>
-                    <input class="form-control" name="UserName" type="text" />
+                    <input class="form-control" name="UserName" type="text" maxlength="50" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Password: <span class="warning">*</span></label>
-                    <input class="form-control" name="Password" type="password" />
+                    <input class="form-control" name="Password" type="password" maxlength="50" required />
                 </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@
             </div>
         </fieldset>
 
-        <button ng-click="vm.login()" btn-loading="vm.busy" data-loading-text="Logging In..." class="btn btn-normal btn-color" style="width: 100%;">Log In</button>
+    <button ng-disabled="form.$invalid" ng-click="vm.login()" btn-loading="vm.busy" data-loading-text="Logging In..." class="btn btn-normal btn-color" style="width: 100%;">Log In</button>
         <div class="clearfix"></div>
     }
 </div>
