@@ -20,6 +20,8 @@
          * Public declarations
          */
         vm.personObj = {};
+        vm.busy = false;
+
         vm.addPerson = addPerson;
         vm.$modalInstance = $modalInstance;
         vm.dismissModal = dismissModal;

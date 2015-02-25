@@ -40,8 +40,6 @@
             });
         }
 
-  
-
         function openAddMemberModal() {
 
             vm.$modalInstance = $modal.open({
