@@ -661,10 +661,6 @@ form .ng-dirty.ng-valid {
 .reply input {
   margin: 0 0 20px;
 }
-.reply input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-left: -20px;
-}
 .reply label {
   margin: 0 0 4px;
   color: #767676;
