@@ -238,6 +238,7 @@
     <Compile Include="ViewModels\AuthenticatedUser.cs" />
     <Compile Include="Interfaces\IAuthenticatedUser.cs" />
     <Compile Include="ViewModels\LoginUser.cs" />
+    <Compile Include="ViewModels\PersonUserMember.cs" />
     <Compile Include="ViewModels\Register.cs" />
     <Compile Include="ViewModels\ResetPassword.cs" />
   </ItemGroup>

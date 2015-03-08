@@ -37,24 +37,21 @@
             <div class="row">
                 <div class="col-xs-6">
                     <label>Cell Phone:</label>
-                    <input class="form-control" name="CellPhone" maxlength="20" type="text" />
+                    <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.personObj.phoneNumbers[0]" maxlength="20" type="text" />
                 </div>
                 <div class="col-xs-6">
                     <label>Home / Other Phone:</label>
-                    <input class="form-control" name="Phone" maxlength="20" type="text" />
+                    <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.personObj.phoneNumbers[1]" maxlength="20" type="text" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-6" >
-                    <input type="checkbox" name="doo">
-                    <label>Member in Directory with User Account</label>
-                </div>
-                <div class="col-xs-6">
-                    <input type="checkbox" name="duh">
-                    <label>Member in Directory - No Site Access</label>
-                </div>
-
+        <div class="row">
+            <div class="col-xs-12">
+                <input type="radio" name="modalCtrl.personObj.accountType" value="access" checked>
+                <label class="LeftCushion">Allow access to login as Member</label>
+                <input type="radio" name="modalCtrl.personObj.accountType" value="noaccess">
+                <label>No access to Member area of website.</label>
             </div>
+        </div>
 
     </form>
 </div>

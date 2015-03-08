@@ -22,6 +22,8 @@
         vm.openEditMemberModal = openEditMemberModal;
         vm.openDeleteMemberModal = openDeleteMemberModal;
 
+        vm.showProfileTypeMessage = '';
+
         vm.$modalInstance = null;
 
         activate();
