@@ -137,8 +137,11 @@ namespace InverGrove.Domain.Extensions
             person.Gender = personModel.Gender;
             person.GroupPhoto = personModel.GroupPhotoFilePath;
             person.IndividualPhoto = personModel.IndividualPhotoFilePath;
+            person.IsBaptized = personModel.IsBaptized;
+            person.IsMember = personModel.IsMember;
+            person.IsVisitor = personModel.IsVisitor;
             person.MaritalStatusId = personModel.MaritalStatusId;
-            person.PersonTypeId = personModel.PersonTypeId;
+            person.ChurchRoleId = personModel.ChurchRoleId;
             person.State = personModel.State;
             var modelPhoneNumbers = personModel.PhoneNumbers.ToSafeList();
 
@@ -181,8 +184,11 @@ namespace InverGrove.Domain.Extensions
             personModel.Gender = person.Gender;
             personModel.GroupPhotoFilePath = person.GroupPhoto;
             personModel.IndividualPhotoFilePath = person.IndividualPhoto;
+            personModel.IsBaptized = person.IsBaptized;
+            personModel.IsMember = person.IsMember;
+            personModel.IsVisitor = person.IsVisitor;
             personModel.MaritalStatusId = person.MaritalStatusId;
-            personModel.PersonTypeId = person.PersonTypeId;
+            personModel.ChurchRoleId = person.ChurchRoleId;
             personModel.State = person.State;
             var entityPhoneNumbers = person.PhoneNumbers.ToSafeList();
 
@@ -233,7 +239,6 @@ namespace InverGrove.Domain.Extensions
             profile.PersonId = profileModel.PersonId;
             profile.ReceiveEmailNotification = profileModel.ReceiveEmailNotification;
             profile.IsActive = profileModel.IsActive;
-            profile.IsBaptized = profileModel.IsBaptized;
             profile.IsDisabled = profileModel.IsDisabled;
             profile.IsLocal = profileModel.IsLocal;
             profile.IsValidated = profileModel.IsValidated;
@@ -262,7 +267,6 @@ namespace InverGrove.Domain.Extensions
             profileModel.PersonId = profile.PersonId;
             profileModel.ReceiveEmailNotification = profile.ReceiveEmailNotification;
             profileModel.IsActive = profile.IsActive;
-            profileModel.IsBaptized = profile.IsBaptized;
             profileModel.IsDisabled = profile.IsDisabled;
             profileModel.IsLocal = profile.IsLocal;
             profileModel.IsValidated = profile.IsValidated;

@@ -96,3 +96,23 @@
         @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
     </div>
 </div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.IsBaptized, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <div class="checkbox">
+            @Html.EditorFor(model => model.IsBaptized)
+            @Html.ValidationMessageFor(model => model.IsBaptized, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.IsVisitor, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <div class="checkbox">
+            @Html.EditorFor(model => model.IsVisitor)
+            @Html.ValidationMessageFor(model => model.IsVisitor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>

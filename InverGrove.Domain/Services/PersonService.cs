@@ -36,7 +36,10 @@ namespace InverGrove.Domain.Services
             return personId;
         }
 
-
+        /// <summary>
+        /// Gets all people, regardless of active status or any conditions.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<IPerson> GetAll()
         {
             var people = this.personRepository.Get();

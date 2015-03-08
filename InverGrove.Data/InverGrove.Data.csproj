@@ -54,13 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Attendance.cs" />
+    <Compile Include="Entities\ChurchRole.cs" />
     <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\MaritalStatus.cs" />
     <Compile Include="Entities\MemberNote.cs" />
     <Compile Include="Entities\Membership.cs" />
     <Compile Include="Entities\PasswordFormat.cs" />
     <Compile Include="Entities\Person.cs" />
-    <Compile Include="Entities\PersonType.cs" />
     <Compile Include="Entities\PhoneNumber.cs" />
     <Compile Include="Entities\PhoneNumberType.cs" />
     <Compile Include="Entities\Profile.cs" />

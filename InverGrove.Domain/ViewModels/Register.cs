@@ -33,16 +33,6 @@ namespace InverGrove.Domain.ViewModels
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is baptized.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance is baptized; otherwise, <c>false</c>.
-        /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "IsBaptizedLabel")]
-        public bool IsBaptized { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this instance is local.
         /// </summary>
         /// <value>
@@ -104,7 +94,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The person type id.
         /// </value>
-        public int PersonTypeId
+        public int? ChurchRoleId
         {
             get
             {
@@ -113,7 +103,7 @@ namespace InverGrove.Domain.ViewModels
                     this.Person = ObjectFactory.Create<Person>();
                 }
 
-                return this.Person.PersonTypeId;
+                return this.Person.ChurchRoleId;
             }
             set
             {
@@ -122,7 +112,7 @@ namespace InverGrove.Domain.ViewModels
                     this.Person = ObjectFactory.Create<Person>();
                 }
 
-                this.Person.PersonTypeId = value;
+                this.Person.ChurchRoleId = value;
             }
         }
 
@@ -148,7 +138,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The person type list.
         /// </value>
-        public IEnumerable<SelectListItem> PersonTypeList { get; set; }
+        public IEnumerable<SelectListItem> ChurchRoleList { get; set; }
 
         /// <summary>
         /// Gets or sets the roles.

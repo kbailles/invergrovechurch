@@ -143,11 +143,11 @@ namespace InverGrove.Domain.Interfaces
         int MaritalStatusId { get; set; }
 
         /// <summary>
-        /// Gets or sets the person type id.
+        /// Gets or sets the church role identifier.
         /// </summary>
         /// <value>
-        /// The person type id.
+        /// The church role identifier.
         /// </value>
-        int PersonTypeId { get; set; }
+        int? ChurchRoleId { get; set; }
     }
 }

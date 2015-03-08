@@ -115,7 +115,6 @@ namespace InverGrove.Domain.Repositories
             {
                 profileEntity.DateModified = DateTime.Now;
                 profileEntity.IsActive = profile.IsActive;
-                profileEntity.IsBaptized = profile.IsBaptized;
                 profileEntity.IsDisabled = profile.IsDisabled;
                 profileEntity.IsLocal = profile.IsLocal;
                 profileEntity.IsValidated = profile.IsValidated;

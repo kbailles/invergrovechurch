@@ -64,17 +64,23 @@ namespace InverGrove.Data.Entities
         [StringLength(100)]
         public string IndividualPhoto { get; set; }
 
+        public bool IsBaptized { get; set; }
+
+        public bool IsMember { get; set; }
+
+        public bool IsVisitor { get; set; }
+
         public DateTime DateCreated { get; set; }
 
         public DateTime DateModified { get; set; }
 
         public int MaritalStatusId { get; set; }
 
-        public int PersonTypeId { get; set; }
+        public int? ChurchRoleId { get; set; }
 
         public virtual MaritalStatus MaritalStatus { get; set; }
 
-        public virtual PersonType PersonType { get; set; }
+        public virtual ChurchRole ChurchRole { get; set; }
 
         public virtual ICollection<Profile> Profiles { get; set; }
 

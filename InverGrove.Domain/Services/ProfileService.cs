@@ -43,14 +43,13 @@ namespace InverGrove.Domain.Services
 		/// </summary>
 		/// <param name="userId">The user identifier.</param>
 		/// <param name="personId">The person identifier.</param>
-		/// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
 		/// <param name="isLocal">if set to <c>true</c> [is local].</param>
 		/// <param name="isActive">if set to <c>true</c> [is active].</param>
 		/// <param name="isValidated">if set to <c>true</c> [is validated].</param>
 		/// <returns></returns>
-		public int AddProfile(int userId, int personId, bool isBaptized, bool isLocal, bool isActive, bool isValidated)
+		public int AddProfile(int userId, int personId, bool isLocal, bool isActive, bool isValidated)
 		{
-			var profile = ProfileFactory.Instance.Create(userId, personId, isBaptized, isLocal, isActive, isValidated);
+			var profile = ProfileFactory.Instance.Create(userId, personId, isLocal, isActive, isValidated);
 			profile.IsDisabled = false;
 			profile.ReceiveEmailNotification = false;
 
@@ -64,17 +63,16 @@ namespace InverGrove.Domain.Services
 		/// </summary>
 		/// <param name="person">The person.</param>
 		/// <param name="userId">The user identifier.</param>
-		/// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
 		/// <param name="isLocal">if set to <c>true</c> [is local].</param>
 		/// <param name="isActive">if set to <c>true</c> [is active].</param>
 		/// <param name="isValidated">if set to <c>true</c> [is validated].</param>
 		/// <returns></returns>
-		public bool AddPersonProfile(IPerson person, int userId, bool isBaptized, bool isLocal, bool isActive, bool isValidated)
+		public bool AddPersonProfile(IPerson person, int userId, bool isLocal, bool isActive, bool isValidated)
 		{
 			Guard.ParameterNotNull(person, "person");
 			Guard.ParameterNotOutOfRange(userId, "userId");
 
-			var profile = ProfileFactory.Instance.Create(userId, 0, isBaptized, isLocal, isActive, isValidated);
+			var profile = ProfileFactory.Instance.Create(userId, 0, isLocal, isActive, isValidated);
 			profile.IsDisabled = false;
 			profile.ReceiveEmailNotification = false;
 

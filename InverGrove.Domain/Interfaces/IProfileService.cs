@@ -9,24 +9,22 @@ namespace InverGrove.Domain.Interfaces
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="personId">The person identifier.</param>
-        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
         /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <param name="isActive">if set to <c>true</c> [is active].</param>
         /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
         /// <returns></returns>
-        int AddProfile(int userId, int personId, bool isBaptized, bool isLocal, bool isActive, bool isValidated);
+        int AddProfile(int userId, int personId, bool isLocal, bool isActive, bool isValidated);
 
         /// <summary>
         /// Adds the person profile.
         /// </summary>
         /// <param name="person">The person.</param>
         /// <param name="userId">The user identifier.</param>
-        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
         /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <param name="isActive">if set to <c>true</c> [is active].</param>
         /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
         /// <returns></returns>
-        bool AddPersonProfile(IPerson person, int userId, bool isBaptized, bool isLocal, bool isActive, bool isValidated);
+        bool AddPersonProfile(IPerson person, int userId, bool isLocal, bool isActive, bool isValidated);
 
         /// <summary>
         /// Gets the property values.

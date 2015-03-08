@@ -32,7 +32,7 @@ namespace InverGrove.Tests.Domain.Services
         [ExpectedException(typeof(ParameterNullException))]
         public void AddPersonProfile_Should_Throw_When_Person_Is_Null()
         {
-            this.profileService.AddPersonProfile(null, 5, true, true, true, true);
+            this.profileService.AddPersonProfile(null, 5, true, true, true);
         }
     }
 }

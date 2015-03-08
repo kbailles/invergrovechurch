@@ -61,6 +61,14 @@ namespace InverGrove.Data
         /// <value>
         /// The contacts.
         /// </value>
+        public IDbSet<ChurchRole> ChurchRoles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contacts.
+        /// </summary>
+        /// <value>
+        /// The contacts.
+        /// </value>
         public IDbSet<Contact> Contacts { get; set; }
 
         /// <summary>
@@ -102,14 +110,6 @@ namespace InverGrove.Data
         /// The people.
         /// </value>
         public IDbSet<Person> People { get; set; }
-
-        /// <summary>
-        /// Gets or sets the person types.
-        /// </summary>
-        /// <value>
-        /// The person types.
-        /// </value>
-        public IDbSet<PersonType> PersonTypes { get; set; }
 
         /// <summary>
         /// Gets or sets the phone numbers.
@@ -531,9 +531,9 @@ namespace InverGrove.Data
                 .HasForeignKey(e => e.PersonB)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PersonType>()
+            modelBuilder.Entity<ChurchRole>()
                 .HasMany(e => e.People)
-                .WithRequired(e => e.PersonType)
+                .WithOptional(e => e.ChurchRole)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PhoneNumber>()

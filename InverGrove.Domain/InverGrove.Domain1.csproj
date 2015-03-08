@@ -124,12 +124,13 @@
     <Compile Include="Interfaces\IChurchRoleRepository.cs" />
     <Compile Include="Interfaces\ILogService.cs" />
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
+    <Compile Include="Interfaces\IPersonTypeRepository.cs" />
     <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />
     <Compile Include="Models\RegisterUserResult.cs" />
-    <Compile Include="Repositories\ChurchRoleRepository.cs" />
     <Compile Include="Repositories\MaritalStatusRepository.cs" />
+    <Compile Include="Repositories\PersonTypeRepository.cs" />
     <Compile Include="Services\LogService.cs" />
     <Compile Include="Utils\Guard.cs" />
     <Compile Include="Extensions\MembershipExtensions.cs" />
@@ -238,7 +239,6 @@
     <Compile Include="ViewModels\AuthenticatedUser.cs" />
     <Compile Include="Interfaces\IAuthenticatedUser.cs" />
     <Compile Include="ViewModels\LoginUser.cs" />
-    <Compile Include="ViewModels\PersonUserMember.cs" />
     <Compile Include="ViewModels\Register.cs" />
     <Compile Include="ViewModels\ResetPassword.cs" />
   </ItemGroup>
@@ -268,6 +268,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <Compile Include="Repositories\ChurchRoleRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,7 +19,7 @@ namespace InverGrove.Domain.Services
         private readonly IMembershipService membershipService;
         private readonly IProfileService profileService;
         private readonly IMaritalStatusRepository maritalStatusRepository;
-        private readonly IPersonTypeRepository personTypeRepository;
+        private readonly IChurchRoleRepository churchRoleRepository;
         private readonly IRoleRepository roleRepository;
         private readonly IUserRoleRepository userRoleRepository;
         private const string DefaultPasswordQuestion = "Question";
@@ -34,17 +34,17 @@ namespace InverGrove.Domain.Services
         /// <param name="membershipService">The membership service.</param>
         /// <param name="profileService">The profile service.</param>
         /// <param name="maritalStatusRepository">The marital status repository.</param>
-        /// <param name="personTypeRepository">The person type repository.</param>
+        /// <param name="churchRoleRepository">The church role repository.</param>
         /// <param name="roleRepository">The role repository.</param>
         /// <param name="userRoleRepository">The user role repository.</param>
         public RegistrationService(IEmailService emailService, IMembershipService membershipService, IProfileService profileService, IMaritalStatusRepository maritalStatusRepository,
-            IPersonTypeRepository personTypeRepository, IRoleRepository roleRepository, IUserRoleRepository userRoleRepository)
+            IChurchRoleRepository churchRoleRepository, IRoleRepository roleRepository, IUserRoleRepository userRoleRepository)
         {
             this.emailService = emailService;
             this.membershipService = membershipService;
             this.profileService = profileService;
             this.maritalStatusRepository = maritalStatusRepository;
-            this.personTypeRepository = personTypeRepository;
+            this.churchRoleRepository = churchRoleRepository;
             this.roleRepository = roleRepository;
             this.userRoleRepository = userRoleRepository;
         }
@@ -58,10 +58,10 @@ namespace InverGrove.Domain.Services
         {
             var register = ObjectFactory.Create<Register>();
             var maritalStatusList = this.maritalStatusRepository.Get();
-            var personTypes = this.personTypeRepository.Get();
+            var churchRoles = this.churchRoleRepository.Get();
             var roles = this.roleRepository.Get();
 
-            var personTypeSelectList = new List<SelectListItem>();
+            var churchRoleSelectList = new List<SelectListItem>();
             var maritalSelectList = new List<SelectListItem>();
             var roleSelectList = new List<SelectListItem>();
 
@@ -74,12 +74,12 @@ namespace InverGrove.Domain.Services
                                       });
             }
 
-            foreach (var personType in personTypes)
+            foreach (var churchRole in churchRoles)
             {
-                personTypeSelectList.Add(new SelectListItem
+                churchRoleSelectList.Add(new SelectListItem
                 {
-                    Text = personType.PersonTypeDescription,
-                    Value = personType.PersonTypeId.ToString(CultureInfo.InvariantCulture)
+                    Text = churchRole.ChurchRoleDescription,
+                    Value = churchRole.ChurchRoleId.ToString(CultureInfo.InvariantCulture)
                 });
             }
 
@@ -101,7 +101,7 @@ namespace InverGrove.Domain.Services
             }
 
             register.MaritalStatusList = maritalSelectList;
-            register.PersonTypeList = personTypeSelectList;
+            register.ChurchRoleList = churchRoleSelectList;
             register.Roles = roleSelectList;
 
             return register;
@@ -145,7 +145,8 @@ namespace InverGrove.Domain.Services
             if ((newMembership.MembershipId > 0) && (newMembership.UserId > 0))
             {
                 registerUserResult.Success = this.profileService.AddPersonProfile(userToRegister.Person, newMembership.UserId,
-                    userToRegister.IsBaptized, userToRegister.IsLocal, userToRegister.IsActive, true);
+                    userToRegister.IsLocal, userToRegister.IsActive, true);
+
                 this.userRoleRepository.AddUserToRole(newMembership.UserId, userToRegister.RoleId);
 
                 // Update to hashed password

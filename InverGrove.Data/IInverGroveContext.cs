@@ -17,6 +17,14 @@ namespace InverGrove.Data
         IDbSet<Attendance> Attendances { get; set; }
 
         /// <summary>
+        /// Gets or sets the church roles.
+        /// </summary>
+        /// <value>
+        /// The church roles.
+        /// </value>
+        IDbSet<ChurchRole> ChurchRoles { get; set; }
+
+        /// <summary>
         /// Gets or sets the contacts.
         /// </summary>
         /// <value>
@@ -63,14 +71,6 @@ namespace InverGrove.Data
         /// The people.
         /// </value>
         IDbSet<Person> People { get; set; }
-
-        /// <summary>
-        /// Gets or sets the person types.
-        /// </summary>
-        /// <value>
-        /// The person types.
-        /// </value>
-        IDbSet<PersonType> PersonTypes { get; set; }
 
         /// <summary>
         /// Gets or sets the phone numbers.

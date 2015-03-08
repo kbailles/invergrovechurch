@@ -3,13 +3,13 @@ using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Repositories
 {
-    public class PersonTypeRepository : EntityRepository<Data.Entities.PersonType, int>, IPersonTypeRepository
+    public class ChurchRoleRepository : EntityRepository<Data.Entities.ChurchRole, int>, IChurchRoleRepository
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RoleRepository"/> class.
+        /// Initializes a new instance of the <see cref="ChurchRoleRepository"/> class.
         /// </summary>
         /// <param name="dataContext">The data context.</param>
-        public PersonTypeRepository(IInverGroveContext dataContext)
+        public ChurchRoleRepository(IInverGroveContext dataContext)
             : base(dataContext)
         {
         }

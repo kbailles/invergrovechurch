@@ -24,17 +24,15 @@ namespace InverGrove.Domain.Factories
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="personId">The person identifier.</param>
-        /// <param name="isBaptized">if set to <c>true</c> [is baptized].</param>
         /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <param name="isActive">if set to <c>true</c> [is active].</param>
         /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
         /// <returns></returns>
-        public IProfile Create(int userId, int personId, bool isBaptized, bool isLocal, bool isActive, bool isValidated)
+        public IProfile Create(int userId, int personId, bool isLocal, bool isActive, bool isValidated)
         {
             return new Profile
             {
                 IsActive = isActive,
-                IsBaptized = isBaptized,
                 IsLocal = isLocal,
                 IsValidated = isValidated,
                 PersonId = personId,
@@ -60,7 +58,6 @@ namespace InverGrove.Domain.Factories
                               UserId = (int) collection["UserId"].PropertyValue,
                               ReceiveEmailNotification = (bool) collection["ReceiveEmailNotification"].PropertyValue,
                               PersonId = (int) collection["PersonId"].PropertyValue,
-                              IsBaptized = (bool) collection["IsBaptized"].PropertyValue,
                               IsLocal = (bool) collection["IsLocal"].PropertyValue,
                               IsActive = (bool) collection["IsActive"].PropertyValue,
                               IsDisabled = (bool) collection["IsDisabled"].PropertyValue,
@@ -97,7 +94,6 @@ namespace InverGrove.Domain.Factories
                 spvc["UserId"].PropertyValue = profile.UserId;
                 spvc["ReceiveEmailNotification"].PropertyValue = profile.ReceiveEmailNotification;
                 spvc["PersonId"].PropertyValue = profile.PersonId;
-                spvc["IsBaptized"].PropertyValue = profile.IsBaptized;
                 spvc["IsLocal"].PropertyValue = profile.IsLocal;
                 spvc["IsActive"].PropertyValue = profile.IsActive;
                 spvc["IsDisabled"].PropertyValue = profile.IsDisabled;

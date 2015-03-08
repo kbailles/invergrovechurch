@@ -12,9 +12,7 @@ namespace InverGrove.Data.Entities
 
         public bool ReceiveEmailNotification { get; set; }
 
-        public int PersonId { get; set; }
-
-        public bool IsBaptized { get; set; }
+        public int PersonId { get; set; }        
 
         public bool IsLocal { get; set; }
 

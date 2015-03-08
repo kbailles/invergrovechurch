@@ -168,8 +168,8 @@
   <data name="MiddleInitialLabel" xml:space="preserve">
     <value>Middle Initial</value>
   </data>
-  <data name="PersonTypeLabel" xml:space="preserve">
-    <value>Person Type</value>
+  <data name="ChurchRoleLabel" xml:space="preserve">
+    <value>Church Role</value>
   </data>
   <data name="StateLabel" xml:space="preserve">
     <value>State</value>
@@ -191,5 +191,11 @@
   </data>
   <data name="IsLocalLabel" xml:space="preserve">
     <value>Is Local</value>
+  </data>
+  <data name="IsMemberLabel" xml:space="preserve">
+    <value>Is Member</value>
+  </data>
+  <data name="IsVisitorLabel" xml:space="preserve">
+    <value>Is Visitor</value>
   </data>
 </root>

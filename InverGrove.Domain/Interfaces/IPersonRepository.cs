@@ -14,5 +14,11 @@ namespace InverGrove.Domain.Interfaces
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
         int Add(IPerson person);
 
+        /// <summary>
+        /// Updates the specified person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <returns></returns>
+        IPerson Update(IPerson person);
     }
 }

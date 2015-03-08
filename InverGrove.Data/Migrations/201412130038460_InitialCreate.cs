@@ -96,7 +96,6 @@ namespace InverGrove.Data.Migrations
                         UserId = c.Int(nullable: false),
                         ReceiveEmailNotification = c.Boolean(nullable: false),
                         PersonId = c.Int(nullable: false),
-                        IsBaptized = c.Boolean(nullable: false),
                         IsLocal = c.Boolean(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         IsDisabled = c.Boolean(nullable: false),
@@ -129,16 +128,28 @@ namespace InverGrove.Data.Migrations
                         Gender = c.String(nullable: false, maxLength: 1, unicode: false),
                         GroupPhoto = c.String(maxLength: 100, unicode: false),
                         IndividualPhoto = c.String(maxLength: 100, unicode: false),
+                        IsBaptized = c.Boolean(nullable: false),
+                        IsMember = c.Boolean(nullable: false),
+                        IsVisitor = c.Boolean(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
                         DateModified = c.DateTime(nullable: false),
                         MaritalStatusId = c.Int(nullable: false),
-                        PersonTypeId = c.Int(nullable: false),
+                        ChurchRoleId = c.Int(),
                     })
                 .PrimaryKey(t => t.PersonId)
+                .ForeignKey("dbo.ChurchRole", t => t.ChurchRoleId)
                 .ForeignKey("dbo.MaritalStatus", t => t.MaritalStatusId)
-                .ForeignKey("dbo.PersonType", t => t.PersonTypeId)
                 .Index(t => t.MaritalStatusId)
-                .Index(t => t.PersonTypeId);
+                .Index(t => t.ChurchRoleId);
+            
+            CreateTable(
+                "dbo.ChurchRole",
+                c => new
+                    {
+                        ChurchRoleId = c.Int(nullable: false, identity: true),
+                        ChurchRoleDescription = c.String(nullable: false, maxLength: 50),
+                    })
+                .PrimaryKey(t => t.ChurchRoleId);
             
             CreateTable(
                 "dbo.MaritalStatus",
@@ -148,15 +159,6 @@ namespace InverGrove.Data.Migrations
                         MaritalStatusDescription = c.String(nullable: false, maxLength: 50, unicode: false),
                     })
                 .PrimaryKey(t => t.MaritalStatusId);
-            
-            CreateTable(
-                "dbo.PersonType",
-                c => new
-                    {
-                        PersonTypeId = c.Int(nullable: false, identity: true),
-                        PersonTypeDescription = c.String(nullable: false, maxLength: 50),
-                    })
-                .PrimaryKey(t => t.PersonTypeId);
             
             CreateTable(
                 "dbo.PhoneNumber",
@@ -317,8 +319,8 @@ namespace InverGrove.Data.Migrations
             DropForeignKey("dbo.Profile", "PersonId", "dbo.Person");
             DropForeignKey("dbo.PhoneNumber", "PersonId", "dbo.Person");
             DropForeignKey("dbo.PhoneNumber", "PhoneNumberTypeId", "dbo.PhoneNumberType");
-            DropForeignKey("dbo.Person", "PersonTypeId", "dbo.PersonType");
             DropForeignKey("dbo.Person", "MaritalStatusId", "dbo.MaritalStatus");
+            DropForeignKey("dbo.Person", "ChurchRoleId", "dbo.ChurchRole");
             DropForeignKey("dbo.Membership", "UserId", "dbo.User");
             DropForeignKey("dbo.Membership", "PasswordFormatId", "dbo.PasswordFormat");
             DropForeignKey("dbo.MemberNote", "UserId", "dbo.User");
@@ -333,7 +335,7 @@ namespace InverGrove.Data.Migrations
             DropIndex("dbo.Relative", new[] { "PersonA" });
             DropIndex("dbo.PhoneNumber", new[] { "PhoneNumberTypeId" });
             DropIndex("dbo.PhoneNumber", new[] { "PersonId" });
-            DropIndex("dbo.Person", new[] { "PersonTypeId" });
+            DropIndex("dbo.Person", new[] { "ChurchRoleId" });
             DropIndex("dbo.Person", new[] { "MaritalStatusId" });
             DropIndex("dbo.Profile", new[] { "PersonId" });
             DropIndex("dbo.Profile", new[] { "UserId" });
@@ -351,8 +353,8 @@ namespace InverGrove.Data.Migrations
             DropTable("dbo.Relative");
             DropTable("dbo.PhoneNumberType");
             DropTable("dbo.PhoneNumber");
-            DropTable("dbo.PersonType");
             DropTable("dbo.MaritalStatus");
+            DropTable("dbo.ChurchRole");
             DropTable("dbo.Person");
             DropTable("dbo.Profile");
             DropTable("dbo.PasswordFormat");

@@ -38,14 +38,6 @@ namespace InverGrove.Domain.Interfaces
         bool ReceiveEmailNotification { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is baptized.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance is baptized; otherwise, <c>false</c>.
-        /// </value>
-        bool IsBaptized { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this instance is local.
         /// </summary>
         /// <value>

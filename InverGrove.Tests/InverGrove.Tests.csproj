@@ -69,9 +69,9 @@
       <Project>{520632de-3efc-4c41-83e8-fcb14e2fdfaf}</Project>
       <Name>InverGrove.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InverGrove.Domain\InverGrove.Domain.csproj">
+    <ProjectReference Include="..\InverGrove.Domain\InverGrove.Domain1.csproj">
       <Project>{6EBDBEB0-4C34-4318-A6FC-6117CD949148}</Project>
-      <Name>InverGrove.Domain</Name>
+      <Name>InverGrove.Domain1</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

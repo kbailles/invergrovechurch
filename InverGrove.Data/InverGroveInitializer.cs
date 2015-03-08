@@ -41,34 +41,22 @@ namespace InverGrove.Data
             roles.ForEach(s => context.Roles.Add(s));
             context.SaveChanges();
 
-            var personTypes = new List<PersonType>
+            var churchRoles = new List<ChurchRole>
                           {
-                              new PersonType
+                              new ChurchRole
                               {
-                                  PersonTypeDescription = "Visitor"
+                                  ChurchRoleDescription = "Deacon"
                               },
-                              new PersonType
+                              new ChurchRole
                               {
-                                  PersonTypeDescription = "Member"
+                                  ChurchRoleDescription = "Elder"
                               },
-                              new PersonType
+                              new ChurchRole
                               {
-                                  PersonTypeDescription = "Deacon"
-                              },
-                              new PersonType
-                              {
-                                  PersonTypeDescription = "Elder"
-                              },
-                              new PersonType
-                              {
-                                  PersonTypeDescription = "Preacher"
-                              },
-                              new PersonType
-                              {
-                                  PersonTypeDescription = "Child"
+                                  ChurchRoleDescription = "Preacher"
                               }
                           };
-            personTypes.ForEach(s => context.PersonTypes.Add(s));
+            churchRoles.ForEach(s => context.ChurchRoles.Add(s));
             context.SaveChanges();
 
             var maritalStatuses = new List<MaritalStatus>
@@ -164,7 +152,6 @@ namespace InverGrove.Data
             {
                 ReceiveEmailNotification = false,
                 IsActive = true,
-                IsBaptized = true,
                 IsDisabled = false,
                 IsLocal = true,
                 IsValidated = true,
@@ -179,13 +166,14 @@ namespace InverGrove.Data
                     DateModified = timeStamp,
                     DateOfBirth = DateTime.Parse("07/05/1988"),
                     EmailPrimary = "kbailles@outlook.com",
+                    IsBaptized = true,
+                    IsMember = true,
                     FirstName = "Keenan",
                     LastName = "Bailles",
                     MiddleInitial = "W",
                     MaritalStatus = null,
                     MaritalStatusId = 2,
-                    PersonType = null,
-                    PersonTypeId = 2,
+                    ChurchRole = null,
                     State = "MN",
                     Zip = "55123",
                     Gender = "M"

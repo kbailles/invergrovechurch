@@ -156,6 +156,33 @@ namespace InverGrove.Domain.Models
         public string IndividualPhotoFilePath { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is baptized.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is baptized; otherwise, <c>false</c>.
+        /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "IsBaptizedLabel")]
+        public bool IsBaptized { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is member.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is member; otherwise, <c>false</c>.
+        /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "IsMemberLabel")]
+        public bool IsMember { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is visitor.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is visitor; otherwise, <c>false</c>.
+        /// </value>
+        [Display(ResourceType = typeof(ViewLabels), Name = "IsVisitorLabel")]
+        public bool IsVisitor { get; set; }
+
+        /// <summary>
         /// Gets or sets the gender.
         /// </summary>
         /// <value>
@@ -176,13 +203,12 @@ namespace InverGrove.Domain.Models
         public int MaritalStatusId { get; set; }
 
         /// <summary>
-        /// Gets or sets the person type id.
+        /// Gets or sets the church role identifier.
         /// </summary>
         /// <value>
-        /// The person type id.
+        /// The church role identifier.
         /// </value>
-        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PersonTypeRequiredErrorMessage")]
-        [Display(ResourceType = typeof(ViewLabels), Name = "PersonTypeLabel")]
-        public int PersonTypeId { get; set; }
+        [Display(ResourceType = typeof(ViewLabels), Name = "ChurchRoleLabel")]
+        public int? ChurchRoleId { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace InverGrove.Tests.Domain.Services
         private Mock<IMembershipService> membershipService;
         private Mock<IProfileService> profileService;
         private Mock<IMaritalStatusRepository> maritalStatusRepository;
-        private Mock<IPersonTypeRepository> personTypeRepository;
+        private Mock<IChurchRoleRepository> churchRoleRepository;
         private Mock<IRoleRepository> roleRepository;
         private Mock<IUserRoleRepository> userRoleRepository;
 
@@ -34,12 +34,12 @@ namespace InverGrove.Tests.Domain.Services
             this.membershipService = new Mock<IMembershipService>();
             this.profileService = new Mock<IProfileService>();
             this.maritalStatusRepository = new Mock<IMaritalStatusRepository>();
-            this.personTypeRepository = new Mock<IPersonTypeRepository>();
+            this.churchRoleRepository = new Mock<IChurchRoleRepository>();
             this.roleRepository = new Mock<IRoleRepository>();
             this.userRoleRepository =new Mock<IUserRoleRepository>();
 
             this.registrationService = new RegistrationService(this.emailService.Object, this.membershipService.Object, this.profileService.Object,
-                this.maritalStatusRepository.Object, this.personTypeRepository.Object, this.roleRepository.Object, this.userRoleRepository.Object);
+                this.maritalStatusRepository.Object, this.churchRoleRepository.Object, this.roleRepository.Object, this.userRoleRepository.Object);
         }
 
         [TestMethod]
@@ -89,7 +89,7 @@ namespace InverGrove.Tests.Domain.Services
 
             this.registrationService.RegisterUser(newUser);
 
-            this.profileService.Verify(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, false, true));
+            this.profileService.Verify(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, true));
         }
 
         [TestMethod]
@@ -104,7 +104,7 @@ namespace InverGrove.Tests.Domain.Services
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
-            this.profileService.Setup(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, false, true)).Returns(true);
+            this.profileService.Setup(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, true)).Returns(true);
             this.userRoleRepository.Setup(u => u.AddUserToRole(newMembership.UserId, newUser.RoleId));
             this.emailService.Setup(e => e.SendNewUserEmail(It.IsAny<IRegister>()));
 
@@ -125,7 +125,7 @@ namespace InverGrove.Tests.Domain.Services
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
-            this.profileService.Setup(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, false, true)).Returns(true);
+            this.profileService.Setup(p => p.AddPersonProfile(It.IsAny<IPerson>(), It.IsAny<int>(), false, false, true)).Returns(true);
             this.userRoleRepository.Setup(u => u.AddUserToRole(newMembership.UserId, newUser.RoleId));
             this.emailService.Setup(e => e.SendNewUserEmail(It.IsAny<IRegister>()));
 

@@ -50,7 +50,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.Transient);
             container.Register(Component.For<IContactRepository>().ImplementedBy<ContactRepository>().LifeStyle.Transient);
             container.Register(Component.For<IMaritalStatusRepository>().ImplementedBy<MaritalStatusRepository>().LifeStyle.Transient);
-            container.Register(Component.For<IPersonTypeRepository>().ImplementedBy<PersonTypeRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IChurchRoleRepository>().ImplementedBy<ChurchRoleRepository>().LifeStyle.Transient);
         }
 
         private static void RegisterServices(IWindsorContainer container)
