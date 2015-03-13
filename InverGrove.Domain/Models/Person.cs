@@ -210,5 +210,14 @@ namespace InverGrove.Domain.Models
         /// </value>
         [Display(ResourceType = typeof(ViewLabels), Name = "ChurchRoleLabel")]
         public int? ChurchRoleId { get; set; }
+
+
+        /// <summary>
+        /// Assists with adding the person, will they have website access
+        /// </summary>
+        /// <value>
+        /// The type of the account.
+        /// </value>
+        public bool IsUser { get; set; }
     }
 }

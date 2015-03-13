@@ -4,16 +4,17 @@ namespace InverGrove.Domain.Interfaces
 {
     public interface IProfileFactory
     {
+
         /// <summary>
         /// Creates the specified user identifier.
         /// </summary>
         /// <param name="userId">The user identifier.</param>
         /// <param name="personId">The person identifier.</param>
-        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <param name="isActive">if set to <c>true</c> [is active].</param>
         /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
+        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <returns></returns>
-        IProfile Create(int userId, int personId, bool isLocal, bool isActive, bool isValidated);
+        IProfile Create(int userId, int personId, bool isActive, bool isValidated, bool isLocal = true);
 
         /// <summary>
         /// Creates the Profile from the specified collection.

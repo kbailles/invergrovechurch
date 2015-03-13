@@ -49,7 +49,7 @@ namespace InverGrove.Domain.Services
 		/// <returns></returns>
 		public int AddProfile(int userId, int personId, bool isLocal, bool isActive, bool isValidated)
 		{
-			var profile = ProfileFactory.Instance.Create(userId, personId, isLocal, isActive, isValidated);
+			var profile = ProfileFactory.Instance.Create(userId, personId, isActive, isValidated);
 			profile.IsDisabled = false;
 			profile.ReceiveEmailNotification = false;
 
@@ -72,7 +72,7 @@ namespace InverGrove.Domain.Services
 			Guard.ParameterNotNull(person, "person");
 			Guard.ParameterNotOutOfRange(userId, "userId");
 
-			var profile = ProfileFactory.Instance.Create(userId, 0, isLocal, isActive, isValidated);
+			var profile = ProfileFactory.Instance.Create(userId, 0, isActive, isValidated);
 			profile.IsDisabled = false;
 			profile.ReceiveEmailNotification = false;
 

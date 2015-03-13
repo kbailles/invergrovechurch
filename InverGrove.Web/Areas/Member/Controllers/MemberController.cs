@@ -67,6 +67,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
         public ActionResult Add(IPerson person)
         {
             Guard.ArgumentNotNull(person, "person");
+  
 
             var personAdded = this.personService.AddPerson(person);
             return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();

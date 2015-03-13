@@ -149,5 +149,13 @@ namespace InverGrove.Domain.Interfaces
         /// The church role identifier.
         /// </value>
         int? ChurchRoleId { get; set; }
+
+        /// <summary>
+        /// When creating a new member through the form, we decide 
+        /// </summary>
+        /// <value>
+        /// The type of the account.
+        /// </value>
+        bool IsUser { get; set; }
     }
 }
