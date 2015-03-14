@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Services
 {
@@ -26,12 +26,15 @@ namespace InverGrove.Domain.Services
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
         public int AddPerson(IPerson person)
         {
-            if (person == null)
-            {
-                throw new ParameterNullException("person");
-            }
+            Guard.ArgumentNotNull(person, "person");
 
-            var personId = this.personRepository.Add(person); //QUESTION - Do we really want to return a legit ID to the web layer?
+            var personId = this.personRepository.Add(person); 
+
+            if (person.IsUser)
+            {
+
+                // TODO -  send notification email.
+            }
 
             return personId;
         }
