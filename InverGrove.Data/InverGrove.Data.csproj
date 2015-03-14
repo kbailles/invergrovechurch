@@ -59,6 +59,7 @@
     <Compile Include="Entities\MaritalStatus.cs" />
     <Compile Include="Entities\MemberNote.cs" />
     <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\Notification.cs" />
     <Compile Include="Entities\PasswordFormat.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PhoneNumber.cs" />

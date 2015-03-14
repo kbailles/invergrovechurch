@@ -213,7 +213,8 @@ namespace InverGrove.Domain.Models
 
 
         /// <summary>
-        /// Assists with adding the person, will they have website access
+        /// Assists with adding the person, will they have website access. 
+        /// Originally added for Add Member form.
         /// </summary>
         /// <value>
         /// The type of the account.

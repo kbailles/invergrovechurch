@@ -120,12 +120,10 @@
     <Compile Include="Factories\AuthenticatedUserFactory.cs" />
     <Compile Include="Factories\LogConfigurationFactory.cs" />
     <Compile Include="Factories\NotLoggerFilter.cs" />
-    <Compile Include="Factories\PersonFactory.cs" />
     <Compile Include="Helpers\JsonCamelCaseResolverResult.cs" />
     <Compile Include="Interfaces\IChurchRoleRepository.cs" />
     <Compile Include="Interfaces\ILogService.cs" />
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
-    <Compile Include="Interfaces\IPersonFactory.cs" />
     <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />

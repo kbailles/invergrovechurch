@@ -57,6 +57,14 @@ namespace InverGrove.Data
         IDbSet<Membership> Memberships { get; set; }
 
         /// <summary>
+        /// Gets or sets the notifications.
+        /// </summary>
+        /// <value>
+        /// The notifications.
+        /// </value>
+        IDbSet<Notification> Notifications { get; set; }
+
+        /// <summary>
         /// Gets or sets the password formats.
         /// </summary>
         /// <value>

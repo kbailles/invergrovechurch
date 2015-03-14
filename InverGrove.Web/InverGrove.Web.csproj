@@ -683,9 +683,6 @@
     <Content Include="Tests\dependencies\core.references.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
     <Content Include="Tests\controllers\HomeControllerTests.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -731,12 +728,6 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Sermon\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
