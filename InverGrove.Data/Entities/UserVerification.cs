@@ -3,14 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace InverGrove.Data.Entities
 {
-    public class Notification
+    public class UserVerification
     {
-        public Notification()
-        {
-        }
-
         [Key]
-        public int NotificationId { get; set; }
+        public int UserVerificationId { get; set; }
         [Required]
         public int PersonId { get; set; }
 

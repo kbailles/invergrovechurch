@@ -59,7 +59,7 @@
     <Compile Include="Entities\MaritalStatus.cs" />
     <Compile Include="Entities\MemberNote.cs" />
     <Compile Include="Entities\Membership.cs" />
-    <Compile Include="Entities\Notification.cs" />
+    <Compile Include="Entities\UserVerification.cs" />
     <Compile Include="Entities\PasswordFormat.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\PhoneNumber.cs" />
@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201412130038460_InitialCreate.Designer.cs">
       <DependentUpon>201412130038460_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503160241576_UserVerificationAddition.cs" />
+    <Compile Include="Migrations\201503160241576_UserVerificationAddition.Designer.cs">
+      <DependentUpon>201503160241576_UserVerificationAddition.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +97,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201412130038460_InitialCreate.resx">
       <DependentUpon>201412130038460_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503160241576_UserVerificationAddition.resx">
+      <DependentUpon>201503160241576_UserVerificationAddition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

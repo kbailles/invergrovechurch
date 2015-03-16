@@ -130,7 +130,7 @@
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />
     <Compile Include="Interfaces\IUserInviteNotificationService.cs" />
-    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\UserVerification.cs" />
     <Compile Include="Models\RegisterUserResult.cs" />
     <Compile Include="Repositories\ChurchRoleRepository.cs" />
     <Compile Include="Repositories\MaritalStatusRepository.cs" />

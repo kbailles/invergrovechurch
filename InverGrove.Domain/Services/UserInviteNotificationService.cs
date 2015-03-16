@@ -23,7 +23,7 @@ namespace InverGrove.Domain.Services
         /// <param name="personId">The person identifier.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public Notification GetUserInviteNotice(int personId)
+        public UserVerification GetUserInviteNotice(int personId)
         {
             throw new System.NotImplementedException();
         }

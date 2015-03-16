@@ -101,7 +101,7 @@ namespace InverGrove.Data
         /// <value>
         /// The notifications.
         /// </value>
-        public IDbSet<Notification> Notifications { get; set; }
+        public IDbSet<UserVerification> UserVerifications { get; set; }
 
         /// <summary>
         /// Gets or sets the password formats.

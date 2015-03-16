@@ -2,10 +2,9 @@
 
 namespace InverGrove.Domain.Models
 {
-    public class Notification
+    public class UserVerification
     {
-
-        public int NotificationId { get; set; }
+        public int UserVerificationId { get; set; }
 
         public int PersonId { get; set; }
 
