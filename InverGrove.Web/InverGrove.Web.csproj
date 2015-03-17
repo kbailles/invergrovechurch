@@ -454,8 +454,7 @@
     <Content Include="Content\images\graymatte.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\open_bible.png" />
-    <Content Include="Content\images\prayer.png" />
-    <Content Include="Content\images\prayer2.png" />
+    <Content Include="Content\images\romans_biblestudy.jpg" />
     <Content Include="Content\images\team-member-1.jpg" />
     <Content Include="Content\images\team-member-4.jpg" />
     <Content Include="Content\less\app.css">
