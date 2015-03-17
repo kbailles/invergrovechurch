@@ -50,7 +50,7 @@ namespace InverGrove.Domain.Repositories
 
             this.Insert(personEntity);
 
-            //this.Save();
+            this.Save();
 
             return personEntity.PersonId;
         }

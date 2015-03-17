@@ -56,18 +56,18 @@
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <input type="radio" name="accountType" ng-model="modalCtrl.personObj.accountType" ng-value="access">
+                <input type="radio" name="isUser" ng-model="modalCtrl.personObj.isUser" ng-value="access">
                 <label class="LeftCushion">Allow access to login as Member</label>
             </div>
             <div class="col-xs-6">
-                <input type="radio" name="accountType" ng-model="modalCtrl.personObj.accountType" value="noaccess">
+                <input type="radio" name="isUser" ng-model="modalCtrl.personObj.isUser" value="noaccess">
                 <label>No access to Member area of website.</label>             
             </div>
         </div>
         <div class="row">
             <div class="col-xs-6">
                 <label>Gender: <span class="warning">*</span></label>               
-                <select ng-model="modalCtrl.personObj.gender" class="form-control" style="width: 90px;" required>
+                <select name="gender" ng-model="modalCtrl.personObj.gender" class="form-control" style="width: 90px;" required>
                     <option value="f">Female</option>
                     <option value="m">Male</option>
                 </select>
@@ -75,11 +75,10 @@
             </div>
             <div class="col-xs-6">
                 <label>Is this person been scripturally baptized? <span class="warning">*</span></label>           
-                <select ng-model="modalCtrl.personObj.isBaptized" class="form-control" style="width: 90px;" required>
+                <select name="isBaptized" ng-model="modalCtrl.personObj.isBaptized" class="form-control" style="width: 90px;" required>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
-                </select>
-    
+                </select>  
             </div>
         </div>
 

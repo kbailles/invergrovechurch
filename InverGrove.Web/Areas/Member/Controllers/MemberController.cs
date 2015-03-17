@@ -2,6 +2,7 @@
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Utils;
+using InverGrove.Domain.Models;
 
 namespace InverGrove.Web.Areas.Member.Controllers
 {
@@ -64,7 +65,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(IPerson person)
+        public ActionResult Add(Person person)
         {
             Guard.ArgumentNotNull(person, "person");
  

@@ -131,6 +131,8 @@ namespace InverGrove.Domain.Extensions
             person.Address1 = personModel.AddressOne;
             person.Address2 = personModel.AddressTwo;
             person.City = personModel.City;
+            person.State = personModel.State;
+            person.Zip = personModel.ZipCode;
             person.DateOfBirth = personModel.DateOfBirth;
             person.EmailPrimary = personModel.PrimaryEmail;
             person.EmailSecondary = personModel.SecondaryEmail;
@@ -140,9 +142,9 @@ namespace InverGrove.Domain.Extensions
             person.IsBaptized = personModel.IsBaptized;
             person.IsMember = personModel.IsMember;
             person.IsVisitor = personModel.IsVisitor;
-            person.MaritalStatusId = personModel.MaritalStatusId;
+            person.MaritalStatusId = (personModel.MaritalStatusId == 0) ? 4 : personModel.MaritalStatusId; // 4 is unknown
             person.ChurchRoleId = personModel.ChurchRoleId;
-            person.State = personModel.State;
+
             var modelPhoneNumbers = personModel.PhoneNumbers.ToSafeList();
 
             if (modelPhoneNumbers.Count > 0)
