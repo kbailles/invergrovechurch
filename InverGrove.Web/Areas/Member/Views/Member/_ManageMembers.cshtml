@@ -24,10 +24,20 @@
                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
                     <button class="btn btn-normal btn-color bottom-pad" ng-click="vm.openAddMemberModal()">Add Member</button>
                 </div>
-                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6"><!-- count, message, whatever here --></div>
-                
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <!-- count, message, whatever here -->
+                </div>
+
             </div>
-            <!-- gridview here of members with edit / delete buttons -->
+
+            <div class="row" ng-cloak ng-repeat="item in vm.members">
+                <div class="col-lg-6">{{item.firstName}}</div>
+                <div class="col-lg-6">{{item.lastName}}</div>
+                 
+            </div>
         </div>
+
+
+
     </div>
 </div>
