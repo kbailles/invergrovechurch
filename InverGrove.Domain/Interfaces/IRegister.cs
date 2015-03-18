@@ -23,22 +23,6 @@ namespace InverGrove.Domain.Interfaces
         string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is local.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is local; otherwise, <c>false</c>.
-        /// </value>
-        bool IsLocal { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether this instance is active.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
-        /// </value>
-        bool IsActive { get; set; }
-
-        /// <summary>
         /// Gets or sets the person.
         /// </summary>
         /// <value>
@@ -46,36 +30,5 @@ namespace InverGrove.Domain.Interfaces
         /// </value>
         Person Person { get; set; }
 
-        /// <summary>
-        /// Gets or sets the role identifier.
-        /// </summary>
-        /// <value>
-        /// The role identifier.
-        /// </value>
-        int RoleId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the marital status list.
-        /// </summary>
-        /// <value>
-        /// The marital status list.
-        /// </value>
-        IEnumerable<SelectListItem> MaritalStatusList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the person type list.
-        /// </summary>
-        /// <value>
-        /// The person type list.
-        /// </value>
-        IEnumerable<SelectListItem> ChurchRoleList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the roles.
-        /// </summary>
-        /// <value>
-        /// The roles.
-        /// </value>
-        IEnumerable<SelectListItem> Roles { get; set; }
     }
 }

@@ -31,7 +31,10 @@
             </div>
             <div class="col-xs-6">
                 <label>State:</label>
-                <input class="form-control" name="state" ng-model="modalCtrl.personObj.state" maxlength="50" type="text" />
+                <select name="gender" ng-model="modalCtrl.personObj.state" class="form-control" >
+                    <option value="MN">Minnesota</option>
+                    <option value="WI">Wisconsin</option>
+                </select>
             </div>
         </div>
         <div class="row">
@@ -67,11 +70,10 @@
         <div class="row">
             <div class="col-xs-6">
                 <label>Gender: <span class="warning">*</span></label>               
-                <select name="gender" ng-model="modalCtrl.personObj.gender" class="form-control" style="width: 90px;" required>
+                <select name="gender" ng-model="modalCtrl.personObj.gender" class="form-control" style="width: 100px;" required>
                     <option value="f">Female</option>
                     <option value="m">Male</option>
                 </select>
-
             </div>
             <div class="col-xs-6">
                 <label>Is this person been scripturally baptized? <span class="warning">*</span></label>           

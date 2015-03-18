@@ -108,7 +108,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Registers the user.
+        /// TODO - Method signature to contain only PersonID
         /// </summary>
         /// <param name="userToRegister">The user to register.</param>
         /// <returns></returns>
@@ -120,10 +120,6 @@ namespace InverGrove.Domain.Services
                 throw new ParameterNullException("userToRegister");
             }
 
-            if (ReferenceEquals(null, userToRegister.Person))
-            {
-                throw new ParameterNullException("userToRegister.Person");
-            }
 
             var registerUserResult = RegisterUserResult.Create();
 
@@ -144,10 +140,11 @@ namespace InverGrove.Domain.Services
 
             if ((newMembership.MembershipId > 0) && (newMembership.UserId > 0))
             {
-                registerUserResult.Success = this.profileService.AddPersonProfile(userToRegister.Person, newMembership.UserId,
-                    userToRegister.IsLocal, userToRegister.IsActive, true);
+                // commented out LB 3/17/2015
+                //registerUserResult.Success = this.profileService.AddPersonProfile(userToRegister.Person, newMembership.UserId,
+                //    userToRegister.IsLocal, userToRegister.IsActive, true);
 
-                this.userRoleRepository.AddUserToRole(newMembership.UserId, userToRegister.RoleId);
+                //this.userRoleRepository.AddUserToRole(newMembership.UserId, userToRegister.RoleId);
 
                 // Update to hashed password
                 userToRegister.Password = newMembership.Password;
