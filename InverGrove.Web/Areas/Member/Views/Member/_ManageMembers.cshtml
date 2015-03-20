@@ -30,12 +30,31 @@
 
             </div>
 
-            <div class="row" ng-cloak ng-repeat="item in vm.members">
-                <div class="col-lg-6">{{item.firstName}}</div>
-                <div class="col-lg-6">{{item.lastName}}</div>
-                 
-            </div>
+
+            <table ng-hide="vm.members.length == 0" class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone | Email</th>
+                    <th style="width: 100px;"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-cloak ng-repeat="item in vm.members">
+                        <td>{{item.firstName}} {{item.lastName}}</td>
+                        <td>{{item.addressOne}} {{item.addressTwo}} {{item.city}}, {{item.state}} {{item.zipCode}}</td>
+                        <td>{{item.primaryEmail}}</td>
+                        <td style="text-align: right;">
+                            <button class="btn btn-color" ng-click="vm.openEditSermonModal(sermon)"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-warning" btn-loading="vm.showDeleteLoading" data-loading-text="Deleting..." ng-click="vm.openDeleteSermonModal(sermon)"><i class="fa fa-remove"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+
 
 
 
