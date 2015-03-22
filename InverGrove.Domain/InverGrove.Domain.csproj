@@ -124,8 +124,6 @@
     <Compile Include="Interfaces\IChurchRoleRepository.cs" />
     <Compile Include="Interfaces\ILogService.cs" />
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
-    <Compile Include="Interfaces\INotification.cs" />
-    <Compile Include="Interfaces\INotificationRepository.cs" />
     <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />

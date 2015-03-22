@@ -32,8 +32,11 @@ namespace InverGrove.Domain.Services
 
             if (person.IsUser)
             {
+                // (1) Add row to UserVerification
 
+                // (2) Send email with UserVerfication ID
                 // TODO -  send notification email.
+                // bool hasSent = this.mailService.SendContactMail(contact);
             }
 
             return personId;
