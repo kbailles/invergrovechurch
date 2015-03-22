@@ -1,5 +1,6 @@
 ﻿using InverGrove.Data;
 using InverGrove.Domain.Repositories;
+using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -13,7 +14,9 @@ namespace InverGrove.Domain.Interfaces
 
         public bool Add(int personId)
         {
-            throw new System.NotImplementedException();
+            Guard.ParameterNotGreaterThanZero(personId, "personId");
+
+            return false;
         }
 
     }

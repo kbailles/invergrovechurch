@@ -78,6 +78,15 @@ namespace InverGrove.Domain.Utils
             }
         }
 
+        public static void ParameterNotGreaterThanZero(int argumentValue, string argumentName)
+        {
+            if (argumentValue < 1)
+            {
+                throw new ParameterOutOfRangeException(argumentName, 2);
+            }
+        }
+
+
         /// <summary>
         /// Dates the time not unset.
         /// </summary>
