@@ -4,7 +4,7 @@
     /// Creates a notification record in the db for people being added to church directory
     /// who will also be website users.
     /// </summary>
-    public interface IUserInviteNotificationRepository
+    public interface IUserVerificationRepository
     {
         bool Add(int personId);
     }

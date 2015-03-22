@@ -4,11 +4,11 @@ using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Interfaces
 {
-    public class UserInviteNotificationRepository : EntityRepository<Data.Entities.UserVerification, int>, IUserInviteNotificationRepository
+    public class UserVerificationRepository : EntityRepository<Data.Entities.UserVerification, int>, IUserVerificationRepository
     {
 
 
-        public UserInviteNotificationRepository(IInverGroveContext dataContext) 
+        public UserVerificationRepository(IInverGroveContext dataContext) 
             : base(dataContext)
         {
         }

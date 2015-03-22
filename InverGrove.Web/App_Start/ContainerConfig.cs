@@ -50,7 +50,7 @@ namespace InverGrove.Web
             container.Register(Component.For<ISermonRepository>().ImplementedBy<SermonRepository>().LifeStyle.Transient);
             container.Register(Component.For<IPersonRepository>().ImplementedBy<PersonRepository>().LifeStyle.Transient);
             container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.Transient);
-            container.Register(Component.For<IUserInviteNotificationRepository>().ImplementedBy<UserInviteNotificationRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IUserVerificationRepository>().ImplementedBy<UserVerificationRepository>().LifeStyle.Transient);
             container.Register(Component.For<IUserRoleRepository>().ImplementedBy<UserRoleRepository>().LifeStyle.Transient);
             container.Register(Component.For<IUserRepository>().ImplementedBy<UserRepository>().LifeStyle.Transient);
         }
@@ -66,7 +66,7 @@ namespace InverGrove.Web
             container.Register(Component.For<ISermonService>().ImplementedBy<SermonService>().LifeStyle.Transient);
             container.Register(Component.For<ISessionStateService>().ImplementedBy<SessionStateService>().LifeStyle.Transient);
             container.Register(Component.For<IPersonService>().ImplementedBy<PersonService>().LifeStyle.Transient);
-            container.Register(Component.For<IUserInviteNotificationService>().ImplementedBy<IUserInviteNotificationService>().LifeStyle.Transient);
+            container.Register(Component.For<IUserVerificationService>().ImplementedBy<IUserVerificationService>().LifeStyle.Transient);
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifeStyle.Transient);
         }
 

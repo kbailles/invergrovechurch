@@ -2,8 +2,6 @@
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
-using InverGrove.Domain.Models;
-using InverGrove.Domain.Factories;
 
 namespace InverGrove.Domain.Services
 {
@@ -11,16 +9,13 @@ namespace InverGrove.Domain.Services
     {
         private readonly IPersonFactory personFactory;
         private readonly IPersonRepository personRepository;
-        
+        private readonly IUserVerificationRepository verificationRepository;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PersonService"/> class.
-        /// </summary>
-        /// <param name="personRepository">The person repository.</param>
-        public PersonService(IPersonRepository personRepository, IPersonFactory personFactory)
+        public PersonService(IPersonRepository personRepository, IPersonFactory personFactory, IUserVerificationRepository verificationRepository)
         {
             this.personRepository = personRepository;
             this.personFactory = personFactory;
+            this.verificationRepository = verificationRepository;
         }
 
         /// <summary>
@@ -33,11 +28,12 @@ namespace InverGrove.Domain.Services
         {
             Guard.ParameterNotNull(person, "person");
 
-            var personId = this.personRepository.Add(person); 
+            var personId = this.personRepository.Add(person);
 
-            if (person.IsUser)
+            if (person.IsUser && (personId > 0))
             {
                 // (1) Add row to UserVerification
+                var isNotified = this.verificationRepository.Add(personId);
 
                 // (2) Send email with UserVerfication ID
                 // TODO -  send notification email.

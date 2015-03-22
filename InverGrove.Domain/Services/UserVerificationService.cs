@@ -2,11 +2,11 @@
 using InverGrove.Domain.Models;
 namespace InverGrove.Domain.Services
 {
-    public class UserInviteNotificationService : IUserInviteNotificationService
+    public class UserVerificationService : IUserVerificationService
     {
-        private IUserInviteNotificationRepository repository;
+        private IUserVerificationRepository repository;
 
-        public UserInviteNotificationService(IUserInviteNotificationRepository repository)
+        public UserVerificationService(IUserVerificationRepository repository)
         {
             this.repository = repository;
         }

@@ -12,6 +12,7 @@ namespace InverGrove.Tests.Domain.Services
     {
         private Mock<IPersonRepository> personRepository;
         private Mock<IPersonFactory> personFactory;
+        private Mock<IUserVerificationRepository> verificaitonRepository;
         private PersonService personService;
 
         [TestInitialize]
@@ -19,7 +20,8 @@ namespace InverGrove.Tests.Domain.Services
         {
             this.personRepository = new Mock<IPersonRepository>();
             this.personFactory = new Mock<IPersonFactory>();
-            this.personService = new PersonService(this.personRepository.Object, this.personFactory.Object);
+            this.verificaitonRepository = new Mock<IUserVerificationRepository>();
+            this.personService = new PersonService(this.personRepository.Object, this.personFactory.Object, this.verificaitonRepository.Object);
         }
 
         [TestMethod]
