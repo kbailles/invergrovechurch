@@ -4,6 +4,12 @@ namespace InverGrove.Domain.Services
 {
     public class UserInviteNotificationService : IUserInviteNotificationService
     {
+        private IUserInviteNotificationRepository repository;
+
+        public UserInviteNotificationService(IUserInviteNotificationRepository repository)
+        {
+            this.repository = repository;
+        }
 
         /// <summary>
         /// Adds the user invite notice to the DB.
