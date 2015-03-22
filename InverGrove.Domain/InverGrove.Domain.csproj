@@ -127,7 +127,9 @@
     <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />
+    <Compile Include="Interfaces\IUserInviteNotificationRepository.cs" />
     <Compile Include="Interfaces\IUserInviteNotificationService.cs" />
+    <Compile Include="Interfaces\UserInviteNotificationRepository.cs" />
     <Compile Include="Models\UserVerification.cs" />
     <Compile Include="Models\RegisterUserResult.cs" />
     <Compile Include="Repositories\ChurchRoleRepository.cs" />
