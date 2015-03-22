@@ -11,13 +11,15 @@ namespace InverGrove.Tests.Domain.Services
     public class PersonServiceTests
     {
         private Mock<IPersonRepository> personRepository;
+        private Mock<IPersonFactory> personFactory;
         private PersonService personService;
 
         [TestInitialize]
         public void SetUp()
         {
             this.personRepository = new Mock<IPersonRepository>();
-            this.personService = new PersonService(this.personRepository.Object);
+            this.personFactory = new Mock<IPersonFactory>();
+            this.personService = new PersonService(this.personRepository.Object, this.personFactory.Object);
         }
 
         [TestMethod]

@@ -43,38 +43,34 @@ namespace InverGrove.Domain.Services
         /// <summary>
         /// Sends the new user email.
         /// </summary>
-        /// <param name="registeredUser">The registered user.</param>
+        /// <param name="personToRegister">The registered user.</param>
+        /// <param name="userVerificationId">The user verification identifier.</param>
         /// <returns></returns>
-        public bool SendNewUserEmail(IRegister registeredUser)
+        public bool SendNewUserEmail(IPerson personToRegister, Guid userVerificationId)
         {
-            Guard.ParameterNotNull(registeredUser, "registeredUser");
+            Guard.ParameterNotNull(personToRegister, "personToRegister");
 
             var message = new StringBuilder();
+            
+            message.Append(personToRegister.FirstName);
+            message.Append(",");
+            message.Append("<br><br>");
+            message.Append("This is a message to inform you that a new user account is ready to be created");
+            message.Append(" for you to access the member area at http://wwww.invergrovechurch.com.");
+            message.Append("<br> Please click on the following link to access the site and add your user name and password: ");
+            message.Append("http://www.invergrove.com/Account/ResetPassword?code=");
+            message.Append(userVerificationId);
 
-            if (registeredUser.Person != null)
-            {
-                message.Append(registeredUser.Person.FirstName);
-                message.Append(",");
-                message.Append("<br><br>");
-                message.Append("This is a message to inform you that a new user account has been added");
-                message.Append(" for you to access the member area at http://wwww.invergrovechurch.com.");
-                message.Append("<br> Please click on the following link to access the site and change your password: ");
-                message.Append("http://www.invergrove.com/Account/ResetPassword?code=");
-                message.Append(registeredUser.Password);
+            var mailMessage = new MailMessage
+                                {
+                                    IsBodyHtml = true,
+                                    Subject = "Inver Grove Church Notification",
+                                    Body = message.ToString()
+                                };
 
-                var mailMessage = new MailMessage
-                                  {
-                                      IsBodyHtml = true,
-                                      Subject = "Inver Grove Church Notification",
-                                      Body = message.ToString()
-                                  };
+            mailMessage.To.Add(personToRegister.PrimaryEmail);
 
-                mailMessage.To.Add(registeredUser.Person.PrimaryEmail);
-
-                return this.SendMail(mailMessage);
-            }
-
-            return false;
+            return this.SendMail(mailMessage);            
         }
 
         private bool SendMail(MailMessage mailMessage)

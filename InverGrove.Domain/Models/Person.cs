@@ -5,6 +5,7 @@ using InverGrove.Domain.Interfaces;
 using Invergrove.Domain.Models;
 using InverGrove.Domain.Resources;
 using InverGrove.Domain.ValueTypes;
+using System.Web.Mvc;
 
 namespace InverGrove.Domain.Models
 {
@@ -220,5 +221,21 @@ namespace InverGrove.Domain.Models
         /// The type of the account.
         /// </value>
         public bool IsUser { get; set; }
+
+        /// <summary>
+        /// Gets or sets the marital status list.
+        /// </summary>
+        /// <value>
+        /// The marital status list.
+        /// </value>
+        public IEnumerable<SelectListItem> MaritalStatusList { get; set; }
+
+        /// <summary>
+        /// Gets or sets the person type list.
+        /// </summary>
+        /// <value>
+        /// The person type list.
+        /// </value>
+        public IEnumerable<SelectListItem> ChurchRoleList { get; set; }
     }
 }

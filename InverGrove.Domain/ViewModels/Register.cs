@@ -33,88 +33,20 @@ namespace InverGrove.Domain.ViewModels
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is local.
+        /// Gets or sets the person identifier.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance is local; otherwise, <c>false</c>.
+        /// The person identifier.
         /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "IsLocalLabel")]
-        public bool IsLocal { get; set; }
+        public int PersonId { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is active.
+        /// Gets or sets the user email.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
+        /// The user email.
         /// </value>
-        [Required]
-        [Display(ResourceType = typeof(ViewLabels), Name = "IsActiveLabel")]
-        public bool IsActive { get; set; }
-
-        /// <summary>
-        /// Gets or sets the person.
-        /// </summary>
-        /// <value>
-        /// The person.
-        /// </value>
-        public Person Person { get; set; }
-
-        /// <summary>
-        /// Gets or sets the marital status id.
-        /// </summary>
-        /// <value>
-        /// The marital status id.
-        /// </value>
-        public int MaritalStatusId
-        {
-            get
-            {
-                if (this.Person == null)
-                {
-                    this.Person = ObjectFactory.Create<Person>();
-                }
-
-                return this.Person.MaritalStatusId;
-            }
-            set
-            {
-                if (this.Person == null)
-                {
-                    this.Person = ObjectFactory.Create<Person>();
-                }
-
-                this.Person.MaritalStatusId = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the person type id.
-        /// </summary>
-        /// <value>
-        /// The person type id.
-        /// </value>
-        public int? ChurchRoleId
-        {
-            get
-            {
-                if (this.Person == null)
-                {
-                    this.Person = ObjectFactory.Create<Person>();
-                }
-
-                return this.Person.ChurchRoleId;
-            }
-            set
-            {
-                if (this.Person == null)
-                {
-                    this.Person = ObjectFactory.Create<Person>();
-                }
-
-                this.Person.ChurchRoleId = value;
-            }
-        }
+        public string UserEmail { get; set; }
 
         /// <summary>
         /// Gets or sets the role identifier.
@@ -123,22 +55,6 @@ namespace InverGrove.Domain.ViewModels
         /// The role identifier.
         /// </value>
         public int RoleId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the marital status list.
-        /// </summary>
-        /// <value>
-        /// The marital status list.
-        /// </value>
-        public IEnumerable<SelectListItem> MaritalStatusList { get; set; }
-
-        /// <summary>
-        /// Gets or sets the person type list.
-        /// </summary>
-        /// <value>
-        /// The person type list.
-        /// </value>
-        public IEnumerable<SelectListItem> ChurchRoleList { get; set; }
 
         /// <summary>
         /// Gets or sets the roles.

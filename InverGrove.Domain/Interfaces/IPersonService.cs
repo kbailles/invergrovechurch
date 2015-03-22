@@ -18,5 +18,11 @@ namespace InverGrove.Domain.Interfaces
         /// </summary>
         /// <returns></returns>
         IEnumerable<IPerson> GetAll();
+
+        /// <summary>
+        /// Gets the base person.
+        /// </summary>
+        /// <returns></returns>
+        IPerson GetBasePerson();
     }
 }

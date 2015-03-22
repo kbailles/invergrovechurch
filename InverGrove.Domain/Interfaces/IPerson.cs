@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using InverGrove.Domain.Models;
+using System.Web.Mvc;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -157,5 +158,22 @@ namespace InverGrove.Domain.Interfaces
         /// The type of the account.
         /// </value>
         bool IsUser { get; set; }
+
+        /// <summary>
+        /// Gets or sets the marital status list.
+        /// </summary>
+        /// <value>
+        /// The marital status list.
+        /// </value>
+        IEnumerable<SelectListItem> MaritalStatusList { get; set; }
+
+        /// <summary>
+        /// Gets or sets the church role list.
+        /// </summary>
+        /// <value>
+        /// The church role list.
+        /// </value>
+        IEnumerable<SelectListItem> ChurchRoleList { get; set; }
+
     }
 }

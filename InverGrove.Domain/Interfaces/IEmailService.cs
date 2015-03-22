@@ -1,4 +1,6 @@
-﻿namespace InverGrove.Domain.Interfaces
+﻿using System;
+
+namespace InverGrove.Domain.Interfaces
 {
     public interface IEmailService
     {
@@ -12,8 +14,9 @@
         /// <summary>
         /// Sends the new user email.
         /// </summary>
-        /// <param name="registeredUser">The registered user.</param>
+        /// <param name="personToRegister">The person to register.</param>
+        /// <param name="userVerificationId">The user verification identifier.</param>
         /// <returns></returns>
-        bool SendNewUserEmail(IRegister registeredUser);
+        bool SendNewUserEmail(IPerson personToRegister, Guid userVerificationId);
     }
 }

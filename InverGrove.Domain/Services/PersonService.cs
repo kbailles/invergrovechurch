@@ -2,20 +2,25 @@
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
+using InverGrove.Domain.Models;
+using InverGrove.Domain.Factories;
 
 namespace InverGrove.Domain.Services
 {
     public class PersonService : IPersonService
     {
+        private readonly IPersonFactory personFactory;
         private readonly IPersonRepository personRepository;
+        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonService"/> class.
         /// </summary>
         /// <param name="personRepository">The person repository.</param>
-        public PersonService(IPersonRepository personRepository)
+        public PersonService(IPersonRepository personRepository, IPersonFactory personFactory)
         {
             this.personRepository = personRepository;
+            this.personFactory = personFactory;
         }
 
         /// <summary>
@@ -26,7 +31,7 @@ namespace InverGrove.Domain.Services
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
         public int AddPerson(IPerson person)
         {
-            Guard.ArgumentNotNull(person, "person");
+            Guard.ParameterNotNull(person, "person");
 
             var personId = this.personRepository.Add(person); 
 
@@ -40,6 +45,15 @@ namespace InverGrove.Domain.Services
             }
 
             return personId;
+        }
+
+        /// <summary>
+        /// Gets the base/default person.
+        /// </summary>
+        /// <returns></returns>
+        public IPerson GetBasePerson()
+        {
+            return this.personFactory.CreatePerson();
         }
 
         /// <summary>

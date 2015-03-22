@@ -23,12 +23,28 @@ namespace InverGrove.Domain.Interfaces
         string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets the person.
+        /// Gets or sets the role identifier.
         /// </summary>
         /// <value>
-        /// The person.
+        /// The role identifier.
         /// </value>
-        Person Person { get; set; }
+        int RoleId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the person identifier.
+        /// </summary>
+        /// <value>
+        /// The person identifier.
+        /// </value>
+        int PersonId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user email.
+        /// </summary>
+        /// <value>
+        /// The user email.
+        /// </value>
+        string UserEmail { get; set; }
 
     }
 }

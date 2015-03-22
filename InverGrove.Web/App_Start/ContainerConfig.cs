@@ -35,6 +35,7 @@ namespace InverGrove.Web
             var apiControllerFactory = new ApiControllerFactory(container);
             container.Register(Component.For<IHttpControllerActivator>().Instance(apiControllerFactory).LifeStyle.Singleton);
             container.Register(Component.For<IMembershipFactory>().ImplementedBy<MembershipFactory>().LifeStyle.Transient);
+            container.Register(Component.For<IPersonFactory>().ImplementedBy<PersonFactory>().LifeStyle.Transient);
         }
 
         private static void RegisterRepositories(IWindsorContainer container)
