@@ -1,6 +1,5 @@
 ﻿using System;
 using InverGrove.Data;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Repositories;
 using InverGrove.Domain.Utils;
 
@@ -24,7 +23,8 @@ namespace InverGrove.Domain.Interfaces
                                        PersonId = personId,
                                        Identifier = Guid.NewGuid(),
                                        DateSent = DateTime.Now,
-                                       DateAccessed = DateTime.MinValue /* not nullable */
+                                       DateAccessed = DateTime.MinValue // earlier than SQL Server's datetime minvalue so throws
+
                                    };
 
             this.Insert(userVerification);
