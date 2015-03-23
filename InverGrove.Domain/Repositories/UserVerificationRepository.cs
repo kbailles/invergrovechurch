@@ -23,7 +23,8 @@ namespace InverGrove.Domain.Interfaces
                                    {
                                        PersonId = personId,
                                        Identifier = Guid.NewGuid(),
-                                       DateSent = DateTime.Now
+                                       DateSent = DateTime.Now,
+                                       DateAccessed = DateTime.MinValue /* not nullable */
                                    };
 
             this.Insert(userVerification);

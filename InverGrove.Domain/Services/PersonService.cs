@@ -31,10 +31,10 @@ namespace InverGrove.Domain.Services
 
             var personId = this.personRepository.Add(person);
 
-            if (person.IsUser && (personId > 0))
+            if (person.IsUser && (personId > 0)) /* violating single interest here */
             {
                 // (1) Add row to UserVerification
-                var isNotified = this.verificationRepository.Add(personId);
+                var accessToken = this.verificationRepository.Add(personId);
 
                 // (2) Send email with UserVerfication ID
                 // TODO -  send notification email.
