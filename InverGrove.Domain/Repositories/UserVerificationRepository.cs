@@ -1,4 +1,6 @@
-﻿using InverGrove.Data;
+﻿using System;
+using InverGrove.Data;
+using InverGrove.Domain.Models;
 using InverGrove.Domain.Repositories;
 using InverGrove.Domain.Utils;
 
@@ -13,11 +15,25 @@ namespace InverGrove.Domain.Interfaces
         {
         }
 
-        public bool Add(int personId)
+        public Guid Add(int personId)
         {
             Guard.ParameterNotGreaterThanZero(personId, "personId");
 
-            return false;
+            var userVerification = new Data.Entities.UserVerification
+                                   {
+                                       PersonId = personId,
+                                       Identifier = Guid.NewGuid(),
+                                       DateSent = DateTime.Now
+                                   };
+
+            this.Insert(userVerification);
+
+            // TODO - TryCatch
+
+            this.dataContext.Commit();
+
+            return userVerification.Identifier;
+
         }
 
     }

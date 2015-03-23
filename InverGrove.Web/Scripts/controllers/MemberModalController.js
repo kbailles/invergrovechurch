@@ -19,7 +19,10 @@
         /*
          * Public declarations
          */
-        vm.personObj = {};
+        vm.personObj = {
+            // defaults
+            isUser:true
+            };
         vm.busy = false;
 
         vm.addPerson = addPerson;

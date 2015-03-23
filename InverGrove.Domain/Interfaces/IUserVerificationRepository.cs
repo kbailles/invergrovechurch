@@ -1,4 +1,6 @@
-﻿namespace InverGrove.Domain.Interfaces
+﻿using System;
+
+namespace InverGrove.Domain.Interfaces
 {
     /// <summary>
     /// Creates a notification record in the db for people being added to church directory
@@ -6,6 +8,7 @@
     /// </summary>
     public interface IUserVerificationRepository
     {
-        bool Add(int personId);
+
+        Guid Add(int personId);
     }
 }

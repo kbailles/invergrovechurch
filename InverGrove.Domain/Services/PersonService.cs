@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Services

@@ -298,6 +298,23 @@ namespace InverGrove.Domain.Extensions
             return string.IsNullOrEmpty(s) ? s : alphaNumeric.Replace(s, "");
         }
 
+
+        public static bool IsGuid(this string candidate)
+        {
+            bool isValid = false;
+            Regex isGuid = new Regex(@"^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$", RegexOptions.Compiled);
+
+            if (candidate != null)
+            {
+
+                if (isGuid.IsMatch(candidate))
+                {
+                    isValid = true;
+                }
+            }
+            return isValid;
+        }
+
         /// <summary>
         /// Toes the security answer.
         /// Answer will be stripped off of all punctuations, special characters and white spaces, converted to lowercase
