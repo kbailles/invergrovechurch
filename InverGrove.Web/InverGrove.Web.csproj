@@ -553,7 +553,7 @@
     <Content Include="Areas\Member\Views\Member\_ManageMembers.cshtml" />
     <Content Include="Areas\Member\Views\Member\_AddMember.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
-    <Content Include="Areas\Member\Views\Member\_DeleteUser.cshtml" />
+    <Content Include="Areas\Member\Views\Member\_DeleteMember.cshtml" />
     <Content Include="Areas\Member\Views\Member\_EditUser.cshtml" />
     <Content Include="Areas\Member\Views\Member\_ManageAttendance.cshtml" />
     <Content Include="Areas\Member\Views\Member\_AddAttendance.cshtml" />

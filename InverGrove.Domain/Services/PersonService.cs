@@ -3,6 +3,7 @@ using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
+using System;
 
 namespace InverGrove.Domain.Services
 {
@@ -28,18 +29,16 @@ namespace InverGrove.Domain.Services
         public int AddPerson(IPerson person)
         {
             Guard.ParameterNotNull(person, "person");
+            Guid acccessToken;
 
             var personId = this.personRepository.Add(person);
 
-            if (person.IsUser && (personId > 0)) /* violating single interest here */
+            if (person.IsUser && (personId > 0)) 
             {
-                // (1) Add row to UserVerification
-                var accessToken = this.verificationRepository.Add(personId);
-
-                // (2) Send email with UserVerfication ID
-                // TODO -  send notification email.
-                // bool hasSent = this.mailService.SendContactMail(contact);
+                acccessToken = this.verificationRepository.Add(personId);
             }
+
+ 
 
             return personId;
         }

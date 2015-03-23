@@ -17,11 +17,11 @@
         <div class="row">
             <div class="col-xs-6">
                 <label>Address:</label>
-                <input class="form-control" name="address1" ng-model="modalCtrl.personObj.address1" type="text" maxlength="50" />
+                <input class="form-control" name="addressOne" ng-model="modalCtrl.personObj.addressOne" type="text" maxlength="50" />
             </div>
             <div class="col-xs-6">
                 <label>Apartment #:</label>
-                <input class="form-control" name="address2" ng-model="modalCtrl.personObj.address2" type="text" maxlength="50" />
+                <input class="form-control" name="addressTwo" ng-model="modalCtrl.personObj.addressTwo" type="text" maxlength="50" />
             </div>
         </div>
         <div class="row">
@@ -60,11 +60,11 @@
         <div class="row">
             <div class="col-xs-6">
                 <input type="radio" name="isUser" ng-model="modalCtrl.personObj.isUser" ng-value="true">
-                <label class="LeftCushion">Allow access to login as Member</label>
+                <label class="LeftCushion">Login as member</label>
             </div>
             <div class="col-xs-6">
                 <input type="radio" name="isUser" ng-model="modalCtrl.personObj.isUser" value="false">
-                <label>No access to Member area of website.</label>             
+                <label>No member login</label>             
             </div>
         </div>
         <div class="row">
@@ -76,7 +76,7 @@
                 </select>
             </div>
             <div class="col-xs-6">
-                <label>Is this person been scripturally baptized? <span class="warning">*</span></label>           
+                <label>Person scripturally baptized? <span class="warning">*</span></label>           
                 <select name="isBaptized" ng-model="modalCtrl.personObj.isBaptized" class="form-control" style="width: 90px;" required>
                     <option value="true">Yes</option>
                     <option value="false">No</option>

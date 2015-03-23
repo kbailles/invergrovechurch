@@ -49,7 +49,7 @@
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/AddMember',
                 resolve: {
-                    user: function () {
+                    member: function () {
                         return {};
                     }
                 }
@@ -75,7 +75,7 @@
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/Delete',
                 resolve: {
-                    user: function () {
+                    member: function () {
                         return member;
                     }
                 }

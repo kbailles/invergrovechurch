@@ -58,6 +58,12 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [HttpGet]
+        public ActionResult DeleteMember()
+        {
+            return PartialView("_DeleteMember");
+        }
+
+        [HttpGet]
         public ActionResult GetAllUsers()
         {
             var people = this.personService.GetAll();

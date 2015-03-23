@@ -22,9 +22,7 @@ namespace InverGrove.Domain.Interfaces
                                    {
                                        PersonId = personId,
                                        Identifier = Guid.NewGuid(),
-                                       DateSent = DateTime.Now,
-                                       DateAccessed = DateTime.MinValue // earlier than SQL Server's datetime minvalue so throws
-
+                                       DateSent = DateTime.Now
                                    };
 
             this.Insert(userVerification);

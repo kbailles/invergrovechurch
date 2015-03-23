@@ -189,10 +189,7 @@
   <data name="IsBaptizedLabel" xml:space="preserve">
     <value>Is Baptized</value>
   </data>
-  <data name="IsLocalLabel" xml:space="preserve">
-    <value>Is Local</value>
-  </data>
-  <data name="IsMemberLabel" xml:space="preserve">
+   <data name="IsMemberLabel" xml:space="preserve">
     <value>Is Member</value>
   </data>
   <data name="IsVisitorLabel" xml:space="preserve">

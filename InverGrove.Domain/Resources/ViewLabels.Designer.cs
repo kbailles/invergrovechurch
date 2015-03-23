@@ -158,7 +158,7 @@ namespace InverGrove.Domain.Resources {
                 return ResourceManager.GetString("IsBaptizedLabel", resourceCulture);
             }
         }
-                
+        
         /// <summary>
         ///   Looks up a localized string similar to Is Member.
         /// </summary>

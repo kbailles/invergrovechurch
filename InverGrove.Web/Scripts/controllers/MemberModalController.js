@@ -10,30 +10,28 @@
 
     MemberModalController.$inject = [
         '$modalInstance',
-        '$rootScope'
+        '$rootScope',
+        'member'
     ];
 
-    function MemberModalController($modalInstance, $rootScope) {
+    function MemberModalController($modalInstance, $rootScope, member) {
         var vm = this;
 
-        /*
-         * Public declarations
-         */
         vm.personObj = {
             // defaults
             isUser:true
-            };
-        vm.busy = false;
+        };
 
+        vm.busy = false;
+        vm.member = angular.copy(member) || {};
         vm.addPerson = addPerson;
+        vm.deletePerson = deletePerson;
+
         vm.$modalInstance = $modalInstance;
         vm.dismissModal = dismissModal;
 
         activate();
 
-        /*
-         * Private declarations
-         */
         function activate() {
         }
 
@@ -44,6 +42,11 @@
         function addPerson() {
             vm.busy = true;
             $rootScope.$broadcast('addMember', vm.personObj);
+        }
+
+        function deletePerson() {
+            vm.busy = true;
+            $rootScope.$broadcast('deletePerson', vm.member);
         }
     }
 })();
