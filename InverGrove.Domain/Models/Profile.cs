@@ -50,14 +50,6 @@ namespace InverGrove.Domain.Models
         public bool ReceiveEmailNotification { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is local.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is local; otherwise, <c>false</c>.
-        /// </value>
-        public bool IsLocal { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this instance is active.
         /// </summary>
         /// <value>

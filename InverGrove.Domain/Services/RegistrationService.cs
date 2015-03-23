@@ -106,7 +106,7 @@ namespace InverGrove.Domain.Services
             if ((newMembership.MembershipId > 0) && (newMembership.UserId > 0))
             {
                 registerUserResult.Success = this.profileService.AddProfile(newMembership.UserId, userToRegister.PersonId, 
-                    true, true, true) > 0;
+                    true, true) > 0;
 
                 var roleId = userToRegister.RoleId <= 0 ? 
                     this.roleRepository.Get(x => x.Description == DefaultMemberRole).First().RoleId : userToRegister.RoleId;

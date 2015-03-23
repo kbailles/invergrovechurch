@@ -242,7 +242,6 @@ namespace InverGrove.Domain.Extensions
             profile.ReceiveEmailNotification = profileModel.ReceiveEmailNotification;
             profile.IsActive = profileModel.IsActive;
             profile.IsDisabled = profileModel.IsDisabled;
-            profile.IsLocal = profileModel.IsLocal;
             profile.IsValidated = profileModel.IsValidated;
             profile.UserId = profileModel.UserId;
             profile.DateModified = profileModel.DateModified;
@@ -270,7 +269,6 @@ namespace InverGrove.Domain.Extensions
             profileModel.ReceiveEmailNotification = profile.ReceiveEmailNotification;
             profileModel.IsActive = profile.IsActive;
             profileModel.IsDisabled = profile.IsDisabled;
-            profileModel.IsLocal = profile.IsLocal;
             profileModel.IsValidated = profile.IsValidated;
             profileModel.UserId = profile.UserId;
             profileModel.DateModified = profile.DateModified;

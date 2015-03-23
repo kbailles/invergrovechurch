@@ -14,8 +14,6 @@ namespace InverGrove.Data.Entities
 
         public int PersonId { get; set; }        
 
-        public bool IsLocal { get; set; }
-
         public bool IsActive { get; set; }
 
         public bool IsDisabled { get; set; }

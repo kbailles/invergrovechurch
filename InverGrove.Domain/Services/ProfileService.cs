@@ -43,11 +43,10 @@ namespace InverGrove.Domain.Services
 		/// </summary>
 		/// <param name="userId">The user identifier.</param>
 		/// <param name="personId">The person identifier.</param>
-		/// <param name="isLocal">if set to <c>true</c> [is local].</param>
 		/// <param name="isActive">if set to <c>true</c> [is active].</param>
 		/// <param name="isValidated">if set to <c>true</c> [is validated].</param>
 		/// <returns></returns>
-		public int AddProfile(int userId, int personId, bool isLocal, bool isActive, bool isValidated)
+		public int AddProfile(int userId, int personId, bool isActive, bool isValidated)
 		{
 			var profile = ProfileFactory.Instance.Create(userId, personId, isActive, isValidated);
 			profile.IsDisabled = false;
@@ -63,11 +62,10 @@ namespace InverGrove.Domain.Services
 		/// </summary>
 		/// <param name="person">The person.</param>
 		/// <param name="userId">The user identifier.</param>
-		/// <param name="isLocal">if set to <c>true</c> [is local].</param>
 		/// <param name="isActive">if set to <c>true</c> [is active].</param>
 		/// <param name="isValidated">if set to <c>true</c> [is validated].</param>
 		/// <returns></returns>
-		public bool AddPersonProfile(IPerson person, int userId, bool isLocal, bool isActive, bool isValidated)
+		public bool AddPersonProfile(IPerson person, int userId, bool isActive, bool isValidated)
 		{
 			Guard.ParameterNotNull(person, "person");
 			Guard.ParameterNotOutOfRange(userId, "userId");

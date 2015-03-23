@@ -27,14 +27,12 @@ namespace InverGrove.Domain.Factories
         /// <param name="personId">The person identifier.</param>
         /// <param name="isActive">if set to <c>true</c> [is active].</param>
         /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
-        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <returns></returns>
-        public IProfile Create(int userId, int personId,bool isActive, bool isValidated, bool isLocal=true)
+        public IProfile Create(int userId, int personId,bool isActive, bool isValidated)
         {
             return new Profile
             {
                 IsActive = isActive,
-                IsLocal = isLocal,
                 IsValidated = isValidated,
                 PersonId = personId,
                 UserId = userId
@@ -59,7 +57,6 @@ namespace InverGrove.Domain.Factories
                               UserId = (int) collection["UserId"].PropertyValue,
                               ReceiveEmailNotification = (bool) collection["ReceiveEmailNotification"].PropertyValue,
                               PersonId = (int) collection["PersonId"].PropertyValue,
-                              IsLocal = (bool) collection["IsLocal"].PropertyValue,
                               IsActive = (bool) collection["IsActive"].PropertyValue,
                               IsDisabled = (bool) collection["IsDisabled"].PropertyValue,
                               IsValidated = (bool) collection["IsValidated"].PropertyValue,
@@ -95,7 +92,6 @@ namespace InverGrove.Domain.Factories
                 spvc["UserId"].PropertyValue = profile.UserId;
                 spvc["ReceiveEmailNotification"].PropertyValue = profile.ReceiveEmailNotification;
                 spvc["PersonId"].PropertyValue = profile.PersonId;
-                spvc["IsLocal"].PropertyValue = profile.IsLocal;
                 spvc["IsActive"].PropertyValue = profile.IsActive;
                 spvc["IsDisabled"].PropertyValue = profile.IsDisabled;
                 spvc["IsValidated"].PropertyValue = profile.IsValidated;

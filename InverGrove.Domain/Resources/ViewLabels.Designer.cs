@@ -158,16 +158,7 @@ namespace InverGrove.Domain.Resources {
                 return ResourceManager.GetString("IsBaptizedLabel", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is Local.
-        /// </summary>
-        public static string IsLocalLabel {
-            get {
-                return ResourceManager.GetString("IsLocalLabel", resourceCulture);
-            }
-        }
-        
+                
         /// <summary>
         ///   Looks up a localized string similar to Is Member.
         /// </summary>

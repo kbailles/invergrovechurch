@@ -153,7 +153,6 @@ namespace InverGrove.Data
                 ReceiveEmailNotification = false,
                 IsActive = true,
                 IsDisabled = false,
-                IsLocal = true,
                 IsValidated = true,
                 UserId = keenanSiteAdminMembership.UserId,
                 DateModified = timeStamp,

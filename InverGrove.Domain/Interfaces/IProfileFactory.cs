@@ -12,9 +12,8 @@ namespace InverGrove.Domain.Interfaces
         /// <param name="personId">The person identifier.</param>
         /// <param name="isActive">if set to <c>true</c> [is active].</param>
         /// <param name="isValidated">if set to <c>true</c> [is validated].</param>
-        /// <param name="isLocal">if set to <c>true</c> [is local].</param>
         /// <returns></returns>
-        IProfile Create(int userId, int personId, bool isActive, bool isValidated, bool isLocal = true);
+        IProfile Create(int userId, int personId, bool isActive, bool isValidated);
 
         /// <summary>
         /// Creates the Profile from the specified collection.

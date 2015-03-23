@@ -77,7 +77,7 @@ namespace InverGrove.Tests.Domain.Services
 
             this.registrationService.RegisterUser(newUser);
 
-            this.profileService.Verify(p => p.AddProfile(It.IsAny<int>(), It.IsAny<int>(), true, true, true));
+            this.profileService.Verify(p => p.AddProfile(It.IsAny<int>(), It.IsAny<int>(), true, true));
         }
 
         [TestMethod]
@@ -92,7 +92,7 @@ namespace InverGrove.Tests.Domain.Services
             this.membershipService.Setup(
                 m => m.CreateMembershipUser(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),
                     It.IsAny<string>(), It.IsAny<string>(), false, MembershipPasswordFormat.Hashed)).Returns(newMembership);
-            this.profileService.Setup(p => p.AddProfile(It.IsAny<int>(), It.IsAny<int>(), false, false, true)).Returns(5);
+            this.profileService.Setup(p => p.AddProfile(It.IsAny<int>(), It.IsAny<int>(), false, true)).Returns(5);
             this.userRoleRepository.Setup(u => u.AddUserToRole(newMembership.UserId, newUser.RoleId));
 
             this.registrationService.RegisterUser(newUser);

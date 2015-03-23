@@ -96,7 +96,6 @@ namespace InverGrove.Data.Migrations
                         UserId = c.Int(nullable: false),
                         ReceiveEmailNotification = c.Boolean(nullable: false),
                         PersonId = c.Int(nullable: false),
-                        IsLocal = c.Boolean(nullable: false),
                         IsActive = c.Boolean(nullable: false),
                         IsDisabled = c.Boolean(nullable: false),
                         IsValidated = c.Boolean(nullable: false),
