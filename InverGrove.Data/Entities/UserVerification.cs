@@ -19,7 +19,7 @@ namespace InverGrove.Data.Entities
         public Guid Identifier { get; set; }
         [Required]
         public DateTime DateSent { get; set; }
-        public DateTime DateAccessed { get; set; }
+        public DateTime? DateAccessed { get; set; }
 
     }
 }

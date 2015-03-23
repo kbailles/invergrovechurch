@@ -84,6 +84,10 @@
     <Compile Include="Migrations\201503160241576_UserVerificationAddition.Designer.cs">
       <DependentUpon>201503160241576_UserVerificationAddition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503231629226_UserVerificationProfileUpdates.cs" />
+    <Compile Include="Migrations\201503231629226_UserVerificationProfileUpdates.Designer.cs">
+      <DependentUpon>201503231629226_UserVerificationProfileUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503160241576_UserVerificationAddition.resx">
       <DependentUpon>201503160241576_UserVerificationAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503231629226_UserVerificationProfileUpdates.resx">
+      <DependentUpon>201503231629226_UserVerificationProfileUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
