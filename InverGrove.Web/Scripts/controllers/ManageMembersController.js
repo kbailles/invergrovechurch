@@ -73,7 +73,7 @@
             vm.$modalInstance = $modal.open({
                 controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
-                templateUrl: '/Member/Member/Delete',
+                templateUrl: '/Member/Member/DeleteMember',
                 resolve: {
                     member: function () {
                         return member;
