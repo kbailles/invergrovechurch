@@ -40,5 +40,17 @@
                 });
         }
 
+        this.delete = function (person) {
+
+            alert('finally hit the member service');
+
+            //return $http({ method: 'POST', url: '/Member/Member/Delete', data: { person: person } }).
+            //    success(function (data, status, headers, config) {
+            //        return data;
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
+        }
+
     }
 })();

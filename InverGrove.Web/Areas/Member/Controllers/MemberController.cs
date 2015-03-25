@@ -78,5 +78,14 @@ namespace InverGrove.Web.Areas.Member.Controllers
             var personAdded = this.personService.AddPerson(person);
             return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
+
+        [HttpPost]
+        public ActionResult Delete(Person person)
+        {
+            Guard.ArgumentNotNull(person, "person:");
+
+            var personAdded = this.personService.Delete(person);
+            return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+        }
     }
 }

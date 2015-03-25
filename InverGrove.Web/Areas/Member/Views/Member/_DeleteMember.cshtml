@@ -1,10 +1,10 @@
 ﻿<div class="modal-header">
-    <h3 class="modal-title">Delete Sermon</h3>
+    <h3 class="modal-title">Delete Member</h3>
 </div>
 <div class="modal-body">
-    <p>Are you sure you want to delete  "{{modalCtrl.member.firstName}}"?</p>
+    <p>Are you sure you want to delete {{modalCtrl.member.firstName}} {{modalCtrl.member.lastName}}?</p>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Deleting..." ng-click="modalCtrl.deleteSermon()">Delete</button>
+    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Deleting..." ng-click="modalCtrl.deletePerson(modalCtrl.member)">Delete</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>

@@ -101,44 +101,22 @@
         });
 
         $scope.$on('editMember', function (event, member) {
-            var memberToEdit = _.find(vm.members, function (s) {
-                return s.memberId === member.memberId;
-            });
 
-            if (!memberToEdit) {
-                return;
-            }
+            // everythinbg here invalid
 
-            vm.UserService.update(member).then(function (response) {
-                var index = vm.members.indexOf(memberToEdit);
-                vm.members[index] = member;
-            },
-            function (error) {
-
-            })
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
-            });
         });
 
-        $scope.$on('deleteMember', function (event, member) {
-            var memberToDelete = _.find(vm.members, function (s) {
-                return s.memberId === member.memberId;
-            });
+        $scope.$on('deletePerson', function (event, member) {
 
-            if (!memberToDelete) {
-                return;
-            }
-
-            vm.UserService.delete(memberToDelete).then(function (response) {
-                var index = vm.members.indexOf(memberToDelete);
+            vm.MemberService.delete(member).then(function (response) {
+                var index = vm.members.indexOf(member);
 
                 if (index > -1) {
                     vm.members.splice(index, 1);
                 }
             },
             function (error) {
-
+                alert('oops'); // remove
             })
             .finally(function () {
                 vm.$modalInstance.dismiss('cancel');

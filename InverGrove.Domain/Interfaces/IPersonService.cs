@@ -24,5 +24,12 @@ namespace InverGrove.Domain.Interfaces
         /// </summary>
         /// <returns></returns>
         IPerson GetBasePerson();
+
+        /// <summary>
+        /// Deletes the specified person.
+        /// </summary>
+        /// <param name="Person">The person.</param>
+        /// <returns></returns>
+        int Delete(IPerson Person);
     }
 }
