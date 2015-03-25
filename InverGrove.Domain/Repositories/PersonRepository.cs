@@ -24,6 +24,7 @@ namespace InverGrove.Domain.Repositories
         {
         }
 
+
         /// <summary>
         /// Adds the specified person.
         /// </summary>
@@ -120,6 +121,33 @@ namespace InverGrove.Domain.Repositories
             }
 
             return currentPerson;
+        }
+
+        public bool Delete(IPerson person)
+        {
+            Guard.ArgumentNotNull(person, "person");
+
+            var entityPerson = this.GetById(person.PersonId);
+
+            if (entityPerson == null)
+            {            
+                return true; // already deleted by concurrent user?  all the better.
+            }
+
+            try 
+            {     
+                base.Delete(entityPerson);
+                this.Save();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
+                throw new ApplicationException("Error occurred in attempting to delete Person with PersonId: " + person.PersonId +
+                                               " with message: " + ex.Message);
+            }
+
+            return false;
         }
 
     }

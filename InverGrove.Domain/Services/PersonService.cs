@@ -63,8 +63,9 @@ namespace InverGrove.Domain.Services
             return people.ToModelCollection();
         }
 
-        public int Delete(IPerson Person)
+        public int Delete(IPerson person)
         {
+            var foo = this.personRepository.Delete(person);
             return 0;
         }
     }

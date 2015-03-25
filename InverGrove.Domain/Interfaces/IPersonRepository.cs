@@ -6,6 +6,7 @@ namespace InverGrove.Domain.Interfaces
 {
     public interface IPersonRepository : IEntityRepository<Data.Entities.Person, int>
     {
+
         /// <summary>
         /// Adds the specified person.
         /// </summary>
@@ -20,5 +21,7 @@ namespace InverGrove.Domain.Interfaces
         /// <param name="person">The person.</param>
         /// <returns></returns>
         IPerson Update(IPerson person);
+
+        bool Delete(IPerson person);
     }
 }
