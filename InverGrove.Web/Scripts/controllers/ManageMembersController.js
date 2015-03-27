@@ -101,19 +101,14 @@
         });
 
         $scope.$on('editMember', function (event, member) {
-
-            // everythinbg here invalid
-
+            // stubbed
         });
 
         $scope.$on('deletePerson', function (event, member) {
 
             vm.MemberService.delete(member).then(function (response) {
-                var index = vm.members.indexOf(member);
-
-                if (index > -1) {
-                    vm.members.splice(index, 1);
-                }
+                
+                vm.members = _.reject(vm.members, { personId: member.personId });
             },
             function (error) {
                 alert('oops'); // remove

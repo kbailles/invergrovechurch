@@ -65,8 +65,17 @@ namespace InverGrove.Domain.Services
 
         public int Delete(IPerson person)
         {
-            var foo = this.personRepository.Delete(person);
-            return 0;
+            var isDeleted = this.personRepository.Delete(person);
+
+            if (isDeleted)
+            {
+                return person.PersonId;
+            }
+            else
+            {
+                return 0;          
+            }
+ 
         }
     }
 }
