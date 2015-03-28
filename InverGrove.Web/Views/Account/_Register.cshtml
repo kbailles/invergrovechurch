@@ -1,18 +1,7 @@
-﻿@{
-    Layout = "~/Views/Account/_Layout.cshtml";
-    ViewBag.Title = "Create a Username and Password";
-}
+﻿<div id="RegistertForm" class="login-content">
+    <h3 class="title">{{vm.header2}}</h3>
 
-<div id="ContactForm" class="login-content" ng-controller="AccountCtrl as vm">
-    <h3 class="title">Create a Username and Password</h3>
-
-    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
-
-    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form", novalidate = true }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "")
-
+    <form name="form" novalidate>
         <fieldset class="reply">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -29,14 +18,15 @@
 
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <label>Password: <span class="warning">*</span></label>
+                    <label>Confirm Password: <span class="warning">*</span></label>
                     <input class="form-control" name="PasswordConfirm" type="password" maxlength="50" required />
                 </div>
             </div>
 
         </fieldset>
 
-        <button ng-click="vm.login()" btn-loading="vm.busy" data-loading-text="Logging In..." class="btn btn-normal btn-color" style="width: 100%;">Log In</button>
+        <button class="btn btn-normal btn-color" style="width: 100%;">Log In</button>
         <div class="clearfix"></div>
-    }
+
+    </form>
 </div>

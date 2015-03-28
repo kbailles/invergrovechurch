@@ -145,10 +145,8 @@ namespace InverGrove.Web.Controllers
 
             if (accessToken.IsGuid())
             {
-                // valid -      B24E7772-4874-4EA8-80A3-72B703481135
-                // invalid -    C34E1183-4874-4EC8-80A3-73C704482235
-
-                return View();
+                // page will request data on authToken via angular
+                return View("_Register");
             }
             else
             {
@@ -158,8 +156,8 @@ namespace InverGrove.Web.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet]
-        public ActionResult Register(Register model)
+        [HttpPost]
+        public ActionResult GetPreRegister(Register model)
         {
             string accessToken = Request.QueryString["code"];
 
@@ -167,8 +165,8 @@ namespace InverGrove.Web.Controllers
             // invalid -    C34E1183-4874-4EC8-80A3-73C704482235
 
             if (ModelState.IsValid && accessToken.IsGuid())
-            { 
-            
+            {
+                var foo = "All is well, now we will call a service and validate the guid against an actual identity.";
             }
 
 
@@ -176,6 +174,8 @@ namespace InverGrove.Web.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+
+
 
     }
 }

@@ -485,6 +485,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app.account.routes.js" />
     <Content Include="Scripts\app.contactus.routes.js" />
     <Content Include="Scripts\app.module.js" />
     <Content Include="Scripts\app.sermon.routes.js" />
@@ -504,6 +505,7 @@
     <Content Include="Scripts\controllers\MemberModalController.js" />
     <Content Include="Scripts\controllers\NewsEventsModalController.js" />
     <Content Include="Scripts\controllers\PrayerRequestModalController.js" />
+    <Content Include="Scripts\controllers\RegisterController.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
     <Content Include="Scripts\controllers\SermonModalController.js" />
     <Content Include="Scripts\controllers\ViewSermonsController.js" />
@@ -679,6 +681,7 @@
     <Content Include="Scripts\services\SermonService.js" />
     <Content Include="Scripts\services\services.module.js" />
     <Content Include="Scripts\services\MemberService.js" />
+    <Content Include="Scripts\services\UserService.js" />
     <Content Include="Tests\controllers\BaseControllerTests.js" />
     <Content Include="Tests\dependencies\core.references.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
@@ -728,7 +731,7 @@
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
