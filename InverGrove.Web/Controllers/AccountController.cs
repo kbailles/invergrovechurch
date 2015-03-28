@@ -4,7 +4,11 @@ using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Resources;
 using InverGrove.Domain.Utils;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.ViewModels;
+using System.Linq;
+using System;
+using System.Web;
 
 namespace InverGrove.Web.Controllers
 {
@@ -126,7 +130,52 @@ namespace InverGrove.Web.Controllers
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
+            //if (this.User.Identity.IsAuthenticated)
+            //{
+            //    return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
+            //}
             return View();
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult Register()
+        {
+            string accessToken = Request.QueryString["code"];
+
+            if (accessToken.IsGuid())
+            {
+                // valid -      B24E7772-4874-4EA8-80A3-72B703481135
+                // invalid -    C34E1183-4874-4EC8-80A3-73C704482235
+
+                return View();
+            }
+            else
+            {
+                // until we decide what to do with hack attempts. 
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult Register(Register model)
+        {
+            string accessToken = Request.QueryString["code"];
+
+            // valid -      B24E7772-4874-4EA8-80A3-72B703481135
+            // invalid -    C34E1183-4874-4EC8-80A3-73C704482235
+
+            if (ModelState.IsValid && accessToken.IsGuid())
+            { 
+            
+            }
+
+
+            // until we decide what to do with hack attempts. 
+            return RedirectToAction("Index", "Home");
+
+        }
+
     }
 }

@@ -38,8 +38,6 @@ namespace InverGrove.Domain.Services
                 acccessToken = this.verificationRepository.Add(personId);
             }
 
- 
-
             return personId;
         }
 
