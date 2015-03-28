@@ -21,6 +21,9 @@
 
         activate(); // set this thing off
 
-        function activate() { /* nothing to activate for now */ }
+        function activate()
+        {
+            alert('the RegisterController.js just fired off!');
+        }
     }
 })();

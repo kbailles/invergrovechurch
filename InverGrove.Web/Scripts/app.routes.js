@@ -11,12 +11,12 @@
     function routes($routeProvider) {
         $routeProvider
 
-            .when('/', {
-                templateUrl: '/Home/Home',
-                controller: 'HomeCtrl',
-                controllerAs: 'vm'
-            })
+        .when('/', {
+            templateUrl: '/Home/Home',
+            controller: 'HomeCtrl',
+            controllerAs: 'vm'
+        })
 
-            .otherwise({ redirectTo: '/' });
+        .otherwise({ redirectTo: '/' });
     }
 })();
