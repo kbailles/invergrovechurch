@@ -13,11 +13,8 @@
     function RegisterController($scope) {
         var vm = this;
 
-        vm.header2 = 'Register As New User'
+        vm.header2 = 'Register As New User';
         vm.busy = false;
-
-        //ui.bootstrap watches $scope object
-        $scope.alerts = [];
 
         //ui.bootstrap watches $scope object
         $scope.alerts = [];
