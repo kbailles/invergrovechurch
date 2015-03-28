@@ -14,8 +14,6 @@ namespace InverGrove.Web
                 "~/Scripts/app.sermon.routes.js"));
             bundles.Add(new ScriptBundle("~/Scripts/scripts/route/contactus").Include(
                 "~/Scripts/app.contactus.routes.js"));
-             bundles.Add(new ScriptBundle("~/Scripts/scripts/route/account").Include(
-                "~/Scripts/app.account.routes.js"));
 
             //Core bundles
             bundles.Add(new StyleBundle("~/Components/css/core").Include(
@@ -139,7 +137,6 @@ namespace InverGrove.Web
                 "~/Scripts/controllers/ManageNewsEventsController.js",
                 "~/Scripts/controllers/ManagePrayerRequestsController.js",
                 "~/Scripts/controllers/MemberModalController.js",
-                "~/Scripts/controllers/RegisterController.js", 
                 "~/Scripts/controllers/SermonDetailController.js",
                 "~/Scripts/controllers/SermonModalController.js",
                 "~/Scripts/controllers/ViewSermonsController.js",
