@@ -67,76 +67,6 @@ namespace InverGrove.Web.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
-        {
-            FormsAuthentication.SignOut();
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
-        {
-            var resetModel = ObjectFactory.Create<ResetPassword>();
-            resetModel.Code = code;
-
-            return string.IsNullOrEmpty(code) ? View("Error") : View(resetModel);
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult ResetPassword(ResetPassword model)
-        {
-            Guard.ParameterNotNull(model, "model");
-
-            if (model.Password != model.ConfirmPassword)
-            {
-                ModelState.AddModelError("Password", Messages.ConfirmPasswordErrorMessage);
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var user = Membership.GetUser(model.UserName, true);
-
-            if (user == null)
-            {
-                // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
-            }
-
-            var result = this.membershipProvider.ChangePassword(model.UserName, model.Code, model.Password);
-
-            if (result)
-            {
-                result = this.membershipProvider.UpdateSecurityQuestionAnswer(model.UserName, model.PasswordQuestion, model.PasswordAnswer);
-            }
-
-            if (result)
-            {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
-            }
-
-            return View();
-        }
-
-        //
-        // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
-        public ActionResult ResetPasswordConfirmation()
-        {
-            //if (this.User.Identity.IsAuthenticated)
-            //{
-            //    return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
-            //}
-            return View();
-        }
-
         [AllowAnonymous]
         [HttpGet]
         public ActionResult Register()
@@ -146,14 +76,25 @@ namespace InverGrove.Web.Controllers
             if (accessToken.IsGuid())
             {
                 // page will request data on authToken via angular
-                return View("_Register");
+                return View();
             }
             else
             {
-                // until we decide what to do with hack attempts. 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
             }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
 
         [AllowAnonymous]
         [HttpPost]
