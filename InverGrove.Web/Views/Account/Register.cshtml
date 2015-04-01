@@ -14,19 +14,19 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Username: <span class="warning">*</span></label>
-                    <input ng-model="vm.newUserObj.userName" class="form-control" name="userName" type="text" maxlength="50" required />
+                    <input ng-model="vm.newUserObj.userName" class="form-control" name="userName" type="text"  ng-minlength="4" ng-maxlength="25" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Password: <span class="warning">*</span></label>
-                    <input ng-model="vm.newUserObj.password" class="form-control" name=password" type="password" maxlength="50" required />
+                    <input ng-model="vm.newUserObj.password" class="form-control" name=password" type="password" ng-minlength="8" ng-maxlength="25" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Confirm Password: <span class="warning">*</span></label>
-                    <input ng-model="vm.newUserObj.passwordConfirm" class="form-control" name=passwordConfirm" type="password" maxlength="50" required />
+                    <input ng-model="vm.newUserObj.passwordConfirm" class="form-control" name=passwordConfirm" type="password" ng-minlength="8" ng-maxlength="25" required />
                 </div>
             </div>
         </fieldset>
