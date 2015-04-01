@@ -1,5 +1,7 @@
-﻿using InverGrove.Domain.Interfaces;
+﻿using System;
+using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
+
 namespace InverGrove.Domain.Services
 {
     public class UserVerificationService : IUserVerificationService
@@ -23,13 +25,8 @@ namespace InverGrove.Domain.Services
             throw new System.NotImplementedException();
         }
 
-        /// <summary>
-        /// Gets the user invite notice from the DB.
-        /// </summary>
-        /// <param name="personId">The person identifier.</param>
-        /// <returns></returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public UserVerification GetUserInviteNotice(int personId)
+
+        public UserVerification GetUserInviteNotice(Guid identifier)
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -8,7 +9,7 @@ namespace InverGrove.Domain.Interfaces
     /// </summary>
     public interface IUserVerificationRepository
     {
-
         Guid Add(int personId);
+        IUserVerification Get(Guid identifier);
     }
 }

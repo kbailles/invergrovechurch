@@ -35,5 +35,10 @@ namespace InverGrove.Domain.Interfaces
 
         }
 
+
+        public IUserVerification Get(Guid identifier)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -107,6 +107,7 @@ namespace InverGrove.Web.Controllers
 
             if (ModelState.IsValid && accessToken.IsGuid())
             {
+
                 var foo = "All is well, now we will call a service and validate the guid against an actual identity.";
             }
 

@@ -130,6 +130,7 @@
     <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />
+    <Compile Include="Interfaces\IUserVerification.cs" />
     <Compile Include="Interfaces\IUserVerificationRepository.cs" />
     <Compile Include="Interfaces\IUserVerificationService.cs" />
     <Compile Include="Repositories\UserVerificationRepository.cs" />

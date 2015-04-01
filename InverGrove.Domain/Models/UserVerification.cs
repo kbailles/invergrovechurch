@@ -1,8 +1,9 @@
 ﻿using System;
+using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Models
 {
-    public class UserVerification
+    public class UserVerification : IUserVerification
     {
         public int UserVerificationId { get; set; }
 
@@ -17,6 +18,8 @@ namespace InverGrove.Domain.Models
         public Guid Identifier { get; set; }
 
         public DateTime DateSent { get; set; }
-        public DateTime DateAccessed { get; set; }  
+        public DateTime DateAccessed { get; set; }
+
+        public string PersonName { get; set; }
     }
 }
