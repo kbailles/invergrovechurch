@@ -147,8 +147,6 @@ namespace InverGrove.Domain.Repositories
                 throw new ApplicationException("Error occurred in attempting to delete Person with PersonId: " + person.PersonId +
                                                " with message: " + ex.Message);
             }
-
-            return false;
         }
 
     }
