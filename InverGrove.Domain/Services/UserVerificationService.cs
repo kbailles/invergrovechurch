@@ -1,6 +1,7 @@
 ﻿using System;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
+using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Services
 {
@@ -26,9 +27,10 @@ namespace InverGrove.Domain.Services
         }
 
 
-        public UserVerification GetUserInviteNotice(Guid identifier)
+        public IUserVerification GetUserInviteNotice(Guid identifier)
         {
-            throw new System.NotImplementedException();
+            Guard.ParameterGuidNotEmpty(identifier, "identifier");
+            return this.repository.Get(identifier);
         }
     }
 }
