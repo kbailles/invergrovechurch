@@ -1,14 +1,14 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Linq;
 using InverGrove.Data;
-using Invergrove.Domain.Models;
-using InverGrove.Domain.Repositories;
+using InverGrove.Data.Entities;
+using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
-using System.Data.SqlClient;
 
-namespace InverGrove.Domain.Interfaces
+namespace InverGrove.Domain.Repositories
 {
-    public class UserVerificationRepository : EntityRepository<Data.Entities.UserVerification, int>, IUserVerificationRepository
+    public class UserVerificationRepository : EntityRepository<UserVerification, int>, IUserVerificationRepository
     {
         public UserVerificationRepository(IInverGroveContext dataContext) 
             : base(dataContext)
@@ -24,7 +24,7 @@ namespace InverGrove.Domain.Interfaces
         {
             Guard.ParameterNotGreaterThanZero(personId, "personId");
 
-            var userVerification = new Data.Entities.UserVerification
+            var userVerification = new UserVerification
                                    {
                                        PersonId = personId,
                                        Identifier = Guid.NewGuid(),
