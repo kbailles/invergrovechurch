@@ -14,6 +14,13 @@ namespace InverGrove.Domain.Repositories
         {
         }
 
+        /// <summary>
+        /// Adds the specified new sermon.
+        /// </summary>
+        /// <param name="newSermon">The new sermon.</param>
+        /// <returns></returns>
+        /// <exception cref="ParameterNullException">newSermon</exception>
+        /// <exception cref="System.ApplicationException">Error when attempting to add new sermon in SermonRepository:  + ex.Message</exception>
         public int Add(ISermon newSermon)
         {
             if (newSermon == null)
@@ -42,6 +49,12 @@ namespace InverGrove.Domain.Repositories
             return newEntitySermon.SermonId;
         }
 
+        /// <summary>
+        /// Updates the specified sermon.
+        /// </summary>
+        /// <param name="sermon">The sermon.</param>
+        /// <exception cref="ParameterNullException">sermon</exception>
+        /// <exception cref="System.ApplicationException">Error when attempting to update sermon in SermonRepository:  + ex.Message</exception>
         public void Update(ISermon sermon)
         {
             if (sermon == null)

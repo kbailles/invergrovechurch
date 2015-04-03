@@ -7,6 +7,7 @@ namespace InverGrove.Data.Entities
     {
         [Key]
         public int UserVerificationId { get; set; }
+
         [Required]
         public int PersonId { get; set; }
 
@@ -17,9 +18,10 @@ namespace InverGrove.Data.Entities
         /// The identifier.
         /// </value>
         public Guid Identifier { get; set; }
+
         [Required]
         public DateTime DateSent { get; set; }
-        public DateTime? DateAccessed { get; set; }
 
+        public DateTime? DateAccessed { get; set; }
     }
 }

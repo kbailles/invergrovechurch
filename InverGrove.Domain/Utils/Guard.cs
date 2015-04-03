@@ -102,6 +102,18 @@ namespace InverGrove.Domain.Utils
             }
         }
 
+        /// <summary>
+        /// Parameters the unique identifier not empty.
+        /// </summary>
+        /// <param name="guid">The unique identifier.</param>
+        /// <param name="argumentName">Name of the argument.</param>
+        /// <exception cref="InverGrove.Domain.Exceptions.ParameterGuidException">2</exception>
+        public static void ParameterGuidNotEmpty(Guid guid, string argumentName)
+        {
+            if (guid == Guid.Empty)
+            {
+                throw new ParameterGuidException(argumentName, 2);
+            }
+        }
     }
-
 }

@@ -109,6 +109,7 @@
     <Compile Include="Enums\SortDirection.cs" />
     <Compile Include="Events\LogServiceEventArgs.cs" />
     <Compile Include="Exceptions\LockTimeoutException.cs" />
+    <Compile Include="Exceptions\ParameterGuidException.cs" />
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Exceptions\ParameterOutOfRangeException.cs" />
     <Compile Include="Exceptions\UndisposedLockException.cs" />
