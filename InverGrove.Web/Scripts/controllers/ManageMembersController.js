@@ -22,8 +22,6 @@
         //vm.openEditMemberModal = openEditMemberModal; // I think this should be a page and not a modal.  Will be LARGE
         vm.openDeleteMemberModal = openDeleteMemberModal;
 
-        vm.showProfileTypeMessage = '';
-
         vm.$modalInstance = null;
 
         activate();

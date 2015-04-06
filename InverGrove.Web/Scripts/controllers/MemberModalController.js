@@ -23,6 +23,10 @@
         };
 
         vm.busy = false;
+
+        vm.addUserSetupToForm = addUserSetupToForm;
+        vm.enableEmail = false;
+
         vm.member = angular.copy(member) || {};
         vm.addPerson = addPerson;
         vm.deletePerson = deletePerson;
@@ -33,6 +37,11 @@
         activate();
 
         function activate() {
+        }
+
+        function addUserSetupToForm() {
+            var foo = vm.personObj.isUser;
+            alert(foo);
         }
 
         function dismissModal() {
