@@ -25,7 +25,7 @@
         vm.busy = false;
 
         vm.addUserSetupToForm = addUserSetupToForm;
-        vm.enableEmail = false;
+        vm.disableEmail = true;
 
         vm.member = angular.copy(member) || {};
         vm.addPerson = addPerson;
@@ -40,8 +40,8 @@
         }
 
         function addUserSetupToForm() {
-            var foo = vm.personObj.isUser;
-            alert(foo);
+            var isUser = vm.personObj.isUser;
+            vm.disableEmail = (isUser === 'true') ? false : true;
         }
 
         function dismissModal() {
