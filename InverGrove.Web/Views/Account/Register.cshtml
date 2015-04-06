@@ -1,10 +1,13 @@
-﻿@{
+﻿@model InverGrove.Domain.Models.UserVerification
+
+@{
     Layout = "~/Views/Account/_Layout.cshtml"; // <--- NOT base layout.
     ViewBag.Title = "Register";
 }
 
 <div id="ContactForm" class="login-content" ng-controller="AccountCtrl as vm">
     <h3 class="title">Set Your Username and Password</h3>
+    <h4>@Model.PersonName</h4>
 
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
 

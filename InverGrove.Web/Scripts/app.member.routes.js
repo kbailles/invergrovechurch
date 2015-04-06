@@ -57,17 +57,6 @@
                 }
             })
 
-            .when('/ManagePrayerRequests', {
-                templateUrl: '/Member/PrayerRequest/ManagePrayerRequests',
-                controller: 'ManagePrayerRequestsCtrl',
-                controllerAs: 'vm',
-                resolve: {
-                    prayerRequests: ['PrayerRequestService', function (PrayerRequestService) {
-                        return {};
-                    }]
-                }
-            })
-
             .otherwise({ redirectTo: '/' });
 	}
 })();

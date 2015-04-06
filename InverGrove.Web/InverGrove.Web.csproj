@@ -500,10 +500,8 @@
     <Content Include="Scripts\controllers\ManageAttendanceController.js" />
     <Content Include="Scripts\controllers\ManageMembersController.js" />
     <Content Include="Scripts\controllers\ManageNewsEventsController.js" />
-    <Content Include="Scripts\controllers\ManagePrayerRequestsController.js" />
     <Content Include="Scripts\controllers\MemberModalController.js" />
     <Content Include="Scripts\controllers\NewsEventsModalController.js" />
-    <Content Include="Scripts\controllers\PrayerRequestModalController.js" />
     <Content Include="Scripts\controllers\RegisterController.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
     <Content Include="Scripts\controllers\SermonModalController.js" />
@@ -562,13 +560,9 @@
     <Content Include="Areas\Member\Views\Member\_EditAttendance.cshtml" />
     <Content Include="Areas\Member\Views\Member\_DeleteAttendance.cshtml" />
     <Content Include="Areas\Member\Views\NewsEvents\_ManageNewsAndEvents.cshtml" />
-    <Content Include="Areas\Member\Views\PrayerRequest\_ManagePrayerRequests.cshtml" />
     <Content Include="Areas\Member\Views\NewsEvents\_AddNewsAndEvent.cshtml" />
     <Content Include="Areas\Member\Views\NewsEvents\_DeleteNewsAndEvent.cshtml" />
     <Content Include="Areas\Member\Views\NewsEvents\_EditNewsAndEvent.cshtml" />
-    <Content Include="Areas\Member\Views\PrayerRequest\_AddPrayerRequest.cshtml" />
-    <Content Include="Areas\Member\Views\PrayerRequest\_DeletePrayerRequest.cshtml" />
-    <Content Include="Areas\Member\Views\PrayerRequest\_EditPrayerRequest.cshtml" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
@@ -674,7 +668,6 @@
     <Content Include="Scripts\namespace.variables.js" />
     <Content Include="Scripts\services\MessageService.js" />
     <Content Include="Scripts\services\NewsEventsService.js" />
-    <Content Include="Scripts\services\PrayerRequestService.js" />
     <Content Include="Scripts\services\SermonService.js" />
     <Content Include="Scripts\services\services.module.js" />
     <Content Include="Scripts\services\MemberService.js" />
@@ -742,9 +735,9 @@
       <Project>{520632de-3efc-4c41-83e8-fcb14e2fdfaf}</Project>
       <Name>InverGrove.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InverGrove.Domain\InverGrove.Domain1.csproj">
+    <ProjectReference Include="..\InverGrove.Domain\InverGrove.Domain.csproj">
       <Project>{6ebdbeb0-4c34-4318-a6fc-6117cd949148}</Project>
-      <Name>InverGrove.Domain1</Name>
+      <Name>InverGrove.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

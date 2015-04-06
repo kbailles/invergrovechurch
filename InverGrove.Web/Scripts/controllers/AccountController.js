@@ -26,7 +26,7 @@
 
         activate();
 
-        function activate() {  }
+        function activate() { alert('trying to gain access ??'); }
 
         function login() {
             vm.busy = true;

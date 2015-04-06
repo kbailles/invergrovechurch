@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Security;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
@@ -6,9 +7,7 @@ using InverGrove.Domain.Resources;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.ViewModels;
-using System.Linq;
-using System;
-using System.Web;
+
 
 namespace InverGrove.Web.Controllers
 {
@@ -16,14 +15,16 @@ namespace InverGrove.Web.Controllers
     public class AccountController : Controller
     {
         private readonly IMembershipProvider membershipProvider;
+        private readonly IUserVerificationService userVerificationService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
         /// </summary>
         /// <param name="membershipProvider">The membership provider.</param>
-        public AccountController(IMembershipProvider membershipProvider)
+        public AccountController(IMembershipProvider membershipProvider, IUserVerificationService userVerificationService)
         {
             this.membershipProvider = membershipProvider;
+            this.userVerificationService = userVerificationService;
         }
 
         [AllowAnonymous]
@@ -75,8 +76,18 @@ namespace InverGrove.Web.Controllers
 
             if (accessToken.IsGuid())
             {
-                // page will request data on authToken via angular
-                return View();
+                Guid token = new Guid(accessToken);
+                var userCandidate = this.userVerificationService.GetUserInviteNotice(token);
+
+                if (userCandidate != null)
+                {
+                    return View(userCandidate);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
+                }
+             
             }
             else
             {
@@ -107,8 +118,7 @@ namespace InverGrove.Web.Controllers
 
             if (ModelState.IsValid && accessToken.IsGuid())
             {
-
-                var foo = "All is well, now we will call a service and validate the guid against an actual identity.";
+                // keep the check ...
             }
 
 
