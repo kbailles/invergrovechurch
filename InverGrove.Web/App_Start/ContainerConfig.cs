@@ -66,7 +66,7 @@ namespace InverGrove.Web
             container.Register(Component.For<ISermonService>().ImplementedBy<SermonService>().LifeStyle.Transient);
             container.Register(Component.For<ISessionStateService>().ImplementedBy<SessionStateService>().LifeStyle.Transient);
             container.Register(Component.For<IPersonService>().ImplementedBy<PersonService>().LifeStyle.Transient);
-            container.Register(Component.For<IUserVerificationService>().ImplementedBy<IUserVerificationService>().LifeStyle.Transient);
+            container.Register(Component.For<IUserVerificationService>().ImplementedBy<UserVerificationService>().LifeStyle.Transient);
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifeStyle.Transient);
         }
 

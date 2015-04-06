@@ -1,5 +1,4 @@
-﻿using InverGrove.Domain.Models;
-using System;
+﻿using System;
 
 namespace InverGrove.Domain.Interfaces
 {

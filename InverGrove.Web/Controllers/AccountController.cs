@@ -17,10 +17,12 @@ namespace InverGrove.Web.Controllers
         private readonly IMembershipProvider membershipProvider;
         private readonly IUserVerificationService userVerificationService;
 
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
         /// </summary>
         /// <param name="membershipProvider">The membership provider.</param>
+        /// <param name="userVerificationService">The user verification service.</param>
         public AccountController(IMembershipProvider membershipProvider, IUserVerificationService userVerificationService)
         {
             this.membershipProvider = membershipProvider;

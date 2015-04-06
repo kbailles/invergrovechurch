@@ -1,6 +1,5 @@
 ﻿using System;
 using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Services
