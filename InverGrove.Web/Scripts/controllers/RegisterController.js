@@ -23,7 +23,7 @@
 
         function activate()
         {
-            alert('the RegisterController.js just fired off!');
+            
         }
     }
 })();
