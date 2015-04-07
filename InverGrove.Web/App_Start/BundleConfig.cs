@@ -68,9 +68,11 @@ namespace InverGrove.Web
                 "~/Scripts/filters/filters.module.js",
                 //Services
                 "~/Scripts/services/services.module.js",
+                "~/Scripts/services/UserService.js",
                 //Controllers
                 "~/Scripts/controllers/controllers.module.js",
                 "~/Scripts/controllers/AccountController.js",
+                "~/Scripts/controllers/RegisterController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",
                 "~/Scripts/directives/googleMapDirective.js",

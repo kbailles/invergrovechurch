@@ -15,9 +15,6 @@
 
         vm.busy = false;
         vm.login = login;
-        vm.newUserObj = {}; 
-
-        vm.createUser = createUser;
 
         //ui.bootstrap watches $scope object
         $scope.alerts = [];
@@ -33,18 +30,8 @@
             $('form').submit();
         }
 
-        function createUser()
-        {
-            $scope.$emit('loading-started');
-
-
-            var foo = vm.newUserObj;
-
-            $scope.$emit('loading-complete');
-        }
 
         function resetForm() {
-            vm.newUserObj = {};
             $scope.form.$setPristine();
         }
 

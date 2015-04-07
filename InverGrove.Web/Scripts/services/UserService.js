@@ -6,7 +6,7 @@
     angular.module(appName + '.services')
         .service('UserService',UserService);
 
-    MemberService.$inject = ['$http'];
+    UserService.$inject = ['$http'];
 
     function UserService($http) {
 

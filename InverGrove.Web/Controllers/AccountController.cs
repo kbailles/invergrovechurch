@@ -17,7 +17,6 @@ namespace InverGrove.Web.Controllers
         private readonly IMembershipProvider membershipProvider;
         private readonly IUserVerificationService userVerificationService;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
         /// </summary>
