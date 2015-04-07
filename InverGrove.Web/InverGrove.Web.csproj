@@ -691,7 +691,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Member\Controllers\NewsEventsController.cs" />
-    <Compile Include="Areas\Member\Controllers\PrayerRequestController.cs" />
     <Compile Include="Areas\Member\Controllers\SermonController.cs" />
     <Compile Include="Areas\Member\Controllers\HomeController.cs" />
     <Compile Include="Areas\Member\Controllers\MemberController.cs" />
