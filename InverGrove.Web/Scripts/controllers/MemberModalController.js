@@ -26,7 +26,7 @@
 
         vm.addUserSetupToForm = addUserSetupToForm;
         vm.disableEmail = true;
-        vm.requireEmail = '';
+        vm.requireEmail = false;
 
         vm.member = angular.copy(member) || {};
         vm.addPerson = addPerson;
@@ -43,7 +43,7 @@
         function addUserSetupToForm() {
             var isUser = vm.personObj.isUser;
             vm.disableEmail = (isUser === 'true') ? false : true;
-            vm.requireEmail = (isUser === 'true') ? '' : 'required';
+            vm.requireEmail = (isUser === 'true') ? true : false;
         }
 
         function dismissModal() {
