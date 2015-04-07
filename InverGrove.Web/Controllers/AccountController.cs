@@ -79,6 +79,12 @@ namespace InverGrove.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Request made to the server, presumably somebody answering their email to create a new user account
+        /// after having been entered by somebody into the church directory.
+        /// /Account/Register?code=someguid
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpGet]
         public ActionResult Register()
@@ -92,18 +98,13 @@ namespace InverGrove.Web.Controllers
 
                 if (userCandidate != null)
                 {
-                    return View(userCandidate);
+                    return View(userCandidate); // get opportunity to register
                 }
-                else
-                {
-                    return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
-                }
-             
-            }
-            else
-            {
+
                 return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
             }
+
+            return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
         }
 
 

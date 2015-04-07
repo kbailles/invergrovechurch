@@ -43,7 +43,7 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The date accessed.
         /// </value>
-        public DateTime DateAccessed { get; set; }
+        public DateTime? DateAccessed { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the person.

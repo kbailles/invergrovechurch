@@ -42,7 +42,7 @@ namespace InverGrove.Domain.Interfaces
         /// <value>
         /// The date accessed.
         /// </value>
-        DateTime DateAccessed { get; set; }
+        DateTime? DateAccessed { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the person.

@@ -58,10 +58,11 @@ namespace InverGrove.Domain.Repositories
             var userVerification = (from uv in this.dataContext.UserVerifications
                       join pr in this.dataContext.People
                       on uv.PersonId equals pr.PersonId
-                      where uv.Identifier.Equals(identifier)
-                      select new Models.UserVerification { Identifier = uv.Identifier,
+                      where uv.Identifier.Equals(identifier) && uv.DateAccessed.Equals(null)
+                      select new Models.UserVerification { PersonId = uv.PersonId,
+                                                           Identifier = uv.Identifier,
                                                            DateSent = uv.DateSent,
-                                                           DateAccessed = (DateTime)uv.DateAccessed,
+                                                           DateAccessed = uv.DateAccessed,
                                                            PersonName = pr.FirstName + " " + pr.LastName
                                                         }).FirstOrDefault();
             return userVerification;
