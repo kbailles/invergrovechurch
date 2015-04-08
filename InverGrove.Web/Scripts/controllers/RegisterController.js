@@ -27,16 +27,16 @@
 
         function createUser() {
 
-            $scope.$emit('loading-started');
             $scope.alerts.length = 0;
 
+            $scope.$emit('loading-started');
 
-            alert('you submitted the form for adding uid/pwd for this person as a new user!!');
+            if (vm.newUserObj.password !== vm.newUserObj.passwordConfirm) {
+                $scope.alerts.push({ type: 'warning', msg: 'Oops! Password and Confirm Password do not match.' });
+                return;
+            }
 
-            var foo = vm.newUserObj;
-            $scope.$emit('loading-complete');
-
-            UserService.registerNewUser(vm.contactObj).then(function (response) {
+            UserService.registerNewUser(vm.newUserObj).then(function (response) {
 
                 if (response.status === 200 /* Response status OK */) {
                     $scope.alerts.push({ type: 'success', msg: 'Account has been created!' });
