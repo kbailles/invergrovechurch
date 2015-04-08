@@ -14,18 +14,19 @@ namespace InverGrove.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly IMembershipProvider membershipProvider;
         private readonly IUserVerificationService userVerificationService;
+        private readonly IRegistrationService registrationService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
         /// </summary>
         /// <param name="membershipProvider">The membership provider.</param>
         /// <param name="userVerificationService">The user verification service.</param>
-        public AccountController(IMembershipProvider membershipProvider, IUserVerificationService userVerificationService)
+        public AccountController(IUserVerificationService userVerificationService,
+                                 IRegistrationService registrationService)
         {
-            this.membershipProvider = membershipProvider;
             this.userVerificationService = userVerificationService;
+            this.registrationService = registrationService;
         }
 
         [AllowAnonymous]
@@ -109,7 +110,7 @@ namespace InverGrove.Web.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult GetPreRegister(Register model)
+        public ActionResult RegisterNewUser(Register model)
         {
             string accessToken = Request.QueryString["code"];
 
@@ -121,7 +122,7 @@ namespace InverGrove.Web.Controllers
 
             if (ModelState.IsValid && accessToken.IsGuid())
             {
-                // keep the check ...
+                var foo = this.registrationService.RegisterUser(model);
             }
 
 

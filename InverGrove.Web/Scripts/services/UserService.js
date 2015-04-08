@@ -21,10 +21,10 @@
                 });
         }
 
-        // Person is accessing Register page to set up first-time uid/pwd
+        // Actually should be a register service ... maybe ...
         this.registerNewUser = function (userId) {
 
-            return $http({ method: 'GET', url: '/Account/RegisterNewUser', params: { memberdId: memberId } }).
+            return $http({ method: 'GET', url: '/Account/RegisterUser', params: { memberdId: memberId } }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).

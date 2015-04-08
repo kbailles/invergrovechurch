@@ -75,8 +75,9 @@ namespace InverGrove.Domain.Services
             return register;
         }
 
+
         /// <summary>
-        /// TODO - Method signature to contain only PersonID
+        /// Registers the user.
         /// </summary>
         /// <param name="userToRegister">The user to register.</param>
         /// <returns></returns>
