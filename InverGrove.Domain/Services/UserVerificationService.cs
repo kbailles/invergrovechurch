@@ -26,6 +26,13 @@ namespace InverGrove.Domain.Services
         }
 
 
+        /// <summary>
+        /// Gets the user invite notice when the person has followed a link to the website
+        /// contaning their guid. This method checks the validity of that request and returns
+        /// a slim data payload.
+        /// </summary>
+        /// <param name="identifier">The identifier.</param>
+        /// <returns></returns>
         public IUserVerification GetUserInviteNotice(Guid identifier)
         {
             Guard.ParameterGuidNotEmpty(identifier, "identifier");
