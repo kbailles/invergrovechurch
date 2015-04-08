@@ -36,7 +36,7 @@
                 return;
             }
 
-            UserService.registerNewUser(vm.newUserObj).then(function (response) {
+            UserService.registerUser(vm.newUserObj).then(function (response) {
 
                 if (response.status === 200 /* Response status OK */) {
                     $scope.alerts.push({ type: 'success', msg: 'Account has been created!' });

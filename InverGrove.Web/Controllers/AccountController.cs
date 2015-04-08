@@ -110,7 +110,7 @@ namespace InverGrove.Web.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult RegisterNewUser(Register model)
+        public ActionResult RegisterUser(Register model)
         {
             string accessToken = Request.QueryString["code"];
 
