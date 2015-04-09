@@ -22,9 +22,9 @@
         }
 
         // Actually should be a register service ... maybe ...
-        this.registerNewUser = function (userId) {
+        this.registerUser = function (newUserObject) {
 
-            return $http({ method: 'GET', url: '/Account/RegisterUser', params: { memberdId: memberId } }).
+            return $http({ method: 'GET', url: '/Account/RegisterUser', params: { model: newUserObject } }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).
