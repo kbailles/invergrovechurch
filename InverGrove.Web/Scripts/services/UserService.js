@@ -22,7 +22,7 @@
         }
 
         // Actually should be a register service ... maybe ...
-        this.registerUser = function (userId) {
+        this.registerNewUser = function (userId) {
 
             return $http({ method: 'GET', url: '/Account/RegisterUser', params: { memberdId: memberId } }).
                 success(function (data, status, headers, config) {
