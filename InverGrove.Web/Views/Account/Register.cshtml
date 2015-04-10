@@ -23,17 +23,17 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Password: <span class="warning">*</span></label>
-                    <input ng-model="vm.newUserObj.password" class="form-control" name=password" type="password" ng-minlength="8" ng-maxlength="25" required />
+                    <input ng-model="vm.newUserObj.password" class="form-control" name="password" type="password" ng-minlength="8" ng-maxlength="25" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Confirm Password: <span class="warning">*</span></label>
-                    <input ng-model="vm.newUserObj.passwordConfirm" class="form-control" name=passwordConfirm" type="password" ng-minlength="8" ng-maxlength="25" required />
+                    <input ng-model="vm.newUserObj.passwordConfirm" class="form-control" name="passwordConfirm" type="password" ng-minlength="8" ng-maxlength="25" required/>
                 </div>
             </div>
         </fieldset>
-        <input type="hidden" name="identifier" ng-model="vm.newUserObj.identifier" value="@Model.Identifier" >
+        <input ng-model="vm.newUserObj.identifier" type="hidden" name="identifier" ng-value="@Model.Identifier">      
         <button ng-click="vm.createUser()" ng-disabled="form.$invalid" disabled btn-loading="vm.busy" data-loading-text="Setting up account ..." class="btn btn-normal btn-color" style="width: 100%;">Log In</button>
         <div class="clearfix"></div>
 
