@@ -22,14 +22,23 @@
         }
 
         // Actually should be a register service ... maybe ...
-        this.registerNewUser = function (userId) {
+        this.registerUser = function (newUser) {
 
-            return $http({ method: 'GET', url: '/Account/RegisterUser', params: { memberdId: memberId } }).
+
+            return $http.post('/Account/RegisterUser', newUser).
                 success(function (data, status, headers, config) {
-                    return data;
+                    return true;
                 }).
                 error(function (data, status, headers, config) {
+                    return false;
                 });
+
+            //return $http({ method: 'POST', url: '/Account/RegisterUser', params: { model: newUser } }).
+            //    success(function (data, status, headers, config) {
+            //        return data;
+            //    }).
+            //    error(function (data, status, headers, config) {
+            //    });
         }
 
  

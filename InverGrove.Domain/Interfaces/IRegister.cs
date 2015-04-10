@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using InverGrove.Domain.Models;
@@ -37,6 +38,15 @@ namespace InverGrove.Domain.Interfaces
         /// The person identifier.
         /// </value>
         int PersonId { get; set; }
+
+        /// <summary>
+        /// GUID for the person, since we don't want the PesonId to be tampered with 
+        /// in the client.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        Guid Identifier { get; set; }
 
         /// <summary>
         /// Gets or sets the user email.

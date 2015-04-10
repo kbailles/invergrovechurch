@@ -33,7 +33,7 @@
                 </div>
             </div>
         </fieldset>
-
+        <input type="hidden" name="identifier" ng-model="vm.newUserObj.identifier" value="@Model.Identifier" >
         <button ng-click="vm.createUser()" ng-disabled="form.$invalid" disabled btn-loading="vm.busy" data-loading-text="Setting up account ..." class="btn btn-normal btn-color" style="width: 100%;">Log In</button>
         <div class="clearfix"></div>
 

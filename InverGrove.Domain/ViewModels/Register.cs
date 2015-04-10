@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using InverGrove.Domain.Factories;
@@ -39,6 +40,15 @@ namespace InverGrove.Domain.ViewModels
         /// The person identifier.
         /// </value>
         public int PersonId { get; set; }
+
+        /// <summary>
+        /// GUID for the person, since we don't want the PesonId to be tampered with 
+        /// in the client.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        public Guid Identifier { get; set; }
 
         /// <summary>
         /// Gets or sets the user email.

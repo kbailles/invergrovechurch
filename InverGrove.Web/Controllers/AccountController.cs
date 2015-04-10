@@ -98,6 +98,7 @@ namespace InverGrove.Web.Controllers
 
                 if (userCandidate != null)
                 {
+                    userCandidate.Identifier = token;
                     return View(userCandidate); // get opportunity to register
                 }
 
@@ -112,7 +113,8 @@ namespace InverGrove.Web.Controllers
         [HttpPost]
         public ActionResult RegisterUser(Register model)
         {
-            string accessToken = Request.QueryString["code"];
+            Guard.ArgumentNotNull(model, "model");
+            Guard.ParameterGuidNotEmpty(model.Identifier, "identifier");
 
             // valid - 0D3D730E-FCDB-4C70-A720-42E0D8B67496 (accessed)
             // valid - 19F503D7-2E53-4C5C-8419-E8ECF9F43190 (not accessed)
@@ -120,9 +122,9 @@ namespace InverGrove.Web.Controllers
             // invalid -    B24E7772-4874-4EA8-80A3-72B703481135 (SP3)
             // invalid -    C34E1183-4874-4EC8-80A3-73C704482235 (made up)
 
-            if (ModelState.IsValid && accessToken.IsGuid())
+            if (ModelState.IsValid)
             {
-                var foo = this.registrationService.RegisterUser(model);
+                var user = this.registrationService.RegisterUser(model);
             }
 
 
