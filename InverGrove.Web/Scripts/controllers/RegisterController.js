@@ -23,9 +23,15 @@
 
         activate();
 
-        function activate() { }
+        function activate() {
+            
+        }
 
         function createUser() {
+
+            // http://ambilykk.com/2014/06/15/angularjs-extracting-querystring/
+            // http://stackoverflow.com/questions/11063673/whats-the-most-concise-way-to-read-query-parameters-in-angularjs
+            var foo = $location.search()['code'];
 
             $scope.alerts.length = 0;
 
