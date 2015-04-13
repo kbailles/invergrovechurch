@@ -117,12 +117,6 @@ namespace InverGrove.Web.Controllers
             Guard.ArgumentNotNull(model, "model");
             //Guard.ParameterGuidNotEmpty(model.Identifier, "identifier");
 
-            Uri fullUrl = Request.Url;
-            var identifier = fullUrl.Segments.Last();
-            var queryString = Request.QueryString;
-            var parameters = HttpUtility.ParseQueryString(queryString.ToString());
-
-
 
             // valid - 0D3D730E-FCDB-4C70-A720-42E0D8B67496 (accessed)
             // valid - 19F503D7-2E53-4C5C-8419-E8ECF9F43190 (not accessed)

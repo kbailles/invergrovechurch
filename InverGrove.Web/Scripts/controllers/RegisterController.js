@@ -6,9 +6,9 @@
     angular.module(appName + '.controllers')
         .controller('RegisterCtrl', RegisterController);
 
-    RegisterController.$inject = ['UserService','$scope'];
+    RegisterController.$inject = ['UserService','$scope','$location'];
 
-    function RegisterController(UserService,$scope) {
+    function RegisterController(UserService, $scope, $location) {
         var vm = this;
 
         vm.busy = false;
@@ -22,17 +22,14 @@
         vm.resetForm = resetForm;
 
         activate();
-
+         
         function activate() {
-            
+            vm.newUserObj.identifier = $location.absUrl();
         }
 
         function createUser() {
 
-            // http://ambilykk.com/2014/06/15/angularjs-extracting-querystring/
-            // http://stackoverflow.com/questions/11063673/whats-the-most-concise-way-to-read-query-parameters-in-angularjs
-            var foo = $location.search()['code'];
-
+  
             $scope.alerts.length = 0;
 
             $scope.$emit('loading-started');
