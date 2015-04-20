@@ -24,7 +24,7 @@
         activate();
          
         function activate() {
-            vm.newUserObj.identifier = $location.absUrl();
+            vm.newUserObj.identifier = $location.absUrl(); // get the authtoken
         }
 
         function createUser() {
@@ -66,6 +66,11 @@
         function closeAlert(index) {
             //ui.bootstrap watches $scope object
             $scope.alerts.splice(index, 1);
+        }
+
+        function getAuthToken() {
+
+            var res = $location.absUrl().split("=", 2);
         }
     }
 })();

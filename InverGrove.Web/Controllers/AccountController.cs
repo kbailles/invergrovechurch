@@ -115,8 +115,8 @@ namespace InverGrove.Web.Controllers
         public ActionResult RegisterUser(Register model)
         {
             Guard.ArgumentNotNull(model, "model");
+            
             //Guard.ParameterGuidNotEmpty(model.Identifier, "identifier");
-
 
             // valid - 0D3D730E-FCDB-4C70-A720-42E0D8B67496 (accessed)
             // valid - 19F503D7-2E53-4C5C-8419-E8ECF9F43190 (not accessed)
@@ -128,7 +128,6 @@ namespace InverGrove.Web.Controllers
             {
                 var user = this.registrationService.RegisterUser(model);
             }
-
 
             // until we decide what to do with hack attempts. 
             return RedirectToAction("Index", "Home");
