@@ -101,8 +101,7 @@ namespace InverGrove.Domain.Services
             }
 
             var newMembership = this.membershipService.CreateMembershipUser(userToRegister.UserName, userToRegister.Password,
-                userToRegister.UserEmail, DefaultPasswordQuestion, DefaultPasswordAnswer,
-                false, MembershipPasswordFormat.Hashed);
+                userToRegister.UserEmail, DefaultPasswordQuestion, DefaultPasswordAnswer, true, MembershipPasswordFormat.Hashed);
 
             if ((newMembership.MembershipId > 0) && (newMembership.UserId > 0))
             {

@@ -58,7 +58,7 @@ namespace InverGrove.Domain.Services
             message.Append("This is a message to inform you that a new user account is ready to be created");
             message.Append(" for you to access the member area at http://wwww.invergrovechurch.com.");
             message.Append("<br> Please click on the following link to access the site and add your user name and password: ");
-            message.Append("http://www.invergrove.com/Account/ResetPassword?code=");
+            message.Append("http://www.invergrove.com/Account/Register?code=");
             message.Append(userVerificationId);
 
             var mailMessage = new MailMessage

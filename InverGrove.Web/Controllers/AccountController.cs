@@ -115,26 +115,36 @@ namespace InverGrove.Web.Controllers
         public ActionResult RegisterUser(Register model)
         {
             Guard.ArgumentNotNull(model, "model");
-            
-            //Guard.ParameterGuidNotEmpty(model.Identifier, "identifier");
+            Guard.ParameterGuidNotEmpty(model.Identifier, "identifier");
 
             // valid - 0D3D730E-FCDB-4C70-A720-42E0D8B67496 (accessed)
             // valid - 19F503D7-2E53-4C5C-8419-E8ECF9F43190 (not accessed)
 
             // invalid -    B24E7772-4874-4EA8-80A3-72B703481135 (SP3)
-            // invalid -    C34E1183-4874-4EC8-80A3-73C704482235 (made up)
+
+            var userVerification = this.userVerificationService.GetUserInviteNotice(model.Identifier);
+
+            if (userVerification == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             if (ModelState.IsValid)
             {
-                var user = this.registrationService.RegisterUser(model);
+                model.PersonId = userVerification.PersonId;
+                var registerUserResult = this.registrationService.RegisterUser(model);
+
+                if (registerUserResult.Success)
+                {
+                    // send newly registered user to the default membership page
+                    // where they will see their name displayed.
+                }
             }
+
+           
 
             // until we decide what to do with hack attempts. 
             return RedirectToAction("Index", "Home");
-
         }
-
-
-
     }
 }
