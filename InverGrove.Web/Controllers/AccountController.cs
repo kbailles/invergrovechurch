@@ -63,6 +63,7 @@ namespace InverGrove.Web.Controllers
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
+
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
                 }
