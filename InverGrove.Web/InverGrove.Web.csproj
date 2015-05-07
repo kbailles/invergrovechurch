@@ -456,6 +456,7 @@
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\open_bible.png" />
     <Content Include="Content\images\romans_biblestudy.jpg" />
+    <Content Include="Content\images\summer_series_2015.png" />
     <Content Include="Content\images\team-member-1.jpg" />
     <Content Include="Content\images\team-member-4.jpg" />
     <Content Include="Content\less\app.css">
@@ -676,7 +677,9 @@
     <Content Include="Tests\dependencies\core.references.js" />
     <Content Include="Tests\dependencies\jasmine.js" />
     <Content Include="Tests\controllers\HomeControllerTests.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
