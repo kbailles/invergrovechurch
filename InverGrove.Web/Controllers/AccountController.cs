@@ -18,6 +18,7 @@ namespace InverGrove.Web.Controllers
     {
         private readonly IUserVerificationService userVerificationService;
         private readonly IRegistrationService registrationService;
+        private readonly IProfileService profileService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -25,7 +26,8 @@ namespace InverGrove.Web.Controllers
         /// <param name="membershipProvider">The membership provider.</param>
         /// <param name="userVerificationService">The user verification service.</param>
         public AccountController(IUserVerificationService userVerificationService,
-                                 IRegistrationService registrationService)
+                                 IRegistrationService registrationService,
+                                 IProfileService profileService)
         {
             this.userVerificationService = userVerificationService;
             this.registrationService = registrationService;
@@ -64,6 +66,7 @@ namespace InverGrove.Web.Controllers
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    SetDisplayUserFirstLastName(model.UserName);
                     return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
                 }
             }
@@ -137,6 +140,12 @@ namespace InverGrove.Web.Controllers
 
             // until we decide what to do with hack attempts. 
             return RedirectToAction("Index", "Home");
+        }
+
+
+        private void SetDisplayUserFirstLastName(string userName)
+        {
+            var foo = this.profileService.GetProfileByUserName(userName);
         }
     }
 }
