@@ -27,10 +27,11 @@ namespace InverGrove.Web
                 "~/Content/less/app.min.css"));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/core").Include(
+                "~/Components/jquery/jquery-2.1.4.min.js",
                 "~/Components/lodash/lodash.min.js",
                 "~/Components/angular/angular.min.js",
                 "~/Components/angular-route/angular-route.min.js",
-                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.12.0.min.js"));
+                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(
                 "~/Scripts/jquery/jquery-2.1.1.min.js",

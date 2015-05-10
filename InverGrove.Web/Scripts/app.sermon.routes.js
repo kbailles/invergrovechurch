@@ -14,24 +14,13 @@
             .when('/ViewSermons', {
                 templateUrl: '/Sermon/ViewSermons',
                 controller: 'ViewSermonsCtrl',
-                controllerAs: 'vm',
-                resolve: {
-                    sermons: ['SermonService', function (SermonService) {
-                        return SermonService.getSermons();
-                    }]
-                }
+                controllerAs: 'vm'
             })
 
             .when('/SermonDetail/:id', {
                 templateUrl: '/Sermon/SermonDetail',
                 controller: 'SermonDetailCtrl',
-                controllerAs: 'vm',
-                resolve: {
-                    sermon: ['$route', 'SermonService', function ($route, SermonService) {
-                        var sermonId = $route.current.params.id;
-                        return SermonService.getSermon(sermonId);
-                    }]
-                }
+                controllerAs: 'vm'
             })
 
             .otherwise({ redirectTo: '/ViewSermons' });

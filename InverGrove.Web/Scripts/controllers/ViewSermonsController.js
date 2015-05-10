@@ -7,11 +7,10 @@
         .controller('ViewSermonsCtrl', ViewSermonsController);
 
     ViewSermonsController.$inject = [
-        '$window',
-        'sermons'
+        '$window'
     ];
 
-    function ViewSermonsController($window, sermons) {
+    function ViewSermonsController($window) {
         var vm = this;
 
         /*
@@ -21,7 +20,7 @@
         vm.filteredTags = filteredTags;
         vm.sermonDetail = sermonDetail;
 
-        vm.sermons = sermons.data;
+        vm.sermons = sermons;
 
         vm.titleFilter = '';
         vm.speakerFilter = '';

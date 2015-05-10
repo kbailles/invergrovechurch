@@ -184,31 +184,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Components\angular-bootstrap\ui-bootstrap-tpls.js" />
-    <Content Include="Components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
-    <Content Include="Components\angular-bootstrap\ui-bootstrap.js" />
-    <Content Include="Components\angular-bootstrap\ui-bootstrap.min.js" />
-    <Content Include="Components\angular-loader\angular-loader.js" />
-    <Content Include="Components\angular-loader\angular-loader.min.js" />
-    <Content Include="Components\angular-mocks\angular-mocks.js" />
     <Content Include="Components\angular-route\angular-route.js" />
     <Content Include="Components\angular-route\angular-route.min.js" />
-    <Content Include="Components\angular-ui-router\release\angular-ui-router.js" />
-    <Content Include="Components\angular-ui-router\release\angular-ui-router.min.js" />
-    <Content Include="Components\angular-ui-router\src\common.js" />
-    <Content Include="Components\angular-ui-router\src\resolve.js" />
-    <Content Include="Components\angular-ui-router\src\state.js" />
-    <Content Include="Components\angular-ui-router\src\stateDirectives.js" />
-    <Content Include="Components\angular-ui-router\src\stateFilters.js" />
-    <Content Include="Components\angular-ui-router\src\templateFactory.js" />
-    <Content Include="Components\angular-ui-router\src\urlMatcherFactory.js" />
-    <Content Include="Components\angular-ui-router\src\urlRouter.js" />
-    <Content Include="Components\angular-ui-router\src\view.js" />
-    <Content Include="Components\angular-ui-router\src\viewDirective.js" />
-    <Content Include="Components\angular-ui-router\src\viewScroll.js" />
     <Content Include="Components\angular\angular.js" />
     <Content Include="Components\angular\angular.min.js" />
-    <Content Include="Components\bootstrap-ui\ui-bootstrap-tpls-0.12.0.min.js" />
+    <Content Include="Components\bootstrap-ui\ui-bootstrap-tpls-0.13.0.js" />
+    <Content Include="Components\bootstrap-ui\ui-bootstrap-tpls-0.13.0.min.js" />
     <Content Include="Components\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Components\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Components\bootstrap\css\bootstrap.css" />
@@ -241,6 +222,8 @@
     <Content Include="Components\html5-boilerplate\js\vendor\jquery-1.10.2.min.js" />
     <Content Include="Components\html5-boilerplate\js\vendor\modernizr-2.6.2.min.js" />
     <Content Include="Components\html5-boilerplate\robots.txt" />
+    <Content Include="Components\jquery\jquery-2.1.4.js" />
+    <Content Include="Components\jquery\jquery-2.1.4.min.js" />
     <Content Include="Components\lodash\lodash.js" />
     <Content Include="Components\lodash\lodash.min.js" />
     <Content Include="Components\phantomjs\phantomjs.exe" />
@@ -566,6 +549,8 @@
     <Content Include="Areas\Member\Views\NewsEvents\_DeleteNewsAndEvent.cshtml" />
     <Content Include="Areas\Member\Views\NewsEvents\_EditNewsAndEvent.cshtml" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Components\angular\angular.min.js.map" />
+    <Content Include="Components\angular-route\angular-route.min.js.map" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
@@ -609,12 +594,6 @@
     <Content Include="Content\less\login.less" />
     <Content Include="Content\less\login.css.map">
       <DependentUpon>login.css</DependentUpon>
-    </Content>
-    <Content Include="Components\angular\angular.min.js.map">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Components\angular-route\angular-route.min.js.map">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Components\bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Components\bootstrap\css\bootstrap.css.map" />
@@ -674,10 +653,6 @@
     <Content Include="Scripts\services\services.module.js" />
     <Content Include="Scripts\services\MemberService.js" />
     <Content Include="Scripts\services\UserService.js" />
-    <Content Include="Tests\controllers\BaseControllerTests.js" />
-    <Content Include="Tests\dependencies\core.references.js" />
-    <Content Include="Tests\dependencies\jasmine.js" />
-    <Content Include="Tests\controllers\HomeControllerTests.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

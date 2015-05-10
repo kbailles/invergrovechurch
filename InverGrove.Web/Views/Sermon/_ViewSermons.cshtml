@@ -1,4 +1,10 @@
-﻿<div class="sermons-wrapper">
+﻿@model string
+
+<script>
+    var sermons = JSON.parse('@Html.Raw(Model)');
+</script>
+
+<div class="sermons-wrapper">
 
     <div class="breadcrumb-wrapper">
         <div class="container">
@@ -46,9 +52,9 @@
                         </div>
                     </div>
 
-                    <div class="widget tags">
+                    <div class="widget tags visible-sm visible-md visible-lg">
                         <h3 class="title">Filter by Tags</h3>
-                        <ul style="list-style: none;padding-left: 20px;">
+                        <ul style="list-style: none; padding-left: 20px;">
                             <li ng-repeat="(key, value) in vm.filteredTags()">
                                 <div class="checkbox">
                                     <label>
@@ -68,7 +74,8 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong ng-bind="sermon.sermonDate | date : 'dd'"></strong><i ng-bind="sermon.sermonDate | date : 'MMM'"></i></a>
                                 </div>
-                                <h3 class="sermon-title"><a ng-href="#/SermonDetail/{{sermon.sermonId}}" ng-bind="sermon.title"></a></h3>
+                                <h3 class="sermon-title"><a ng-href="#/SermonDetail/{{sermon.sermonId}}" ng-bind="sermon.title"></a>
+                                </h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="fa fa-user"></i>

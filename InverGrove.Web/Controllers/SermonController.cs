@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace InverGrove.Web.Controllers
 {
@@ -39,7 +41,9 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult ViewSermons()
         {
-            return PartialView("_ViewSermons");
+            var sermons = this.sermonService.GetSermons().ToSafeList().OrderByDescending(sermon => sermon.SermonDate);
+
+            return PartialView("_ViewSermons", JsonConvert.SerializeObject(sermons, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver()}));
         }
 
         [HttpGet]
