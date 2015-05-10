@@ -8,12 +8,8 @@ namespace InverGrove.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Route bundles
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/route/public").Include(
-                "~/Scripts/app.routes.js"));
             bundles.Add(new ScriptBundle("~/Scripts/scripts/route/sermon").Include(
                 "~/Scripts/app.sermon.routes.js"));
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/route/contactus").Include(
-                "~/Scripts/app.contactus.routes.js"));
 
             //Core bundles
             bundles.Add(new StyleBundle("~/Components/css/core").Include(
