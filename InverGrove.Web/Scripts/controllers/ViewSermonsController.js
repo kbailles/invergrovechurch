@@ -28,13 +28,6 @@
 
         vm.toggleTagChecked = toggleTagChecked;
 
-        activate();
-
-        /*
-         * Private declarations
-         */
-        function activate() {
-        }
 
         function filteredSpeakers() {
             return _.mapValues(_.groupBy(vm.sermons, 'speaker'), function (r) { return r.length; });

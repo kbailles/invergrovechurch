@@ -7,13 +7,7 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult Home()
-        {
-            return PartialView("_Home");
+            return View("_Home");
         }
 	}
 }

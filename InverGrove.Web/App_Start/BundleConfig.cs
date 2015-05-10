@@ -34,7 +34,6 @@ namespace InverGrove.Web
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(
-                "~/Scripts/jquery/jquery-2.1.1.min.js",
                 "~/Scripts/common/namespace.js",
                 "~/Scripts/namespace.variables.js",
                 "~/Scripts/bootstrap/modernizr-2.6.2.min.js"));

@@ -10,19 +10,24 @@
 
     function routes($routeProvider) {
         $routeProvider
-
             .when('/ViewSermons', {
                 templateUrl: '/Sermon/ViewSermons',
                 controller: 'ViewSermonsCtrl',
                 controllerAs: 'vm'
             })
-
             .when('/SermonDetail/:id', {
                 templateUrl: '/Sermon/SermonDetail',
                 controller: 'SermonDetailCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    sermon: [
+                        '$route', 'SermonService', function($route, SermonService) {
+                            var sermonId = $route.current.params.id;
+                            return SermonService.getSermon(sermonId);
+                        }
+                    ]
+                }
             })
-
             .otherwise({ redirectTo: '/ViewSermons' });
     }
 })();

@@ -20,13 +20,7 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View("Index");
-        }
-
-        [HttpGet]
-        public ActionResult ContactUs()
-        {
-            return PartialView("_ContactUs");
+            return View("_ContactUs");
         }
 
         [HttpPost]
