@@ -45,11 +45,18 @@
                         </div>
                     </div>
 
+                    @{string controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();}
                     <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                            <li ng-class="{active: base.isRouteActive('Sermon')}"><a href="@Url.Action("Index", "Sermon")">Sermons</a></li>
-                            <li ng-class="{active: base.isRouteActive('ContactUs')}"><a href="@Url.Action("Index", "Contact")">Contact Us</a></li>
+                            <li class="@(controller == "home" ? "active" : string.Empty)">
+                                <a href="@(controller == "home" ? "javascript:void(0);" : Url.Action("Index", "Home"))">Home</a>
+                            </li>
+                            <li class="@(controller == "sermon" ? "active" : string.Empty)">
+                                <a href="@(controller == "sermon" ? "javascript:void(0);" : Url.Action("Index", "Sermon"))">Sermons</a>
+                            </li>
+                            <li class="@(controller == "contact" ? "active" : string.Empty)">
+                                <a href="@(controller == "contact" ? "javascript:void(0);" : Url.Action("Index", "Contact"))">Contact Us</a>
+                            </li>
                             <li><a href="@Url.Action("Login", "Account")">Members</a></li>
                         </ul>
                     </nav>

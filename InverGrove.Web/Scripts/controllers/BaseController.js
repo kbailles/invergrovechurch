@@ -16,19 +16,11 @@
         /*
          * Public declarations
          */
-        base.navBarCollapsed = true;
+        base.navBarCollapsed = false;
         base.toggleNavBar = toggleNabBar;
 
         base.isRouteActive = isRouteActive;
         base.goToPath = goToPath;
-
-        activate();
-
-        /*
-         * Private declarations
-         */
-        function activate() {
-        }
 
         function goToPath(path) {
             window.location.href = path;
