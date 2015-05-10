@@ -491,7 +491,7 @@
     <Content Include="Scripts\controllers\ViewSermonsController.js" />
     <Content Include="Scripts\controllers\ContactController.js" />
     <Content Include="Scripts\controllers\HomeController.js" />
-    <Content Include="Scripts\bootstrap\modernizr-2.6.2.min.js" />
+    <Content Include="Components\modernizr\modernizr-2.6.2.min.js" />
     <Content Include="Scripts\directives\buttonLoadingDirective.js" />
     <Content Include="Scripts\directives\directives.module.js" />
     <Content Include="Scripts\directives\googleMapDirective.js" />
@@ -549,10 +549,6 @@
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Components\angular\angular.min.js.map" />
     <Content Include="Components\angular-route\angular-route.min.js.map" />
-    <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery\jquery.validate.js" />
-    <Content Include="Scripts\jquery\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.0.3.min.map" />
     <Content Include="Content\less\app.less" />
     <Content Include="Components\html5-boilerplate\.bower.json" />
     <Content Include="Components\html5-boilerplate\.htaccess" />
@@ -634,16 +630,7 @@
     <Content Include="Areas\Member\Views\Home\Index.cshtml" />
     <Content Include="Areas\Member\Views\Home\_Home.cshtml" />
     <Content Include="Areas\Member\Views\Shared\EditorTemplates\Person.cshtml" />
-    <None Include="Scripts\jquery\jquery-2.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.1.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.1.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.1.min.map" />
-    <None Include="Scripts\jquery\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\jquery\jquery-2.0.3.js" />
-    <Content Include="Scripts\jquery\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
+    <Content Include="Components\modernizr\modernizr-2.6.2.js" />
     <Content Include="Scripts\namespace.variables.js" />
     <Content Include="Scripts\services\MessageService.js" />
     <Content Include="Scripts\services\NewsEventsService.js" />

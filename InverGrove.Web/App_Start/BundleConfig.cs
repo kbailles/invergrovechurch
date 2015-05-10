@@ -27,6 +27,7 @@ namespace InverGrove.Web
                 "~/Content/less/app.min.css"));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/core").Include(
+                "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/Components/jquery/jquery-2.1.4.min.js",
                 "~/Components/lodash/lodash.min.js",
                 "~/Components/angular/angular.min.js",
@@ -35,8 +36,7 @@ namespace InverGrove.Web
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(
                 "~/Scripts/common/namespace.js",
-                "~/Scripts/namespace.variables.js",
-                "~/Scripts/bootstrap/modernizr-2.6.2.min.js"));
+                "~/Scripts/namespace.variables.js"));
 
             //Revolution Slider bundles
             bundles.Add(new StyleBundle("~/Content/css/revoslider").Include(
