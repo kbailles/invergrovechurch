@@ -9,6 +9,7 @@ using InverGrove.Domain.Resources;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.ViewModels;
+using InverGrove.Domain.Services;
 
 
 namespace InverGrove.Web.Controllers
@@ -19,6 +20,7 @@ namespace InverGrove.Web.Controllers
         private readonly IUserVerificationService userVerificationService;
         private readonly IRegistrationService registrationService;
         private readonly IProfileService profileService;
+        private ISessionStateService sessionService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -31,6 +33,8 @@ namespace InverGrove.Web.Controllers
         {
             this.userVerificationService = userVerificationService;
             this.registrationService = registrationService;
+            this.profileService = profileService;
+            this.sessionService = new SessionStateService(); // not a candidate for IOC
         }
 
         [AllowAnonymous]
@@ -145,7 +149,9 @@ namespace InverGrove.Web.Controllers
 
         private void SetDisplayUserFirstLastName(string userName)
         {
-            var foo = this.profileService.GetProfileByUserName(userName);
+            var profile = this.profileService.GetProfileByUserName(userName);
+            var displayname = string.Concat(profile.Person.FirstName, " ", profile.Person.LastName);
+            this.sessionService.Add("DisplayName", displayname);
         }
     }
 }
