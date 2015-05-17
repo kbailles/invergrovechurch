@@ -1,7 +1,7 @@
 ﻿@model string
 
 <script>
-    var members = JSON.parse('@Html.Raw(Model)');
+    var members = JSON.parse('@Html.Raw(!string.IsNullOrEmpty(Model) ? Model : "[]")');
 </script>
 
 <div class="manager-members-wrapper" ng-controller="ManageMembersCtrl as vm">
@@ -15,7 +15,6 @@
                     <div class="breadcrumbs pull-right">
                         <ul>
                             <li>You are here:</li>
-                            <li><a href="@Url.Action("Index", "Home")"><strong>Home</strong></a></li>
                             <li>Manage Members</li>
                         </ul>
                     </div>

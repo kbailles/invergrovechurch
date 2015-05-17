@@ -20,7 +20,9 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult Directory()
         {
-            return View("_Directory");
+            var people = this.personService.GetAll();
+
+            return View("_Directory", (object)JsonConvert.SerializeObject(people, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
 
         [HttpGet]

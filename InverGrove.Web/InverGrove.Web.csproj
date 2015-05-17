@@ -500,6 +500,7 @@
     <Content Include="Scripts\factories\googleMapChurchLocationFactory.js" />
     <Content Include="Scripts\factories\homePageRevoSliderOptionsFactory.js" />
     <Content Include="Scripts\filters\filters.module.js" />
+    <Content Include="Scripts\filters\firstNameLastNameFilter.js" />
     <Content Include="Scripts\filters\selectedTagsFilter.js" />
     <Content Include="Areas\Member\Views\Sermon\_ManageSermons.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_AddSermon.cshtml" />

@@ -1,7 +1,7 @@
 ﻿@model string
 
 <script>
-    var sermons = JSON.parse('@Html.Raw(Model)');
+    var sermons = JSON.parse('@Html.Raw(!string.IsNullOrEmpty(Model) ? Model : "[]")');
 </script>
 
 <div class="manager-sermons-wrapper" ng-controller="ManageSermonsCtrl as vm">
@@ -15,7 +15,6 @@
                     <div class="breadcrumbs pull-right">
                         <ul>
                             <li>You are here:</li>
-                            <li><a href="@Url.Action("Index", "Home")"><strong>Home</strong></a></li>
                             <li>Manage Sermons</li>
                         </ul>
                     </div>

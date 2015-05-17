@@ -1,7 +1,7 @@
 ﻿@model string
 
 <script>
-    var sermons = JSON.parse('@Html.Raw(Model)');
+    var sermons = JSON.parse('@Html.Raw(!string.IsNullOrEmpty(Model) ? Model : "[]")');
 </script>
 
 <div class="sermons-wrapper">
@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="clearfix"></div>
-                        <div ng-show="! $last" class="sermon-divider"></div>
+                        <div class="sermon-divider" ng-show="! $last"></div>
                     </article>
 
                     <div class="divider"></div>

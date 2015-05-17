@@ -9,6 +9,7 @@
     function DirectoryController() {
         var vm = this;
 
+        vm.nameFilter = '';
         vm.members = members;
     }
 })();

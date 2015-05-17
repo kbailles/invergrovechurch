@@ -116,6 +116,7 @@ namespace InverGrove.Web
                 "~/Scripts/factories/googleMapChurchLocationFactory.js",
                 //Filters
                 "~/Scripts/filters/filters.module.js",
+                "~/Scripts/filters/firstNameLastNameFilter.js",
                 "~/Scripts/filters/selectedTagsFilter.js",
                 //Services
                 "~/Scripts/services/services.module.js",
