@@ -534,10 +534,6 @@
     <Content Include="Areas\Member\Views\Sermon\_DeleteSermon.cshtml" />
     <Content Include="Areas\Member\Views\Member\_DeleteMember.cshtml" />
     <Content Include="Areas\Member\Views\Member\_EditUser.cshtml" />
-    <Content Include="Areas\Member\Views\Member\_ManageAttendance.cshtml" />
-    <Content Include="Areas\Member\Views\Member\_AddAttendance.cshtml" />
-    <Content Include="Areas\Member\Views\Member\_EditAttendance.cshtml" />
-    <Content Include="Areas\Member\Views\Member\_DeleteAttendance.cshtml" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Components\angular\angular.min.js.map" />
     <Content Include="Components\angular-route\angular-route.min.js.map" />
