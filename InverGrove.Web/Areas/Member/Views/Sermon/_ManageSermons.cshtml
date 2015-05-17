@@ -1,4 +1,10 @@
-﻿<div class="manager-sermons-wrapper">
+﻿@model string
+
+<script>
+    var sermons = JSON.parse('@Html.Raw(Model)');
+</script>
+
+<div class="manager-sermons-wrapper" ng-controller="ManageSermonsCtrl as vm">
     <div class="breadcrumb-wrapper">
         <div class="container">
             <div class="row">

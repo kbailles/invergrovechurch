@@ -476,15 +476,11 @@
     <Content Include="Scripts\common\logger.js" />
     <Content Include="Scripts\common\namespace.js" />
     <Content Include="Scripts\controllers\AccountController.js" />
-    <Content Include="Scripts\controllers\AttendanceModalController.js" />
     <Content Include="Scripts\controllers\BaseController.js" />
     <Content Include="Scripts\controllers\controllers.module.js" />
     <Content Include="Scripts\controllers\DirectoryController.js" />
-    <Content Include="Scripts\controllers\ManageAttendanceController.js" />
     <Content Include="Scripts\controllers\ManageMembersController.js" />
-    <Content Include="Scripts\controllers\ManageNewsEventsController.js" />
     <Content Include="Scripts\controllers\MemberModalController.js" />
-    <Content Include="Scripts\controllers\NewsEventsModalController.js" />
     <Content Include="Scripts\controllers\RegisterController.js" />
     <Content Include="Scripts\controllers\SermonDetailController.js" />
     <Content Include="Scripts\controllers\SermonModalController.js" />
@@ -505,7 +501,6 @@
     <Content Include="Scripts\factories\homePageRevoSliderOptionsFactory.js" />
     <Content Include="Scripts\filters\filters.module.js" />
     <Content Include="Scripts\filters\selectedTagsFilter.js" />
-    <Content Include="Scripts\app.member.routes.js" />
     <Content Include="Areas\Member\Views\Sermon\_ManageSermons.cshtml" />
     <Content Include="Areas\Member\Views\Sermon\_AddSermon.cshtml" />
     <Content Include="Areas\Member\Views\Member\_Directory.cshtml" />
@@ -542,10 +537,6 @@
     <Content Include="Areas\Member\Views\Member\_AddAttendance.cshtml" />
     <Content Include="Areas\Member\Views\Member\_EditAttendance.cshtml" />
     <Content Include="Areas\Member\Views\Member\_DeleteAttendance.cshtml" />
-    <Content Include="Areas\Member\Views\NewsEvents\_ManageNewsAndEvents.cshtml" />
-    <Content Include="Areas\Member\Views\NewsEvents\_AddNewsAndEvent.cshtml" />
-    <Content Include="Areas\Member\Views\NewsEvents\_DeleteNewsAndEvent.cshtml" />
-    <Content Include="Areas\Member\Views\NewsEvents\_EditNewsAndEvent.cshtml" />
     <Content Include="Components\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Components\angular\angular.min.js.map" />
     <Content Include="Components\angular-route\angular-route.min.js.map" />
@@ -627,8 +618,6 @@
     <Content Include="Areas\Member\Views\web.config" />
     <Content Include="Areas\Member\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Member\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Member\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Member\Views\Home\_Home.cshtml" />
     <Content Include="Areas\Member\Views\Shared\EditorTemplates\Person.cshtml" />
     <Content Include="Components\modernizr\modernizr-2.6.2.js" />
     <Content Include="Scripts\namespace.variables.js" />
@@ -654,9 +643,7 @@
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\Member\Controllers\NewsEventsController.cs" />
     <Compile Include="Areas\Member\Controllers\SermonController.cs" />
-    <Compile Include="Areas\Member\Controllers\HomeController.cs" />
     <Compile Include="Areas\Member\Controllers\MemberController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />

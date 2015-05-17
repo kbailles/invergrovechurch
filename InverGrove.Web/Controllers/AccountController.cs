@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Resources;
-using InverGrove.Domain.Utils;
-using InverGrove.Domain.Extensions;
-using InverGrove.Domain.ViewModels;
 using InverGrove.Domain.Services;
-
+using InverGrove.Domain.Utils;
+using InverGrove.Domain.ViewModels;
 
 namespace InverGrove.Web.Controllers
 {
@@ -47,8 +44,8 @@ namespace InverGrove.Web.Controllers
             return this.Json(authenticatedUser, JsonRequestBehavior.AllowGet);
         }
 
-        [AllowAnonymous]
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -70,8 +67,22 @@ namespace InverGrove.Web.Controllers
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
                     SetDisplayUserFirstLastName(model.UserName);
-                    return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
+
+                    RolePrincipal rolePrincipal = (RolePrincipal)this.User;
+                    var roles = rolePrincipal.GetRoles();
+                    var authenticatedUser = AuthenticatedUserFactory.Instance.Create(this.User.Identity.Name, this.User.Identity.IsAuthenticated, roles);
+
+                    //if (this.User.IsInRole("Member"))
+                    //{
+                        return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
+                    //}
+
+                    if (this.User.IsInRole("MemberAdmin") || this.User.IsInRole("SiteAdmin"))
+                    {
+                        return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
+                    }
                 }
             }
 
@@ -142,7 +153,7 @@ namespace InverGrove.Web.Controllers
                 }
             }
 
-            // until we decide what to do with hack attempts. 
+            // until we decide what to do with hack attempts.
             return RedirectToAction("Index", "Home");
         }
 

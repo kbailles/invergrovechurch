@@ -7,19 +7,18 @@
         .controller('ManageSermonsCtrl', ManageSermonsController);
 
     ManageSermonsController.$inject = [
-        'sermons',
         'SermonService',
         '$scope',
         '$modal'
     ];
 
-    function ManageSermonsController(sermons, SermonService, $scope, $modal) {
+    function ManageSermonsController(SermonService, $scope, $modal) {
         var vm = this;
 
         /*
          * Public declarations
          */
-        vm.sermons = sermons.data;
+        vm.sermons = sermons;
         vm.soundCloudSermons = [];
         vm.SermonService = SermonService;
 

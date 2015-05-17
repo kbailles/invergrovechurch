@@ -26,7 +26,7 @@ namespace InverGrove.Web
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/Components/jquery/jquery-2.1.4.min.js",
                 "~/Components/lodash/lodash.min.js",
-                "~/Components/angular/angular.min.js",
+                "~/Components/angular/angular.js",
                 "~/Components/angular-route/angular-route.min.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js"));
 
@@ -126,18 +126,12 @@ namespace InverGrove.Web
                 //Controllers
                 "~/Scripts/controllers/controllers.module.js",
                 "~/Scripts/controllers/BaseController.js",
-                "~/Scripts/controllers/HomeController.js",
-                "~/Scripts/controllers/ContactController.js",
                 "~/Scripts/controllers/ManageSermonsController.js",
                 "~/Scripts/controllers/ManageMembersController.js",
-                "~/Scripts/controllers/ManageAttendanceController.js",
-                "~/Scripts/controllers/ManageNewsEventsController.js",
                 "~/Scripts/controllers/MemberModalController.js",
                 "~/Scripts/controllers/SermonDetailController.js",
                 "~/Scripts/controllers/SermonModalController.js",
-                "~/Scripts/controllers/ViewSermonsController.js",
                 "~/Scripts/controllers/DirectoryController.js",
-                "~/Scripts/controllers/AttendanceModalController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",
                 "~/Scripts/directives/googleMapDirective.js",

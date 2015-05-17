@@ -1,9 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace InverGrove.Web.Areas.Member.Controllers
 {
@@ -18,15 +21,11 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public ActionResult ManageSermons()
         {
-            return PartialView("_ManageSermons");
+            var sermons = this.sermonService.GetSermons().ToSafeList().OrderByDescending(sermon => sermon.SermonDate);
+
+            return View("_ManageSermons", (object)JsonConvert.SerializeObject(sermons, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
 
         [HttpGet]

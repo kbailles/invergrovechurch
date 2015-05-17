@@ -17,6 +17,9 @@
     <script type="text/javascript" src="//use.typekit.net/prb0ymj.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
     <script src="//connect.soundcloud.com/sdk.js"></script>
+
+    @Scripts.Render("~/Scripts/scripts/core")
+    @Scripts.Render("~/Components/scripts/core")
     <script>
         SC.initialize({
             client_id: 'cdcb2eb2652ff8f36652f3d89138419e'
@@ -39,8 +42,8 @@
                         <a href="#"><i class="fa fa-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
                     </div>
                     <div class="pull-right user-actions">
-                        @Session.DisplayName| 
-                        @using (Html.BeginForm("LogOff", "Account", new {area = ""}, FormMethod.Post, new {role = "form", @style = "display: inline-block;"}))
+                        Welcome, @HttpContext.Current.User.Identity.Name
+                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { role = "form", @style = "display: inline-block;" }))
                         {
                             @Html.AntiForgeryToken()
                             <a href="javascript:void(0)" type="submit" onclick=" $(this).closest('form').submit(); ">Log Out</a>
@@ -63,23 +66,27 @@
                         </div>
                     </div>
 
+                    @{ string action = ViewContext.RouteData.Values["action"].ToString().ToLower(); }
                     <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed" role="navigation">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{active: base.isRouteActive('')}"><a href="@Url.Action("Index", "Home", new {area = "Member"})">Home</a></li>
-                            <li ng-class="base.isRouteActive('/ManageAttendance') ? 'active' : (base.isRouteActive('/ManageSermons') ? 'active' : (base.isRouteActive('/ManageMembers') ? 'active' : ''))">
+                            <li class="@(action == "managemembers" || action == "managesermons" ? "active" : string.Empty)">
                                 <div dropdown is-open="status.isopen">
                                     <a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                                         Manage <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#/ManageAttendance">Attendance</a></li>
-                                        <li><a href="#/ManageMembers">Members</a></li>
-                                        <li><a href="#/ManageNewsEvents">News & Events</a></li>
-                                        <li><a href="#/ManageSermons">Sermons</a></li>
+                                        <li>
+                                            <a href="@(action == "managemembers" ? "javascript:void(0);" : Url.Action("ManageMembers", "Member", new {area = "Member"}))">Members</a>
+                                        </li>
+                                        <li>
+                                            <a href="@(action == "managesermons" ? "javascript:void(0);" : Url.Action("ManageSermons", "Sermon", new { area = "Member" }))">Sermons</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li ng-class="{active: base.isRouteActive('/Directory')}"><a href="#/Directory">Directory</a></li>
+                            <li class="@(action == "directory" ? "active" : string.Empty)">
+                                <a href="@(action == "directory" ? "javascript:void(0);" : Url.Action("Directory", "Member", new { area = "Member" }))">Directory</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -148,8 +155,6 @@
         </a>
     </div>
 
-    @Scripts.Render("~/Scripts/scripts/core")
-    @Scripts.Render("~/Components/scripts/core")
     @Scripts.Render("~/Components/scripts/plugins")
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     @Scripts.Render("~/Scripts/scripts/area/member")

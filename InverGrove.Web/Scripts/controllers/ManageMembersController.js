@@ -15,7 +15,7 @@
     function ManageMembersController(MemberService, $scope, $modal) {
         var vm = this;
 
-        vm.members = [];
+        vm.members = members;
         vm.MemberService = MemberService;
 
         vm.openAddMemberModal = openAddMemberModal;
@@ -23,22 +23,6 @@
         vm.openDeleteMemberModal = openDeleteMemberModal;
 
         vm.$modalInstance = null;
-
-        activate();
-
-        function activate() {
-            getUsers();
-        }
-
-        function getUsers() {
-
-            $scope.$emit('loading-started');
-
-            return MemberService.getAll().then(function (data) {
-                vm.members = data.data;
-                $scope.$emit('loading-complete');
-            });
-        }
 
         function openAddMemberModal() {
 
@@ -105,7 +89,7 @@
         $scope.$on('deletePerson', function (event, member) {
 
             vm.MemberService.delete(member).then(function (response) {
-                
+
                 vm.members = _.reject(vm.members, { personId: member.personId });
             },
             function (error) {
