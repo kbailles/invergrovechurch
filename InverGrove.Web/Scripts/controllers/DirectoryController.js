@@ -6,23 +6,9 @@
     angular.module(appName + '.controllers')
         .controller('DirectoryCtrl', DirectoryController);
 
-    DirectoryController.$inject = [
-    ];
-
     function DirectoryController() {
         var vm = this;
 
-        /*
-         * Public declarations
-         */
-
-        activate();
-
-        /*
-         * Private declarations
-         */
-        function activate() {
-            
-        }
+        vm.members = members;
     }
 })();

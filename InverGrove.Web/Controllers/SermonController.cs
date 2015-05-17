@@ -41,6 +41,19 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult ViewSermons()
         {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                if (this.User.IsInRole("Member"))
+                {
+                    return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
+                }
+
+                if (this.User.IsInRole("MemberAdmin") || this.User.IsInRole("SiteAdmin"))
+                {
+                    return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
+                }
+            }
+
             var sermons = this.sermonService.GetSermons().ToSafeList().OrderByDescending(sermon => sermon.SermonDate);
 
             return PartialView("_ViewSermons", JsonConvert.SerializeObject(sermons, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver()}));

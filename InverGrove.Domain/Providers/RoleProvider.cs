@@ -8,7 +8,7 @@ using InverGrove.Domain.Repositories;
 
 namespace InverGrove.Domain.Providers
 {
-    public class RoleProvider : System.Web.Security.RoleProvider
+    public class RoleProvider : System.Web.Security.RoleProvider, IRoleProvider
     {
         private readonly IRoleRepository roleRepository;
         private readonly IUserRoleRepository userRoleRepository;

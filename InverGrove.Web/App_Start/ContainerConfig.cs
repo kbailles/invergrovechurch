@@ -68,6 +68,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IPersonService>().ImplementedBy<PersonService>().LifeStyle.Transient);
             container.Register(Component.For<IUserVerificationService>().ImplementedBy<UserVerificationService>().LifeStyle.Transient);
             container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifeStyle.Transient);
+            container.Register(Component.For<IRoleProvider>().ImplementedBy<RoleProvider>().LifeStyle.Transient);
         }
 
         private static void AddControllers(IWindsorContainer container)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using InverGrove.Domain.Extensions;
@@ -17,20 +18,25 @@ namespace InverGrove.Web.Controllers
         private readonly IUserVerificationService userVerificationService;
         private readonly IRegistrationService registrationService;
         private readonly IProfileService profileService;
-        private ISessionStateService sessionService;
+        private readonly IRoleProvider roleProvider;
+        private readonly ISessionStateService sessionService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// Initializes a new instance of the <see cref="AccountController" /> class.
         /// </summary>
-        /// <param name="membershipProvider">The membership provider.</param>
         /// <param name="userVerificationService">The user verification service.</param>
+        /// <param name="registrationService">The registration service.</param>
+        /// <param name="profileService">The profile service.</param>
+        /// <param name="roleProvider">The role provider.</param>
         public AccountController(IUserVerificationService userVerificationService,
                                  IRegistrationService registrationService,
-                                 IProfileService profileService)
+                                 IProfileService profileService,
+            IRoleProvider roleProvider)
         {
             this.userVerificationService = userVerificationService;
             this.registrationService = registrationService;
             this.profileService = profileService;
+            this.roleProvider = roleProvider;
             this.sessionService = new SessionStateService(); // not a candidate for IOC
         }
 
@@ -52,7 +58,15 @@ namespace InverGrove.Web.Controllers
 
             if (this.User.Identity.IsAuthenticated)
             {
-                return Redirect(Url.Action("Index", "Home", new { area = "Member" }));
+                if (this.User.IsInRole("Member"))
+                {
+                    return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
+                }
+
+                if (this.User.IsInRole("MemberAdmin") || this.User.IsInRole("SiteAdmin"))
+                {
+                    return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
+                }
             }
 
             return View();
@@ -69,17 +83,14 @@ namespace InverGrove.Web.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
                     SetDisplayUserFirstLastName(model.UserName);
+                    var userRoles = this.roleProvider.GetRolesForUser(model.UserName);
 
-                    RolePrincipal rolePrincipal = (RolePrincipal)this.User;
-                    var roles = rolePrincipal.GetRoles();
-                    var authenticatedUser = AuthenticatedUserFactory.Instance.Create(this.User.Identity.Name, this.User.Identity.IsAuthenticated, roles);
-
-                    //if (this.User.IsInRole("Member"))
-                    //{
+                    if (userRoles.Contains("Member"))
+                    {
                         return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
-                    //}
+                    }
 
-                    if (this.User.IsInRole("MemberAdmin") || this.User.IsInRole("SiteAdmin"))
+                    if (userRoles.Contains("MemberAdmin") || userRoles.Contains("SiteAdmin"))
                     {
                         return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
                     }

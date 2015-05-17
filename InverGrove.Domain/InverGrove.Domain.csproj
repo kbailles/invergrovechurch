@@ -134,6 +134,7 @@
     <Compile Include="Interfaces\IUserVerification.cs" />
     <Compile Include="Interfaces\IUserVerificationRepository.cs" />
     <Compile Include="Interfaces\IUserVerificationService.cs" />
+    <Compile Include="Interfaces\IRoleProvider.cs" />
     <Compile Include="Repositories\UserVerificationRepository.cs" />
     <Compile Include="Models\UserVerification.cs" />
     <Compile Include="Models\RegisterUserResult.cs" />

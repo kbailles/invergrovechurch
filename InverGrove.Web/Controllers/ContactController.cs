@@ -20,6 +20,19 @@ namespace InverGrove.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                if (this.User.IsInRole("Member"))
+                {
+                    return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
+                }
+
+                if (this.User.IsInRole("MemberAdmin") || this.User.IsInRole("SiteAdmin"))
+                {
+                    return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
+                }
+            }
+
             return View("_ContactUs");
         }
 

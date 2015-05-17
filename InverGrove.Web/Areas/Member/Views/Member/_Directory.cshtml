@@ -1,4 +1,10 @@
-﻿<div class="directory-wrapper" ng-controller="DirectoryCtrl as vm">
+﻿@model string
+
+<script>
+    var members = JSON.parse('@Html.Raw(Model)');
+</script>
+
+<div class="directory-wrapper" ng-controller="DirectoryCtrl as vm">
 
     <div class="breadcrumb-wrapper">
         <div class="container">
