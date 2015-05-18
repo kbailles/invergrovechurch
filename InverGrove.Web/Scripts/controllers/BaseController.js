@@ -6,11 +6,7 @@
     angular.module(appName + '.controllers')
         .controller('BaseCtrl', BaseController);
 
-    BaseController.$inject = [
-        '$location'
-    ];
-
-    function BaseController($location) {
+    function BaseController() {
         var base = this;
 
         /*
@@ -19,15 +15,10 @@
         base.navBarCollapsed = false;
         base.toggleNavBar = toggleNabBar;
 
-        base.isRouteActive = isRouteActive;
         base.goToPath = goToPath;
 
         function goToPath(path) {
             window.location.href = path;
-        }
-
-        function isRouteActive(route) {
-            return !route ? '/' === $location.path() : $location.absUrl().indexOf(route) > -1;
         }
 
         function toggleNabBar() {

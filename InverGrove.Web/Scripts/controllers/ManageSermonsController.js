@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function (_) {
     'use strict';
 
     var appName = igchurch.constants.APP_NAME;
@@ -34,8 +34,12 @@
          * Private declarations
          */
         function activate() {
-            SC.get('/members/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', function (tracks) {
-                vm.soundCloudSermons = tracks;
+            SC.get('/users/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', function (tracks) {
+                if (!!(tracks) && tracks.length > 0) {
+                    vm.soundCloudSermons = _.filter(tracks, function(track) {
+                        return !_.includes(_.pluck(vm.sermons, 'soundCloudId'), track.id);
+                    });
+                }
             });
         }
 
@@ -148,4 +152,4 @@
             });
         });
     }
-})();
+})( window._ );
