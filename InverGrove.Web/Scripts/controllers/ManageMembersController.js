@@ -30,6 +30,7 @@
                 controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/AddMember',
+                size: 'lg',
                 resolve: {
                     member: function () {
                         return {};
