@@ -25,6 +25,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return View("_Directory", (object)JsonConvert.SerializeObject(people, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
 
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpGet]
         public ActionResult ManageMembers()
         {
@@ -33,18 +34,21 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return View("_ManageMembers", (object)JsonConvert.SerializeObject(people, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
 
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpGet]
         public ActionResult AddMember()
         {
             return PartialView("_AddMember");
         }
 
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpGet]
         public ActionResult DeleteMember()
         {
             return PartialView("_DeleteMember");
         }
 
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpGet]
         public ActionResult GetAllUsers()
         {
@@ -52,6 +56,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return this.Json(people, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpPost]
         public ActionResult Add(Person person)
         {
@@ -61,6 +66,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpPost]
         public ActionResult Delete(Person person)
         {

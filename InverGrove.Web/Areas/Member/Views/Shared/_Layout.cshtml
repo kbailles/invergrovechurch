@@ -61,21 +61,24 @@
                     @{ string action = ViewContext.RouteData.Values["action"].ToString().ToLower(); }
                     <nav class="collapse navbar-collapse" collapse="base.navBarCollapsed" role="navigation">
                         <ul class="nav navbar-nav">
-                            <li class="@(action == "managemembers" || action == "managesermons" ? "active" : string.Empty)">
-                                <div dropdown is-open="status.isopen">
-                                    <a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                                        Manage <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="@(action == "managemembers" ? "javascript:void(0);" : Url.Action("ManageMembers", "Member", new {area = "Member"}))">Members</a>
-                                        </li>
-                                        <li>
-                                            <a href="@(action == "managesermons" ? "javascript:void(0);" : Url.Action("ManageSermons", "Sermon", new { area = "Member" }))">Sermons</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                            @if (this.User.IsInRole("SiteAdmin") || this.User.IsInRole("MemberAdmin"))
+                            {
+                                <li class="@(action == "managemembers" || action == "managesermons" ? "active" : string.Empty)">
+                                    <div dropdown is-open="status.isopen">
+                                        <a href="javascript:void(0)" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                                            Manage <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="@(action == "managemembers" ? "javascript:void(0);" : Url.Action("ManageMembers", "Member", new {area = "Member"}))">Members</a>
+                                            </li>
+                                            <li>
+                                                <a href="@(action == "managesermons" ? "javascript:void(0);" : Url.Action("ManageSermons", "Sermon", new { area = "Member" }))">Sermons</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
                             <li class="@(action == "directory" ? "active" : string.Empty)">
                                 <a href="@(action == "directory" ? "javascript:void(0);" : Url.Action("Directory", "Member", new { area = "Member" }))">Directory</a>
                             </li>
