@@ -4,7 +4,7 @@
     var sermons = JSON.parse('@Html.Raw(!string.IsNullOrEmpty(Model) ? Model : "[]")');
 </script>
 
-<div class="sermons-wrapper">
+<div class="sermons-wrapper" ng-controller="ViewSermonsCtrl as vm">
 
     <div class="breadcrumb-wrapper">
         <div class="container">
@@ -74,7 +74,8 @@
                                 <div class="sermon-date">
                                     <a class="date" href="#"><strong ng-bind="sermon.sermonDate | date : 'dd'"></strong><i ng-bind="sermon.sermonDate | date : 'MMM'"></i></a>
                                 </div>
-                                <h3 class="sermon-title"><a ng-href="#/SermonDetail/{{sermon.sermonId}}" ng-bind="sermon.title"></a>
+                                <h3 class="sermon-title">
+                                    <a ng-href="/Sermon/SermonDetail/?sermonId={{sermon.sermonId}}" ng-bind="sermon.title"></a>
                                 </h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">

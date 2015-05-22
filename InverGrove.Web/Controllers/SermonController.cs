@@ -17,28 +17,6 @@ namespace InverGrove.Web.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetAll()
-        {
-            var sermons = this.sermonService.GetSermons().ToSafeList().OrderByDescending(sermon => sermon.SermonDate);
-
-            return Json(sermons, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult(); ;
-        }
-
-        [HttpGet]
-        public JsonResult GetById(int sermonId)
-        {
-            var sermon = this.sermonService.GetSermon(sermonId);
-
-            return Json(sermon, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
-        }
-
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View("Index");
-        }
-
-        [HttpGet]
         public ActionResult ViewSermons()
         {
             if (this.User.Identity.IsAuthenticated)
@@ -56,13 +34,15 @@ namespace InverGrove.Web.Controllers
 
             var sermons = this.sermonService.GetSermons().ToSafeList().OrderByDescending(sermon => sermon.SermonDate);
 
-            return PartialView("_ViewSermons", JsonConvert.SerializeObject(sermons, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver()}));
+            return View("_ViewSermons", (object)JsonConvert.SerializeObject(sermons, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver()}));
         }
 
         [HttpGet]
-        public ActionResult SermonDetail()
+        public ActionResult SermonDetail(int sermonId)
         {
-            return PartialView("_SermonDetail");
+            var sermon = this.sermonService.GetSermon(sermonId);
+
+            return View("_SermonDetail", (object)JsonConvert.SerializeObject(sermon, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
     }
 }
