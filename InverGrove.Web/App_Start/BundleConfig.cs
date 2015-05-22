@@ -22,7 +22,7 @@ namespace InverGrove.Web
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/Components/jquery/jquery-2.1.4.min.js",
                 "~/Components/lodash/lodash.min.js",
-                "~/Components/angular/angular.js",
+                "~/Components/angular/angular.min.js",
                 "~/Components/angular-route/angular-route.min.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js"));
 
