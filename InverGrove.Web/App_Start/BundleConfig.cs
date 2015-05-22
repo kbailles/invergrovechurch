@@ -7,10 +7,6 @@ namespace InverGrove.Web
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
-            //Route bundles
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/route/sermon").Include(
-                "~/Scripts/app.sermon.routes.js"));
-
             //Core bundles
             bundles.Add(new StyleBundle("~/Components/css/core").Include(
                 "~/Components/html5-boilerplate/css/normalize.css",

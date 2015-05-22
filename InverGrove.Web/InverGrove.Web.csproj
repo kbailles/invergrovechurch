@@ -471,7 +471,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.module.js" />
-    <Content Include="Scripts\app.sermon.routes.js" />
     <Content Include="Scripts\common\class.js" />
     <Content Include="Scripts\common\logger.js" />
     <Content Include="Scripts\common\namespace.js" />
@@ -670,7 +669,6 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Sermon\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
