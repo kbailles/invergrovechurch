@@ -11,6 +11,11 @@ namespace InverGrove.Domain.Models
 {
     public class Person : Resource, IPerson
     {
+        public Person()
+        {
+            this.PhoneNumbers = new List<PhoneNumber>();
+        }
+
         /// <summary>
         /// Gets or sets the person id.
         /// </summary>

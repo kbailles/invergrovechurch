@@ -122,7 +122,7 @@ namespace InverGrove.Domain.Repositories
                 base.Update(personEntity);
             }
 
-            if ((personPhoneNumbers != null) && (personPhoneNumbers.Count > 0))
+            if (personPhoneNumbers != null)
             {
                 foreach (var phone in person.PhoneNumbers)
                 {
