@@ -145,11 +145,9 @@ namespace InverGrove.Domain.Extensions
             person.MaritalStatusId = (personModel.MaritalStatusId == 0) ? 4 : personModel.MaritalStatusId; // 4 is unknown
             person.ChurchRoleId = personModel.ChurchRoleId;
 
-            var modelPhoneNumbers = personModel.PhoneNumbers.ToSafeList();
-
-            if (modelPhoneNumbers.Count > 0)
+            if (personModel.PhoneNumbers != null)
             {
-                foreach (var modelPhoneNumber in modelPhoneNumbers)
+                foreach (var modelPhoneNumber in personModel.PhoneNumbers)
                 {
                     person.PhoneNumbers.Add(new Data.Entities.PhoneNumber
                     {

@@ -52,7 +52,18 @@ namespace InverGrove.Domain.Repositories
 
             this.Insert(personEntity);
 
-            this.Save();
+            using (TimedLock.Lock(this.syncRoot))
+            {
+                try
+                {
+                    this.Save();
+                }
+                catch (SqlException sql)
+                {
+                    throw new ApplicationException("Error occurred in attempting to add Person with PersonId: " + 
+                        person.FirstName + " " + person.LastName + " with message: " + sql.Message);
+                }
+            }
 
             return personEntity.PersonId;
         }
