@@ -75,9 +75,7 @@
             vm.MemberService.add(member).then(function (response) {
                 vm.members.push(member);
             },
-            function (error) {
-
-            })
+            function (error) {})
             .finally(function () {
                 vm.$modalInstance.dismiss('cancel');
             });
@@ -92,9 +90,7 @@
             vm.MemberService.edit(member).then(function (response) {
                 vm.members.push(member);
             },
-            function (error) {
-
-            })
+            function (error) {})
             .finally(function () {
                 vm.$modalInstance.dismiss('cancel');
             });
