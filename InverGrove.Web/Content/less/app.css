@@ -73,6 +73,9 @@ a .remove {
   border-radius: 100%;
   max-width: 75px;
 }
+.DisplayName {
+  margin-right: 18px;
+}
 .breadcrumb-wrapper {
   background: #ffffff;
 }
