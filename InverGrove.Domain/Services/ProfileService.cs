@@ -194,7 +194,7 @@ namespace InverGrove.Domain.Services
 
 			if (foundProfile != null)
 			{
-				profile = foundProfile.ToModel();
+				profile = foundProfile.ToModel(); // <---- gonna break right here !
 				var userRoles = this.userRoleRepository.Get(u => u.User.UserId == profile.UserId, includeProperties: "Role").ToModelCollection().ToSafeList();
 
 				if (userRoles.Count > 0)

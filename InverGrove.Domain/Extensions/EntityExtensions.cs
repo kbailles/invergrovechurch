@@ -194,19 +194,20 @@ namespace InverGrove.Domain.Extensions
             personModel.MaritalStatusId = person.MaritalStatusId;
             personModel.ChurchRoleId = person.ChurchRoleId;
             personModel.State = person.State;
-            var entityPhoneNumbers = person.PhoneNumbers.ToSafeList();
 
-            if (entityPhoneNumbers.Count > 0)
+            if (person.PhoneNumbers != null) /* one of these is not set to an instance */
             {
-                foreach (var entityPhoneNumber in entityPhoneNumbers)
+                personModel.PhoneNumbers = new List<PhoneNumber>();
+
+                foreach (var entityPhoneNumber in person.PhoneNumbers)
                 {
                     personModel.PhoneNumbers.Add(new PhoneNumber
-                    {
-                        PhoneNumberId = entityPhoneNumber.PhoneNumberId,
-                        AreaCode = entityPhoneNumber.AreaCode,
-                        Phone = entityPhoneNumber.Phone,
-                        PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId
-                    });
+                                                 {
+                                                     PhoneNumberId = entityPhoneNumber.PhoneNumberId,
+                                                     AreaCode = entityPhoneNumber.AreaCode,
+                                                     Phone = entityPhoneNumber.Phone,
+                                                     PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId
+                                                 });
                 }
             }
 
