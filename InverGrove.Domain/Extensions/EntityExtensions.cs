@@ -180,6 +180,8 @@ namespace InverGrove.Domain.Extensions
             personModel.AddressOne = person.Address1;
             personModel.AddressTwo = person.Address2;
             personModel.City = person.City;
+            personModel.State = person.State;
+            personModel.ZipCode = person.Zip;
             personModel.DateOfBirth = person.DateOfBirth;
             personModel.PrimaryEmail = person.EmailPrimary;
             personModel.SecondaryEmail = person.EmailSecondary;
@@ -200,6 +202,7 @@ namespace InverGrove.Domain.Extensions
                 {
                     personModel.PhoneNumbers.Add(new PhoneNumber
                     {
+                        PhoneNumberId = entityPhoneNumber.PhoneNumberId,
                         AreaCode = entityPhoneNumber.AreaCode,
                         Phone = entityPhoneNumber.Phone,
                         PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId

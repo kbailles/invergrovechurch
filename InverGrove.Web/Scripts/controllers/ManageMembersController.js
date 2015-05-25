@@ -19,7 +19,7 @@
         vm.MemberService = MemberService;
 
         vm.openAddMemberModal = openAddMemberModal;
-        //vm.openEditMemberModal = openEditMemberModal; // I think this should be a page and not a modal.  Will be LARGE
+        vm.openEditMemberModal = openEditMemberModal; 
         vm.openDeleteMemberModal = openDeleteMemberModal;
 
         vm.$modalInstance = null;
@@ -40,16 +40,16 @@
         }
 
         function openEditMemberModal(member) {
-            //vm.$modalInstance = $modal.open({
-            //    controller: 'MemberModalCtrl',
-            //    controllerAs: 'modalCtrl',
-            //    templateUrl: '/Member/Member/Edit',
-            //    resolve: {
-            //        user: function () {
-            //            return member;
-            //        }
-            //    }
-            //});
+            vm.$modalInstance = $modal.open({
+                controller: 'MemberModalCtrl',
+                controllerAs: 'modalCtrl',
+                templateUrl: '/Member/Member/EditUser',
+                resolve: {
+                    member: function () {
+                        return member;
+                    }
+                }
+            });
         }
 
         function openDeleteMemberModal(member) {

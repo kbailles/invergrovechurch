@@ -49,9 +49,9 @@
                     <tr ng-cloak ng-repeat="item in vm.members">
                         <td>{{item.firstName}} {{item.lastName}}</td>
                         <td>{{item.addressOne}} {{item.addressTwo}} {{item.city}}, {{item.state}} {{item.zipCode}}</td>
-                        <td>{{item.primaryEmail}}</td>
+                        <td>{{item.primaryEmail}} | {{item.primaryEmail}}</td>
                         <td style="text-align: right;">
-                            <button class="btn btn-color" ng-click=""><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-color" ng-click="vm.openEditMemberModal(item)"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-warning" btn-loading="vm.showDeleteLoading" data-loading-text="Deleting..." ng-click="vm.openDeleteMemberModal(item)"><i class="fa fa-remove"></i></button>
                         </td>
                     </tr>

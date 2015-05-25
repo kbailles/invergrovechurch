@@ -8,6 +8,7 @@ using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace InverGrove.Domain.Repositories
 {
@@ -73,10 +74,13 @@ namespace InverGrove.Domain.Repositories
 
             var currentPerson = (Person)person;
             var currentDate = DateTime.Now;
-            Data.Entities.Person personEntity = this.GetById(person.PersonId);
+            Data.Entities.Person personEntity = this.Get(x => x.PersonId == person.PersonId, includeProperties: "PhoneNumbers").FirstOrDefault();
+            ICollection<Data.Entities.PhoneNumber> personPhoneNumbers = null;
 
             if (personEntity != null)
             {
+                personPhoneNumbers = personEntity.PhoneNumbers;
+
                 personEntity.FirstName = currentPerson.FirstName;
                 personEntity.LastName = currentPerson.LastName;
                 personEntity.MiddleInitial = currentPerson.MiddleInitial;
@@ -95,20 +99,39 @@ namespace InverGrove.Domain.Repositories
                 personEntity.MaritalStatusId = currentPerson.MaritalStatusId;
                 personEntity.ChurchRoleId = currentPerson.ChurchRoleId;
                 personEntity.State = currentPerson.State;
+                personEntity.Zip = currentPerson.ZipCode;
                 personEntity.DateModified = currentDate;
                 personEntity.Profiles = null;
                 personEntity.Relatives = null;
                 personEntity.Relatives1 = null;
                 personEntity.MaritalStatus = null;
                 personEntity.ChurchRole = null;
+                personEntity.PhoneNumbers = null;
+
+                base.Update(personEntity);
+            }
+
+            if ((personPhoneNumbers != null) && (personPhoneNumbers.Count > 0))
+            {
+                foreach (var phone in person.PhoneNumbers)
+                {
+                    var phoneModel = currentPerson.PhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
+
+                    if (phoneModel != null)
+                    {
+                        phone.Phone = phoneModel.Phone;
+                        phone.AreaCode = phoneModel.AreaCode;
+                        phone.PhoneNumberTypeId = phoneModel.PhoneNumberTypeId;
+
+                        this.dataContext.SetModified(phone);
+                    }
+                }
             }
 
             using (TimedLock.Lock(this.syncRoot))
             {
                 try
                 {
-                    base.Update(personEntity);
-
                     this.Save();
                 }
                 catch (SqlException sql)
@@ -130,13 +153,13 @@ namespace InverGrove.Domain.Repositories
             var entityPerson = this.GetById(person.PersonId);
 
             if (entityPerson == null || entityPerson.LastName == "Bailles")
-            {   
+            {
                 //TODO - provider of profiles that can't be deleted.
                 return true; // already deleted by concurrent user?  all the better.
             }
 
-            try 
-            {     
+            try
+            {
                 base.Delete(entityPerson);
                 this.Save();
                 return true;

@@ -67,6 +67,13 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [Authorize(Roles = "MemberAdmin, SiteAdmin")]
+        [HttpGet]
+        public ActionResult EditUser()
+        {
+            return PartialView("_EditUser");
+        }
+
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpPost]
         public ActionResult Delete(Person person)
         {

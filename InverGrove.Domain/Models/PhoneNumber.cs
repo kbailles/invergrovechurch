@@ -8,6 +8,14 @@ namespace InverGrove.Domain.Models
     public class PhoneNumber : IPhoneNumber
     {
         /// <summary>
+        /// Gets or sets the phone number identifier.
+        /// </summary>
+        /// <value>
+        /// The phone number identifier.
+        /// </value>
+        public int PhoneNumberId { get; set; }
+
+        /// <summary>
         /// Gets or sets the area code.
         /// </summary>
         /// <value>

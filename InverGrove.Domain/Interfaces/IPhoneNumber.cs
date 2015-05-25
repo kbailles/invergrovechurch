@@ -5,6 +5,14 @@ namespace InverGrove.Domain.Interfaces
     public interface IPhoneNumber
     {
         /// <summary>
+        /// Gets or sets the phone number identifier.
+        /// </summary>
+        /// <value>
+        /// The phone number identifier.
+        /// </value>
+        int PhoneNumberId { get; set; }
+
+        /// <summary>
         /// Gets or sets the area code.
         /// </summary>
         /// <value>

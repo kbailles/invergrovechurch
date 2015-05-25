@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
-using System;
 
 namespace InverGrove.Domain.Services
 {
@@ -61,6 +61,23 @@ namespace InverGrove.Domain.Services
             return people.ToModelCollection();
         }
 
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <returns></returns>
+        public IPerson GetById(int personId)
+        {
+            var person = this.personRepository.Get(x => x.PersonId == personId, includeProperties: "PhoneNumbers").FirstOrDefault();
+
+            return person.ToModel();
+        }
+
+        /// <summary>
+        /// Deletes the specified person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <returns></returns>
         public int Delete(IPerson person)
         {
             var isDeleted = this.personRepository.Delete(person);
@@ -73,7 +90,6 @@ namespace InverGrove.Domain.Services
             {
                 return 0;          
             }
- 
         }
     }
 }

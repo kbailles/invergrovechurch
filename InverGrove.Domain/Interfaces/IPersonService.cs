@@ -20,6 +20,13 @@ namespace InverGrove.Domain.Interfaces
         IEnumerable<IPerson> GetAll();
 
         /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <returns></returns>
+        IPerson GetById(int personId);
+
+        /// <summary>
         /// Gets the base person.
         /// </summary>
         /// <returns></returns>

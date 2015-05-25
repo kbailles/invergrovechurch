@@ -7,48 +7,48 @@
         <div class="row">
             <div class="col-xs-6">
                 <label>First Name: <span class="warning">*</span></label>
-                <input class="form-control" name="firstName" ng-model="modalCtrl.personObj.firstName" type="text" maxlength="50" required />
+                <input class="form-control" name="firstName" ng-model="modalCtrl.member.firstName" type="text" maxlength="50" required />
             </div>
             <div class="col-xs-6">
                 <label>Last Name: <span class="warning">*</span></label>
-                <input class="form-control" name="lastName" ng-model="modalCtrl.personObj.lastName" type="text" maxlength="50" required />
+                <input class="form-control" name="lastName" ng-model="modalCtrl.member.lastName" type="text" maxlength="50" required />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-6">
                 <label>Address:</label>
-                <input class="form-control" name="addressOne" ng-model="modalCtrl.personObj.addressOne" type="text" maxlength="50" />
+                <input class="form-control" name="addressOne" ng-model="modalCtrl.member.addressOne" type="text" maxlength="50" />
             </div>
             <div class="col-xs-6">
                 <label>Apartment #:</label>
-                <input class="form-control" name="addressTwo" ng-model="modalCtrl.personObj.addressTwo" type="text" maxlength="50" />
+                <input class="form-control" name="addressTwo" ng-model="modalCtrl.member.addressTwo" type="text" maxlength="50" />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-6">
                 <label>City:</label>
-                <input class="form-control" name="city" ng-model="modalCtrl.personObj.city" maxlength="50" type="text" />
+                <input class="form-control" name="city" ng-model="modalCtrl.member.city" maxlength="50" type="text" />
             </div>
             <div class="col-xs-3">
                 <label>State:</label>
-                <select name="gender" ng-model="modalCtrl.personObj.state" class="form-control">
+                <select name="gender" ng-model="modalCtrl.member.state" class="form-control">
                     <option value="MN">Minnesota</option>
                     <option value="WI">Wisconsin</option>
                 </select>
             </div>
             <div class="col-xs-3">
                 <label>Zip Code:</label>
-                <input class="form-control" name="zipCode" ng-model="modalCtrl.personObj.zipCode" maxlength="5" type="text" />
+                <input class="form-control" name="zipCode" ng-model="modalCtrl.member.zipCode" maxlength="5" type="text" />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-6">
                 <label>Cell Phone:</label>
-                <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.personObj.phoneNumbers[0]" maxlength="20" type="text" />
+                <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.member.phoneNumbers[0]" maxlength="20" type="text" />
             </div>
             <div class="col-xs-6">
                 <label>Home / Other Phone:</label>
-                <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.personObj.phoneNumbers[1]" maxlength="20" type="text" />
+                <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.member.phoneNumbers[1]" maxlength="20" type="text" />
             </div>
         </div>
 
@@ -56,7 +56,7 @@
             <div class="col-xs-6">
                 <label>Create a user account? <span class="warning">*</span></label>
 
-                <select class="form-control" name="isUser" ng-model="modalCtrl.personObj.isUser" ng-change="modalCtrl.addUserSetupToForm()" required>
+                <select class="form-control" name="isUser" ng-model="modalCtrl.member.isUser" ng-change="modalCtrl.addUserSetupToForm()" required>
                     <option value="true">Yes: Create wtih user account</option>
                     <option value="false">No: doesn't want account or doesn't have email</option>
                 </select>
@@ -64,7 +64,7 @@
             <div class="col-xs-6">
                 <label>Email Address:</label>
                 <input class="form-control" ng-required="modalCtrl.requireEmail" ng-disabled="modalCtrl.disableEmail"
-                       name="primaryEmail" ng-model="modalCtrl.personObj.primaryEmail"
+                       name="primaryEmail" ng-model="modalCtrl.member.primaryEmail"
                        maxlength="50" type="text" />
             </div>
         </div>
@@ -72,14 +72,14 @@
         <div class="row">
             <div class="col-xs-6">
                 <label>Gender: <span class="warning">*</span></label>
-                <select class="form-control" name="gender" ng-model="modalCtrl.personObj.gender" style="width: 100px;" required>
+                <select class="form-control" name="gender" ng-model="modalCtrl.member.gender" style="width: 100px;" required>
                     <option value="f">Female</option>
                     <option value="m">Male</option>
                 </select>
             </div>
             <div class="col-xs-6">
                 <label>Person scripturally baptized? <span class="warning">*</span></label>
-                <select name="isBaptized" ng-model="modalCtrl.personObj.isBaptized" class="form-control" style="width: 90px;" required>
+                <select name="isBaptized" ng-model="modalCtrl.member.isBaptized" class="form-control" style="width: 90px;" required>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                 </select>
