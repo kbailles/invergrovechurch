@@ -54,18 +54,8 @@
 
         <div class="row">
             <div class="col-xs-6">
-                <label>Create a user account? <span class="warning">*</span></label>
-
-                <select class="form-control" name="isUser" ng-model="modalCtrl.member.isUser" ng-change="modalCtrl.addUserSetupToForm()" required>
-                    <option value="true">Yes: Create wtih user account</option>
-                    <option value="false">No: doesn't want account or doesn't have email</option>
-                </select>
-            </div>
-            <div class="col-xs-6">
                 <label>Email Address:</label>
-                <input class="form-control" ng-required="modalCtrl.requireEmail" ng-disabled="modalCtrl.disableEmail"
-                       name="primaryEmail" ng-model="modalCtrl.member.primaryEmail"
-                       maxlength="50" type="text" />
+                <input class="form-control" name="primaryEmail" ng-model="modalCtrl.member.primaryEmail" maxlength="50" type="text" />
             </div>
         </div>
 

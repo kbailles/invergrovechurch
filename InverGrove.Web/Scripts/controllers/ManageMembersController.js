@@ -84,7 +84,20 @@
         });
 
         $scope.$on('editMember', function (event, member) {
-            // stubbed
+
+            if (!member) {
+                return;
+            }
+
+            vm.MemberService.edit(member).then(function (response) {
+                vm.members.push(member);
+            },
+            function (error) {
+
+            })
+            .finally(function () {
+                vm.$modalInstance.dismiss('cancel');
+            });
         });
 
         $scope.$on('deletePerson', function (event, member) {

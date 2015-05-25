@@ -5,13 +5,6 @@ namespace InverGrove.Domain.Interfaces
 {
     public interface IPersonService
     {
-        /// <summary>
-        /// Adds the person.
-        /// </summary>
-        /// <param name="person">The person.</param>
-        /// <returns></returns>
-        /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
-        int AddPerson(IPerson person);
 
         /// <summary>
         /// Gets all people, regardless of active status or any conditions.
@@ -31,6 +24,21 @@ namespace InverGrove.Domain.Interfaces
         /// </summary>
         /// <returns></returns>
         IPerson GetBasePerson();
+
+        /// <summary>
+        /// Adds the person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <returns></returns>
+        /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
+        int AddPerson(IPerson person);
+
+        /// <summary>
+        /// Edits the specified person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <returns></returns>
+        int Edit(IPerson person);
 
         /// <summary>
         /// Deletes the specified person.

@@ -40,6 +40,16 @@
                 });
         }
 
+        this.edit = function (person) {
+
+            return $http({ method: 'POST', url: '/Member/Member/Edit', data: { person: parseInterson } }).
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                });
+        }
+
         this.delete = function (person) {
 
             return $http({ method: 'POST', url: '/Member/Member/Delete', data: { person: person } }).

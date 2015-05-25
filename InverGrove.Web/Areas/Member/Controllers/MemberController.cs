@@ -73,6 +73,22 @@ namespace InverGrove.Web.Areas.Member.Controllers
             return PartialView("_EditUser");
         }
 
+        // ---------------------------------------
+
+
+        [Authorize(Roles = "MemberAdmin, SiteAdmin")]
+        [HttpPost]
+        public ActionResult Edit(Person person)
+        {
+            Guard.ArgumentNotNull(person, "person");
+
+            var personAdded = this.personService.Edit(person);
+            return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+        }
+
+
+        // ---------------------------------------
+
         [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpPost]
         public ActionResult Delete(Person person)

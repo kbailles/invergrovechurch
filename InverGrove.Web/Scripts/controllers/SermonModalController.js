@@ -17,9 +17,6 @@
     function SermonModalController($modalInstance, $rootScope, sermon, soundCloudSermons, SermonService) {
         var vm = this;
 
-        /*
-         * Public declarations
-         */
         vm.sermon = angular.copy(sermon) || {};
         vm.sermon.tags = vm.sermon.tags || '';
         vm.soundCloudSermons = soundCloudSermons || [];
