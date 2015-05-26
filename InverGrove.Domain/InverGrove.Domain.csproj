@@ -104,6 +104,7 @@
     <Compile Include="Enums\InverGrovePasswordFormat.cs" />
     <Compile Include="Enums\MaritalStatusType.cs" />
     <Compile Include="Enums\PersonType.cs" />
+    <Compile Include="Enums\PhoneNumberType.cs" />
     <Compile Include="Enums\RelationType.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Enums\SortDirection.cs" />

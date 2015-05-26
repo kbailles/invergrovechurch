@@ -40,5 +40,13 @@ namespace InverGrove.Domain.Interfaces
         /// </value>
         [Required]
         int PhoneNumberTypeId { get; set; }
+
+        /// <summary>
+        /// Home, Mobile, Work. Prose value of PhoneNumberTypeId
+        /// </summary>
+        /// <value>
+        /// The type of the phone number.
+        /// </value>
+        string PhoneNumberType { get; set; }
     }
 }

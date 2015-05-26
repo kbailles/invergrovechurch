@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Enums\EnumTests.cs" />
     <Compile Include="Domain\Services\ContactServiceTests.cs" />
     <Compile Include="Domain\Services\LogServiceTests.cs" />
     <Compile Include="Domain\Services\MembershipServiceTests.cs" />

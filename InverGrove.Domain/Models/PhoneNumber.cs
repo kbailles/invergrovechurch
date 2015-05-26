@@ -46,5 +46,7 @@ namespace InverGrove.Domain.Models
         /// </value>
         [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PhoneNumberTypeRequired")]
         public int PhoneNumberTypeId { get; set; }
+
+        public string PhoneNumberType { get; set; }
     }
 }
