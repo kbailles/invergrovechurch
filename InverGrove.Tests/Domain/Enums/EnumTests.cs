@@ -1,7 +1,6 @@
 ﻿using System;
 using InverGrove.Domain.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NLog.Targets;
 
 namespace InverGrove.Tests.Domain.Enums
 {
@@ -16,7 +15,7 @@ namespace InverGrove.Tests.Domain.Enums
         [TestMethod]
         public void PhoneNumberType_ValueToKey()
         {
-            var expected = "Mobile";
+            const string expected = "Mobile";
             var result = Enum.GetName(typeof(PhoneNumberType), 2);
 
             Assert.AreEqual(expected, result);
