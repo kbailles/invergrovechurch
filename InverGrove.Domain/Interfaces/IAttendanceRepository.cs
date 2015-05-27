@@ -4,14 +4,15 @@ using InverGrove.Domain.ViewModels;
 
 namespace InverGrove.Domain.Interfaces
 {
-    public interface IAttendanceRepository
+    public interface IAttendanceRepository : IEntityRepository<Data.Entities.Attendance, int>
     {
         /// <summary>
-        /// Returns viewmodel containing Attendance info with person info tagged onto it.
+        /// Adds the specified attendance.
         /// </summary>
-        /// <param name="weekStarting">The week starting.</param>
-        /// <param name="weekEnding">The week ending.</param>
+        /// <param name="attendance">The attendance.</param>
         /// <returns></returns>
-        //IEnumerable<Attendance> GetAttendance(DateTime weekStarting, DateTime weekEnding);
+        /// <exception cref="System.ApplicationException">Error occurred in attempting to add Attendance with PersonId:  +
+        ///                         attendance.PersonId +  with message:  + sql.Message</exception>
+        int Add(IAttendance attendance);
     }
 }

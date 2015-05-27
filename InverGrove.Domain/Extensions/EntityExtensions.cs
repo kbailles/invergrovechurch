@@ -402,5 +402,43 @@ namespace InverGrove.Domain.Extensions
 
             return sermons;
         }
+
+        public static Data.Entities.Attendance ToEntity(this Attendance attendance)
+        {
+            var attendanceEntity = new Data.Entities.Attendance();
+
+            if(attendance == null)
+            {
+                return attendanceEntity;
+            }
+
+            attendanceEntity.AttendanceId = attendance.AttendanceId;
+            attendanceEntity.DateAttended = attendance.DateAttended;
+            attendanceEntity.IsEvening = attendance.IsEvening;
+            attendanceEntity.IsSunday = attendance.IsSunday;
+            attendanceEntity.IsWednesday = attendance.IsWednesday;
+            attendanceEntity.PersonId = attendance.PersonId;
+
+            return attendanceEntity;
+        }
+
+        public static Attendance ToModel(this Data.Entities.Attendance attendanceEntity)
+        {
+            var attendance = new Attendance();
+
+            if (attendanceEntity == null)
+            {
+                return attendance;
+            }
+
+            attendance.AttendanceId = attendanceEntity.AttendanceId;
+            attendance.DateAttended = attendanceEntity.DateAttended;
+            attendance.IsEvening = attendanceEntity.IsEvening;
+            attendance.IsSunday = attendanceEntity.IsSunday;
+            attendance.IsWednesday = attendanceEntity.IsWednesday;
+            attendance.PersonId = attendanceEntity.PersonId;
+
+            return attendance;
+        }
     }
 }
