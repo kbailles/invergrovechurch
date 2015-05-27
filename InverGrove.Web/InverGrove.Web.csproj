@@ -639,6 +639,7 @@
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Member\Controllers\AttendanceController.cs" />
     <Compile Include="Areas\Member\Controllers\SermonController.cs" />
     <Compile Include="Areas\Member\Controllers\MemberController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
@@ -672,6 +673,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Member\Views\Attendance\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">

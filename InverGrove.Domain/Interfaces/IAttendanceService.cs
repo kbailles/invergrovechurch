@@ -7,6 +7,25 @@ namespace InverGrove.Domain.Interfaces
 {
     public interface IAttendanceService
     {
-        //IEnumerable<Domain.ViewModels.AttendancePerson> ShowEveryonesAttendance();
+        /// <summary>
+        /// Adds the attendance.
+        /// </summary>
+        /// <param name="memberAttendance">The member attendance.</param>
+        /// <returns></returns>
+        bool AddAttendance(IEnumerable<IAttendancePerson> memberAttendance);
+
+        /// <summary>
+        /// Gets the members for attendance.
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IAttendancePerson> GetMembersForAttendance();
+
+        /// <summary>
+        /// Gets the attendance by date.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        IEnumerable<IAttendancePerson> GetAttendanceByDate(DateTime startDate, DateTime endDate);
     }
 }
