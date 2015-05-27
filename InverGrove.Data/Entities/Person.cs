@@ -11,6 +11,7 @@ namespace InverGrove.Data.Entities
         public Person()
         {
             // ReSharper disable DoNotCallOverridableMethodsInConstructor
+            this.Attendances = new HashSet<Attendance>();
             this.Profiles = new HashSet<Profile>();
             this.Relatives = new HashSet<Relative>();
             this.Relatives1 = new HashSet<Relative>();
@@ -81,6 +82,8 @@ namespace InverGrove.Data.Entities
         public virtual MaritalStatus MaritalStatus { get; set; }
 
         public virtual ChurchRole ChurchRole { get; set; }
+
+        public virtual ICollection<Attendance> Attendances { get; set; }
 
         public virtual ICollection<Profile> Profiles { get; set; }
 

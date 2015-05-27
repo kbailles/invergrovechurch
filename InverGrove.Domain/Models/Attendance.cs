@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using InverGrove.Domain.Interfaces;
 
-namespace InverGrove.Domain.ViewModels
+namespace InverGrove.Domain.Models
 {
-    public class AttendancePerson : IAttendancePerson
+    public class Attendance : InverGrove.Domain.Interfaces.IAttendance
     {
         /// <summary>
         /// Gets or sets the attendance identifier.
@@ -14,7 +10,7 @@ namespace InverGrove.Domain.ViewModels
         /// <value>
         /// The attendance identifier.
         /// </value>
-        public int AttendanceId { get; set; }  // not sure what to do here ideally readonly but we have to set it when casting to this model from EF
+        public int AttendanceId { get; set; }
 
         /// <summary>
         /// Gets or sets the person identifier.
@@ -23,22 +19,6 @@ namespace InverGrove.Domain.ViewModels
         /// The person identifier.
         /// </value>
         public int PersonId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the first name.
-        /// </summary>
-        /// <value>
-        /// The first name.
-        /// </value>
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the last name.
-        /// </summary>
-        /// <value>
-        /// The last name.
-        /// </value>
-        public string LastName { get; set; }
 
         /// <summary>
         /// Gets or sets the date attended.

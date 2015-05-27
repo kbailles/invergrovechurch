@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201503231629226_UserVerificationProfileUpdates.Designer.cs">
       <DependentUpon>201503231629226_UserVerificationProfileUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505251701085_AttendanceUpdate1.cs" />
+    <Compile Include="Migrations\201505251701085_AttendanceUpdate1.Designer.cs">
+      <DependentUpon>201505251701085_AttendanceUpdate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503231629226_UserVerificationProfileUpdates.resx">
       <DependentUpon>201503231629226_UserVerificationProfileUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505251701085_AttendanceUpdate1.resx">
+      <DependentUpon>201505251701085_AttendanceUpdate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

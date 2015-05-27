@@ -11,7 +11,6 @@ namespace InverGrove.Data.Entities
         public User()
         {
             // ReSharper disable DoNotCallOverridableMethodsInConstructor
-            this.Attendances = new HashSet<Attendance>();
             this.MemberNotes = new HashSet<MemberNote>();
             this.Memberships = new HashSet<Membership>();
             this.Profiles = new HashSet<Profile>();
@@ -33,8 +32,6 @@ namespace InverGrove.Data.Entities
         public DateTime DateCreated { get; set; }
 
         public DateTime DateModified { get; set; }
-
-        public virtual ICollection<Attendance> Attendances { get; set; }
 
         public virtual ICollection<MemberNote> MemberNotes { get; set; }
 

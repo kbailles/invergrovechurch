@@ -49,6 +49,7 @@ namespace InverGrove.Domain.Repositories
             personEntity.Relatives1 = null;
             personEntity.MaritalStatus = null;
             personEntity.ChurchRole = null;
+            personEntity.Attendances = null;
 
             this.Insert(personEntity);
 
@@ -118,6 +119,7 @@ namespace InverGrove.Domain.Repositories
                 personEntity.MaritalStatus = null;
                 personEntity.ChurchRole = null;
                 personEntity.PhoneNumbers = null;
+                personEntity.Attendances = null;
 
                 base.Update(personEntity);
             }

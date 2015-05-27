@@ -7,6 +7,6 @@ namespace InverGrove.Domain.Interfaces
 {
     public interface IAttendanceService
     {
-        IEnumerable<Domain.ViewModels.Attendance> ShowEveryonesAttendance();
+        //IEnumerable<Domain.ViewModels.AttendancePerson> ShowEveryonesAttendance();
     }
 }

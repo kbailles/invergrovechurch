@@ -141,7 +141,13 @@ namespace InverGrove.Data
                     DateCreated = timeStamp,
                     DateModified = timeStamp,
                     IsAnonymous = false,
-                    LastActivityDate = timeStamp
+                    LastActivityDate = timeStamp                    ,
+                    MemberNotes = null,
+                    Memberships = null,
+                    Profiles = null,
+                    Responsibilities = null,
+                    Sermons = null,
+                    UserRoles = null
                 },
             };
 
@@ -159,6 +165,7 @@ namespace InverGrove.Data
                 DateCreated = timeStamp,
                 Person = new Person
                 {
+                    Attendances = null,
                     Address1 = "3925 Princeton Trail",
                     City = "Eagan",
                     DateCreated = timeStamp,
@@ -177,7 +184,7 @@ namespace InverGrove.Data
                     Zip = "55123",
                     Gender = "M"
                 },
-                User = null
+                User = null                
             };
 
             context.Profiles.Add(profileEntity);

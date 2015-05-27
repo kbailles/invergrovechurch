@@ -121,6 +121,7 @@
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\MembershipCreateStatusExtensions.cs" />
     <Compile Include="Factories\AuthenticatedUserFactory.cs" />
+    <Compile Include="Interfaces\IAttendancePerson.cs" />
     <Compile Include="Interfaces\IPersonFactory.cs" />
     <Compile Include="Factories\LogConfigurationFactory.cs" />
     <Compile Include="Factories\NotLoggerFilter.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Interfaces\IUserVerificationRepository.cs" />
     <Compile Include="Interfaces\IUserVerificationService.cs" />
     <Compile Include="Interfaces\IRoleProvider.cs" />
+    <Compile Include="Models\Attendance.cs" />
     <Compile Include="Repositories\UserVerificationRepository.cs" />
     <Compile Include="Models\UserVerification.cs" />
     <Compile Include="Models\RegisterUserResult.cs" />

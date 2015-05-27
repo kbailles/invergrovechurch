@@ -134,7 +134,13 @@ namespace InverGrove.Data.Migrations
                                  DateCreated = timeStamp,
                                  DateModified = timeStamp,
                                  IsAnonymous = false,
-                                 LastActivityDate = timeStamp
+                                 LastActivityDate = timeStamp,
+                                 MemberNotes = null,
+                                 Memberships = null,
+                                 Profiles = null,
+                                 Responsibilities = null,
+                                 Sermons = null,
+                                 UserRoles = null
                              };
             context.Users.AddOrUpdate(u => u.UserName, keenanUser);
 
@@ -175,6 +181,7 @@ namespace InverGrove.Data.Migrations
                 DateCreated = timeStamp,
                 Person = new Person
                 {
+                    Attendances = null,
                     Address1 = "3925 Princeton Trail",
                     City = "Eagan",
                     DateCreated = timeStamp,
@@ -196,7 +203,7 @@ namespace InverGrove.Data.Migrations
                 User = null
             };
 
-            context.Profiles.AddOrUpdate(p => p.UserId, profileEntity);
+            context.Profiles.AddOrUpdate(p => new { p.UserId, p.PersonId }, profileEntity);
             context.SaveChanges();
 
             var keenanAdminRole = new UserRole

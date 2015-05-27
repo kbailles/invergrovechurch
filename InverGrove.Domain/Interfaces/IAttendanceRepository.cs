@@ -12,6 +12,6 @@ namespace InverGrove.Domain.Interfaces
         /// <param name="weekStarting">The week starting.</param>
         /// <param name="weekEnding">The week ending.</param>
         /// <returns></returns>
-        IEnumerable<Attendance> GetAttendance(DateTime weekStarting, DateTime weekEnding);
+        //IEnumerable<Attendance> GetAttendance(DateTime weekStarting, DateTime weekEnding);
     }
 }

@@ -13,16 +13,16 @@ namespace InverGrove.Domain.Services
             this.attendanceRepository = attendanceRepository;
         }
 
-        public IEnumerable<Domain.ViewModels.Attendance> ShowEveryonesAttendance()
-        {
-            // TODO - Takes real dates, refactor tests for this method
-            var fiveWeeksAgo = DateTime.Now.AddDays(-36);
+        //public IEnumerable<Domain.ViewModels.AttendancePerson> ShowEveryonesAttendance()
+        //{
+        //    // TODO - Takes real dates, refactor tests for this method
+        //    var fiveWeeksAgo = DateTime.Now.AddDays(-36);
 
-            var startTime = fiveWeeksAgo;
-            var endTime = DateTime.Today;  // end time might not be now() - they may be trying to look at some past increment
+        //    var startTime = fiveWeeksAgo;
+        //    var endTime = DateTime.Today;  // end time might not be now() - they may be trying to look at some past increment
 
-            var peoplesAttendance = this.attendanceRepository.GetAttendance(startTime, endTime);
-            return peoplesAttendance;
-        }
+        //    var peoplesAttendance = this.attendanceRepository.GetAttendance(startTime, endTime);
+        //    return peoplesAttendance;
+        //}
     }
 }

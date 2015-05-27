@@ -518,6 +518,11 @@ namespace InverGrove.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<Person>()
+                .HasMany(e => e.Attendances)
+                .WithRequired(e => e.Person)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Person>()
                 .HasMany(e => e.PhoneNumbers)
                 .WithRequired(e => e.Person)
                 .WillCascadeOnDelete(false);
@@ -607,12 +612,7 @@ namespace InverGrove.Data
 
             modelBuilder.Entity<User>()
                 .Property(e => e.UserName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Attendances)
-                .WithRequired(e => e.User)
-                .WillCascadeOnDelete(false);
+                .IsUnicode(false);            
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.MemberNotes)
