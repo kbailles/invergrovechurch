@@ -2,7 +2,7 @@ namespace InverGrove.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class InitialCreate : DbMigration
     {
         public override void Up()
@@ -21,7 +21,7 @@ namespace InverGrove.Data.Migrations
                 .PrimaryKey(t => t.AttendanceId)
                 .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.UserId);
-            
+
             CreateTable(
                 "dbo.User",
                 c => new
@@ -34,7 +34,7 @@ namespace InverGrove.Data.Migrations
                         DateModified = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId);
-            
+
             CreateTable(
                 "dbo.MemberNote",
                 c => new
@@ -47,7 +47,7 @@ namespace InverGrove.Data.Migrations
                 .PrimaryKey(t => t.PersonNotesId)
                 .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.UserId);
-            
+
             CreateTable(
                 "dbo.Membership",
                 c => new
@@ -76,7 +76,7 @@ namespace InverGrove.Data.Migrations
                 .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.PasswordFormatId);
-            
+
             CreateTable(
                 "dbo.PasswordFormat",
                 c => new
@@ -87,7 +87,7 @@ namespace InverGrove.Data.Migrations
                         DateModified = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.PasswordFormatId);
-            
+
             CreateTable(
                 "dbo.Profile",
                 c => new
@@ -107,7 +107,7 @@ namespace InverGrove.Data.Migrations
                 .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.PersonId);
-            
+
             CreateTable(
                 "dbo.Person",
                 c => new
@@ -140,7 +140,7 @@ namespace InverGrove.Data.Migrations
                 .ForeignKey("dbo.MaritalStatus", t => t.MaritalStatusId)
                 .Index(t => t.MaritalStatusId)
                 .Index(t => t.ChurchRoleId);
-            
+
             CreateTable(
                 "dbo.ChurchRole",
                 c => new
@@ -149,7 +149,7 @@ namespace InverGrove.Data.Migrations
                         ChurchRoleDescription = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.ChurchRoleId);
-            
+
             CreateTable(
                 "dbo.MaritalStatus",
                 c => new
@@ -158,7 +158,7 @@ namespace InverGrove.Data.Migrations
                         MaritalStatusDescription = c.String(nullable: false, maxLength: 50, unicode: false),
                     })
                 .PrimaryKey(t => t.MaritalStatusId);
-            
+
             CreateTable(
                 "dbo.PhoneNumber",
                 c => new
@@ -174,7 +174,7 @@ namespace InverGrove.Data.Migrations
                 .ForeignKey("dbo.Person", t => t.PersonId)
                 .Index(t => t.PersonId)
                 .Index(t => t.PhoneNumberTypeId);
-            
+
             CreateTable(
                 "dbo.PhoneNumberType",
                 c => new
@@ -183,7 +183,7 @@ namespace InverGrove.Data.Migrations
                         Description = c.String(nullable: false, maxLength: 25, unicode: false),
                     })
                 .PrimaryKey(t => t.PhoneNumberTypeId);
-            
+
             CreateTable(
                 "dbo.Relative",
                 c => new
@@ -201,7 +201,7 @@ namespace InverGrove.Data.Migrations
                 .Index(t => t.PersonA)
                 .Index(t => t.PersonB)
                 .Index(t => t.RelationTypeId);
-            
+
             CreateTable(
                 "dbo.RelationType",
                 c => new
@@ -210,7 +210,7 @@ namespace InverGrove.Data.Migrations
                         RelationTypeDescription = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.RelationTypeId);
-            
+
             CreateTable(
                 "dbo.Responsibility",
                 c => new
@@ -224,7 +224,7 @@ namespace InverGrove.Data.Migrations
                         LastUpdated = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ResponsibilitiesId);
-            
+
             CreateTable(
                 "dbo.Sermon",
                 c => new
@@ -242,7 +242,7 @@ namespace InverGrove.Data.Migrations
                 .PrimaryKey(t => t.SermonId)
                 .ForeignKey("dbo.User", t => t.ModifiedByUserId)
                 .Index(t => t.ModifiedByUserId);
-            
+
             CreateTable(
                 "dbo.UserRole",
                 c => new
@@ -257,7 +257,7 @@ namespace InverGrove.Data.Migrations
                 .ForeignKey("dbo.User", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
-            
+
             CreateTable(
                 "dbo.Role",
                 c => new
@@ -268,7 +268,7 @@ namespace InverGrove.Data.Migrations
                         DateModified = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.RoleId);
-            
+
             CreateTable(
                 "dbo.Contact",
                 c => new
@@ -288,7 +288,7 @@ namespace InverGrove.Data.Migrations
                         DateSubmitted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ContactsId);
-            
+
             CreateTable(
                 "dbo.UserResponsibilities",
                 c => new
@@ -301,9 +301,8 @@ namespace InverGrove.Data.Migrations
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.ResponsibilitiesId)
                 .Index(t => t.UserId);
-            
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.UserRole", "UserId", "dbo.User");

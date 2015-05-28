@@ -2,7 +2,7 @@ namespace InverGrove.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AttendanceUpdate1 : DbMigration
     {
         public override void Up()
@@ -17,7 +17,7 @@ namespace InverGrove.Data.Migrations
             AddForeignKey("dbo.Attendance", "PersonId", "dbo.Person", "PersonId");
             DropColumn("dbo.Attendance", "UserId");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Attendance", "UserId", c => c.Int(nullable: false));

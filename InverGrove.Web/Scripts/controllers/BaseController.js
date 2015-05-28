@@ -9,12 +9,9 @@
     function BaseController() {
         var base = this;
 
-        /*
-         * Public declarations
-         */
-        base.navBarCollapsed = false;
-        base.toggleNavBar = toggleNabBar;
+        base.navBarCollapsed = true;
 
+        base.toggleNavBar = toggleNabBar;
         base.goToPath = goToPath;
 
         function goToPath(path) {

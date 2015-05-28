@@ -2,7 +2,7 @@ namespace InverGrove.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class UserVerificationAddition : DbMigration
     {
         public override void Up()
@@ -18,9 +18,8 @@ namespace InverGrove.Data.Migrations
                         DateAccessed = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.UserVerificationId);
-            
         }
-        
+
         public override void Down()
         {
             DropTable("dbo.UserVerification");
