@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using InverGrove.Domain.Interfaces;
+using System.Web.Mvc;
 
 namespace InverGrove.Domain.ViewModels
 {
@@ -15,6 +16,22 @@ namespace InverGrove.Domain.ViewModels
         /// The attendance identifier.
         /// </value>
         public int AttendanceId { get; set; }  // not sure what to do here ideally readonly but we have to set it when casting to this model from EF
+
+        /// <summary>
+        /// Gets or sets the absent reason identifier.
+        /// </summary>
+        /// <value>
+        /// The absent reason identifier.
+        /// </value>
+        public int? AbsentReasonId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the absent reason description.
+        /// </summary>
+        /// <value>
+        /// The absent reason description.
+        /// </value>
+        public string AbsentReasonDescription { get; set; }
 
         /// <summary>
         /// Gets or sets the person identifier.
@@ -71,5 +88,13 @@ namespace InverGrove.Domain.ViewModels
         /// The is evening.
         /// </value>
         public bool IsEvening { get; set; }
+
+        /// <summary>
+        /// Gets or sets the absent reasons.
+        /// </summary>
+        /// <value>
+        /// The absent reasons.
+        /// </value>
+        public IEnumerable<SelectListItem> AbsentReasons { get; set; }
     }
 }

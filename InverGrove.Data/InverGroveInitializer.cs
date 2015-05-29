@@ -10,6 +10,40 @@ namespace InverGrove.Data
     {
         protected override void Seed(InverGroveContext context)
         {
+            var absentReasons = new List<AbsentReason>
+                          {
+                              new AbsentReason
+                              {
+                                  Description = "Sick"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Out of Town"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Aiding for someone sick"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Homebound/Unable to leave their home or care facility"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Emergency"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Unknown"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Other"
+                              }
+                          };
+            absentReasons.ForEach(s => context.AbsentReasons.Add(s));
+            context.SaveChanges();
+
             var roles = new List<Role>
                            {
                                new Role

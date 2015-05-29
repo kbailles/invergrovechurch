@@ -7,6 +7,12 @@ namespace InverGrove.Data.Entities
     [Table("ChurchRole")]
     public class ChurchRole
     {
+        public ChurchRole()
+        {
+            // ReSharper disable once DoNotCallOverridableMethodsInConstructor
+            this.People = new HashSet<Person>();
+        }
+
         public int ChurchRoleId { get; set; }
 
         [Required]

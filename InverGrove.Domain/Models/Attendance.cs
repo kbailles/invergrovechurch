@@ -13,6 +13,14 @@ namespace InverGrove.Domain.Models
         public int AttendanceId { get; set; }
 
         /// <summary>
+        /// Gets or sets the absent reason identifier.
+        /// </summary>
+        /// <value>
+        /// The absent reason identifier.
+        /// </value>
+        public int? AbsentReasonId { get; set; }
+
+        /// <summary>
         /// Gets or sets the person identifier.
         /// </summary>
         /// <value>

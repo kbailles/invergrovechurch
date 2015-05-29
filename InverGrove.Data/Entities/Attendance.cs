@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InverGrove.Data.Entities
@@ -18,6 +19,12 @@ namespace InverGrove.Data.Entities
 
         public bool IsEvening { get; set; }
 
+        public bool IsAbsent { get; set; }
+
+        public int? AbsentReasonId { get; set; }
+
+        public virtual AbsentReason AbsentReason { get; set; } 
+        
         public virtual Person Person { get; set; }
     }
 }

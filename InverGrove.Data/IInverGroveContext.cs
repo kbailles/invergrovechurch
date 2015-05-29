@@ -17,6 +17,14 @@ namespace InverGrove.Data
         IDbSet<Attendance> Attendances { get; set; }
 
         /// <summary>
+        /// Gets or sets the absent reasons.
+        /// </summary>
+        /// <value>
+        /// The absent reasons.
+        /// </value>
+        IDbSet<AbsentReason> AbsentReasons { get; set; }
+
+        /// <summary>
         /// Gets or sets the church roles.
         /// </summary>
         /// <value>

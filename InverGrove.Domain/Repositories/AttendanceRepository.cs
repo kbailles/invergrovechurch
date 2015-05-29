@@ -32,6 +32,7 @@ namespace InverGrove.Domain.Repositories
 
             var newEntityAttendance = ((Attendance)attendance).ToEntity();
             newEntityAttendance.Person = null;
+            newEntityAttendance.AbsentReason = null;
 
 
             this.Insert(newEntityAttendance);

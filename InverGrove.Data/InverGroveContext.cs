@@ -48,6 +48,14 @@ namespace InverGrove.Data
         }
 
         /// <summary>
+        /// Gets or sets the absent reasons.
+        /// </summary>
+        /// <value>
+        /// The absent reasons.
+        /// </value>
+        public IDbSet<AbsentReason> AbsentReasons { get; set; }
+
+        /// <summary>
         /// Gets or sets the attendances.
         /// </summary>
         /// <value>
@@ -398,6 +406,15 @@ namespace InverGrove.Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+           modelBuilder.Entity<AbsentReason>()
+                .Property(e => e.Description)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AbsentReason>()
+                .HasMany(e => e.AttendanceCollection)
+                .WithRequired(e => e.AbsentReason)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Contact>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -642,6 +659,6 @@ namespace InverGrove.Data
         ///   <c>true</c> if [re throw exceptions]; otherwise, <c>false</c>.
         /// </value>
         /// <remarks>The default value is <c>true</c> this is here to allow for test coverage.</remarks>
-        internal bool ReThrowExceptions { get; set; }
+        internal bool ReThrowExceptions { get; set; }        
     }
 }

@@ -413,6 +413,7 @@ namespace InverGrove.Domain.Extensions
             }
 
             attendanceEntity.AttendanceId = attendance.AttendanceId;
+            attendanceEntity.AbsentReasonId = attendance.AbsentReasonId == 0 ? null : attendance.AbsentReasonId;
             attendanceEntity.DateAttended = attendance.DateAttended;
             attendanceEntity.IsEvening = attendance.IsEvening;
             attendanceEntity.IsSunday = attendance.IsSunday;
@@ -432,6 +433,7 @@ namespace InverGrove.Domain.Extensions
             }
 
             attendance.AttendanceId = attendanceEntity.AttendanceId;
+            attendance.AbsentReasonId = attendanceEntity.AbsentReasonId;
             attendance.DateAttended = attendanceEntity.DateAttended;
             attendance.IsEvening = attendanceEntity.IsEvening;
             attendance.IsSunday = attendanceEntity.IsSunday;

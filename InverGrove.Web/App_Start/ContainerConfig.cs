@@ -40,6 +40,7 @@ namespace InverGrove.Web
 
         private static void RegisterRepositories(IWindsorContainer container)
         {
+            container.Register(Component.For<IAbsentReasonRepository>().ImplementedBy<AbsentReasonRepository>().LifeStyle.Transient);
             container.Register(Component.For<IAttendanceRepository>().ImplementedBy<AttendanceRepository>().LifeStyle.Transient);
             container.Register(Component.For<IChurchRoleRepository>().ImplementedBy<ChurchRoleRepository>().LifeStyle.Transient);
             container.Register(Component.For<IContactRepository>().ImplementedBy<ContactRepository>().LifeStyle.Transient);

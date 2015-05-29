@@ -19,6 +19,14 @@ namespace InverGrove.Domain.Interfaces
         int AttendanceId { get; set; }
 
         /// <summary>
+        /// Gets or sets the absent reason identifier.
+        /// </summary>
+        /// <value>
+        /// The absent reason identifier.
+        /// </value>
+        int? AbsentReasonId { get; set; }
+
+        /// <summary>
         /// Gets or sets the date attended.
         /// </summary>
         /// <value>

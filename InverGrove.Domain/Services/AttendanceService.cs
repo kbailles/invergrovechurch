@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.ViewModels;
 using InverGrove.Domain.Utils;
+using System.Web.Mvc;
 
 namespace InverGrove.Domain.Services
 {
     public class AttendanceService : IAttendanceService
     {
+        private readonly IAbsentReasonRepository absentRepository;
         private readonly IAttendanceRepository attendanceRepository;
         private readonly IPersonRepository personRepository;
 
-        public AttendanceService(IAttendanceRepository attendanceRepository, IPersonRepository personRepository)
+        public AttendanceService(IAbsentReasonRepository absentRepository, IAttendanceRepository attendanceRepository, 
+            IPersonRepository personRepository)
         {
+            this.absentRepository = absentRepository;
             this.attendanceRepository = attendanceRepository;
             this.personRepository = personRepository;
         }
@@ -50,6 +54,21 @@ namespace InverGrove.Domain.Services
             var attendanceList = new List<IAttendancePerson>();
 
             var members = this.personRepository.Get(x => x.IsMember);
+            var absentReasons = this.absentRepository.Get();
+
+            var absentReasonSelectList = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Select", Value = "0", Selected = true }
+            };
+
+            foreach(var reason in absentReasons)
+            {
+                absentReasonSelectList.Add(new SelectListItem
+                {
+                    Text = reason.Description,
+                    Value = reason.AbsentReasonId.ToString()
+                });
+            }
 
             foreach(var member in members)
             {
@@ -58,7 +77,8 @@ namespace InverGrove.Domain.Services
                     DateAttended = DateTime.Now,
                     PersonId = member.PersonId,
                     FirstName = member.FirstName,
-                    LastName = member.LastName
+                    LastName = member.LastName,
+                    AbsentReasons = absentReasonSelectList
                 };
             }
 
@@ -80,20 +100,26 @@ namespace InverGrove.Domain.Services
                 endDate.AddDays(1);
             }
 
-            var peoplesAttendance = this.attendanceRepository.Get(x => 
-                (x.DateAttended >= startDate) && (x.DateAttended <= endDate), includeProperties: "Person");
+            var peoplesAttendance = this.attendanceRepository.Get(x =>
+                (x.DateAttended >= startDate) && (x.DateAttended <= endDate), includeProperties: "AbsentReason,Person");
 
             foreach(var attendance in peoplesAttendance)
             {
                 var personAttendance = new AttendancePerson 
                 { 
                     AttendanceId = attendance.AttendanceId,
+                    AbsentReasonId = attendance.AbsentReasonId,
                     DateAttended = attendance.DateAttended,
                     IsEvening = attendance.IsEvening,
                     IsSunday = attendance.IsSunday,
                     IsWednesday = attendance.IsWednesday,
                     PersonId = attendance.PersonId
                 };
+
+                if(attendance.AbsentReason != null)
+                {
+                    personAttendance.AbsentReasonDescription = attendance.AbsentReason.Description;
+                }
 
                 if (attendance.Person != null)
                 {

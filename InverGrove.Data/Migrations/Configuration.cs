@@ -22,6 +22,40 @@ namespace InverGrove.Data.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data. E.g.
 
+            var absentReasons = new List<AbsentReason>
+                          {
+                              new AbsentReason
+                              {
+                                  Description = "Sick"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Out of Town"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Aiding for someone sick"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Homebound/Unable to leave their home or care facility"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Emergency"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Unknown"
+                              },
+                              new AbsentReason
+                              {
+                                  Description = "Other"
+                              }
+                          };
+            absentReasons.ForEach(s => context.AbsentReasons.AddOrUpdate(a => a.Description, s));
+            context.SaveChanges();
+
             var roles = new List<Role>
                            {
                                new Role
