@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Web;
+using System.Web.Caching;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
@@ -83,6 +84,12 @@ namespace InverGrove.Domain.Services
                 foreach (var s in sermonsCollection)
                 {
                     sermons.Add(s.ToModel());
+                }
+
+                if (HttpContext.Current.Cache != null)
+                {
+                    HttpContext.Current.Cache.Add("Sermons", sermons, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0, 0),
+                        CacheItemPriority.Normal, null);
                 }
             }
 
