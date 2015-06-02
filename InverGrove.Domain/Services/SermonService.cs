@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Web;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
+using InverGrove.Domain.Models;
 
 namespace InverGrove.Domain.Services
 {
@@ -62,9 +65,28 @@ namespace InverGrove.Domain.Services
         /// <returns></returns>
         public IEnumerable<ISermon> GetSermons()
         {
-            var sermons = this.sermonRepository.Get();
+            var sermons = new List<ISermon>();
 
-            return sermons.ToModelCollection();
+            if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
+            {
+                var sermonsCollection = (List<Sermon>)HttpContext.Current.Cache["Sermons"];
+
+                foreach (var s in sermonsCollection)
+                {
+                    sermons.Add(s);
+                }
+            }
+            else
+            {
+                var sermonsCollection = this.sermonRepository.Get();
+
+                foreach (var s in sermonsCollection)
+                {
+                    sermons.Add(s.ToModel());
+                }
+            }
+
+            return sermons;
         }
 
         /// <summary>
