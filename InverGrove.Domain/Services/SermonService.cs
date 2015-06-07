@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Web;
 using System.Web.Caching;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
-using InverGrove.Domain.Models;
 
 namespace InverGrove.Domain.Services
 {
