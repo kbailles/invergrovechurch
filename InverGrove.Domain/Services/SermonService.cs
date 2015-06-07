@@ -33,7 +33,17 @@ namespace InverGrove.Domain.Services
                 throw new ParameterNullException("newSermon");
             }
 
-            return this.sermonRepository.Add(newSermon);
+            var sermonId = this.sermonRepository.Add(newSermon);
+            newSermon.SermonId = sermonId;
+            
+            if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
+            {
+                var sermonsCollection = (List<ISermon>)HttpContext.Current.Cache["Sermons"];
+                sermonsCollection.Add(newSermon);
+                HttpContext.Current.Cache["Sermons"] = sermonsCollection;
+            }
+
+            return sermonId;
         }
 
         /// <summary>
@@ -46,12 +56,14 @@ namespace InverGrove.Domain.Services
 
             this.sermonRepository.Delete(sermonId);
             this.sermonRepository.Save();
+
+            this.RemoveCollectionFromCache();
         }
 
         /// <summary>
         /// Gets the sermon.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="sermonId">The identifier.</param>
         /// <returns></returns>
         public ISermon GetSermon(int sermonId)
         {
@@ -70,27 +82,15 @@ namespace InverGrove.Domain.Services
 
             if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
             {
-                var sermonsCollection = (List<ISermon>)HttpContext.Current.Cache["Sermons"];
-
-                foreach (var s in sermonsCollection)
-                {
-                    sermons.Add(s);
-                }
+                sermons = (List<ISermon>)HttpContext.Current.Cache["Sermons"];
             }
             else
             {
                 var sermonsCollection = this.sermonRepository.Get();
 
-                foreach (var s in sermonsCollection)
-                {
-                    sermons.Add(s.ToModel());
-                }
+                sermons.AddRange(sermonsCollection.ToModelCollection());
 
-                if (HttpContext.Current.Cache != null)
-                {
-                    HttpContext.Current.Cache.Add("Sermons", sermons, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0, 0),
-                        CacheItemPriority.Normal, null);
-                }
+                this.AddCollectionToCache(sermons);
             }
 
             return sermons;
@@ -112,6 +112,8 @@ namespace InverGrove.Domain.Services
             try
             {
                 this.sermonRepository.Update(sermonToUpdate);
+
+                this.RemoveCollectionFromCache();
             }
             catch (Exception)
             {
@@ -119,6 +121,23 @@ namespace InverGrove.Domain.Services
             }
 
             return true;
+        }
+
+        private void AddCollectionToCache(IEnumerable<ISermon> sermons)
+        {
+            if (HttpContext.Current.Cache != null)
+            {
+                HttpContext.Current.Cache.Add("Sermons", sermons, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 5, 0, 0),
+                    CacheItemPriority.Normal, null);
+            }
+        }
+
+        private void RemoveCollectionFromCache()
+        {
+            if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
+            {
+                HttpContext.Current.Cache.Remove("Sermons");
+            }
         }
     }
 }
