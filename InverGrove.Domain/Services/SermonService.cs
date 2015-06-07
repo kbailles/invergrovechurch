@@ -33,7 +33,7 @@ namespace InverGrove.Domain.Services
 
             var sermonId = this.sermonRepository.Add(newSermon);
             newSermon.SermonId = sermonId;
-            
+
             if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
             {
                 var sermonsCollection = (List<ISermon>)HttpContext.Current.Cache["Sermons"];
@@ -76,7 +76,7 @@ namespace InverGrove.Domain.Services
         /// <returns></returns>
         public IEnumerable<ISermon> GetSermons()
         {
-             var sermons = new List<ISermon>();
+            var sermons = new List<ISermon>();
 
             if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
             {

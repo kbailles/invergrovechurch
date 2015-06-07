@@ -68,7 +68,7 @@
 
                 <div class="sermons-block col-lg-9 col-lg-pull-3 col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4 col-xs-12">
 
-                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter } | selectedTags: vm.tagsFilter">
+                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter } | selectedTags: vm.tagsFilter track by sermon.sermonId">
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
