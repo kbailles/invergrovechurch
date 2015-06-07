@@ -66,11 +66,11 @@ namespace InverGrove.Domain.Services
         /// <returns></returns>
         public IEnumerable<ISermon> GetSermons()
         {
-            var sermons = new List<ISermon>();
+             var sermons = new List<ISermon>();
 
             if ((HttpContext.Current.Cache != null) && (HttpContext.Current.Cache["Sermons"] != null))
             {
-                var sermonsCollection = (List<Sermon>)HttpContext.Current.Cache["Sermons"];
+                var sermonsCollection = (List<ISermon>)HttpContext.Current.Cache["Sermons"];
 
                 foreach (var s in sermonsCollection)
                 {

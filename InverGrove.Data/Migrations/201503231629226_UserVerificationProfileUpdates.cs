@@ -8,12 +8,12 @@ namespace InverGrove.Data.Migrations
         public override void Up()
         {
             AlterColumn("dbo.UserVerification", "DateAccessed", c => c.DateTime());
-            DropColumn("dbo.Profile", "IsLocal");
+            //DropColumn("dbo.Profile", "IsLocal");
         }
 
         public override void Down()
         {
-            AddColumn("dbo.Profile", "IsLocal", c => c.Boolean(nullable: false));
+            //AddColumn("dbo.Profile", "IsLocal", c => c.Boolean(nullable: false));
             AlterColumn("dbo.UserVerification", "DateAccessed", c => c.DateTime(nullable: false));
         }
     }
