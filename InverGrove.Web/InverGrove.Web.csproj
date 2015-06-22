@@ -433,11 +433,37 @@
     <Content Include="Content\images\1corinthians_biblestudy.png" />
     <Content Include="Content\images\1john_bible_study.png" />
     <Content Include="Content\images\2corinthians_biblestudy.png" />
+    <Content Include="Content\images\android-icon-144x144.png" />
+    <Content Include="Content\images\android-icon-192x192.png" />
+    <Content Include="Content\images\android-icon-36x36.png" />
+    <Content Include="Content\images\android-icon-48x48.png" />
+    <Content Include="Content\images\android-icon-72x72.png" />
+    <Content Include="Content\images\android-icon-96x96.png" />
+    <Content Include="Content\images\apple-icon-114x114.png" />
+    <Content Include="Content\images\apple-icon-120x120.png" />
+    <Content Include="Content\images\apple-icon-144x144.png" />
+    <Content Include="Content\images\apple-icon-152x152.png" />
+    <Content Include="Content\images\apple-icon-180x180.png" />
+    <Content Include="Content\images\apple-icon-57x57.png" />
+    <Content Include="Content\images\apple-icon-60x60.png" />
+    <Content Include="Content\images\apple-icon-72x72.png" />
+    <Content Include="Content\images\apple-icon-76x76.png" />
+    <Content Include="Content\images\apple-icon-precomposed.png" />
+    <Content Include="Content\images\apple-icon.png" />
     <Content Include="Content\images\bebold_banner.png" />
     <Content Include="Content\images\bg_off.png" />
+    <Content Include="Content\images\browserconfig.xml" />
     <Content Include="Content\images\churchlogo.png" />
+    <Content Include="Content\images\favicon-16x16.png" />
+    <Content Include="Content\images\favicon-32x32.png" />
+    <Content Include="Content\images\favicon-96x96.png" />
+    <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\graymatte.png" />
     <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\ms-icon-144x144.png" />
+    <Content Include="Content\images\ms-icon-150x150.png" />
+    <Content Include="Content\images\ms-icon-310x310.png" />
+    <Content Include="Content\images\ms-icon-70x70.png" />
     <Content Include="Content\images\open_bible.png" />
     <Content Include="Content\images\romans_biblestudy.jpg" />
     <Content Include="Content\images\summer_series_2015.png" />
@@ -627,6 +653,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Content\images\manifest.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
