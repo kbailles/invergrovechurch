@@ -51,7 +51,7 @@
                             {{item.addressOne}} {{item.addressTwo}}<br />
                             {{item.city}}, {{item.state}} {{item.zipCode}}
                         </td>
-                        <td> Phone numbers</td>
+                        <td><label>Phone Numbers:</label> <div ng-repeat="phone in item.phoneNumbers">{{phone.phoneNumberType}}: {{phone.phone}} </div></td>
                         <td>{{item.primaryEmail}}</td>
                         <td style="text-align: right;">
                             <button class="btn btn-color" ng-click="vm.openEditMemberModal(item)"><i class="fa fa-pencil"></i></button>

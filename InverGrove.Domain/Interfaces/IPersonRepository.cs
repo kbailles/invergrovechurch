@@ -1,10 +1,8 @@
-using InverGrove.Domain.Models;
-using System.Collections;
-using System.Collections.Generic;
+using InverGrove.Data.Entities;
 
 namespace InverGrove.Domain.Interfaces
 {
-    public interface IPersonRepository : IEntityRepository<Data.Entities.Person, int>
+    public interface IPersonRepository : IEntityRepository<Person, int>
     {
 
         /// <summary>
@@ -22,6 +20,11 @@ namespace InverGrove.Domain.Interfaces
         /// <returns></returns>
         IPerson Update(IPerson person);
 
+        /// <summary>
+        /// Deletes the specified person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <returns></returns>
         bool Delete(IPerson person);
     }
 }

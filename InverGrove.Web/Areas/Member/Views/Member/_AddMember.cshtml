@@ -25,30 +25,44 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-4">
                 <label>City:</label>
                 <input class="form-control" name="city" ng-model="modalCtrl.personObj.city" maxlength="50" type="text" />
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-4">
                 <label>State:</label>
                 <select name="gender" ng-model="modalCtrl.personObj.state" class="form-control">
                     <option value="MN">Minnesota</option>
                     <option value="WI">Wisconsin</option>
                 </select>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-4">
                 <label>Zip Code:</label>
                 <input class="form-control" name="zipCode" ng-model="modalCtrl.personObj.zipCode" maxlength="5" type="text" />
             </div>
         </div>
+
         <div class="row">
-            <div class="col-xs-6">
-                <label>Cell Phone:</label>
-                <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.personObj.phoneNumbers[0]" maxlength="20" type="text" />
+            <div class="col-lg-4">
+                <label>Phone:</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Home</span>
+                    <input type="text" class="form-control" ng-model="modalCtrl.personObj.phoneNumbers[0].phone" placeholder="(999) 999-9999" maxlength="12">
+                </div>
             </div>
-            <div class="col-xs-6">
-                <label>Home / Other Phone:</label>
-                <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.personObj.phoneNumbers[1]" maxlength="20" type="text" />
+            <div class="col-lg-4">
+                <label>&nbsp;</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Mobile</span>
+                    <input type="text" class="form-control" ng-model="modalCtrl.personObj.phoneNumbers[1].phone" placeholder="(999) 999-9999" maxlength="12">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label>&nbsp;</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Work</span>
+                    <input type="text" class="form-control" ng-model="modalCtrl.personObj.phoneNumbers[2].phone" placeholder="(999) 999-9999" maxlength="12">
+                </div>
             </div>
         </div>
 
@@ -62,7 +76,7 @@
                 </select>
             </div>
             <div class="col-xs-6">
-                <label>Email Address:</label> 
+                <label>Email Address:</label>
                 <input class="form-control" ng-required="modalCtrl.requireEmail" ng-disabled="modalCtrl.disableEmail"
                        name="primaryEmail" ng-model="modalCtrl.personObj.primaryEmail"
                        maxlength="50" type="text" />

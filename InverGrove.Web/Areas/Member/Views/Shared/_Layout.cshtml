@@ -55,7 +55,6 @@
                         <span class="DisplayName">@Session["DisplayName"]</span>
                         @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { role = "form", @style = "display: inline-block;" }))
                         {
-                            @Html.AntiForgeryToken()
                             <a href="javascript:void(0)" type="submit" onclick=" $(this).closest('form').submit(); ">Log Out</a>
                         }
                     </div>

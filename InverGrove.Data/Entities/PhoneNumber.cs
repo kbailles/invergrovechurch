@@ -9,11 +9,7 @@ namespace InverGrove.Data.Entities
         public int PhoneNumberId { get; set; }
 
         [Required]
-        [StringLength(3)]
-        public string AreaCode { get; set; }
-
-        [Required]
-        [StringLength(7)]
+        [StringLength(10)]
         public string Phone { get; set; }
 
         [Required]

@@ -16,15 +16,12 @@ namespace InverGrove.Domain.Models
         public int PhoneNumberId { get; set; }
 
         /// <summary>
-        /// Gets or sets the area code.
+        /// Gets or sets the person identifier.
         /// </summary>
         /// <value>
-        /// The area code.
+        /// The person identifier.
         /// </value>
-        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "AreaCodeRequired")]
-        [StringLength(3)]
-        [RegularExpression(RegularExpressions.AreaCodeRegEx, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "AreaCodeInvalidErrorMessage")]
-        public string AreaCode { get; set; }
+        public int PersonId { get; set; }
 
         /// <summary>
         /// Gets or sets the phone.

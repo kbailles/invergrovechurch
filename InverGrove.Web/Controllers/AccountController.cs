@@ -69,11 +69,12 @@ namespace InverGrove.Web.Controllers
                 }
             }
 
-            return View();
+            return View(new LoginUser());
         }
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginUser model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -102,7 +103,6 @@ namespace InverGrove.Web.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
@@ -141,6 +141,7 @@ namespace InverGrove.Web.Controllers
 
         [AllowAnonymous]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RegisterUser(Register model)
         {
             Guard.ArgumentNotNull(model, "model");
@@ -167,8 +168,7 @@ namespace InverGrove.Web.Controllers
             // until we decide what to do with hack attempts.
             return RedirectToAction("Index", "Home");
         }
-
-
+        
         private void SetDisplayUserFirstLastName(string userName)
         {
             var profile = this.profileService.GetProfileByUserName(userName);

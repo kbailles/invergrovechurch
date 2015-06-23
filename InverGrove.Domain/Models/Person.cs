@@ -242,5 +242,13 @@ namespace InverGrove.Domain.Models
         /// The person type list.
         /// </value>
         public IEnumerable<SelectListItem> ChurchRoleList { get; set; }
+
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
+        /// <value>
+        /// The error message.
+        /// </value>
+        public string ErrorMessage { get; set; }
     }
 }

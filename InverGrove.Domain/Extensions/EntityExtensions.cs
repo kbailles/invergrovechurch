@@ -151,7 +151,6 @@ namespace InverGrove.Domain.Extensions
                 {
                     person.PhoneNumbers.Add(new Data.Entities.PhoneNumber
                     {
-                        AreaCode = modelPhoneNumber.AreaCode,
                         Phone = modelPhoneNumber.Phone,
                         PhoneNumberTypeId = modelPhoneNumber.PhoneNumberTypeId,
                         PhoneNumberType = null
@@ -199,17 +198,39 @@ namespace InverGrove.Domain.Extensions
 
                 foreach (var entityPhoneNumber in person.PhoneNumbers)
                 {
-                    personModel.PhoneNumbers.Add(new PhoneNumber
-                                                 {
-                                                     PhoneNumberId = entityPhoneNumber.PhoneNumberId,
-                                                     AreaCode = entityPhoneNumber.AreaCode,
-                                                     Phone = entityPhoneNumber.Phone,
-                                                     PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId
-                                                 });
+                    var modelNumber = new PhoneNumber
+                                      {
+                                          PhoneNumberId = entityPhoneNumber.PhoneNumberId,
+                                          Phone = entityPhoneNumber.Phone,
+                                          PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId,
+                                      };
+
+                    if (entityPhoneNumber.PhoneNumberType != null)
+                    {
+                        modelNumber.PhoneNumberType = entityPhoneNumber.PhoneNumberType.Description;
+                    }
+                    personModel.PhoneNumbers.Add(modelNumber);
                 }
             }
 
             return personModel;
+        }
+
+        public static Data.Entities.PhoneNumber ToEntity(this PhoneNumber phoneNumber)
+        {
+            var phoneEntity = new Data.Entities.PhoneNumber();
+
+            if (ReferenceEquals(phoneNumber, null))
+            {
+                return phoneEntity;
+            }
+
+            phoneEntity.PersonId = phoneNumber.PersonId;
+            phoneEntity.PhoneNumberId = phoneNumber.PhoneNumberId;
+            phoneEntity.Phone = phoneNumber.Phone;
+            phoneEntity.PhoneNumberTypeId = phoneNumber.PhoneNumberTypeId;
+
+            return phoneEntity;
         }
 
         // ---------------------------------------------------------------------------------------- IEnumerable<IPerson> .ToModelCollection() START

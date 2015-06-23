@@ -75,6 +75,5 @@ namespace InverGrove.Domain.Helpers
             {"Wisconsin","WI"},
             {"Wyoming","WY"}
         };
-
     }
 }

@@ -131,6 +131,7 @@
     <Compile Include="Interfaces\IChurchRoleRepository.cs" />
     <Compile Include="Interfaces\ILogService.cs" />
     <Compile Include="Interfaces\IMaritalStatusRepository.cs" />
+    <Compile Include="Interfaces\IPhoneNumberRepository.cs" />
     <Compile Include="Interfaces\ISermon.cs" />
     <Compile Include="Interfaces\IMembershipProvider.cs" />
     <Compile Include="Interfaces\IRegisterUserResult.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Interfaces\IAbsentReason.cs" />
     <Compile Include="Repositories\AbsentReasonRepository.cs" />
     <Compile Include="Repositories\AttendanceRepository.cs" />
+    <Compile Include="Repositories\PhoneNumberRepository.cs" />
     <Compile Include="Repositories\UserVerificationRepository.cs" />
     <Compile Include="Models\UserVerification.cs" />
     <Compile Include="Models\RegisterUserResult.cs" />

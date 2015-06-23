@@ -128,6 +128,30 @@ namespace InverGrove.Domain.Interfaces
         string IndividualPhotoFilePath { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is batptized.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is batptized; otherwise, <c>false</c>.
+        /// </value>
+        bool IsBaptized { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is member.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is member; otherwise, <c>false</c>.
+        /// </value>
+        bool IsMember { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is visitor.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is visitor; otherwise, <c>false</c>.
+        /// </value>
+        bool IsVisitor { get; set; }
+
+        /// <summary>
         /// Gets or sets the gender.
         /// </summary>
         /// <value>
@@ -175,5 +199,12 @@ namespace InverGrove.Domain.Interfaces
         /// </value>
         IEnumerable<SelectListItem> ChurchRoleList { get; set; }
 
+        /// <summary>
+        /// Gets or sets the error message.
+        /// </summary>
+        /// <value>
+        /// The error message.
+        /// </value>
+        string ErrorMessage { get; set; }
     }
 }

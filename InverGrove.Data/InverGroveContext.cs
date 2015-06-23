@@ -566,11 +566,7 @@ namespace InverGrove.Data
                 .WithOptional(e => e.ChurchRole)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<PhoneNumber>()
-                .Property(e => e.AreaCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PhoneNumber>()
+           modelBuilder.Entity<PhoneNumber>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 

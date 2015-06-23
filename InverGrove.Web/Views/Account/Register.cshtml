@@ -12,7 +12,7 @@
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
 
     <form name="form" novalidate>
-
+        @Html.AntiForgeryToken()
         <fieldset class="reply">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

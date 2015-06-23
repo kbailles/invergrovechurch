@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201505290212595_AddAbsentReason.Designer.cs">
       <DependentUpon>201505290212595_AddAbsentReason.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506230256594_UpdatePhoneNumberRemoveAreaCode.cs" />
+    <Compile Include="Migrations\201506230256594_UpdatePhoneNumberRemoveAreaCode.Designer.cs">
+      <DependentUpon>201506230256594_UpdatePhoneNumberRemoveAreaCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505290212595_AddAbsentReason.resx">
       <DependentUpon>201505290212595_AddAbsentReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506230256594_UpdatePhoneNumberRemoveAreaCode.resx">
+      <DependentUpon>201506230256594_UpdatePhoneNumberRemoveAreaCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,6 +51,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IRoleRepository>().ImplementedBy<RoleRepository>().LifeStyle.Transient);
             container.Register(Component.For<ISermonRepository>().ImplementedBy<SermonRepository>().LifeStyle.Transient);
             container.Register(Component.For<IPersonRepository>().ImplementedBy<PersonRepository>().LifeStyle.Transient);
+            container.Register(Component.For<IPhoneNumberRepository>().ImplementedBy<PhoneNumberRepository>().LifeStyle.Transient);
             container.Register(Component.For<IProfileRepository>().ImplementedBy<ProfileRepository>().LifeStyle.Transient);
             container.Register(Component.For<IUserVerificationRepository>().ImplementedBy<UserVerificationRepository>().LifeStyle.Transient);
             container.Register(Component.For<IUserRoleRepository>().ImplementedBy<UserRoleRepository>().LifeStyle.Transient);

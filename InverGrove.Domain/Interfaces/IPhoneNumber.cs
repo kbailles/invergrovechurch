@@ -13,14 +13,12 @@ namespace InverGrove.Domain.Interfaces
         int PhoneNumberId { get; set; }
 
         /// <summary>
-        /// Gets or sets the area code.
+        /// Gets or sets the person identifier.
         /// </summary>
         /// <value>
-        /// The area code.
+        /// The person identifier.
         /// </value>
-        [Required]
-        [StringLength(3)]
-        string AreaCode { get; set; }
+        int PersonId { get; set; }
 
         /// <summary>
         /// Gets or sets the phone.
@@ -28,8 +26,6 @@ namespace InverGrove.Domain.Interfaces
         /// <value>
         /// The phone.
         /// </value>
-        [Required]
-        [StringLength(7)]
         string Phone { get; set; }
 
         /// <summary>
@@ -38,7 +34,6 @@ namespace InverGrove.Domain.Interfaces
         /// <value>
         /// The phone number type identifier.
         /// </value>
-        [Required]
         int PhoneNumberTypeId { get; set; }
 
         /// <summary>
