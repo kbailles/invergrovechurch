@@ -125,7 +125,7 @@ namespace InverGrove.Domain.Services
         {
             if (HttpContext.Current.Cache != null)
             {
-                HttpContext.Current.Cache.Add("Sermons", sermons, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 8, 0, 0),
+                HttpContext.Current.Cache.Add("Sermons", sermons, null, Cache.NoAbsoluteExpiration, new TimeSpan(0, 12, 0, 0),
                     CacheItemPriority.Normal, null);
             }
         }

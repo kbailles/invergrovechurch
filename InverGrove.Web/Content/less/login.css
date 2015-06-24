@@ -1,4 +1,32 @@
-﻿.nav,
+﻿@font-face {
+  font-family: 'open_sansbold';
+  src: url('../fonts/Open_Sans/opensans-bold-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-bold-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-bold-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-bold-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-bold-webfont.svg#open_sansbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansbold_italic';
+  src: url('../fonts/Open_Sans/opensans-bolditalic-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-bolditalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-bolditalic-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-bolditalic-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-bolditalic-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-bolditalic-webfont.svg#open_sansbold_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansitalic';
+  src: url('../fonts/Open_Sans/opensans-italic-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-italic-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-italic-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-italic-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-italic-webfont.svg#open_sansitalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../fonts/Open_Sans/opensans-regular-webfont.eot');
+  src: url('../fonts/Open_Sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Open_Sans/opensans-regular-webfont.woff2') format('woff2'), url('../fonts/Open_Sans/opensans-regular-webfont.woff') format('woff'), url('../fonts/Open_Sans/opensans-regular-webfont.ttf') format('truetype'), url('../fonts/Open_Sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.nav,
 .pagination,
 .carousel,
 .panel-title a {
@@ -29,7 +57,7 @@ a:focus {
 body {
   background: url('../images/graymatte.png') repeat;
   color: #767676;
-  font-family: 'pt-sans', sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 body > .container.wrapper {
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -258,7 +286,7 @@ button[disabled] {
 }
 @media (min-width: 768px) {
   .content-box {
-    min-height: 370px !important;
+    min-height: 295px !important;
   }
 }
 @media (min-width: 992px) {
@@ -661,7 +689,7 @@ form .ng-dirty.ng-valid {
     float: none !important;
   }
 }
-.reply input {
+.reply input:not([type=checkbox]) {
   margin: 0 0 20px;
 }
 .reply label {

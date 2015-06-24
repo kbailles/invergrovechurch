@@ -1,5 +1,6 @@
 
 @import "mixins.less";
+@import "../../Content/fonts/Open_Sans/fonts.less";
 @import "variables.less";
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
@@ -271,7 +272,7 @@ button[disabled] {
   transition: background .5s ease-in-out;
 
   @media (min-width: 768px) {
-    min-height: 370px !important;
+    min-height: 295px !important;
   }
   @media (min-width: 992px) {
     min-height: 310px !important;
@@ -679,7 +680,7 @@ form .ng-dirty.ng-valid {
     }
 }
 .reply {
-  input {
+  input:not([type=checkbox]) {
     margin: 0 0 20px;
   }
 

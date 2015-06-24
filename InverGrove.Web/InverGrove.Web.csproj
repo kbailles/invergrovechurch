@@ -430,6 +430,20 @@
     <Content Include="Components\sticky\jquery.sticky.js" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\rs-plugin\style.css" />
+    <Content Include="Content\fonts\Open_Sans\fonts.css">
+      <DependentUpon>fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\Open_Sans\fonts.min.css">
+      <DependentUpon>fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\Open_Sans\opensans-bold-demo.html" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.svg" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-demo.html" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Content\fonts\Open_Sans\opensans-italic-demo.html" />
+    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.svg" />
+    <Content Include="Content\fonts\Open_Sans\opensans-regular-demo.html" />
+    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.svg" />
     <Content Include="Content\images\1corinthians_biblestudy.png" />
     <Content Include="Content\images\1john_bible_study.jpg" />
     <Content Include="Content\images\1john_bible_study.png" />
@@ -656,6 +670,26 @@
     </Content>
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Content\images\manifest.json" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.eot" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.ttf" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.woff" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.woff2" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.woff2" />
+    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.eot" />
+    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.ttf" />
+    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.woff" />
+    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.woff2" />
+    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.eot" />
+    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.ttf" />
+    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.woff" />
+    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.woff2" />
+    <Content Include="Content\fonts\Open_Sans\fonts.less" />
+    <Content Include="Content\fonts\Open_Sans\fonts.css.map">
+      <DependentUpon>fonts.css</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
