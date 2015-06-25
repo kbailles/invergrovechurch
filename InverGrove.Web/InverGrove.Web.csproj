@@ -430,20 +430,22 @@
     <Content Include="Components\sticky\jquery.sticky.js" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\rs-plugin\style.css" />
-    <Content Include="Content\fonts\Open_Sans\fonts.css">
-      <DependentUpon>fonts.less</DependentUpon>
+    <Content Include="Content\fonts\Open_Sans\BoldItalic\OpenSans-BoldItalic.svg" />
+    <Content Include="Content\fonts\Open_Sans\Bold\OpenSans-Bold.svg" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.svg" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBold\OpenSans-ExtraBold.svg" />
+    <Content Include="Content\fonts\Open_Sans\Italic\OpenSans-Italic.svg" />
+    <Content Include="Content\fonts\Open_Sans\LightItalic\OpenSans-LightItalic.svg" />
+    <Content Include="Content\fonts\Open_Sans\Light\OpenSans-Light.svg" />
+    <Content Include="Content\fonts\open_sans_font.css">
+      <DependentUpon>open_sans_font.less</DependentUpon>
     </Content>
-    <Content Include="Content\fonts\Open_Sans\fonts.min.css">
-      <DependentUpon>fonts.css</DependentUpon>
+    <Content Include="Content\fonts\open_sans_font.min.css">
+      <DependentUpon>open_sans_font.css</DependentUpon>
     </Content>
-    <Content Include="Content\fonts\Open_Sans\opensans-bold-demo.html" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.svg" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-demo.html" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.svg" />
-    <Content Include="Content\fonts\Open_Sans\opensans-italic-demo.html" />
-    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.svg" />
-    <Content Include="Content\fonts\Open_Sans\opensans-regular-demo.html" />
-    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.svg" />
+    <Content Include="Content\fonts\Open_Sans\Regular\OpenSans-Regular.svg" />
+    <Content Include="Content\fonts\Open_Sans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
+    <Content Include="Content\fonts\Open_Sans\Semibold\OpenSans-Semibold.svg" />
     <Content Include="Content\images\1corinthians_biblestudy.png" />
     <Content Include="Content\images\1john_bible_study.jpg" />
     <Content Include="Content\images\1john_bible_study.png" />
@@ -670,26 +672,50 @@
     </Content>
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Content\images\manifest.json" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.eot" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.ttf" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.woff" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bold-webfont.woff2" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.eot" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.ttf" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.woff" />
-    <Content Include="Content\fonts\Open_Sans\opensans-bolditalic-webfont.woff2" />
-    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.eot" />
-    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.ttf" />
-    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.woff" />
-    <Content Include="Content\fonts\Open_Sans\opensans-italic-webfont.woff2" />
-    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.eot" />
-    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.ttf" />
-    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.woff" />
-    <Content Include="Content\fonts\Open_Sans\opensans-regular-webfont.woff2" />
-    <Content Include="Content\fonts\Open_Sans\fonts.less" />
-    <Content Include="Content\fonts\Open_Sans\fonts.css.map">
-      <DependentUpon>fonts.css</DependentUpon>
+    <Content Include="Content\fonts\open_sans_font.less" />
+    <Content Include="Content\fonts\open_sans_font.css.map">
+      <DependentUpon>open_sans_font.css</DependentUpon>
     </Content>
+    <Content Include="Content\fonts\Open_Sans\BoldItalic\OpenSans-BoldItalic.eot" />
+    <Content Include="Content\fonts\Open_Sans\BoldItalic\OpenSans-BoldItalic.ttf" />
+    <Content Include="Content\fonts\Open_Sans\BoldItalic\OpenSans-BoldItalic.woff" />
+    <Content Include="Content\fonts\Open_Sans\BoldItalic\OpenSans-BoldItalic.woff2" />
+    <Content Include="Content\fonts\Open_Sans\Bold\OpenSans-Bold.eot" />
+    <Content Include="Content\fonts\Open_Sans\Bold\OpenSans-Bold.ttf" />
+    <Content Include="Content\fonts\Open_Sans\Bold\OpenSans-Bold.woff" />
+    <Content Include="Content\fonts\Open_Sans\Bold\OpenSans-Bold.woff2" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.eot" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.woff" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.woff2" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBold\OpenSans-ExtraBold.eot" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBold\OpenSans-ExtraBold.ttf" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBold\OpenSans-ExtraBold.woff" />
+    <Content Include="Content\fonts\Open_Sans\ExtraBold\OpenSans-ExtraBold.woff2" />
+    <Content Include="Content\fonts\Open_Sans\Italic\OpenSans-Italic.eot" />
+    <Content Include="Content\fonts\Open_Sans\Italic\OpenSans-Italic.ttf" />
+    <Content Include="Content\fonts\Open_Sans\Italic\OpenSans-Italic.woff" />
+    <Content Include="Content\fonts\Open_Sans\Italic\OpenSans-Italic.woff2" />
+    <Content Include="Content\fonts\Open_Sans\LightItalic\OpenSans-LightItalic.eot" />
+    <Content Include="Content\fonts\Open_Sans\LightItalic\OpenSans-LightItalic.ttf" />
+    <Content Include="Content\fonts\Open_Sans\LightItalic\OpenSans-LightItalic.woff" />
+    <Content Include="Content\fonts\Open_Sans\LightItalic\OpenSans-LightItalic.woff2" />
+    <Content Include="Content\fonts\Open_Sans\Light\OpenSans-Light.eot" />
+    <Content Include="Content\fonts\Open_Sans\Light\OpenSans-Light.ttf" />
+    <Content Include="Content\fonts\Open_Sans\Light\OpenSans-Light.woff" />
+    <Content Include="Content\fonts\Open_Sans\Light\OpenSans-Light.woff2" />
+    <Content Include="Content\fonts\Open_Sans\Regular\OpenSans-Regular.eot" />
+    <Content Include="Content\fonts\Open_Sans\Regular\OpenSans-Regular.ttf" />
+    <Content Include="Content\fonts\Open_Sans\Regular\OpenSans-Regular.woff" />
+    <Content Include="Content\fonts\Open_Sans\Regular\OpenSans-Regular.woff2" />
+    <Content Include="Content\fonts\Open_Sans\SemiboldItalic\OpenSans-SemiboldItalic.eot" />
+    <Content Include="Content\fonts\Open_Sans\SemiboldItalic\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="Content\fonts\Open_Sans\SemiboldItalic\OpenSans-SemiboldItalic.woff" />
+    <Content Include="Content\fonts\Open_Sans\SemiboldItalic\OpenSans-SemiboldItalic.woff2" />
+    <Content Include="Content\fonts\Open_Sans\Semibold\OpenSans-Semibold.eot" />
+    <Content Include="Content\fonts\Open_Sans\Semibold\OpenSans-Semibold.ttf" />
+    <Content Include="Content\fonts\Open_Sans\Semibold\OpenSans-Semibold.woff" />
+    <Content Include="Content\fonts\Open_Sans\Semibold\OpenSans-Semibold.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
