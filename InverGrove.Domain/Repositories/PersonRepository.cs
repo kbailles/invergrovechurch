@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using InverGrove.Data;
 using InverGrove.Data.Entities;
+using InverGrove.Domain.Enums;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
@@ -14,6 +17,7 @@ namespace InverGrove.Domain.Repositories
     public class PersonRepository : EntityRepository<Person, int>, IPersonRepository
     {
         private readonly IPhoneNumberRepository phoneNumberRepository;
+        private readonly ILogService logService;
         private readonly object syncRoot = new object();
 
         /// <summary>
@@ -21,10 +25,11 @@ namespace InverGrove.Domain.Repositories
         /// </summary>
         /// <param name="dataContext">The data context.</param>
         /// <param name="phoneNumberRepository">The phone number repository.</param>
-        public PersonRepository(IInverGroveContext dataContext, IPhoneNumberRepository phoneNumberRepository)
+        public PersonRepository(IInverGroveContext dataContext, IPhoneNumberRepository phoneNumberRepository, ILogService logService)
             : base(dataContext)
         {
             this.phoneNumberRepository = phoneNumberRepository;
+            this.logService = logService;
         }
 
 
@@ -63,8 +68,22 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    throw new ApplicationException("Error occurred in attempting to add Person with PersonId: " +
-                        person.FirstName + " " + person.LastName + " with message: " + sql.Message);
+                    throw new ApplicationException("Error occurred in attempting to add Person with name: " +
+                                                   person.FirstName + " " + person.LastName + " with message: " + sql.Message);
+                }
+                catch (DbEntityValidationException dbe)
+                {
+                    var sb = new StringBuilder();
+                    foreach (var error in dbe.EntityValidationErrors)
+                    {
+                        foreach (var ve in error.ValidationErrors)
+                        {
+                            sb.Append(ve.ErrorMessage + ", ");
+                        }
+                    }
+
+                    this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
+                                                   person.FirstName + " " + person.LastName + " with message: " + sb.ToString());
                 }
             }
 
@@ -132,10 +151,10 @@ namespace InverGrove.Domain.Repositories
                 {
                     var phoneEntity = personPhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
 
-                    if (phoneEntity != null)
+                    if (phoneEntity != null && phone.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
                     {
                         phoneEntity.PersonId = phone.PersonId;
-                        phoneEntity.Phone = phone.Phone;
+                        phoneEntity.Phone = phone.Phone.StripPhoneString();
                         phoneEntity.PhoneNumberTypeId = phone.PhoneNumberTypeId;
                         phoneEntity.Person = null;
                         phoneEntity.PhoneNumberType = null;
@@ -145,21 +164,29 @@ namespace InverGrove.Domain.Repositories
                     else
                     {
                         var entityPhone = phone.ToEntity();
-                        entityPhone.Person = null;
-                        entityPhone.PhoneNumberType = null;
 
-                        hasNewPhoneNumbers = true;
-                        this.phoneNumberRepository.Insert(entityPhone);
+                        if (entityPhone != null)
+                        {
+                            entityPhone.Person = null;
+                            entityPhone.PhoneNumberType = null;
+
+                            hasNewPhoneNumbers = true;
+                            this.phoneNumberRepository.Insert(entityPhone);
+                        }
                     }
                 }
                 else
                 {
                     var entityPhone = phone.ToEntity();
-                    entityPhone.Person = null;
-                    entityPhone.PhoneNumberType = null;
-                    hasNewPhoneNumbers = true;
 
-                    this.phoneNumberRepository.Insert(entityPhone);
+                    if (entityPhone != null)
+                    {
+                        entityPhone.Person = null;
+                        entityPhone.PhoneNumberType = null;
+                        hasNewPhoneNumbers = true;
+
+                        this.phoneNumberRepository.Insert(entityPhone);
+                    }
                 }
             }
 

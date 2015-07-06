@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using InverGrove.Data.Entities;
@@ -188,6 +190,31 @@ namespace InverGrove.Data
             context.Memberships.Add(keenanSiteAdminMembership);
             context.SaveChanges();
 
+            var keenanPerson = new Person
+            {
+                Attendances = null,
+                Address1 = "3925 Princeton Trail",
+                City = "Eagan",
+                DateCreated = timeStamp,
+                DateModified = timeStamp,
+                DateOfBirth = DateTime.Parse("07/05/1988"),
+                EmailPrimary = "kbailles@outlook.com",
+                IsBaptized = true,
+                IsMember = true,
+                FirstName = "Keenan",
+                LastName = "Bailles",
+                MiddleInitial = "W",
+                MaritalStatus = null,
+                MaritalStatusId = 2,
+                ChurchRole = null,
+                State = "MN",
+                Zip = "55123",
+                Gender = "M",
+                PhoneNumbers = null
+            };
+            context.People.Add(keenanPerson);
+            context.SaveChanges();
+
             var profileEntity = new Profile
             {
                 ReceiveEmailNotification = false,
@@ -195,33 +222,27 @@ namespace InverGrove.Data
                 IsDisabled = false,
                 IsValidated = true,
                 UserId = keenanSiteAdminMembership.UserId,
+                PersonId = keenanPerson.PersonId,
                 DateModified = timeStamp,
                 DateCreated = timeStamp,
-                Person = new Person
-                {
-                    Attendances = null,
-                    Address1 = "3925 Princeton Trail",
-                    City = "Eagan",
-                    DateCreated = timeStamp,
-                    DateModified = timeStamp,
-                    DateOfBirth = DateTime.Parse("07/05/1988"),
-                    EmailPrimary = "kbailles@outlook.com",
-                    IsBaptized = true,
-                    IsMember = true,
-                    FirstName = "Keenan",
-                    LastName = "Bailles",
-                    MiddleInitial = "W",
-                    MaritalStatus = null,
-                    MaritalStatusId = 2,
-                    ChurchRole = null,
-                    State = "MN",
-                    Zip = "55123",
-                    Gender = "M"
-                },
-                User = null                
+                Person = null,
+                User = null
             };
 
             context.Profiles.Add(profileEntity);
+            context.SaveChanges();
+
+            var mobilePhoneNumberType = phoneNumberTypes.First(p => p.Description == "Mobile");
+            var keenanPhoneNumber = new PhoneNumber
+            {
+                Phone = "9522884313",
+                PersonId = keenanPerson.PersonId,
+                PhoneNumberTypeId = mobilePhoneNumberType.PhoneNumberTypeId,
+                Person = null,
+                PhoneNumberType = null
+            };
+
+            context.PhoneNumbers.Add(keenanPhoneNumber);
             context.SaveChanges();
 
             var keenanAdminRole = new UserRole

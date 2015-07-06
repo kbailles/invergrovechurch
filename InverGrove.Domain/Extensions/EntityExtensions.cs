@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using InverGrove.Domain.Enums;
 
 namespace InverGrove.Domain.Extensions
 {
@@ -125,9 +126,9 @@ namespace InverGrove.Domain.Extensions
             }
 
             person.PersonId = personModel.PersonId;
-            person.FirstName = personModel.FirstName;
-            person.LastName = personModel.LastName;
-            person.MiddleInitial = personModel.MiddleInitial;
+            person.FirstName = personModel.FirstName.Trim();
+            person.LastName = personModel.LastName.Trim();
+            person.MiddleInitial = !string.IsNullOrEmpty(personModel.MiddleInitial) ? personModel.MiddleInitial.Trim() : personModel.MiddleInitial;
             person.Address1 = personModel.AddressOne;
             person.Address2 = personModel.AddressTwo;
             person.City = personModel.City;
@@ -149,12 +150,16 @@ namespace InverGrove.Domain.Extensions
             {
                 foreach (var modelPhoneNumber in personModel.PhoneNumbers)
                 {
-                    person.PhoneNumbers.Add(new Data.Entities.PhoneNumber
+                    if (modelPhoneNumber.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
                     {
-                        Phone = modelPhoneNumber.Phone,
-                        PhoneNumberTypeId = modelPhoneNumber.PhoneNumberTypeId,
-                        PhoneNumberType = null
-                    });
+                        person.PhoneNumbers.Add(new Data.Entities.PhoneNumber
+                        {
+                            Phone = modelPhoneNumber.Phone.StripPhoneString(),
+                            PhoneNumberTypeId = modelPhoneNumber.PhoneNumberTypeId,
+                            PersonId = modelPhoneNumber.PersonId,
+                            PhoneNumberType = null
+                        });
+                    }
                 }
             }
 
@@ -203,6 +208,7 @@ namespace InverGrove.Domain.Extensions
                                           PhoneNumberId = entityPhoneNumber.PhoneNumberId,
                                           Phone = entityPhoneNumber.Phone,
                                           PhoneNumberTypeId = entityPhoneNumber.PhoneNumberTypeId,
+                                          PersonId = entityPhoneNumber.PersonId
                                       };
 
                     if (entityPhoneNumber.PhoneNumberType != null)
@@ -220,14 +226,14 @@ namespace InverGrove.Domain.Extensions
         {
             var phoneEntity = new Data.Entities.PhoneNumber();
 
-            if (ReferenceEquals(phoneNumber, null))
+            if (ReferenceEquals(phoneNumber, null) || !phoneNumber.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
             {
-                return phoneEntity;
+                return null;
             }
 
             phoneEntity.PersonId = phoneNumber.PersonId;
             phoneEntity.PhoneNumberId = phoneNumber.PhoneNumberId;
-            phoneEntity.Phone = phoneNumber.Phone;
+            phoneEntity.Phone = phoneNumber.Phone.StripPhoneString();
             phoneEntity.PhoneNumberTypeId = phoneNumber.PhoneNumberTypeId;
 
             return phoneEntity;
@@ -428,7 +434,7 @@ namespace InverGrove.Domain.Extensions
         {
             var attendanceEntity = new Data.Entities.Attendance();
 
-            if(attendance == null)
+            if (attendance == null)
             {
                 return attendanceEntity;
             }
