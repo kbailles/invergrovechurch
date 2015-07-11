@@ -145,7 +145,7 @@ namespace InverGrove.Domain.Repositories
                 {
                     var existingPhone = personEntity.PhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
 
-                    if (existingPhone != null)
+                    if (existingPhone != null && phone.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
                     {
                         existingPhone.PersonId = phone.PersonId;
                         existingPhone.Phone = phone.Phone;
