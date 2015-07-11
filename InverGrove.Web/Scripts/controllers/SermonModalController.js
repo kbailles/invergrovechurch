@@ -8,19 +8,18 @@
 
     SermonModalController.$inject = [
         '$modalInstance',
-        '$rootScope',
+        '$window',
         'sermon',
         'soundCloudSermons',
         'SermonService'
     ];
 
-    function SermonModalController($modalInstance, $rootScope, sermon, soundCloudSermons, SermonService) {
+    function SermonModalController($modalInstance, $window, sermon, soundCloudSermons, SermonService) {
         var vm = this;
 
         vm.sermon = angular.copy(sermon) || {};
         vm.sermon.tags = vm.sermon.tags || '';
         vm.soundCloudSermons = soundCloudSermons || [];
-
         vm.SermonService = SermonService;
         vm.$modalInstance = $modalInstance;
 
@@ -34,14 +33,6 @@
         vm.addSermon = addSermon;
         vm.editSermon = editSermon;
         vm.deleteSermon = deleteSermon;
-
-        activate();
-
-        /*
-         * Private declarations
-         */
-        function activate() {
-        }
 
         function dismissModal() {
             $modalInstance.dismiss('cancel');
@@ -71,17 +62,26 @@
 
         function addSermon() {
             vm.busy = true;
-            $rootScope.$broadcast('addSermon', vm.sermon);
+
+            vm.SermonService.add(vm.sermon).then(function () {
+                $window.location.reload();
+            });
         }
 
         function editSermon() {
             vm.busy = true;
-            $rootScope.$broadcast('editSermon', vm.sermon);
+
+            vm.SermonService.update(vm.sermon).then(function () {
+                $window.location.reload();
+            });
         }
 
         function deleteSermon() {
             vm.busy = true;
-            $rootScope.$broadcast('deleteSermon', vm.sermon);
+
+            vm.SermonService.delete(vm.sermon).then(function () {
+                $window.location.reload();
+            });
         }
     }
 })();

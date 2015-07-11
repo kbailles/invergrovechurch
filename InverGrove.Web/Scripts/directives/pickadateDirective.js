@@ -12,7 +12,10 @@
     function igPickadate() {
         var directive = {
             link: link,
-            restrict: 'A'
+            restrict: 'A',
+            scope: {
+                date: "="
+            }
         }
         return directive;
 
@@ -20,8 +23,8 @@
             element.pickadate({
                 format: 'mmmm d yyyy',
                 onStart: function () {
-                    var date = new Date();
-                    this.setDate(date.getFullYear(), date.getMonth() + 1, date.getDate());
+                    var date = scope.date ? moment(scope.date) : moment();
+                    this.setDate(date.year(), date.month() + 1, date.date());
                 }
             });
         } // .link

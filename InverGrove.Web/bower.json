@@ -1,0 +1,12 @@
+{
+  "name": "InverGrove.Web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kbailles/invergrovechurch",
+  "authors": [
+    "Inver Grove church of Christ"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "moment": "~2.10.3"
+  }
+}

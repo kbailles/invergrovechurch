@@ -7,12 +7,10 @@
         .controller('ManageSermonsCtrl', ManageSermonsController);
 
     ManageSermonsController.$inject = [
-        'SermonService',
-        '$scope',
         '$modal'
     ];
 
-    function ManageSermonsController(SermonService, $scope, $modal) {
+    function ManageSermonsController($modal) {
         var vm = this;
 
         /*
@@ -20,7 +18,6 @@
          */
         vm.sermons = sermons;
         vm.soundCloudSermons = [];
-        vm.SermonService = SermonService;
 
         vm.openAddSermonModal = openAddSermonModal;
         vm.openEditSermonModal = openEditSermonModal;
@@ -34,11 +31,9 @@
          * Private declarations
          */
         function activate() {
-            SC.get('/users/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', function (tracks) {
+            SC.get('/users/' + igchurch.constants.SOUND_CLOUD_USERID + '/tracks', { limit: 200 }, function (tracks) {
                 if (!!(tracks) && tracks.length > 0) {
-                    vm.soundCloudSermons = _.filter(tracks, function(track) {
-                        return !_.includes(_.pluck(vm.sermons, 'soundCloudId'), track.id);
-                    });
+                    vm.soundCloudSermons = tracks;
                 }
             });
         }
@@ -52,8 +47,12 @@
                     sermon: function() {
                         return {};
                     },
-                    soundCloudSermons: function() {
-                        return vm.soundCloudSermons;
+                    soundCloudSermons: function () {
+                        var soundCloudIds = _.pluck(vm.sermons, 'soundCloudId');
+
+                        return _.filter(vm.soundCloudSermons, function (track) {
+                            return !_.includes(soundCloudIds, track.id);
+                        });
                     }
                 }
             });
@@ -69,7 +68,11 @@
                         return sermon;
                     },
                     soundCloudSermons: function () {
-                        return vm.soundCloudSermons;
+                        var soundCloudIds = _.pluck(vm.sermons, 'soundCloudId');
+
+                        return _.filter(vm.soundCloudSermons, function (track) {
+                            return !_.includes(soundCloudIds, track.id) || track.id === sermon.soundCloudId;
+                        });
                     }
                 }
             });
@@ -90,66 +93,5 @@
                 }
             });
         }
-
-        $scope.$on('addSermon', function (event, sermon) {
-            if (!sermon) {
-                return;
-            }
-
-            vm.SermonService.add(sermon).then(function (response) {
-                vm.sermons.push(sermon);
-            },
-            function (error) {
-
-            })
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
-            });
-        });
-
-        $scope.$on('editSermon', function (event, sermon) {
-            var sermonToEdit = _.find(vm.sermons, function (s) {
-                return s.sermonId === sermon.sermonId;
-            });
-
-            if (!sermonToEdit) {
-                return;
-            }
-
-            vm.SermonService.update(sermon).then(function (response) {
-                var index = vm.sermons.indexOf(sermonToEdit);
-                vm.sermons[index] = sermon;
-            },
-            function (error) {
-
-            })
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
-            });
-        });
-
-        $scope.$on('deleteSermon', function (event, sermon) {
-            var sermonToDelete = _.find(vm.sermons, function (s) {
-                return s.sermonId === sermon.sermonId;
-            });
-
-            if (!sermonToDelete) {
-                return;
-            }
-
-            vm.SermonService.delete(sermonToDelete).then(function (response) {
-                var index = vm.sermons.indexOf(sermonToDelete);
-
-                if (index > -1) {
-                    vm.sermons.splice(index, 1);
-                }
-            },
-            function (error) {
-
-            })
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
-            });
-        });
     }
 })( window._ );
