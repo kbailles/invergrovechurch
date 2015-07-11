@@ -30,6 +30,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult ManageMembers()
         {
+            // Todo: maybe filter this list by IsMember = true. Create service method to get all members?
             var people = this.personService.GetAll();
 
             return View("_ManageMembers", (object)JsonConvert.SerializeObject(people, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
@@ -53,6 +54,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult GetAllUsers()
         {
+            // Todo: maybe filter this list by UserId > 0. Create service method to get all users?
             var people = this.personService.GetAll();
             return this.Json(people, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
@@ -73,7 +75,9 @@ namespace InverGrove.Web.Areas.Member.Controllers
 
             person.ModifiedByUserId = this.Profile.UserId();
             var personAdded = this.personService.AddPerson(person, domainHost);
-            return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+            // Todo: what if error is returned?  Could be email already exists..
+
+            return this.Json(personAdded.PersonId, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
         [Authorize(Roles = "MemberAdmin, SiteAdmin")]
@@ -89,8 +93,16 @@ namespace InverGrove.Web.Areas.Member.Controllers
         {
             Guard.ArgumentNotNull(person, "person");
 
+            var requestUrl = this.Request.Url;
+            var domainHost = "";
+
+            if (requestUrl != null)
+            {
+                domainHost = requestUrl.GetLeftPart(UriPartial.Authority);
+            }
+
             person.ModifiedByUserId = this.Profile.UserId();
-            var personUpdated = this.personService.Edit(person);
+            var personUpdated = this.personService.Edit(person, domainHost);
             return this.Json(personUpdated, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 

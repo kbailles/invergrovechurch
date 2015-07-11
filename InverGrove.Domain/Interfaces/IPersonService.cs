@@ -32,14 +32,14 @@ namespace InverGrove.Domain.Interfaces
         /// <param name="hostName">Name of the host.</param>
         /// <returns></returns>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
-        int AddPerson(IPerson person, string hostName);
+        IPerson AddPerson(IPerson person, string hostName);
 
         /// <summary>
         /// Edits the specified person.
         /// </summary>
         /// <param name="person">The person.</param>
         /// <returns></returns>
-        int Edit(IPerson person);
+        IPerson Edit(IPerson person, string hostName = "");
 
         /// <summary>
         /// Deletes the specified person.

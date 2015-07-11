@@ -49,6 +49,7 @@ namespace InverGrove.Domain.Services
         /// <returns></returns>
         public IEnumerable<IPerson> GetAll()
         {
+            // Todo: these could be cached.
             var people = this.personRepository.Get();
 
             return people.ToModelCollection();
@@ -73,42 +74,67 @@ namespace InverGrove.Domain.Services
         /// <param name="hostName">Name of the host.</param>
         /// <returns></returns>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
-        public int AddPerson(IPerson person, string hostName)
+        public IPerson AddPerson(IPerson person, string hostName)
         {
             Guard.ParameterNotNull(person, "person");
 
-            var personId = this.personRepository.Add(person);
+            /* TODO - Check if this EMAIL address exists.  Email will be the sole check to guard against duplicate persons.
+               TODO - People will be a cached list that is placed into cache when a person logs into the website.
+                      This list will never be more than a couple hundred (likley around 150) so no big deal caching that. 
+            */
 
-            if (person.IsUser && (personId > 0))
+            if (person.IsUser)
             {
-                person.PersonId = personId;
+                var existingEmail = this.EmailExists(person);
 
-                var acccessToken = this.verificationRepository.Add(personId);
+                if (existingEmail.Item2)
+                {
+                    person.PersonId = existingEmail.Item1;
+                    person.ErrorMessage = "This email address already exists.";
 
-                // Send email notification
-                this.emailService.SendNewUserEmail(person, acccessToken, hostName);
+                    return person;
+                }
             }
 
-            return personId;
+            person.PersonId = this.personRepository.Add(person);
+
+            if (person.IsUser && (person.PersonId > 0))
+            {
+                this.SendNewUserVerification(person, hostName);
+            }
+
+            return person;
         }
 
-
-        public int Edit(IPerson person)
+        /// <summary>
+        /// Edits the specified person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <param name="hostName">Name of the host.</param>
+        /// <returns></returns>
+        public IPerson Edit(IPerson person, string hostName = "")
         {
             Guard.ParameterNotNull(person, "person");
 
-            return 0;
+            if (person.IsUser && this.EmailExists(person).Item2)
+            {
+                person.ErrorMessage = "This email address already exists.";
 
-            //var isDeleted = this.personRepository.Delete(person);
+                return person;
+            }
 
-            //if (isDeleted)
-            //{
-            //    return person.PersonId;
-            //}
-            //else
-            //{
-            //    return 0;
-            //}
+            var existingPerson = this.GetById(person.PersonId);
+            var updatedPerson = this.personRepository.Update(person);
+
+            if (string.IsNullOrEmpty(updatedPerson.ErrorMessage))
+            {
+                if (person.IsUser && !existingPerson.IsUser)
+                {
+                    this.SendNewUserVerification(person, hostName);
+                }
+            }
+
+            return person;
         }
 
 
@@ -136,6 +162,22 @@ namespace InverGrove.Domain.Services
             }
 
             return 0;
+        }
+
+        private Tuple<int, bool> EmailExists(IPerson person)
+        {
+            var existingPerson = this.personRepository.Get(p => p.EmailPrimary == person.PrimaryEmail).FirstOrDefault();
+            var emailExists = existingPerson != null && existingPerson.PersonId > 0;
+
+            return new Tuple<int, bool>(existingPerson.PersonId, emailExists);
+        }
+
+        private void SendNewUserVerification(IPerson person, string hostName)
+        {
+            var acccessToken = this.verificationRepository.Add(person.PersonId);
+
+            // Send email notification
+            this.emailService.SendNewUserEmail(person, acccessToken, hostName);
         }
     }
 }

@@ -154,9 +154,8 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId +
-                                               " with message: " + sql.Message;
-                    throw new ApplicationException("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
                                                    " with message: " + sql.Message);
                 }
                 catch (DbEntityValidationException dbe)
@@ -170,8 +169,8 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with name: " +
-                                                   person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
+                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
                                                    " with message: " + sb);
                 }
             }
@@ -216,8 +215,7 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    person.ErrorMessage = "Error occurred in attempting to update Person phoneNumbers with PersonId: " + person.PersonId +
-                                               " with message: " + sql.Message;
+                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
                     this.logService.WriteToErrorLog("Error occurred in attempting to update Person phoneNumbers with PersonId: " + person.PersonId +
                                                    " with message: " + sql.Message);
                 }
@@ -233,6 +231,7 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
+                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
                     this.logService.WriteToErrorLog("Error occurred in attempting to update Person phoneNumbers with name: " +
                                                    person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
                                                    " with message: " + sb);
