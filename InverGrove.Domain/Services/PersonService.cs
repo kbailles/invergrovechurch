@@ -80,7 +80,7 @@ namespace InverGrove.Domain.Services
 
             /* TODO - Check if this EMAIL address exists.  Email will be the sole check to guard against duplicate persons.
                TODO - People will be a cached list that is placed into cache when a person logs into the website.
-                      This list will never be more than a couple hundred (likley around 150) so no big deal caching that. 
+                      This list will never be more than a couple hundred (likley around 150) so no big deal caching that.
             */
 
             if (person.IsUser)
@@ -131,6 +131,15 @@ namespace InverGrove.Domain.Services
                 if (person.IsUser && !existingPerson.IsUser)
                 {
                     this.SendNewUserVerification(person, hostName);
+                }
+
+                if (!person.IsUser && existingPerson.IsUser)
+                {
+                    var personProfile = this.profileService.GetProfileByPersonId(person.PersonId);
+
+                    // If the person is a user, update the profile status to Disabled.
+                    personProfile.IsDisabled = true;
+                    this.profileService.UpdateProfile(personProfile);
                 }
             }
 
