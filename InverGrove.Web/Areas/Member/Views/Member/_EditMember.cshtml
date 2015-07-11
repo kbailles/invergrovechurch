@@ -58,6 +58,10 @@
                 <label>Email Address:</label>
                 <input class="form-control" name="primaryEmail" ng-model="modalCtrl.member.primaryEmail" maxlength="50" type="text" />
             </div>
+            <div class="col-xs-6">
+                <label>Has user account? <span class="warning">*</span></label>
+                <select class="form-control" name="isUser" ng-model="modalCtrl.member.isUser" ng-options="modalCtrl.boolToStr(item) for item in [true, false]"></select>
+            </div>
         </div>
 
         <div class="row">
@@ -70,10 +74,7 @@
             </div>
             <div class="col-xs-6">
                 <label>Person scripturally baptized? <span class="warning">*</span></label>
-                <select name="isBaptized" ng-model="modalCtrl.member.isBaptized" class="form-control" style="width: 90px;" required>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
+                <select name="isBaptized" ng-model="modalCtrl.member.isBaptized" ng-options="modalCtrl.boolToStr(item) for item in [true, false]" class="form-control" style="width: 90px;" required></select>
             </div>
         </div>
 

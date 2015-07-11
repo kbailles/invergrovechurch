@@ -8,16 +8,13 @@
 
     ManageMembersController.$inject = [
         'MemberService',
-        '$window',
-        '$scope',
         '$modal'
     ];
 
-    function ManageMembersController(MemberService, $window, $scope, $modal) {
+    function ManageMembersController(MemberService, $modal) {
         var vm = this;
 
         vm.members = _.where(members, { isDeleted: false });
-        vm.MemberService = MemberService;
 
         vm.openAddMemberModal = openAddMemberModal;
         vm.openEditMemberModal = openEditMemberModal;
@@ -65,32 +62,5 @@
                 }
             });
         }
-
-        // broadcast from the modal
-        $scope.$on('addMember', function (event, member) {
-            if (!member) {
-                return;
-            }
-
-            vm.MemberService.add(member).then(function () {
-                $window.location.reload();
-            });
-        });
-
-        $scope.$on('editMember', function (event, member) {
-            if (!member) {
-                return;
-            }
-
-            vm.MemberService.edit(member).then(function () {
-                vm.members.push(member);
-            });
-        });
-
-        $scope.$on('deletePerson', function (event, member) {
-            vm.MemberService.delete(member).then(function () {
-                $window.location.reload();
-            });
-        });
     }
 })();

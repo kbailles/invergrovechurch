@@ -1,6 +1,4 @@
-﻿
-
-(function () {
+﻿(function () {
     'use strict';
 
     var appName = igchurch.constants.APP_NAME;
@@ -10,12 +8,15 @@
 
     MemberModalController.$inject = [
         '$modalInstance',
-        '$rootScope',
+        '$window',
+        'MemberService',
         'member'
     ];
 
-    function MemberModalController($modalInstance, $rootScope, member) {
+    function MemberModalController($modalInstance, $window, MemberService, member) {
         var vm = this;
+
+        vm.MemberService = MemberService;
 
         vm.personObj = {
             // defaults
@@ -39,6 +40,12 @@
         vm.$modalInstance = $modalInstance;
         vm.dismissModal = dismissModal;
 
+        vm.boolToStr = boolToStr;
+
+        function boolToStr(bool) {
+            return bool ? 'Yes' : 'No';
+        }
+
         function addUserSetupToForm() {
             var isUser = vm.personObj.isUser;
             vm.disableEmail = (isUser === 'true') ? false : true;
@@ -51,17 +58,26 @@
 
         function addPerson() {
             vm.busy = true;
-            $rootScope.$broadcast('addMember', vm.personObj);
+
+            vm.MemberService.add(vm.personObj).then(function () {
+                $window.location.reload();
+            });
         }
 
         function editPerson() {
             vm.busy = true;
-            $rootScope.$broadcast('editMember', vm.member);
+
+            vm.MemberService.edit(vm.member).then(function () {
+                $window.location.reload();
+            });
         }
 
         function deletePerson() {
             vm.busy = true;
-            $rootScope.$broadcast('deletePerson', vm.member);
+
+            vm.MemberService.delete(vm.member).then(function () {
+                $window.location.reload();
+            });
         }
     }
 })();
