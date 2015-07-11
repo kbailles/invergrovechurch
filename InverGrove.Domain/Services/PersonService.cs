@@ -95,8 +95,8 @@ namespace InverGrove.Domain.Services
 
         public int Edit(IPerson person)
         {
+            Guard.ParameterNotNull(person, "person");
 
-            var foo = "hello world";
             return 0;
 
             //var isDeleted = this.personRepository.Delete(person);

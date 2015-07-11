@@ -8,14 +8,15 @@
 
     ManageMembersController.$inject = [
         'MemberService',
+        '$window',
         '$scope',
         '$modal'
     ];
 
-    function ManageMembersController(MemberService, $scope, $modal) {
+    function ManageMembersController(MemberService, $window, $scope, $modal) {
         var vm = this;
 
-        vm.members = members;
+        vm.members = _.where(members, { isDeleted: false });
         vm.MemberService = MemberService;
 
         vm.openAddMemberModal = openAddMemberModal;
@@ -67,46 +68,28 @@
 
         // broadcast from the modal
         $scope.$on('addMember', function (event, member) {
-
             if (!member) {
                 return;
             }
 
-            vm.MemberService.add(member).then(function (response) {
-                vm.members.push(member);
-            },
-            function (error) {})
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
+            vm.MemberService.add(member).then(function () {
+                $window.location.reload();
             });
         });
 
         $scope.$on('editMember', function (event, member) {
-
             if (!member) {
                 return;
             }
 
-            vm.MemberService.edit(member).then(function (response) {
+            vm.MemberService.edit(member).then(function () {
                 vm.members.push(member);
-            },
-            function (error) {})
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
             });
         });
 
         $scope.$on('deletePerson', function (event, member) {
-
-            vm.MemberService.delete(member).then(function (response) {
-
-                vm.members = _.reject(vm.members, { personId: member.personId });
-            },
-            function (error) {
-                alert('oops'); // remove
-            })
-            .finally(function () {
-                vm.$modalInstance.dismiss('cancel');
+            vm.MemberService.delete(member).then(function () {
+                $window.location.reload();
             });
         });
     }

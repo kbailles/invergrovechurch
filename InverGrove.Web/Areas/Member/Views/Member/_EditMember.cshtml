@@ -42,21 +42,16 @@
             </div>
         </div>
 
-
-        <!-- ---------------------------------------------------------------------- -->
-
         <div class="row">
             <div class="col-xs-6">
                 <label>Cell Phone:</label>
-                <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.member.phoneNumbers[0]" maxlength="20" type="text"/>
+                <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.member.phoneNumbers[0].phone" maxlength="20" type="text"/>
             </div>
             <div class="col-xs-6">
                 <label>Home / Other Phone:</label>
-                <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.member.phoneNumbers[1]" maxlength="20" type="text"/>
+                <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.member.phoneNumbers[1].phone" maxlength="20" type="text"/>
             </div>
         </div>
-
-        <!-- ---------------------------------------------------------------------- -->
 
         <div class="row">
             <div class="col-xs-6">
@@ -85,6 +80,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Saving..." ng-click="modalCtrl.editSermon()">Save</button>
+    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Saving..." ng-click="modalCtrl.editPerson()">Save</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>

@@ -33,15 +33,11 @@
 
         vm.member = angular.copy(member) || {};
         vm.addPerson = addPerson;
+        vm.editPerson = editPerson;
         vm.deletePerson = deletePerson;
 
         vm.$modalInstance = $modalInstance;
         vm.dismissModal = dismissModal;
-
-        activate();
-
-        function activate() {
-        }
 
         function addUserSetupToForm() {
             var isUser = vm.personObj.isUser;
@@ -56,6 +52,11 @@
         function addPerson() {
             vm.busy = true;
             $rootScope.$broadcast('addMember', vm.personObj);
+        }
+
+        function editPerson() {
+            vm.busy = true;
+            $rootScope.$broadcast('editMember', vm.member);
         }
 
         function deletePerson() {

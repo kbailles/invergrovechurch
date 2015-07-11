@@ -80,11 +80,8 @@ namespace InverGrove.Web.Areas.Member.Controllers
         [HttpGet]
         public ActionResult EditUser()
         {
-            return PartialView("_EditUser");
+            return PartialView("_EditMember");
         }
-
-        // ---------------------------------------
-
 
         [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpPost]
@@ -96,9 +93,6 @@ namespace InverGrove.Web.Areas.Member.Controllers
             var personUpdated = this.personService.Edit(person);
             return this.Json(personUpdated, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
-
-
-        // ---------------------------------------
 
         [Authorize(Roles = "MemberAdmin, SiteAdmin")]
         [HttpPost]

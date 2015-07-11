@@ -12,7 +12,7 @@
 
         this.getUser = function (userId) {
 
-            return $http({ method: 'GET', url: '/Member/Member/GetUser', params: { memberdId: memberId } }).
+            return $http({ method: 'GET', url: '/Member/Member/GetUser', params: { memberdId: userId } }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).
@@ -42,7 +42,7 @@
 
         this.edit = function (person) {
 
-            return $http({ method: 'POST', url: '/Member/Member/Edit', data: { person: parseInterson } }).
+            return $http({ method: 'POST', url: '/Member/Member/Edit', data: { person: person } }).
                 success(function (data, status, headers, config) {
                     return data;
                 }).

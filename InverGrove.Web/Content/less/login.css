@@ -156,7 +156,7 @@ a:hover {
 }
 a .remove {
   font-size: 14px;
-  color: #9e0b0f;
+  color: #e24747;
   vertical-align: middle;
 }
 .avatar img {
@@ -258,7 +258,7 @@ a .remove {
   transition: all 0.5s ease-in-out;
 }
 .btn-warning {
-  background: #9e0b0f;
+  background: #e24747;
   border: 1px solid transparent !important;
   color: #ffffff !important;
   cursor: pointer;
@@ -495,118 +495,6 @@ h3.title:after {
 .input-group .form-control {
   display: table-cell;
 }
-.loading {
-  position: fixed;
-  z-index: 9999;
-  height: 2em;
-  width: 2em;
-  overflow: show;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-/* Transparent Overlay */
-.loading:before {
-  content: '';
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-/* :not(:required) hides these rules from IE9 and below */
-.loading:not(:required) {
-  /* hide "loading..." text */
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.loading:not(:required):after {
-  content: '';
-  display: block;
-  font-size: 10px;
-  width: 1em;
-  height: 1em;
-  margin-top: -0.5em;
-  -webkit-animation: spinner 1500ms infinite linear;
-  -moz-animation: spinner 1500ms infinite linear;
-  -ms-animation: spinner 1500ms infinite linear;
-  -o-animation: spinner 1500ms infinite linear;
-  animation: spinner 1500ms infinite linear;
-  border-radius: 0.5em;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
-}
-@-webkit-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 .logo h1 {
   margin: 13px 0;
 }
@@ -683,9 +571,6 @@ h3.title:after {
   background-color: #323b44;
   border-bottom: 3px solid #2eaef0;
 }
-.navbar-collapse .navbar-nav li:not(.active):hover {
-  border-bottom: 3px solid #2eaef0;
-}
 .need-ride {
   background: #fff;
   min-height: 100px;
@@ -710,7 +595,7 @@ h3.title:after {
   }
 }
 form .ng-dirty.ng-invalid {
-  border: 1px solid #9e0b0f;
+  border: 1px solid #e24747;
 }
 form .ng-dirty.ng-valid {
   border: 1px solid #3c763d;
@@ -786,10 +671,12 @@ form .ng-dirty.ng-valid {
   border-radius: 2px;
   display: block;
   float: left;
-  margin-right: 10px;
+  margin-right: 20px;
   text-align: center;
   text-decoration: none;
   width: 55px;
+  padding: 10px 0 0;
+  line-height: 24px;
 }
 .sermon-date a.date i {
   background-color: #0488cd;
@@ -804,12 +691,13 @@ form .ng-dirty.ng-valid {
   display: block;
   font-size: 27px;
   font-weight: normal;
+  margin-bottom: 10px;
 }
 .sermon-desc p {
   margin-bottom: 0;
 }
 .sermon-entry-meta-comments {
-  font-size: 14px;
+  font-size: 12px;
   display: inline-block;
   margin-bottom: 10px;
   vertical-align: top;
@@ -817,15 +705,15 @@ form .ng-dirty.ng-valid {
 .sermon-entry-meta-speaker {
   display: inline-block;
   margin-bottom: 10px;
-  margin-right: 10px;
-  font-size: 14px;
+  margin-right: 15px;
+  font-size: 12px;
   vertical-align: top;
 }
 .sermon-entry-meta-tags {
   display: inline-block;
   margin-bottom: 10px;
-  margin-right: 10px;
-  font-size: 14px;
+  margin-right: 15px;
+  font-size: 12px;
   vertical-align: top;
 }
 .sermon-meta i {
@@ -833,19 +721,22 @@ form .ng-dirty.ng-valid {
 }
 .sermon-meta-date {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 15px;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 12px;
   vertical-align: top;
 }
 .sermon-divider {
   background: url('../images/bg_off.png') repeat;
   content: "";
   height: 5px;
-  margin: 20px 0;
+  margin: 25px 0;
 }
 .sermon-title {
   margin-top: 0;
+  font-size: 22px;
+  text-align: left;
+  margin-bottom: 15px;
 }
 .subscribe-btn {
   height: 44px;
@@ -883,14 +774,14 @@ form .ng-dirty.ng-valid {
   margin-right: 7px;
 }
 .validation-summary-errors {
-  color: #9e0b0f;
+  color: #e24747;
 }
 .validation-summary-errors ul {
   list-style: none;
   padding-left: 0;
 }
 .warning {
-  color: #9e0b0f;
+  color: #e24747;
 }
 .widget {
   margin-bottom: 35px;

@@ -25,19 +25,10 @@
         //ui.bootstrap watches $scope object
         $scope.alerts = [];
 
-        activate();
-
-        /*
-         * Private declarations
-         */
-        function activate() {
-
-        }
-
         function sendContactUsMessage() {
-            $scope.$emit('loading-started');
             $scope.alerts.length = 0;
- 
+            vm.busy = true;
+
             MessageService.sendMessage(vm.contactUsObj).then(function (response) {
 
                 if (response.status === 200 /* Response status OK */) {
@@ -47,12 +38,12 @@
                     $scope.alerts.push({ type: 'danger', msg: 'Ops! We were unable to send your message!' });
                 }
 
-                $scope.$emit('loading-complete');
+                vm.busy = false;
             },
             function (error) {
                 $scope.alerts.push({ type: 'danger', msg: 'Ops! We were unable to send your message!' });
 
-                $scope.$emit('loading-complete');
+                vm.busy = false;
             });
         }
 
