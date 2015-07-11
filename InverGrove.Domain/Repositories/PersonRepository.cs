@@ -138,13 +138,31 @@ namespace InverGrove.Domain.Repositories
                 personEntity.Relatives1 = null;
                 personEntity.MaritalStatus = null;
                 personEntity.ChurchRole = null;
-                personEntity.PhoneNumbers = null;
+                //personEntity.PhoneNumbers = null;
                 personEntity.Attendances = null;
+
+                foreach (var phone in person.PhoneNumbers)
+                {
+                    var existingPhone = personEntity.PhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
+
+                    if (existingPhone != null)
+                    {
+                        existingPhone.PersonId = phone.PersonId;
+                        existingPhone.Phone = phone.Phone;
+                        existingPhone.PhoneNumberTypeId = phone.PhoneNumberTypeId;
+                        existingPhone.Person = null;
+                        existingPhone.PhoneNumberType = null;
+                    }
+                    else
+                    {
+                        personEntity.PhoneNumbers.Add(phone.ToEntity());                        
+                    }
+                }
 
                 this.Update(personEntity);
             }
 
-            this.UpdateNewPhoneNumbers(person, personPhoneNumbers);
+            //this.UpdateNewPhoneNumbers(person, personPhoneNumbers);
 
             using (TimedLock.Lock(this.syncRoot))
             {
