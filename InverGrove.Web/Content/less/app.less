@@ -32,6 +32,7 @@ body {
   background: url('@{img-file-path-base}graymatte.png') repeat;
   color: @gray-dark;
   font-family: @font-family-base;
+  line-height: 24px;
 
   > .container.wrapper {
     -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
@@ -94,14 +95,12 @@ a {
   .breadcrumbs {
     margin: 24px 0;
     ul {
-      line-height: 24px;
       margin: 0;
       margin-top: 5px;
       li {
         color: @gray-lighter;
         display: inline-block;
         font-size: 13px;
-        line-height: 24px;
         margin: 0 0 0 5px;
         a {
           color: @gray-light;
@@ -217,6 +216,10 @@ button[disabled] {
   &:hover {
     background: @blue-lighter;
     color: @white;
+
+    h3 {
+        color: @white;
+    }
   }
   i {
     font-size: 48px;
@@ -236,7 +239,6 @@ button[disabled] {
         }
         p {
           color: @gray-dark;
-          line-height: 24px;
           margin-left: 20px;
           margin-top: -2px;
 
@@ -273,16 +275,19 @@ button[disabled] {
   transition: background .5s ease-in-out;
 
   @media (min-width: 768px) {
-    min-height: 295px !important;
+    min-height: 451px !important;
   }
   @media (min-width: 992px) {
-    min-height: 310px !important;
+    min-height: 355px !important;
   }
   @media (min-width: 1200px) {
-    min-height: 270px !important;
+    min-height: 317px !important;
   }
 
   .content-box-info {
+      > h3 + p:first-of-type, > address:first-of-type {
+          margin-top: 25px;
+      }
   }
 }
 .bottom-pad-small {
@@ -549,6 +554,9 @@ form .ng-dirty.ng-valid {
     }
 }
 .reply {
+    .input-group button {
+        margin: 0 0 20px;
+    }
   input:not([type=checkbox]) {
     margin: 0 0 20px;
   }
@@ -589,6 +597,7 @@ form .ng-dirty.ng-valid {
     i {
         left: 1px;
         top: 3px;
+        line-height: 38px;
     }
 }
 .sermons-content {
@@ -605,7 +614,6 @@ form .ng-dirty.ng-valid {
         text-decoration: none;
         width: 55px;
         padding: 10px 0 0;
-        line-height: 24px;
 
         i {
             background-color: @blue-light;
@@ -722,6 +730,10 @@ form .ng-dirty.ng-valid {
 }
 .widget {
     margin-bottom: 35px;
+
+    &.tags {
+        line-height: 20px;
+    }
 }
 .worship-info {
     margin-bottom: 30px;
