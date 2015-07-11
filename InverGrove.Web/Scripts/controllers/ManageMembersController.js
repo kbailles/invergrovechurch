@@ -19,7 +19,7 @@
         vm.MemberService = MemberService;
 
         vm.openAddMemberModal = openAddMemberModal;
-        vm.openEditMemberModal = openEditMemberModal; 
+        vm.openEditMemberModal = openEditMemberModal;
         vm.openDeleteMemberModal = openDeleteMemberModal;
 
         vm.$modalInstance = null;

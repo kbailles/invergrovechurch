@@ -16,7 +16,8 @@ namespace InverGrove.Domain.Interfaces
         /// </summary>
         /// <param name="personToRegister">The person to register.</param>
         /// <param name="userVerificationId">The user verification identifier.</param>
+        /// <param name="hostName">The host name.</param>
         /// <returns></returns>
-        bool SendNewUserEmail(IPerson personToRegister, Guid userVerificationId);
+        bool SendNewUserEmail(IPerson personToRegister, Guid userVerificationId, string hostName);
     }
 }

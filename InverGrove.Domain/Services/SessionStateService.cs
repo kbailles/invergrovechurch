@@ -66,7 +66,7 @@ namespace InverGrove.Domain.Services
                 throw new ArgumentNullException("key");
             }
 
-            if (this.CurrentSessionExists())
+            if (this.Contains(key))
             {
                 HttpContext.Current.Session.Remove(key);
             }
@@ -117,7 +117,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Tries to get the value from Session with the specified key, if it does not exist, 
+        /// Tries to get the value from Session with the specified key, if it does not exist,
         /// it will call the Func and set the Session[key] to that returned value if the Func is not null and cacheResult is true.
         /// </summary>
         /// <typeparam name="T1">The type of the first parameter used in the Func.</typeparam>
@@ -162,7 +162,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Tries to get the value from Session with the specified key, if it does not exist, 
+        /// Tries to get the value from Session with the specified key, if it does not exist,
         /// it will call the Func and set the Session[key] to that returned value.
         /// </summary>
         /// <typeparam name="T1">The type of the first parameter used in the Func.</typeparam>
@@ -208,7 +208,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Tries to get the value from Session with the specified key, if it does not exist, 
+        /// Tries to get the value from Session with the specified key, if it does not exist,
         /// it will call the Func and set the Session[key] to that returned value.
         /// </summary>
         /// <typeparam name="T1">The type of the 1.</typeparam>
@@ -256,7 +256,7 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
-        /// Tries to get the value from Session with the specified key; if it does not exist just 
+        /// Tries to get the value from Session with the specified key; if it does not exist just
         /// returns the default return type value.
         /// The value is NOT added to Session if it does NOT exist.
         /// </summary>
@@ -313,6 +313,6 @@ namespace InverGrove.Domain.Services
         private bool CurrentSessionExists()
         {
             return (HttpContext.Current != null) && (HttpContext.Current.Session != null);
-        } 
+        }
     }
 }

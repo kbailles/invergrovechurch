@@ -12,12 +12,25 @@ namespace InverGrove.Domain.Services
         private readonly IPersonFactory personFactory;
         private readonly IPersonRepository personRepository;
         private readonly IUserVerificationRepository verificationRepository;
+        private readonly IEmailService emailService;
+        private readonly IProfileService profileService;
 
-        public PersonService(IPersonRepository personRepository, IPersonFactory personFactory, IUserVerificationRepository verificationRepository)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonService" /> class.
+        /// </summary>
+        /// <param name="personRepository">The person repository.</param>
+        /// <param name="personFactory">The person factory.</param>
+        /// <param name="verificationRepository">The verification repository.</param>
+        /// <param name="emailService">The email service.</param>
+        /// <param name="profileService">The profile service.</param>
+        public PersonService(IPersonRepository personRepository, IPersonFactory personFactory,
+            IUserVerificationRepository verificationRepository, IEmailService emailService, IProfileService profileService)
         {
             this.personRepository = personRepository;
             this.personFactory = personFactory;
             this.verificationRepository = verificationRepository;
+            this.emailService = emailService;
+            this.profileService = profileService;
         }
 
 
@@ -57,18 +70,23 @@ namespace InverGrove.Domain.Services
         /// Adds the person.
         /// </summary>
         /// <param name="person">The person.</param>
+        /// <param name="hostName">Name of the host.</param>
         /// <returns></returns>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
-        public int AddPerson(IPerson person)
+        public int AddPerson(IPerson person, string hostName)
         {
             Guard.ParameterNotNull(person, "person");
-            Guid acccessToken;
 
             var personId = this.personRepository.Add(person);
 
             if (person.IsUser && (personId > 0))
             {
-                acccessToken = this.verificationRepository.Add(personId);
+                person.PersonId = personId;
+
+                var acccessToken = this.verificationRepository.Add(personId);
+
+                // Send email notification
+                this.emailService.SendNewUserEmail(person, acccessToken, hostName);
             }
 
             return personId;
@@ -102,15 +120,22 @@ namespace InverGrove.Domain.Services
         public int Delete(IPerson person)
         {
             var isDeleted = this.personRepository.Delete(person);
+            var personProfile = this.profileService.GetProfileByPersonId(person.PersonId);
+
+            if ((personProfile != null) && (personProfile.ProfileId > 0))
+            {
+                // If the person is a user, update the profile status to Disabled.
+                personProfile.IsDisabled = true;
+
+                this.profileService.UpdateProfile(personProfile);
+            }
 
             if (isDeleted)
             {
                 return person.PersonId;
             }
-            else
-            {
-                return 0;          
-            }
+
+            return 0;
         }
     }
 }

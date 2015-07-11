@@ -108,7 +108,6 @@ namespace InverGrove.Domain.Repositories
             var currentDate = DateTime.Now;
             Person personEntity = this.Get(x => x.PersonId == person.PersonId, includeProperties: "PhoneNumbers").FirstOrDefault();
             ICollection<PhoneNumber> personPhoneNumbers = null;
-            bool hasNewPhoneNumbers = false;
 
             if (personEntity != null)
             {
@@ -142,9 +141,46 @@ namespace InverGrove.Domain.Repositories
                 personEntity.PhoneNumbers = null;
                 personEntity.Attendances = null;
 
-                base.Update(personEntity);
+                this.Update(personEntity);
             }
 
+            this.UpdateNewPhoneNumbers(person, personPhoneNumbers);
+
+            using (TimedLock.Lock(this.syncRoot))
+            {
+                try
+                {
+                    this.Save();
+                }
+                catch (SqlException sql)
+                {
+                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+                                               " with message: " + sql.Message;
+                    throw new ApplicationException("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+                                                   " with message: " + sql.Message);
+                }
+                catch (DbEntityValidationException dbe)
+                {
+                    var sb = new StringBuilder();
+                    foreach (var error in dbe.EntityValidationErrors)
+                    {
+                        foreach (var ve in error.ValidationErrors)
+                        {
+                            sb.Append(ve.ErrorMessage + ", ");
+                        }
+                    }
+
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with name: " +
+                                                   person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
+                                                   " with message: " + sb);
+                }
+            }
+
+            return person;
+        }
+
+        private void UpdateNewPhoneNumbers(IPerson person, ICollection<PhoneNumber> personPhoneNumbers)
+        {
             foreach (var phone in person.PhoneNumbers)
             {
                 if (personPhoneNumbers != null)
@@ -159,34 +195,16 @@ namespace InverGrove.Domain.Repositories
                         phoneEntity.Person = null;
                         phoneEntity.PhoneNumberType = null;
 
-                        this.dataContext.SetModified(phoneEntity);
+                        this.phoneNumberRepository.Update(phoneEntity);
                     }
                     else
                     {
-                        var entityPhone = phone.ToEntity();
-
-                        if (entityPhone != null)
-                        {
-                            entityPhone.Person = null;
-                            entityPhone.PhoneNumberType = null;
-
-                            hasNewPhoneNumbers = true;
-                            this.phoneNumberRepository.Insert(entityPhone);
-                        }
+                        this.AddNewPhoneNumber(phone);
                     }
                 }
                 else
                 {
-                    var entityPhone = phone.ToEntity();
-
-                    if (entityPhone != null)
-                    {
-                        entityPhone.Person = null;
-                        entityPhone.PhoneNumberType = null;
-                        hasNewPhoneNumbers = true;
-
-                        this.phoneNumberRepository.Insert(entityPhone);
-                    }
+                    this.AddNewPhoneNumber(phone);
                 }
             }
 
@@ -194,30 +212,58 @@ namespace InverGrove.Domain.Repositories
             {
                 try
                 {
-                    this.Save();
-
-                    if (hasNewPhoneNumbers)
-                    {
-                        this.phoneNumberRepository.Save();
-                    }
+                    this.phoneNumberRepository.Save();
                 }
                 catch (SqlException sql)
                 {
-                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+                    person.ErrorMessage = "Error occurred in attempting to update Person phoneNumbers with PersonId: " + person.PersonId +
                                                " with message: " + sql.Message;
-                    throw new ApplicationException("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person phoneNumbers with PersonId: " + person.PersonId +
                                                    " with message: " + sql.Message);
                 }
-            }
+                catch (DbEntityValidationException dbe)
+                {
+                    var sb = new StringBuilder();
 
-            return person;
+                    foreach (var error in dbe.EntityValidationErrors)
+                    {
+                        foreach (var ve in error.ValidationErrors)
+                        {
+                            sb.Append(ve.ErrorMessage + ", ");
+                        }
+                    }
+
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person phoneNumbers with name: " +
+                                                   person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
+                                                   " with message: " + sb);
+                }
+            }
         }
 
+        private void AddNewPhoneNumber(Models.PhoneNumber phone)
+        {
+            var entityPhone = phone.ToEntity();
+
+            if (entityPhone != null)
+            {
+                entityPhone.Person = null;
+                entityPhone.PhoneNumberType = null;
+
+                this.phoneNumberRepository.Insert(entityPhone);
+            }
+        }
+
+        /// <summary>
+        /// Deletes the specified person.
+        /// </summary>
+        /// <param name="person">The person.</param>
+        /// <returns></returns>
         public bool Delete(IPerson person)
         {
             Guard.ArgumentNotNull(person, "person");
 
             var entityPerson = this.GetById(person.PersonId);
+            var currentDate = DateTime.Now;
 
             if (entityPerson == null || entityPerson.LastName == "Bailles")
             {
@@ -225,18 +271,48 @@ namespace InverGrove.Domain.Repositories
                 return true; // already deleted by concurrent user?  all the better.
             }
 
+            entityPerson.DateModified = currentDate;
+            entityPerson.ModifiedByUserId = person.ModifiedByUserId;
+            entityPerson.IsDeleted = true;
+            entityPerson.ChurchRole = null;
+            entityPerson.Attendances = null;
+            entityPerson.MaritalStatus = null;
+            entityPerson.PhoneNumbers = null;
+            entityPerson.Profiles = null;
+            entityPerson.Relatives = null;
+            entityPerson.Relatives1 = null;
+
             try
             {
-                base.Delete(entityPerson);
+                // Not doing a hard delete, just setting the record to IsDeleted = true
+                this.Update(entityPerson);
                 this.Save();
-                return true;
             }
             catch (SqlException ex)
             {
-                return false;
-                throw new ApplicationException("Error occurred in attempting to delete Person with PersonId: " + person.PersonId +
+                this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with PersonId: " + person.PersonId +
                                                " with message: " + ex.Message);
+                return false;
             }
+            catch (DbEntityValidationException dbe)
+            {
+                var sb = new StringBuilder();
+                foreach (var error in dbe.EntityValidationErrors)
+                {
+                    foreach (var ve in error.ValidationErrors)
+                    {
+                        sb.Append(ve.ErrorMessage + ", ");
+                    }
+                }
+
+                this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with name: " +
+                                               person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
+                                               " with message: " + sb);
+
+                return false;
+            }
+
+            return true;
         }
 
     }

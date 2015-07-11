@@ -625,7 +625,7 @@ namespace InverGrove.Data
 
             modelBuilder.Entity<User>()
                 .Property(e => e.UserName)
-                .IsUnicode(false);            
+                .IsUnicode(false);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.MemberNotes)
@@ -655,6 +655,6 @@ namespace InverGrove.Data
         ///   <c>true</c> if [re throw exceptions]; otherwise, <c>false</c>.
         /// </value>
         /// <remarks>The default value is <c>true</c> this is here to allow for test coverage.</remarks>
-        internal bool ReThrowExceptions { get; set; }        
+        internal bool ReThrowExceptions { get; set; }
     }
 }

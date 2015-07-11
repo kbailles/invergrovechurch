@@ -71,9 +71,13 @@ namespace InverGrove.Data.Entities
 
         public bool IsVisitor { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public DateTime DateCreated { get; set; }
 
         public DateTime DateModified { get; set; }
+
+        public int? ModifiedByUserId { get; set; }
 
         public int MaritalStatusId { get; set; }
 

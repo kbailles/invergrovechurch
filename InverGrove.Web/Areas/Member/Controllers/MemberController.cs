@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Utils;
@@ -62,7 +63,16 @@ namespace InverGrove.Web.Areas.Member.Controllers
         {
             Guard.ArgumentNotNull(person, "person");
 
-            var personAdded = this.personService.AddPerson(person);
+            var requestUrl = this.Request.Url;
+            var domainHost = "";
+
+            if (requestUrl != null)
+            {
+                domainHost = requestUrl.GetLeftPart(UriPartial.Authority);
+            }
+
+            person.ModifiedByUserId = this.Profile.UserId();
+            var personAdded = this.personService.AddPerson(person, domainHost);
             return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
@@ -82,8 +92,9 @@ namespace InverGrove.Web.Areas.Member.Controllers
         {
             Guard.ArgumentNotNull(person, "person");
 
-            var personAdded = this.personService.Edit(person);
-            return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+            person.ModifiedByUserId = this.Profile.UserId();
+            var personUpdated = this.personService.Edit(person);
+            return this.Json(personUpdated, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
 
 
@@ -95,8 +106,9 @@ namespace InverGrove.Web.Areas.Member.Controllers
         {
             Guard.ArgumentNotNull(person, "person:");
 
-            var personAdded = this.personService.Delete(person);
-            return this.Json(personAdded, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+            person.ModifiedByUserId = this.Profile.UserId();
+            var personUpdated = this.personService.Delete(person);
+            return this.Json(personUpdated, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
         }
     }
 }

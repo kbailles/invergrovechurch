@@ -29,9 +29,10 @@ namespace InverGrove.Domain.Interfaces
         /// Adds the person.
         /// </summary>
         /// <param name="person">The person.</param>
+        /// <param name="hostName">Name of the host.</param>
         /// <returns></returns>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">person</exception>
-        int AddPerson(IPerson person);
+        int AddPerson(IPerson person, string hostName);
 
         /// <summary>
         /// Edits the specified person.

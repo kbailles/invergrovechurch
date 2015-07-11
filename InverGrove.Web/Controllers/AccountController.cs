@@ -29,8 +29,8 @@ namespace InverGrove.Web.Controllers
         /// <param name="profileService">The profile service.</param>
         /// <param name="roleProvider">The role provider.</param>
         public AccountController(IUserVerificationService userVerificationService,
-                                 IRegistrationService registrationService,
-                                 IProfileService profileService,
+            IRegistrationService registrationService,
+            IProfileService profileService,
             IRoleProvider roleProvider)
         {
             this.userVerificationService = userVerificationService;
@@ -40,7 +40,7 @@ namespace InverGrove.Web.Controllers
             this.sessionService = new SessionStateService(); // not a candidate for IOC
         }
 
-        [AllowAnonymous]
+        [HttpGet]
         public JsonResult GetAuthenticatedUser()
         {
             RolePrincipal rolePrincipal = (RolePrincipal)this.User;
@@ -81,19 +81,24 @@ namespace InverGrove.Web.Controllers
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                    var userProfile = this.profileService.GetProfileByUserName(model.UserName);
 
-                    SetDisplayUserFirstLastName(model.UserName);
-                    var userRoles = this.roleProvider.GetRolesForUser(model.UserName);
-
-                    if (userRoles.Contains("Member"))
+                    if (!userProfile.IsDisabled)
                     {
-                        return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
-                    }
+                        FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
-                    if (userRoles.Contains("MemberAdmin") || userRoles.Contains("SiteAdmin"))
-                    {
-                        return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
+                        SetDisplayUserFirstLastName(userProfile);
+                        var userRoles = this.roleProvider.GetRolesForUser(model.UserName);
+
+                        if (userRoles.Contains("Member"))
+                        {
+                            return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
+                        }
+
+                        if (userRoles.Contains("MemberAdmin") || userRoles.Contains("SiteAdmin"))
+                        {
+                            return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
+                        }
                     }
                 }
             }
@@ -168,11 +173,10 @@ namespace InverGrove.Web.Controllers
             // until we decide what to do with hack attempts.
             return RedirectToAction("Index", "Home");
         }
-        
-        private void SetDisplayUserFirstLastName(string userName)
+
+        private void SetDisplayUserFirstLastName(IProfile userProfile)
         {
-            var profile = this.profileService.GetProfileByUserName(userName);
-            var displayname = string.Concat(profile.Person.FirstName, " ", profile.Person.LastName);
+            var displayname = string.Concat(userProfile.Person.FirstName, " ", userProfile.Person.LastName);
             this.sessionService.Add("DisplayName", displayname);
         }
     }

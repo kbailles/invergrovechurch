@@ -189,6 +189,14 @@ namespace InverGrove.Domain.Models
         public bool IsVisitor { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is deleted.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is deleted; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsDeleted { get; set; }
+
+        /// <summary>
         /// Gets or sets the gender.
         /// </summary>
         /// <value>
@@ -217,9 +225,16 @@ namespace InverGrove.Domain.Models
         [Display(ResourceType = typeof(ViewLabels), Name = "ChurchRoleLabel")]
         public int? ChurchRoleId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the modified by user identifier.
+        /// </summary>
+        /// <value>
+        /// The modified by user identifier.
+        /// </value>
+        public int? ModifiedByUserId { get; set; }
 
         /// <summary>
-        /// Assists with adding the person, will they have website access. 
+        /// Assists with adding the person, will they have website access.
         /// Originally added for Add Member form.
         /// </summary>
         /// <value>

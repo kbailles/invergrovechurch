@@ -32,7 +32,7 @@ namespace InverGrove.Domain.Services
         /// <param name="profileService">The profile service.</param>
         /// <param name="roleRepository">The role repository.</param>
         /// <param name="userRoleRepository">The user role repository.</param>
-        public RegistrationService(IMembershipService membershipService, IProfileService profileService, 
+        public RegistrationService(IMembershipService membershipService, IProfileService profileService,
             IRoleRepository roleRepository, IUserRoleRepository userRoleRepository)
         {
             this.membershipService = membershipService;
@@ -51,7 +51,7 @@ namespace InverGrove.Domain.Services
             var register = ObjectFactory.Create<Register>();
             var roles = this.roleRepository.Get();
 
-            var roleSelectList = new List<SelectListItem>();            
+            var roleSelectList = new List<SelectListItem>();
 
             foreach (var role in roles)
             {
@@ -105,16 +105,16 @@ namespace InverGrove.Domain.Services
 
             if ((newMembership.MembershipId > 0) && (newMembership.UserId > 0))
             {
-                registerUserResult.Success = this.profileService.AddProfile(newMembership.UserId, userToRegister.PersonId, 
+                registerUserResult.Success = this.profileService.AddProfile(newMembership.UserId, userToRegister.PersonId,
                     true, true) > 0;
 
-                var roleId = userToRegister.RoleId <= 0 ? 
+                var roleId = userToRegister.RoleId <= 0 ?
                     this.roleRepository.Get(x => x.Description == DefaultMemberRole).First().RoleId : userToRegister.RoleId;
 
                 this.userRoleRepository.AddUserToRole(newMembership.UserId, roleId);
 
                 // Update to hashed password
-                userToRegister.Password = newMembership.Password;               
+                userToRegister.Password = newMembership.Password;
             }
 
             return registerUserResult;

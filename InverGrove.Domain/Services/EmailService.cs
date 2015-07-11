@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Text;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
@@ -10,6 +11,7 @@ namespace InverGrove.Domain.Services
     {
         private readonly ILogService logService;
         private const string ToAddress = "lancebailles@hotmail.com;heidibailles@hotmail.com;kbailles@outlook.com";
+        private string DefaultBaseHost = "http://www.invergrovechurch.com";
 
         public EmailService(ILogService logService)
         {
@@ -45,20 +47,31 @@ namespace InverGrove.Domain.Services
         /// </summary>
         /// <param name="personToRegister">The registered user.</param>
         /// <param name="userVerificationId">The user verification identifier.</param>
+        /// <param name="hostName">Name of the host.</param>
         /// <returns></returns>
-        public bool SendNewUserEmail(IPerson personToRegister, Guid userVerificationId)
+        public bool SendNewUserEmail(IPerson personToRegister, Guid userVerificationId, string hostName)
         {
             Guard.ParameterNotNull(personToRegister, "personToRegister");
 
             var message = new StringBuilder();
-            
+
+            if (string.IsNullOrEmpty(hostName))
+            {
+                hostName = DefaultBaseHost;
+            }
+
+            if (!hostName.StartsWith("http"))
+            {
+                hostName = "http://" + hostName;
+            }
+
             message.Append(personToRegister.FirstName);
             message.Append(",");
             message.Append("<br><br>");
             message.Append("This is a message to inform you that a new user account is ready to be created");
-            message.Append(" for you to access the member area at http://wwww.invergrovechurch.com.");
+            message.Append(" for you to access the member area at " + hostName + ".");
             message.Append("<br> Please click on the following link to access the site and add your user name and password: ");
-            message.Append("http://www.invergrove.com/Account/Register?code=");
+            message.Append(hostName + "/Account/Register?code=");
             message.Append(userVerificationId);
 
             var mailMessage = new MailMessage
@@ -70,7 +83,7 @@ namespace InverGrove.Domain.Services
 
             mailMessage.To.Add(personToRegister.PrimaryEmail);
 
-            return this.SendMail(mailMessage);            
+            return this.SendMail(mailMessage);
         }
 
         private bool SendMail(MailMessage mailMessage)

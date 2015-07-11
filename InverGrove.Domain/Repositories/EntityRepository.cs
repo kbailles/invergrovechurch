@@ -13,7 +13,7 @@ using InverGrove.Domain.Interfaces;
 namespace InverGrove.Domain.Repositories
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <typeparam name="TK">The type of the entities identifier.</typeparam>
@@ -53,7 +53,7 @@ namespace InverGrove.Domain.Repositories
         }
 
         /// <summary>
-        /// Gets or sets the default include properties. This needs to be a comma-delimited list of 
+        /// Gets or sets the default include properties. This needs to be a comma-delimited list of
         /// properties to include in a query by default.
         /// </summary>
         /// <value>
@@ -269,8 +269,8 @@ namespace InverGrove.Domain.Repositories
             }
             catch (DbEntityValidationException dbe)
             {
-                // if you override ToString on your story, if there is a validation error, 
-                // this will log the whatever you put in ToString so you can identify 
+                // if you override ToString on your story, if there is a validation error,
+                // this will log the whatever you put in ToString so you can identify
                 // the faulting story.
 
                 if (!ReferenceEquals(null, dbe.EntityValidationErrors))

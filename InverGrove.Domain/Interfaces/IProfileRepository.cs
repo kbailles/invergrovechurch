@@ -23,6 +23,6 @@
         /// </summary>
         /// <param name="profile">The profile.</param>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">profile</exception>
-        void Update(IProfile profile);
+        bool Update(IProfile profile);
     }
 }

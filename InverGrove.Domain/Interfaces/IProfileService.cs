@@ -60,5 +60,19 @@ namespace InverGrove.Domain.Interfaces
         /// <param name="userName">Name of the user.</param>
         /// <returns></returns>
         IProfile GetProfileByUserName(string userName);
+
+        /// <summary>
+        /// Gets the profile by person identifier.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <returns></returns>
+        IProfile GetProfileByPersonId(int personId);
+
+        /// <summary>
+        /// Updates the profile.
+        /// </summary>
+        /// <param name="profile">The profile.</param>
+        /// <returns></returns>
+        bool UpdateProfile(IProfile profile);
     }
 }

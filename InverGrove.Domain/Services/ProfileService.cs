@@ -6,7 +6,6 @@ using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
-using InverGrove.Domain.Repositories;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.ValueTypes;
 
@@ -17,23 +16,22 @@ namespace InverGrove.Domain.Services
 		//private readonly ILogService logService;
 		private readonly IProfileProvider profileProvider;
 		private readonly ISessionStateService sessionStateService;
-		private readonly IPersonRepository personRepository;
 		private readonly IProfileRepository profileRepository;
 		private readonly IUserRoleRepository userRoleRepository;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ProfileService" /> class.
-		/// </summary>
-		/// <param name="profileProvider">The profile provider.</param>
-		/// <param name="sessionStateService">The session state service.</param>
-		/// <param name="profileRepository">The profile repository.</param>
-		public ProfileService(IProfileProvider profileProvider, ISessionStateService sessionStateService, 
-			IPersonRepository personRepository, IProfileRepository profileRepository, IUserRoleRepository userRoleRepository)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProfileService" /> class.
+        /// </summary>
+        /// <param name="profileProvider">The profile provider.</param>
+        /// <param name="sessionStateService">The session state service.</param>
+        /// <param name="profileRepository">The profile repository.</param>
+        /// <param name="userRoleRepository">The user role repository.</param>
+		public ProfileService(IProfileProvider profileProvider, ISessionStateService sessionStateService,
+			IProfileRepository profileRepository, IUserRoleRepository userRoleRepository)
 		{
 			this.profileProvider = profileProvider;
 			//this.logService = logService;
 			this.sessionStateService = sessionStateService;
-			this.personRepository = personRepository;
 			this.profileRepository = profileRepository;
 			this.userRoleRepository = userRoleRepository;
 		}
@@ -122,10 +120,7 @@ namespace InverGrove.Domain.Services
 		/// <returns></returns>
 		public IProfile GetProfile(int userId)
 		{
-			if (userId <= 0)
-			{
-				throw new ArgumentException("userId is zero in ProfileService.GetProfile");
-			}
+            Guard.ParameterNotGreaterThanZero(userId, "userId");
 
 			string cacheKey = string.Format(CacheKey.UserProfileIDKey, userId);
 
@@ -139,15 +134,36 @@ namespace InverGrove.Domain.Services
 		/// <returns></returns>
 		public IProfile GetProfileByUserName(string userName)
 		{
-			if (string.IsNullOrEmpty(userName))
-			{
-				throw new ArgumentException("userName");
-			}
+            Guard.ArgumentNotNullOrEmpty(userName, "userName");
 
 			string cacheKey = string.Format(CacheKey.UserProfileKey, userName);
 
 			return this.sessionStateService.TryGet(cacheKey, 0, userName, this.GetRepositoryProfile);
 		}
+
+        /// <summary>
+        /// Gets the profile by person identifier.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <returns></returns>
+        public IProfile GetProfileByPersonId(int personId)
+        {
+            var profile = this.profileRepository.Get(p => p.PersonId == personId).FirstOrDefault();
+
+            return this.GetProfileModel(profile);
+        }
+
+        /// <summary>
+        /// Updates the profile.
+        /// </summary>
+        /// <param name="profile">The profile.</param>
+        /// <returns></returns>
+	    public bool UpdateProfile(IProfile profile)
+	    {
+            Guard.ArgumentNotNull(profile, "profile");
+
+	        return this.profileRepository.Update(profile);
+	    }
 
 		private SettingsContext CreateSettingsContext(string username, bool isAuthenticated)
 		{
@@ -168,7 +184,7 @@ namespace InverGrove.Domain.Services
 			IProfile profile = Profile.Create();
 			Data.Entities.Profile foundProfile = null;
 
-			if ((userId <= 0) && (string.IsNullOrEmpty(userName)))
+			if ((userId <= 0) && string.IsNullOrEmpty(userName))
 			{
 				return profile;
 			}

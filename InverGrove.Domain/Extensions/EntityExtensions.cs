@@ -143,6 +143,8 @@ namespace InverGrove.Domain.Extensions
             person.IsBaptized = personModel.IsBaptized;
             person.IsMember = personModel.IsMember;
             person.IsVisitor = personModel.IsVisitor;
+            person.IsDeleted = personModel.IsDeleted;
+            person.ModifiedByUserId = personModel.ModifiedByUserId;
             person.MaritalStatusId = (personModel.MaritalStatusId == 0) ? 4 : personModel.MaritalStatusId; // 4 is unknown
             person.ChurchRoleId = personModel.ChurchRoleId;
 
@@ -193,6 +195,8 @@ namespace InverGrove.Domain.Extensions
             personModel.IsBaptized = person.IsBaptized;
             personModel.IsMember = person.IsMember;
             personModel.IsVisitor = person.IsVisitor;
+            personModel.IsDeleted = person.IsDeleted;
+            personModel.ModifiedByUserId = person.ModifiedByUserId;
             personModel.MaritalStatusId = person.MaritalStatusId;
             personModel.ChurchRoleId = person.ChurchRoleId;
             personModel.State = person.State;

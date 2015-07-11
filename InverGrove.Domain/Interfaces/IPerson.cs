@@ -152,6 +152,14 @@ namespace InverGrove.Domain.Interfaces
         bool IsVisitor { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is deleted.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is deleted; otherwise, <c>false</c>.
+        /// </value>
+        bool IsDeleted { get; set; }
+
+        /// <summary>
         /// Gets or sets the gender.
         /// </summary>
         /// <value>
@@ -176,7 +184,15 @@ namespace InverGrove.Domain.Interfaces
         int? ChurchRoleId { get; set; }
 
         /// <summary>
-        /// When creating a new member through the form, we decide 
+        /// Gets or sets the modified by user identifier.
+        /// </summary>
+        /// <value>
+        /// The modified by user identifier.
+        /// </value>
+        int? ModifiedByUserId { get; set; }
+
+        /// <summary>
+        /// When creating a new member through the form, we decide
         /// </summary>
         /// <value>
         /// The type of the account.
