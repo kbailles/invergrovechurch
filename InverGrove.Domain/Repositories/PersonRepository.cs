@@ -155,7 +155,14 @@ namespace InverGrove.Domain.Repositories
                     }
                     else
                     {
-                        personEntity.PhoneNumbers.Add(phone.ToEntity());                        
+                        var entityPhone = phone.ToEntity();
+
+                        if (entityPhone != null)
+                        {
+                            entityPhone.Person = null;
+                            entityPhone.PhoneNumberType = null;
+                            personEntity.PhoneNumbers.Add(phone.ToEntity());                                                    
+                        }
                     }
                 }
 
