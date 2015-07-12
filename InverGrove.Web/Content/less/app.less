@@ -318,14 +318,19 @@ button[disabled] {
         }
     }
     .user-meta-phone,
-    .user-meta-email {
+    .user-meta-email,
+    .user-meta-address address {
         display: inline-block;
-        margin: 0 10px 1px 0;
+        margin-bottom: 10px;
+        margin-right: 15px;
+        font-size: 12px;
+        vertical-align: top;
     }
+    .user-meta-phone,
+    .user-meta-email,
     .user-meta-address {
-        address {
-            display: inline-block;
-            margin-bottom: 0;
+        i {
+            margin-right: 4px;
         }
     }
 }
@@ -473,6 +478,7 @@ h3.title {
       color: @white;
       display: inline-block;
       padding: 34px 18px 31px 18px;
+      line-height: 20px;
       &:hover, &:focus {
         background-color: @blue-darker !important;
       }

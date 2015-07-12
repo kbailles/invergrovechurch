@@ -480,13 +480,18 @@ button[disabled] {
   line-height: 14px;
 }
 .directory-content .user-meta-phone,
-.directory-content .user-meta-email {
-  display: inline-block;
-  margin: 0 10px 1px 0;
-}
+.directory-content .user-meta-email,
 .directory-content .user-meta-address address {
   display: inline-block;
-  margin-bottom: 0;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  font-size: 12px;
+  vertical-align: top;
+}
+.directory-content .user-meta-phone i,
+.directory-content .user-meta-email i,
+.directory-content .user-meta-address i {
+  margin-right: 4px;
 }
 .divider {
   margin: 60px 0;
@@ -640,6 +645,7 @@ h3.title:after {
   color: #ffffff;
   display: inline-block;
   padding: 34px 18px 31px 18px;
+  line-height: 20px;
 }
 .navbar-collapse .navbar-nav a:hover,
 .navbar-collapse .navbar-nav a:focus {

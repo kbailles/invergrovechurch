@@ -47,7 +47,7 @@
                         <div style="padding-left: 20px;">
                             <select ng-model="vm.speakerFilter" class="form-control">
                                 <option value="">Select speaker</option>
-                                <option ng-repeat="(key, value) in vm.filteredSpeakers()" value="{{key}}">{{key}} ({{value}})</option>
+                                <option ng-repeat="(key, value) in vm.filteredSpeakers()" value="{{::key}}">{{::key}} ({{::value}})</option>
                             </select>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <li ng-repeat="(key, value) in vm.filteredTags()">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" ng-click="vm.toggleTagChecked(key)"> {{key}} ({{value}})
+                                        <input type="checkbox" ng-click="vm.toggleTagChecked(key)"> {{::key}} ({{::value}})
                                     </label>
                                 </div>
                             </li>
@@ -72,20 +72,20 @@
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
-                                    <a class="date" href="#"><strong ng-bind="sermon.sermonDate | date : 'dd'"></strong><i ng-bind="sermon.sermonDate | date : 'MMM'"></i></a>
+                                    <a class="date" href="#"><strong>{{::sermon.sermonDate | date : 'dd'}}</strong><i>{{::sermon.sermonDate | date : 'MMM'}}</i></a>
                                 </div>
                                 <h3 class="sermon-title">
-                                    <a ng-href="/Sermon/SermonDetail/?sermonId={{sermon.sermonId}}" ng-bind="sermon.title"></a>
+                                    <a ng-href="/Sermon/SermonDetail/?sermonId={{::sermon.sermonId}}">{{::sermon.title}}</a>
                                 </h3>
                                 <div class="sermon-meta">
                                     <div class="sermon-entry-meta-speaker">
                                         <i class="fa fa-user"></i>
-                                        {{ sermon.speaker }}
+                                        {{::sermon.speaker}}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
                                         <i class="fa" ng-class="sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
                                         <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
-                                            {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
+                                            {{::tag }}{{::! $last ? ',&nbsp;' : ''}}
                                         </div>
                                     </div>
                                 </div>

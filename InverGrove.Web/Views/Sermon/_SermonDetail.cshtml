@@ -17,7 +17,7 @@
                             <li>You are here:</li>
                             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                             <li><a href="@Url.Action("ViewSermons", "Sermon")">Sermons</a></li>
-                            <li>{{vm.sermon.title}}</li>
+                            <li>{{::vm.sermon.title}}</li>
                         </ul>
                     </div>
                 </div>
@@ -31,22 +31,22 @@
                 <div class="sermons-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
 
                     <header class="sermon-header">
-                        <h3 class="sermon-title">{{vm.sermon.title}}</h3>
+                        <h3 class="sermon-title">{{::vm.sermon.title}}</h3>
                         <div class="sermon-meta">
                             <div class="sermon-meta-date">
                                 <i class="fa fa-calendar"></i>
-                                <span class="sermon-entry-meta-date-month">{{vm.sermon.sermonDate | date:'MMMM'}}</span>
-                                <span class="sermon-entry-meta-date-day">{{vm.sermon.sermonDate | date:'d'}}</span>
-                                <span class="sermon-entry-meta-date-year">{{vm.sermon.sermonDate | date:'yyyy'}}</span>
+                                <span class="sermon-entry-meta-date-month">{{::vm.sermon.sermonDate | date:'MMMM'}}</span>
+                                <span class="sermon-entry-meta-date-day">{{::vm.sermon.sermonDate | date:'d'}}</span>
+                                <span class="sermon-entry-meta-date-year">{{::vm.sermon.sermonDate | date:'yyyy'}}</span>
                             </div>
                             <div class="sermon-entry-meta-speaker">
                                 <i class="fa fa-user"></i>
-                                <span>{{vm.sermon.speaker}}</span>
+                                <span>{{::vm.sermon.speaker}}</span>
                             </div>
                             <div class="sermon-entry-meta-tags">
                                 <i class="fa" ng-class="vm.sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
                                 <span ng-repeat="tag in vm.sermon.tags.split(',')">
-                                    {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
+                                    {{::tag}}{{::!$last ? ',&nbsp;' : ''::}}
                                 </span>
                             </div>
                         </div>

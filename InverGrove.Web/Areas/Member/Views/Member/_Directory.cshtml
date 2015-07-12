@@ -44,21 +44,21 @@
 
                 <div class="users-block col-lg-9 col-lg-pull-3 col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4 col-xs-12">
 
-                    <div class="user-content" ng-repeat="member in vm.members | firstNameLastName: vm.nameFilter | orderBy: [firstName, lastName]">
+                    <div class="user-content" ng-repeat="member in vm.members | firstNameLastName: vm.nameFilter track by member.personId">
                         <div class="user-quick-info">
                             <h3 class="sermon-title">
-                                <a href="javascript:void(0);">{{member.firstName}} {{member.lastName}}</a>
+                                <a href="javascript:void(0);">{{::member.firstName}} {{::member.lastName}}</a>
                             </h3>
 
                             <div class="user-meta">
+                                <div class="user-meta-address">
+                                    <address><i class="fa fa-map-marker"></i> {{::member.addressOne}}, {{::member.city}} {{::member.state}} {{::member.zipCode}}</address>
+                                </div>
                                 <div class="user-meta-phone" ng-if="!!(member.phoneNumbers) && member.phoneNumbers.length > 0">
-                                    <a href="tel:6514571189"><i class="fa fa-phone"></i> (651) 457-1189</a>
+                                    <a ng-href="tel:{{::member.phoneNumbers[0].phone}}"><i class="fa fa-phone"></i> {{::member.phoneNumbers[0].phone}}</a>
                                 </div>
                                 <div class="user-meta-email" ng-if="!!(member.primaryEmail)">
-                                    <a ng-href="mailto:{{member.primaryEmail}}"><i class="fa fa-envelope"></i> {{member.primaryEmail}}</a>
-                                </div>
-                                <div class="user-meta-address">
-                                    <address><i class="fa fa-map-marker"></i> {{member.addressOne}}, {{member.city}} {{member.state}} {{member.zipCode}}</address>
+                                    <a ng-href="mailto:{{::member.primaryEmail}}"><i class="fa fa-envelope"></i> {{::member.primaryEmail}}</a>
                                 </div>
                             </div>
                         </div>

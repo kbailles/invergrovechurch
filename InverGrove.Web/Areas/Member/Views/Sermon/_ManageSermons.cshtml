@@ -42,12 +42,12 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="sermon in vm.sermons | orderBy: 'sermonDate':true">
-                                <td>{{sermon.sermonDate | date:'MMMM d yyyy'}}</td>
-                                <td>{{sermon.title}}</td>
-                                <td>{{ sermon.speaker }}</td>
+                                <td>{{::sermon.sermonDate | date:'MMMM d yyyy'}}</td>
+                                <td>{{::sermon.title}}</td>
+                                <td>{{::sermon.speaker}}</td>
                                 <td>
                                     <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
-                                        {{ tag }}{{ ! $last ? ',&nbsp;' : '' }}
+                                        {{::tag}}{{::!$last ? ',&nbsp;' : ''}}
                                     </div>
                                 </td>
                                 <td style="text-align: right;">
