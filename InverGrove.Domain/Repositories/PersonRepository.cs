@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
@@ -107,11 +108,12 @@ namespace InverGrove.Domain.Repositories
 
             var currentDate = DateTime.Now;
             Person personEntity = this.Get(x => x.PersonId == person.PersonId, includeProperties: "PhoneNumbers").FirstOrDefault();
-            ICollection<PhoneNumber> personPhoneNumbers = null;
+            
+            //ICollection<PhoneNumber> personPhoneNumbers = null;
 
             if (personEntity != null)
             {
-                personPhoneNumbers = personEntity.PhoneNumbers;
+                //personPhoneNumbers = personEntity.PhoneNumbers;
 
                 personEntity.FirstName = person.FirstName;
                 personEntity.LastName = person.LastName;
@@ -133,14 +135,7 @@ namespace InverGrove.Domain.Repositories
                 personEntity.State = person.State;
                 personEntity.Zip = person.ZipCode;
                 personEntity.DateModified = currentDate;
-                personEntity.Profiles = null;
-                personEntity.Relatives = null;
-                personEntity.Relatives1 = null;
-                personEntity.MaritalStatus = null;
-                personEntity.ChurchRole = null;
-                //personEntity.PhoneNumbers = null;
-                personEntity.Attendances = null;
-
+                
                 foreach (var phone in person.PhoneNumbers)
                 {
                     var existingPhone = personEntity.PhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
@@ -150,8 +145,6 @@ namespace InverGrove.Domain.Repositories
                         existingPhone.PersonId = phone.PersonId;
                         existingPhone.Phone = phone.Phone;
                         existingPhone.PhoneNumberTypeId = phone.PhoneNumberTypeId;
-                        existingPhone.Person = null;
-                        existingPhone.PhoneNumberType = null;
                     }
                     else
                     {
@@ -159,17 +152,27 @@ namespace InverGrove.Domain.Repositories
 
                         if (entityPhone != null)
                         {
+                            entityPhone.PersonId = personEntity.PersonId;
                             entityPhone.Person = null;
                             entityPhone.PhoneNumberType = null;
-                            personEntity.PhoneNumbers.Add(phone.ToEntity());                                                    
+                            personEntity.PhoneNumbers.Add(entityPhone);                                                    
                         }
                     }
                 }
 
+                // possible other way to do this:
+                //var db = ((InverGroveContext)this.Context);
+                //db.Attach(personEntity);
+                //var entry = db.Entry(personEntity);
+                //entry.State = EntityState.Modified;
+                //entry.Property(p => p.Attendances).IsModified = false;
+                //entry.Property(p => p.MaritalStatus).IsModified = false;
+                //entry.Property(p => p.Profiles).IsModified = false;
+                //entry.Property(p => p.Relatives).IsModified = false;
+                //entry.Property(p => p.Relatives1).IsModified = false;
+                //entry.Property(p => p.ChurchRole).IsModified = false;
                 this.Update(personEntity);
             }
-
-            //this.UpdateNewPhoneNumbers(person, personPhoneNumbers);
 
             using (TimedLock.Lock(this.syncRoot))
             {
@@ -197,6 +200,12 @@ namespace InverGrove.Domain.Repositories
                     person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
                     this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
                                                    " with message: " + sb);
+                }
+                catch (Exception ex)
+                {
+                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+                                                   " with message: " + ex.Message);
                 }
             }
 

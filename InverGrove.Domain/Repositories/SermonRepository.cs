@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.Text;
 using InverGrove.Data;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
@@ -9,9 +11,12 @@ namespace InverGrove.Domain.Repositories
 {
     public class SermonRepository : EntityRepository<Data.Entities.Sermon, int>, ISermonRepository
     {
-        public SermonRepository(IInverGroveContext dataContext)
+        private readonly ILogService logService;
+
+        public SermonRepository(IInverGroveContext dataContext, ILogService logService)
             : base(dataContext)
         {
+            this.logService = logService;
         }
 
         /// <summary>
@@ -43,7 +48,12 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                throw new ApplicationException("Error when attempting to add new sermon in SermonRepository: " + ex.Message);
+                this.logService.WriteToErrorLog("Error when attempting to add new sermon in SermonRepository: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                this.logService.WriteToErrorLog(
+                    "Error when attempting to add new sermon in SermonRepository with message: " + ex.Message);
             }
 
             return newEntitySermon.SermonId;
@@ -74,7 +84,27 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                throw new ApplicationException("Error when attempting to update sermon in SermonRepository: " + ex.Message);
+                this.logService.WriteToErrorLog("Error when attempting to update sermon in SermonRepository: " + ex.Message);
+            }
+            catch (DbEntityValidationException dbe)
+            {
+                var sb = new StringBuilder();
+                foreach (var error in dbe.EntityValidationErrors)
+                {
+                    foreach (var ve in error.ValidationErrors)
+                    {
+                        sb.Append(ve.ErrorMessage + ", ");
+                    }
+                }
+
+                this.logService.WriteToErrorLog("Error occurred in attempting to update Sermon with SermonId: " + sermon.SermonId +
+                                               " with message: " + sb);
+            }
+            catch (Exception ex)
+            {
+                this.logService.WriteToErrorLog(
+                    "Error occurred in attempting to update Sermon with SermonId: " + sermon.SermonId +
+                    " with message: " + ex.Message);
             }
         }
     }

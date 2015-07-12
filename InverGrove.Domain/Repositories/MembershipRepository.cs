@@ -1,31 +1,41 @@
 ﻿using System;
+using System.Data.Entity.Validation;
+using System.Data.SqlClient;
+using System.Text;
 using InverGrove.Data;
 using InverGrove.Data.Entities;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Services;
+using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Repositories
 {
     public class MembershipRepository : EntityRepository<Membership, int>, IMembershipRepository
     {
+        private readonly ILogService logService;
+        private readonly object syncRoot = new object();
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="RoleRepository"/> class.
+        /// Initializes a new instance of the <see cref="RoleRepository" /> class.
         /// </summary>
         /// <param name="dataContext">The data context.</param>
-        public MembershipRepository(IInverGroveContext dataContext)
+        /// <param name="logService">The log service.</param>
+        public MembershipRepository(IInverGroveContext dataContext, ILogService logService)
             : base(dataContext)
         {
+            this.logService = logService;
         }
 
         /// <summary>
-        /// Creates this instance.
+        /// Creates this instance.  This is here for initializing MembershipProvider as it's created before Ioc
         /// </summary>
         /// <returns></returns>
         public new static IMembershipRepository Create()
         {
-            return new MembershipRepository(InverGroveContext.Create());
+            return new MembershipRepository(InverGroveContext.Create(), new LogService("", false));
         }
 
         /// <summary>
@@ -47,7 +57,44 @@ namespace InverGrove.Domain.Repositories
 
             this.Insert(membershipEntity);
 
-            this.Save();
+            using (TimedLock.Lock(this.syncRoot))
+            {
+                try
+                {
+                    this.Save();
+                }
+                catch (SqlException sql)
+                {
+                    this.logService.WriteToErrorLog("Error occurred when attempting to insert a membership record with user name: " + userName +
+                    " with message: " + sql.Message);
+
+                    return membership;
+                }
+                catch (DbEntityValidationException dbe)
+                {
+                    var sb = new StringBuilder();
+                    foreach (var error in dbe.EntityValidationErrors)
+                    {
+                        foreach (var ve in error.ValidationErrors)
+                        {
+                            sb.Append(ve.ErrorMessage + ", ");
+                        }
+                    }
+
+                    this.logService.WriteToErrorLog("Error occurred when attempting to insert a membership record with user name: " + userName +
+                    " with message: " + sb);
+
+                    return membership;
+                }
+                catch (Exception ex)
+                {
+                    this.logService.WriteToErrorLog(
+                        "Error occurred when attempting to insert a membership record with user name: " + userName +
+                        " with message: " + ex.Message);
+
+                    return membership;
+                }
+            }
 
             return membershipEntity.ToModel();
         }
@@ -57,7 +104,7 @@ namespace InverGrove.Domain.Repositories
         /// </summary>
         /// <param name="membership">The membership.</param>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">membership</exception>
-        public void Update(IMembership membership)
+        public bool Update(IMembership membership)
         {
             if (membership == null)
             {
@@ -89,7 +136,49 @@ namespace InverGrove.Domain.Repositories
             this.dataContext.AutoDetectChanges = false;
             this.Update(membershipEntity);
 
-            this.Save();
+            using (TimedLock.Lock(this.syncRoot))
+            {
+                try
+                {
+                    this.Save();
+                }
+                catch (SqlException sql)
+                {
+                    this.logService.WriteToErrorLog(
+                        "Error occurred when attempting to update a membership record with MembershipId: " + membership.MembershipId +
+                        " with message: " + sql.Message);
+
+                    return false;
+                }
+                catch (DbEntityValidationException dbe)
+                {
+                    var sb = new StringBuilder();
+                    foreach (var error in dbe.EntityValidationErrors)
+                    {
+                        foreach (var ve in error.ValidationErrors)
+                        {
+                            sb.Append(ve.ErrorMessage + ", ");
+                        }
+                    }
+
+                    this.logService.WriteToErrorLog(
+                        "Error occurred when attempting to insert a membership record with with MembershipId: " +
+                        membership.MembershipId +
+                        " with message: " + sb);
+
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    this.logService.WriteToErrorLog(
+                        "Error occurred when attempting to update a membership record with MembershipId: " + membership.MembershipId +
+                        " with message: " + ex.Message);
+
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private Membership GetNewMembershipEntity(IMembership membership, string userName)

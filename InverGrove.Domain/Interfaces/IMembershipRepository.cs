@@ -16,6 +16,6 @@
         /// </summary>
         /// <param name="membership">The membership.</param>
         /// <exception cref="InverGrove.Domain.Exceptions.ParameterNullException">membership</exception>
-        void Update(IMembership membership);
+        bool Update(IMembership membership);
     }
 }

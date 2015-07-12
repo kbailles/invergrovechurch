@@ -178,10 +178,10 @@ namespace InverGrove.Domain.Repositories
                 profileEntity.IsValidated = profile.IsValidated;
                 profileEntity.PersonId = profile.ProfileId;
                 profileEntity.UserId = profile.UserId;
-                profileEntity.Person = null;
-                profileEntity.User = null;
             }
 
+            // Don't cascade update (don't attempt to update user/person)
+            this.dataContext.AutoDetectChanges = false;
             this.Update(profileEntity);
 
             using (TimedLock.Lock(this.syncRoot))
