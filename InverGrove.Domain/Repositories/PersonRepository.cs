@@ -69,7 +69,7 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    throw new ApplicationException("Error occurred in attempting to add Person with name: " +
+                    this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
                                                    person.FirstName + " " + person.LastName + " with message: " + sql.Message);
                 }
                 catch (DbEntityValidationException dbe)
