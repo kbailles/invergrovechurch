@@ -385,4 +385,7 @@
   <data name="SendMailError" xml:space="preserve">
     <value>Error occurred when attepting to send email message.</value>
   </data>
+  <data name="IsUserRequired" xml:space="preserve">
+    <value>Please select whether or not to create a user account.</value>
+  </data>
 </root>

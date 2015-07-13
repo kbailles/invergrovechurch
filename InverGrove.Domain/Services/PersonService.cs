@@ -82,18 +82,15 @@ namespace InverGrove.Domain.Services
                TODO - People will be a cached list that is placed into cache when a person logs into the website.
                       This list will never be more than a couple hundred (likley around 150) so no big deal caching that.
             */
+            var existingPerson = this.personRepository.Get(p => p.EmailPrimary == person.PrimaryEmail).FirstOrDefault().ToModel();
+            var existingEmail = this.EmailExists(person, existingPerson);
 
-            if (person.IsUser)
+            if (!string.IsNullOrEmpty(person.PrimaryEmail) && existingEmail)
             {
-                var existingEmail = this.EmailExists(person);
+                person.PersonId = existingPerson.PersonId;
+                person.ErrorMessage = "This email address already exists.";
 
-                if (existingEmail.Item2)
-                {
-                    person.PersonId = existingEmail.Item1;
-                    person.ErrorMessage = "This email address already exists.";
-
-                    return person;
-                }
+                return person;
             }
 
             person.PersonId = this.personRepository.Add(person);
@@ -115,15 +112,15 @@ namespace InverGrove.Domain.Services
         public IPerson Edit(IPerson person, string hostName = "")
         {
             Guard.ParameterNotNull(person, "person");
+            var existingPerson = this.GetById(person.PersonId);
 
-            if (person.IsUser && this.EmailExists(person).Item2)
+            if (!string.IsNullOrEmpty(person.PrimaryEmail) && this.EmailExists(person, existingPerson))
             {
                 person.ErrorMessage = "This email address already exists.";
 
                 return person;
             }
 
-            var existingPerson = this.GetById(person.PersonId);
             var updatedPerson = this.personRepository.Update(person);
 
             if (string.IsNullOrEmpty(updatedPerson.ErrorMessage))
@@ -173,12 +170,9 @@ namespace InverGrove.Domain.Services
             return 0;
         }
 
-        private Tuple<int, bool> EmailExists(IPerson person)
+        private bool EmailExists(IPerson person, IPerson existingPerson)
         {
-            var existingPerson = this.personRepository.Get(p => p.EmailPrimary == person.PrimaryEmail).FirstOrDefault();
-            var emailExists = existingPerson != null && existingPerson.PersonId > 0;
-
-            return new Tuple<int, bool>(existingPerson.PersonId, emailExists);
+            return (existingPerson != null) && (existingPerson.PersonId > 0) && (person.PersonId != existingPerson.PersonId);
         }
 
         private void SendNewUserVerification(IPerson person, string hostName)

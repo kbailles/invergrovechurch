@@ -105,7 +105,7 @@ namespace InverGrove.Domain.Models
         /// </value>
         [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PostalCodeRequired")]
         [Display(ResourceType = typeof(ViewLabels), Name = "ZipCodeLabel")]
-        [RegularExpression(RegularExpressions.PasswordRegEx, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PostalCodeInvalidErrorMessage")]
+        [RegularExpression(RegularExpressions.UsPostalCodeRegEx, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "PostalCodeInvalidErrorMessage")]
         public string ZipCode { get; set; }
 
         /// <summary>
@@ -240,6 +240,7 @@ namespace InverGrove.Domain.Models
         /// <value>
         /// The type of the account.
         /// </value>
+        [Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "IsUserRequired")]
         public bool IsUser { get; set; }
 
         /// <summary>
