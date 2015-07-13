@@ -64,7 +64,8 @@ namespace InverGrove.Web.Areas.Member.Controllers
         public ActionResult Add(Person person)
         {
             Guard.ArgumentNotNull(person, "person");
-
+            
+            // Todo: fields should be validated... can we user the data annotations that are on the properties of the model?
             var requestUrl = this.Request.Url;
             var domainHost = "";
 
@@ -92,6 +93,8 @@ namespace InverGrove.Web.Areas.Member.Controllers
         public ActionResult Edit(Person person)
         {
             Guard.ArgumentNotNull(person, "person");
+
+            // Todo: fields should be validated... can we user the data annotations that are on the properties of the model?
 
             var requestUrl = this.Request.Url;
             var domainHost = "";
