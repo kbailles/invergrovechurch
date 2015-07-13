@@ -46,7 +46,7 @@
                             <div class="sermon-entry-meta-tags">
                                 <i class="fa" ng-class="vm.sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
                                 <span ng-repeat="tag in vm.sermon.tags.split(',')">
-                                    {{::tag}}{{::!$last ? ',&nbsp;' : ''::}}
+                                    {{::tag}}{{::!$last ? ',&nbsp;' : ''}}
                                 </span>
                             </div>
                         </div>

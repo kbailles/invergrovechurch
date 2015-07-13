@@ -51,7 +51,7 @@
                         <a href="#"><i class="fa fa-map-marker"></i>8777 Courthouse Blvd, Inver Grove Heights MN 55077</a>
                     </div>
                     <div class="pull-right user-actions">
-                        <span class="DisplayName">@Session["DisplayName"]</span>
+                        <span class="DisplayName"></span>
                         @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { role = "form", @style = "display: inline-block;" }))
                         {
                             <a href="javascript:void(0)" type="submit" onclick=" $(this).closest('form').submit(); ">Log Out</a>

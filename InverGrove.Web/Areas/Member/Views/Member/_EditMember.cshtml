@@ -43,13 +43,26 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-6">
-                <label>Cell Phone:</label>
-                <input class="form-control" name="phoneNumbers[0]" ng-model="modalCtrl.member.phoneNumbers[0].phone" maxlength="20" type="text"/>
+            <div class="col-lg-4">
+                <label>Phone:</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Home</span>
+                    <input type="text" class="form-control" ng-model="modalCtrl.homePhone" placeholder="(999) 999-9999" maxlength="12">
+                </div>
             </div>
-            <div class="col-xs-6">
-                <label>Home / Other Phone:</label>
-                <input class="form-control" name="phoneNumbers[1]" ng-model="modalCtrl.member.phoneNumbers[1].phone" maxlength="20" type="text"/>
+            <div class="col-lg-4">
+                <label>&nbsp;</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Mobile</span>
+                    <input type="text" class="form-control" ng-model="modalCtrl.mobile" placeholder="(999) 999-9999" maxlength="12">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label>&nbsp;</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Work</span>
+                    <input type="text" class="form-control" ng-model="modalCtrl.workPhone" placeholder="(999) 999-9999" maxlength="12">
+                </div>
             </div>
         </div>
 

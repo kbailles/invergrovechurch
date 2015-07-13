@@ -42,6 +42,7 @@
                 controller: 'MemberModalCtrl',
                 controllerAs: 'modalCtrl',
                 templateUrl: '/Member/Member/EditUser',
+                size: 'lg',
                 resolve: {
                     member: function () {
                         return member;

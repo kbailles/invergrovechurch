@@ -107,7 +107,7 @@ namespace InverGrove.Domain.Repositories
 
             var currentDate = DateTime.Now;
             Person personEntity = this.Get(x => x.PersonId == person.PersonId, includeProperties: "PhoneNumbers").FirstOrDefault();
-            
+
             //ICollection<PhoneNumber> personPhoneNumbers = null;
 
             if (personEntity != null)
@@ -134,9 +134,14 @@ namespace InverGrove.Domain.Repositories
                 personEntity.State = person.State;
                 personEntity.Zip = person.ZipCode;
                 personEntity.DateModified = currentDate;
-                
+
                 foreach (var phone in person.PhoneNumbers)
                 {
+                    if (phone == null)
+                    {
+                        continue;
+                    }
+
                     var existingPhone = personEntity.PhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
 
                     if (existingPhone != null && phone.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
@@ -154,7 +159,7 @@ namespace InverGrove.Domain.Repositories
                             entityPhone.PersonId = personEntity.PersonId;
                             entityPhone.Person = null;
                             entityPhone.PhoneNumberType = null;
-                            personEntity.PhoneNumbers.Add(entityPhone);                                                    
+                            personEntity.PhoneNumbers.Add(entityPhone);
                         }
                     }
                 }

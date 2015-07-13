@@ -15,11 +15,10 @@
 
     function MemberModalController($modalInstance, $window, MemberService, member) {
         var vm = this;
-
         vm.MemberService = MemberService;
 
-        vm.personObj = {
-            // defaults
+        // defaults
+        var defaults = {
             isUser: true,
             phoneNumbers: [{ phone: '', phoneNumberTypeId: 1, phoneNumberType: 'Home' },
                            { phone: '', phoneNumberTypeId: 2, phoneNumberType: 'Mobile' },
@@ -32,7 +31,7 @@
         vm.disableEmail = true;
         vm.requireEmail = false;
 
-        vm.member = angular.copy(member) || {};
+        vm.member = _.defaults(angular.copy(member) || {}, defaults);
         vm.addPerson = addPerson;
         vm.editPerson = editPerson;
         vm.deletePerson = deletePerson;
@@ -44,6 +43,44 @@
 
         function boolToStr(bool) {
             return bool ? 'Yes' : 'No';
+        }
+
+        vm.homePhone = getPhoneNumber(1);
+        vm.mobile = getPhoneNumber(2);
+        vm.workPhone = getPhoneNumber(3);
+
+        vm.getPhoneNumber = getPhoneNumber;
+        vm.setPhoneNumber = setPhoneNumber;
+        vm.createPhoneNumber = createPhoneNumber;
+
+        function getPhoneNumber(typeId) {
+            var phoneNumber = _.find(vm.member.phoneNumbers, { phoneNumberTypeId: typeId });
+
+            return phoneNumber ? phoneNumber.phone : '';
+        }
+
+        function setPhoneNumber(type, typeId, number) {
+            var phoneNumber = _.find(vm.member.phoneNumbers, { phoneNumberTypeId: typeId });
+
+            if (phoneNumber) {
+                phoneNumber.phone = number;
+            } else {
+                createPhoneNumber(type, typeId, number);
+            }
+        }
+
+        function createPhoneNumber(type, typeId, number) {
+            var newPhoneNumber = {
+                phoneNumberType: type,
+                phoneNumberTypeId: typeId,
+                phone: number
+            }
+
+            if (!vm.member.phoneNumbers) {
+                vm.member.phoneNumbers = [];
+            }
+
+            vm.member.phoneNumbers.push(newPhoneNumber);
         }
 
         function addUserSetupToForm() {
@@ -59,13 +96,17 @@
         function addPerson() {
             vm.busy = true;
 
-            vm.MemberService.add(vm.personObj).then(function () {
+            vm.MemberService.add(vm.member).then(function () {
                 $window.location.reload();
             });
         }
 
         function editPerson() {
             vm.busy = true;
+
+            setPhoneNumber('Home', 1, vm.homePhone);
+            setPhoneNumber('Mobile', 2, vm.mobile);
+            setPhoneNumber('Work', 3, vm.workPhone);
 
             vm.MemberService.edit(vm.member).then(function () {
                 $window.location.reload();
