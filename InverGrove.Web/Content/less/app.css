@@ -604,6 +604,7 @@ form .ng-dirty.ng-valid {
   border-radius: 2px;
   display: block;
   float: left;
+  line-height: 20px;
   margin-right: 20px;
   text-align: center;
   text-decoration: none;

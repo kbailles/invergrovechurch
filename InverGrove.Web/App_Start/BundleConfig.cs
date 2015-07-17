@@ -16,18 +16,18 @@ namespace InverGrove.Web
                 .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new StyleBundle("~/Content/css/core").Include(
-                "~/Content/less/app.min.css"));
+                "~/Components/html5-boilerplate/css/normalize.css",
+                "~/Components/html5-boilerplate/css/main.css")
+                .Include("~/Components/bootstrap/css/bootstrap.min.css", new CssRewriteUrlTransform())
+                .Include("~/Components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
+                .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform())
+                .Include("~/Content/less/app.min.css"));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/critical").Include(
                 "~/Components/jquery/jquery-2.1.4.min.js",
                 "~/Components/angular/angular.min.js"));
 
-            bundles.Add(new ScriptBundle("~/Components/scripts/core").Include(
-                "~/Components/modernizr/modernizr-2.6.2.min.js",
-                "~/Components/lodash/lodash.min.js",
-                "~/bower_components/moment/min/moment.min.js",
-                "~/Components/angular-route/angular-route.min.js",
-                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js"));
+            bundles.Add(new ScriptBundle("~/Components/scripts/core").Include());
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(
                 "~/Scripts/common/namespace.js",
@@ -77,6 +77,19 @@ namespace InverGrove.Web
 
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
+                "~/Components/modernizr/modernizr-2.6.2.min.js",
+                "~/Components/lodash/lodash.min.js",
+                "~/bower_components/moment/min/moment.min.js",
+                "~/Components/angular-route/angular-route.min.js",
+                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
+
+                "~/Scripts/common/namespace.js",
+                "~/Scripts/namespace.variables.js",
+
+                "~/Components/gmaps/jquery.gmap.min.js",
+                "~/Components/sticky/jquery.sticky.js",
+                "~/Components/pickadate/v2-(deprecated)/source/pickadate.min.js",
+
                 "~/Scripts/app.module.js",
                 //Factories
                 "~/Scripts/factories/factories.module.js",
