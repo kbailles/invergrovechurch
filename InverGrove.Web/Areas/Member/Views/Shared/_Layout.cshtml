@@ -13,7 +13,6 @@
     <meta name="keywords" content="Church of Christ, Minnesota, St. Paul, Non-denominational, Conservative, Twin Cities, Rennie Frazier, Bible study">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/Components/css/core")
     @Styles.Render("~/Content/css/core")
 
     <link rel="apple-touch-icon" sizes="57x57" href="/Content/images/apple-icon-57x57.png">
@@ -86,17 +85,17 @@
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="@(action == "managemembers" ? "javascript:void(0);" : Url.Action("ManageMembers", "Member", new {area = "Member"}))">Members</a>
+                                                <a href="@Url.Action("ManageMembers", "Member", new {area = "Member"})">Members</a>
                                             </li>
                                             <li>
-                                                <a href="@(action == "managesermons" ? "javascript:void(0);" : Url.Action("ManageSermons", "Sermon", new { area = "Member" }))">Sermons</a>
+                                                <a href="@Url.Action("ManageSermons", "Sermon", new { area = "Member" })">Sermons</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                             }
                             <li class="@(action == "directory" ? "active" : string.Empty)">
-                                <a href="@(action == "directory" ? "javascript:void(0);" : Url.Action("Directory", "Member", new { area = "Member" }))">Directory</a>
+                                <a href="@Url.Action("Directory", "Member", new { area = "Member" })">Directory</a>
                             </li>
                         </ul>
                     </nav>
@@ -165,12 +164,7 @@
         </a>
     </div>
 
-    @Scripts.Render("~/Scripts/scripts/core")
-    @Scripts.Render("~/Components/scripts/core")
-    @Scripts.Render("~/Components/scripts/plugins")
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     @Scripts.Render("~/Scripts/scripts/area/member")
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

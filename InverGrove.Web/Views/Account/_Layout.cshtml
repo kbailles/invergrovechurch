@@ -17,7 +17,6 @@
     <meta name="distribution" content="global">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/Components/css/core")
     @Styles.Render("~/Content/css/area/account")
 
     <link rel="apple-touch-icon" sizes="57x57" href="/Content/images/apple-icon-57x57.png">
@@ -37,6 +36,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/Content/images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    @Scripts.Render("~/Components/scripts/critical")
 </head>
 <body>
     <div class="wrapper">
@@ -60,9 +61,6 @@
         </main>
     </div>
 
-    @Scripts.Render("~/Scripts/scripts/core")
-    @Scripts.Render("~/Components/scripts/critical")
-    @Scripts.Render("~/Components/scripts/core")
     @Scripts.Render("~/Scripts/scripts/area/account")
 </body>
 </html>

@@ -8,13 +8,6 @@ namespace InverGrove.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Core bundles
-            bundles.Add(new StyleBundle("~/Components/css/core").Include(
-                "~/Components/html5-boilerplate/css/normalize.css",
-                "~/Components/html5-boilerplate/css/main.css")
-                .Include("~/Components/bootstrap/css/bootstrap.min.css", new CssRewriteUrlTransform())
-                .Include("~/Components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
-                .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform()));
-
             bundles.Add(new StyleBundle("~/Content/css/core").Include(
                 "~/Components/html5-boilerplate/css/normalize.css",
                 "~/Components/html5-boilerplate/css/main.css")
@@ -25,20 +18,11 @@ namespace InverGrove.Web
 
             bundles.Add(new ScriptBundle("~/Components/scripts/critical").Include(
                 "~/Components/jquery/jquery-2.1.4.min.js",
-                "~/Components/angular/angular.min.js"));
+                "~/Components/angular/angular.js"));
 
-            bundles.Add(new ScriptBundle("~/Components/scripts/core").Include());
-
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/core").Include(
-                "~/Scripts/common/namespace.js",
-                "~/Scripts/namespace.variables.js"));
-
-            //Revolution Slider bundles
-            bundles.Add(new StyleBundle("~/Content/css/revoslider").Include(
-                "~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform()));
-
-            bundles.Add(new StyleBundle("~/Components/css/revoslider").Include(
-                "~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform()));
+            bundles.Add(new StyleBundle("~/Components/css/revoslider")
+                .Include("~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform())
+                .Include("~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/revoslider").Include(
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
@@ -52,9 +36,21 @@ namespace InverGrove.Web
 
             //Login area bundles
             bundles.Add(new StyleBundle("~/Content/css/area/account").Include(
-                "~/Content/less/login.min.css", new CssRewriteUrlTransform()));
+                "~/Components/html5-boilerplate/css/normalize.css",
+                "~/Components/html5-boilerplate/css/main.css")
+                .Include("~/Components/bootstrap/css/bootstrap.min.css", new CssRewriteUrlTransform())
+                .Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/account").Include(
+                "~/Components/modernizr/modernizr-2.6.2.min.js",
+                "~/Components/lodash/lodash.min.js",
+                "~/bower_components/moment/min/moment.min.js",
+                "~/Components/angular-route/angular-route.min.js",
+                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
+
+                "~/Scripts/common/namespace.js",
+                "~/Scripts/namespace.variables.js",
+
                 "~/Scripts/app.module.js",
                 "~/Scripts/app.routes.js",
                 //Factories
@@ -119,6 +115,19 @@ namespace InverGrove.Web
 
             //Member area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(
+                "~/Components/modernizr/modernizr-2.6.2.min.js",
+                "~/Components/lodash/lodash.min.js",
+                "~/bower_components/moment/min/moment.min.js",
+                "~/Components/angular-route/angular-route.min.js",
+                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
+
+                "~/Scripts/common/namespace.js",
+                "~/Scripts/namespace.variables.js",
+
+                "~/Components/gmaps/jquery.gmap.min.js",
+                "~/Components/sticky/jquery.sticky.js",
+                "~/Components/pickadate/v2-(deprecated)/source/pickadate.min.js",
+
                 "~/Scripts/app.module.js",
                 "~/Scripts/app.member.routes.js",
                 //Factories
