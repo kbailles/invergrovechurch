@@ -25,6 +25,7 @@ namespace InverGrove.Domain.Repositories
         /// </summary>
         /// <param name="dataContext">The data context.</param>
         /// <param name="phoneNumberRepository">The phone number repository.</param>
+        /// <param name="logService">The log service.</param>
         public PersonRepository(IInverGroveContext dataContext, IPhoneNumberRepository phoneNumberRepository, ILogService logService)
             : base(dataContext)
         {
