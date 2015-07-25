@@ -9,6 +9,8 @@ using InverGrove.Domain.Resources;
 using InverGrove.Domain.Services;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.ViewModels;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace InverGrove.Web.Controllers
 {
@@ -134,7 +136,8 @@ namespace InverGrove.Web.Controllers
 
                 if (userCandidate != null)
                 {
-                    return View(userCandidate); // presented with opportunity to register
+                    // presented with opportunity to register
+                    return View("Register", (object)JsonConvert.SerializeObject(userCandidate, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
                 }
 
                 return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
