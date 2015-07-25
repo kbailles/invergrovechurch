@@ -22,6 +22,8 @@
         // defaults
         var defaults = {
             isUser: true,
+            isMember: true,
+            isVisitor: false,
             phoneNumbers: [{ phone: '', phoneNumberTypeId: 1, phoneNumberType: 'Home' },
                            { phone: '', phoneNumberTypeId: 2, phoneNumberType: 'Mobile' },
                            { phone: '', phoneNumberTypeId: 3, phoneNumberType: 'Work' }]

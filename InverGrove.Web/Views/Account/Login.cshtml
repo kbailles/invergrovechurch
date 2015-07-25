@@ -4,7 +4,7 @@
     ViewBag.Title = "Log In";
 }
 
-<div id="ContactForm" class="login-content" ng-controller="AccountCtrl as vm">
+<div class="login-content" ng-controller="AccountCtrl as vm">
     <h3 class="title">Log In</h3>
 
     @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form", novalidate = true }))

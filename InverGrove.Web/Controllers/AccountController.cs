@@ -136,8 +136,7 @@ namespace InverGrove.Web.Controllers
 
                 if (userCandidate != null)
                 {
-                    // presented with opportunity to register
-                    return View("Register", (object)JsonConvert.SerializeObject(userCandidate, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
+                    return View("Register", userCandidate);
                 }
 
                 return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
