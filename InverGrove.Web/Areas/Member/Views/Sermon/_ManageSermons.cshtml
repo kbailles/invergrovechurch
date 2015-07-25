@@ -35,8 +35,8 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Title</th>
-                                <th>Speaker</th>
-                                <th>Tags</th>
+                                <th class="hidden-xs">Speaker</th>
+                                <th class="hidden-xs">Tags</th>
                                 <th style="width: 100px;"></th>
                             </tr>
                         </thead>
@@ -44,8 +44,8 @@
                             <tr ng-repeat="sermon in vm.sermons | orderBy: 'sermonDate':true">
                                 <td>{{::sermon.sermonDate | date:'MMMM d yyyy'}}</td>
                                 <td>{{::sermon.title}}</td>
-                                <td>{{::sermon.speaker}}</td>
-                                <td>
+                                <td class="hidden-xs">{{::sermon.speaker}}</td>
+                                <td class="hidden-xs">
                                     <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
                                         {{::tag}}{{::!$last ? ',&nbsp;' : ''}}
                                     </div>

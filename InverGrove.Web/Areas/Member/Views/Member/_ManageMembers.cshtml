@@ -39,8 +39,8 @@
                 <thead>
                     <tr>
                         <th>Name & Addres</th>
-                        <th>Phone Numbers</th>
-                        <th>Email</th>
+                        <th class="hidden-xs">Phone Numbers</th>
+                        <th class="hidden-xs">Email</th>
                         <th style="width: 100px;"></th>
                     </tr>
                 </thead>
@@ -48,11 +48,14 @@
                     <tr ng-cloak ng-repeat="item in vm.members">
                         <td>
                             <strong>{{::item.firstName}} {{::item.lastName}}</strong> <br />
-                            {{::item.addressOne}} {{::item.addressTwo}}<br />
+                            {{::item.addressOne}} {{::item.addressTwo}} <br />
                             {{::item.city}}, {{::item.state}} {{::item.zipCode}}
                         </td>
-                        <td><label>Phone Numbers:</label> <div ng-repeat="phone in item.phoneNumbers">{{::phone.phoneNumberType}}: {{::phone.phone}} </div></td>
-                        <td>{{::item.primaryEmail}}</td>
+                        <td class="hidden-xs">
+                            <label>Phone Numbers:</label>
+                            <div ng-repeat="phone in item.phoneNumbers">{{::phone.phoneNumberType}}: {{::phone.phone}}</div>
+                        </td>
+                        <td class="hidden-xs">{{::item.primaryEmail}}</td>
                         <td style="text-align: right;">
                             <button class="btn btn-color" ng-click="vm.openEditMemberModal(item)"><i class="fa fa-pencil"></i></button>
                             <button class="btn btn-warning" btn-loading="vm.showDeleteLoading" data-loading-text="Deleting..." ng-click="vm.openDeleteMemberModal(item)"><i class="fa fa-remove"></i></button>
