@@ -56,7 +56,7 @@
         function getPhoneNumber(typeId) {
             var phoneNumber = _.find(vm.member.phoneNumbers, { phoneNumberTypeId: typeId });
 
-            return phoneNumber ? phoneNumber.phone : '';
+            return phoneNumber ? formatNumber(phoneNumber.phone) : '';
         }
 
         function setPhoneNumber(type, typeId, number) {
@@ -84,7 +84,7 @@
         }
 
         function addUserSetupToForm() {
-            var isUser = vm.personObj.isUser;
+            var isUser = vm.member.isUser;
             vm.disableEmail = (isUser === 'true') ? false : true;
             vm.requireEmail = (isUser === 'true') ? true : false;
         }
@@ -119,6 +119,27 @@
             vm.MemberService.delete(vm.member).then(function () {
                 $window.location.reload();
             });
+        }
+
+        function formatNumber(number) {
+            var val = number.replace(/[^0-9]+/g, '');
+
+            if (!val) {
+                return '';
+            }
+
+            var area = val.substring(0, 3);
+            var front = val.substring(3, 6);
+            var end = val.substring(6, 10);
+
+            if (front) {
+                val = ("(" + area + ") " + front);
+            }
+            if (end) {
+                val += ("-" + end);
+            }
+
+            return val;
         }
     }
 })();

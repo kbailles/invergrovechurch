@@ -16,29 +16,29 @@
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <label>Address:</label>
-                <input class="form-control" name="addressOne" ng-model="modalCtrl.member.addressOne" type="text" maxlength="50" />
+                <label>Address: <span class="warning">*</span></label>
+                <input class="form-control" name="addressOne" ng-model="modalCtrl.member.addressOne" type="text" maxlength="50" required />
             </div>
             <div class="col-xs-6">
                 <label>Apartment #:</label>
-                <input class="form-control" name="addressTwo" ng-model="modalCtrl.member.addressTwo" type="text" maxlength="50" />
+                <input class="form-control" name="addressTwo" ng-model="modalCtrl.member.addressTwo" type="text" maxlength="50" required />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <label>City:</label>
-                <input class="form-control" name="city" ng-model="modalCtrl.member.city" maxlength="50" type="text"/>
+                <label>City: <span class="warning">*</span></label>
+                <input class="form-control" name="city" ng-model="modalCtrl.member.city" maxlength="50" type="text" required />
             </div>
             <div class="col-xs-3">
-                <label>State:</label>
-                <select name="gender" ng-model="modalCtrl.member.state" class="form-control">
+                <label>State: <span class="warning">*</span></label>
+                <select name="gender" ng-model="modalCtrl.member.state" class="form-control" required>
                     <option value="MN">Minnesota</option>
                     <option value="WI">Wisconsin</option>
                 </select>
             </div>
             <div class="col-xs-3">
-                <label>Zip Code:</label>
-                <input class="form-control" name="zipCode" ng-model="modalCtrl.member.zipCode" maxlength="5" type="text"/>
+                <label>Zip Code: <span class="warning">*</span></label>
+                <input class="form-control" name="zipCode" ng-model="modalCtrl.member.zipCode" maxlength="5" type="text" required />
             </div>
         </div>
 
@@ -47,28 +47,28 @@
                 <label>Phone:</label>
                 <div class="input-group">
                     <span class="input-group-addon">Home</span>
-                    <input type="text" class="form-control" ng-model="modalCtrl.homePhone" placeholder="(999) 999-9999" maxlength="12">
+                    <input type="text" class="form-control" ng-model="modalCtrl.homePhone" placeholder="(999) 999-9999" maxlength="14" ig-format-phone>
                 </div>
             </div>
             <div class="col-lg-4">
                 <label>&nbsp;</label>
                 <div class="input-group">
                     <span class="input-group-addon">Mobile</span>
-                    <input type="text" class="form-control" ng-model="modalCtrl.mobile" placeholder="(999) 999-9999" maxlength="12">
+                    <input type="text" class="form-control" ng-model="modalCtrl.mobile" placeholder="(999) 999-9999" maxlength="14" ig-format-phone>
                 </div>
             </div>
             <div class="col-lg-4">
                 <label>&nbsp;</label>
                 <div class="input-group">
                     <span class="input-group-addon">Work</span>
-                    <input type="text" class="form-control" ng-model="modalCtrl.workPhone" placeholder="(999) 999-9999" maxlength="12">
+                    <input type="text" class="form-control" ng-model="modalCtrl.workPhone" placeholder="(999) 999-9999" maxlength="14" ig-format-phone>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-6">
-                <label>Email Address:</label>
+                <label>Email Address: <span ng-show="!modalCtrl.disableEmail" class="warning">*</span></label>
                 <input class="form-control" name="primaryEmail" ng-model="modalCtrl.member.primaryEmail" maxlength="50" type="text" />
             </div>
             <div class="col-xs-6">

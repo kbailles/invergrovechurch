@@ -55,7 +55,7 @@
                                     <address><i class="fa fa-map-marker"></i> {{::member.addressOne}}, {{::member.city}} {{::member.state}} {{::member.zipCode}}</address>
                                 </div>
                                 <div class="user-meta-phone" ng-if="!!(member.phoneNumbers) && member.phoneNumbers.length > 0">
-                                    <a ng-href="tel:{{::member.phoneNumbers[0].phone}}"><i class="fa fa-phone"></i> {{::member.phoneNumbers[0].phone}}</a>
+                                    <a ng-href="tel:{{::member.phoneNumbers[0].phone}}"><i class="fa fa-phone"></i> {{::vm.formatNumber(member.phoneNumbers[0].phone)}}</a>
                                 </div>
                                 <div class="user-meta-email" ng-if="!!(member.primaryEmail)">
                                     <a ng-href="mailto:{{::member.primaryEmail}}"><i class="fa fa-envelope"></i> {{::member.primaryEmail}}</a>

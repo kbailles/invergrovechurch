@@ -154,6 +154,7 @@ namespace InverGrove.Web
                 "~/Scripts/controllers/DirectoryController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",
+                "~/Scripts/directives/formatPhoneDirective.js",
                 "~/Scripts/directives/googleMapDirective.js",
                 "~/Scripts/directives/revosliderDirective.js",
                 "~/Scripts/directives/scrollUpDirective.js",
