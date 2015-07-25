@@ -43,7 +43,7 @@ namespace InverGrove.Web
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
-                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
+                "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 
                 "~/Scripts/common/namespace.js",
                 "~/Scripts/namespace.variables.js",
@@ -73,7 +73,7 @@ namespace InverGrove.Web
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
-                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
+                "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 
                 "~/Scripts/common/namespace.js",
                 "~/Scripts/namespace.variables.js",
@@ -114,7 +114,7 @@ namespace InverGrove.Web
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
-                "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
+                "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 
                 "~/Scripts/common/namespace.js",
                 "~/Scripts/namespace.variables.js",
