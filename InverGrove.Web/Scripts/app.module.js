@@ -7,7 +7,6 @@
         /**
          * Angular modules
          */
-        'ngRoute',
         /*
          * Bootstrap modules
          */

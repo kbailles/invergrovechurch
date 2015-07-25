@@ -8,17 +8,15 @@ namespace InverGrove.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Core bundles
-            bundles.Add(new StyleBundle("~/Content/css/core").Include(
-                "~/Components/html5-boilerplate/css/normalize.css",
-                "~/Components/html5-boilerplate/css/main.css")
-                .Include("~/Components/bootstrap/css/bootstrap.min.css", new CssRewriteUrlTransform())
-                .Include("~/Components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
+            bundles.Add(new StyleBundle("~/Content/css/core")
+                .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
+                .Include("~/bower_components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
                 .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/app.min.css"));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/critical").Include(
-                "~/Components/jquery/jquery-2.1.4.min.js",
-                "~/Components/angular/angular.js"));
+                "~/bower_components/jquery/dist/jquery.min.js",
+                "~/bower_components/angular/angular.js"));
 
             bundles.Add(new StyleBundle("~/Components/css/revoslider")
                 .Include("~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform())
@@ -38,14 +36,13 @@ namespace InverGrove.Web
             bundles.Add(new StyleBundle("~/Content/css/area/account").Include(
                 "~/Components/html5-boilerplate/css/normalize.css",
                 "~/Components/html5-boilerplate/css/main.css")
-                .Include("~/Components/bootstrap/css/bootstrap.min.css", new CssRewriteUrlTransform())
+                .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/account").Include(
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
-                "~/Components/lodash/lodash.min.js",
+                "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
-                "~/Components/angular-route/angular-route.min.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
 
                 "~/Scripts/common/namespace.js",
@@ -74,9 +71,8 @@ namespace InverGrove.Web
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
-                "~/Components/lodash/lodash.min.js",
+                "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
-                "~/Components/angular-route/angular-route.min.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
 
                 "~/Scripts/common/namespace.js",
@@ -116,9 +112,8 @@ namespace InverGrove.Web
             //Member area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(
                 "~/Components/modernizr/modernizr-2.6.2.min.js",
-                "~/Components/lodash/lodash.min.js",
+                "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
-                "~/Components/angular-route/angular-route.min.js",
                 "~/Components/bootstrap-ui/ui-bootstrap-tpls-0.13.0.min.js",
 
                 "~/Scripts/common/namespace.js",
@@ -133,6 +128,7 @@ namespace InverGrove.Web
                 //Factories
                 "~/Scripts/factories/factories.module.js",
                 "~/Scripts/factories/googleMapChurchLocationFactory.js",
+                "~/Scripts/factories/phoneNumberHelperFactory.js",
                 //Filters
                 "~/Scripts/filters/filters.module.js",
                 "~/Scripts/filters/firstNameLastNameFilter.js",

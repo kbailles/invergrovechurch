@@ -10,12 +10,14 @@
         '$modalInstance',
         '$window',
         'MemberService',
-        'member'
+        'member',
+        'phoneNumberHelper'
     ];
 
-    function MemberModalController($modalInstance, $window, MemberService, member) {
+    function MemberModalController($modalInstance, $window, MemberService, member, phoneNumberHelper) {
         var vm = this;
         vm.MemberService = MemberService;
+        vm.phoneNumberHelper = phoneNumberHelper;
 
         // defaults
         var defaults = {
@@ -56,7 +58,7 @@
         function getPhoneNumber(typeId) {
             var phoneNumber = _.find(vm.member.phoneNumbers, { phoneNumberTypeId: typeId });
 
-            return phoneNumber ? formatNumber(phoneNumber.phone) : '';
+            return phoneNumber ? vm.phoneNumberHelper.formatPhoneNumber(phoneNumber.phone) : '';
         }
 
         function setPhoneNumber(type, typeId, number) {
@@ -119,27 +121,6 @@
             vm.MemberService.delete(vm.member).then(function () {
                 $window.location.reload();
             });
-        }
-
-        function formatNumber(number) {
-            var val = number.replace(/[^0-9]+/g, '');
-
-            if (!val) {
-                return '';
-            }
-
-            var area = val.substring(0, 3);
-            var front = val.substring(3, 6);
-            var end = val.substring(6, 10);
-
-            if (front) {
-                val = ("(" + area + ") " + front);
-            }
-            if (end) {
-                val += ("-" + end);
-            }
-
-            return val;
         }
     }
 })();
