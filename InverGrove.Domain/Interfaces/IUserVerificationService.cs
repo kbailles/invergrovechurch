@@ -23,6 +23,6 @@ namespace InverGrove.Domain.Interfaces
         /// </summary>
         /// <param name="userVerification">The user verification.</param>
         /// <returns></returns>
-        bool UpdateUserInviteNotice(IUserVerification userVerification)
+        bool UpdateUserInviteNotice(IUserVerification userVerification);
     }
 }
