@@ -10,9 +10,12 @@ namespace InverGrove.Domain.Repositories
 {
     public class UserVerificationRepository : EntityRepository<UserVerification, int>, IUserVerificationRepository
     {
-        public UserVerificationRepository(IInverGroveContext dataContext) 
+        private readonly ILogService logService;
+
+        public UserVerificationRepository(IInverGroveContext dataContext, ILogService logService)
             : base(dataContext)
         {
+            this.logService = logService;
         }
 
         /// <summary>
@@ -39,12 +42,13 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                throw new ApplicationException("Error when attempting to add new UserVerificatioin in UserVerificationRepository: " + ex.Message);
+                this.logService.WriteToErrorLog("Error when attempting to add new UserVerificatioin in UserVerificationRepository: " + ex.Message);
+                return Guid.Empty;
             }
 
             return userVerification.Identifier;
         }
-        
+
         /// <summary>
         /// Gets the specified identifier UPON COMING TO SET UP THEIR UID / PWD
         /// ARE THEY VALID?
@@ -66,6 +70,36 @@ namespace InverGrove.Domain.Repositories
                                                            PersonName = pr.FirstName + " " + pr.LastName
                                                         }).FirstOrDefault();
             return userVerification;
+        }
+
+        /// <summary>
+        /// Updates the specified identifier.
+        /// </summary>
+        /// <param name="userVerification">The user verification.</param>
+        /// <returns></returns>
+        public bool Update(IUserVerification userVerification)
+        {
+            var userVerificationEntity = this.Get(x => x.Identifier == userVerification.Identifier).FirstOrDefault();
+
+            if (userVerificationEntity != null)
+            {
+                userVerificationEntity.DateAccessed = userVerification.DateAccessed;
+
+                try
+                {
+                    this.Save();
+                }
+                catch (SqlException ex)
+                {
+                    this.logService.WriteToErrorLog("Error when attempting to update UserVerificatioin in UserVerificationRepository with Identifier of: "
+                        + userVerification.Identifier + " message:" + ex.Message);
+                    return false;
+                }
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

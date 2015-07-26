@@ -163,7 +163,7 @@ namespace InverGrove.Web.Controllers
 
             var userVerification = this.userVerificationService.GetUserInviteNotice(model.Identifier);
 
-            if (userVerification == null)
+            if ((userVerification == null) || (userVerification.DateAccessed != null))
             {
                 //They probably came here manually... Send them back to home page
                 return RedirectToAction("Index", "Home");
@@ -176,6 +176,7 @@ namespace InverGrove.Web.Controllers
 
                 if (registerUserResult.Success)
                 {
+                    this.userVerificationService.UpdateUserInviteNotice(userVerification);
                     return RedirectToAction("Login", "Account");
                 }
 

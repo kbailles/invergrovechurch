@@ -6,7 +6,7 @@ namespace InverGrove.Domain.Services
 {
     public class UserVerificationService : IUserVerificationService
     {
-        private IUserVerificationRepository repository;
+        private readonly IUserVerificationRepository repository;
 
         public UserVerificationService(IUserVerificationRepository repository)
         {
@@ -37,6 +37,20 @@ namespace InverGrove.Domain.Services
         {
             Guard.ParameterGuidNotEmpty(identifier, "identifier");
             return this.repository.Get(identifier);
+        }
+
+        /// <summary>
+        /// Updates the user invite notice.
+        /// </summary>
+        /// <param name="userVerification">The user verification.</param>
+        /// <returns></returns>
+        public bool UpdateUserInviteNotice(IUserVerification userVerification)
+        {
+            Guard.ArgumentNotNull(userVerification, "userVerification");
+
+            userVerification.DateAccessed = DateTime.Now;
+
+            return this.repository.Update(userVerification);
         }
     }
 }

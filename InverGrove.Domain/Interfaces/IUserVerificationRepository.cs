@@ -1,5 +1,4 @@
 ﻿using System;
-using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.Interfaces
 {
@@ -9,7 +8,25 @@ namespace InverGrove.Domain.Interfaces
     /// </summary>
     public interface IUserVerificationRepository
     {
+        /// <summary>
+        /// Adds the specified person identifier.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <returns></returns>
         Guid Add(int personId);
+
+        /// <summary>
+        /// Gets the specified identifier.
+        /// </summary>
+        /// <param name="identifier">The identifier.</param>
+        /// <returns></returns>
         IUserVerification Get(Guid identifier);
+
+        /// <summary>
+        /// Updates the specified identifier.
+        /// </summary>
+        /// <param name="userVerification">The user verification.</param>
+        /// <returns></returns>
+        bool Update(IUserVerification userVerification)
     }
 }
