@@ -1,5 +1,6 @@
 ﻿using System;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Services
@@ -36,7 +37,10 @@ namespace InverGrove.Domain.Services
         public IUserVerification GetUserInviteNotice(Guid identifier)
         {
             Guard.ParameterGuidNotEmpty(identifier, "identifier");
-            return this.repository.Get(identifier);
+
+            var userVerification = this.repository.Get(identifier);
+
+            return userVerification;
         }
 
         /// <summary>

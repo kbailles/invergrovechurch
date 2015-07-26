@@ -139,10 +139,10 @@ namespace InverGrove.Web.Controllers
             {
                 Guid token = new Guid(accessToken);
                 var userCandidate = this.userVerificationService.GetUserInviteNotice(token);
-                var register = this.registerFactory.BuildByUserVerification(userCandidate);
 
-                if (userCandidate != null)
+                if ((userCandidate != null) && (userCandidate.DateAccessed == null))
                 {
+                    var register = this.registerFactory.BuildByUserVerification(userCandidate);
                     return View("Register", (Register)register);
                 }
 
