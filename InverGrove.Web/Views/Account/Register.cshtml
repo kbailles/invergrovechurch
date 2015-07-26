@@ -1,4 +1,4 @@
-﻿@model InverGrove.Domain.Models.UserVerification
+﻿@model InverGrove.Domain.ViewModels.Register
 
 @{
     Layout = "~/Views/Account/_Layout.cshtml"; // <--- NOT base layout.
@@ -8,7 +8,7 @@
 <div class="login-content" ng-controller="RegisterCtrl as vm">
     <h3 class="title">Register</h3>
 
-    @using (Html.BeginForm("RegisterUser", "Account", FormMethod.Post, new {role = "form", novalidate = true}))
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {role = "form", novalidate = true}))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "")
@@ -20,24 +20,27 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Username: <span class="warning">*</span></label>
-                    <input type="text" class="form-control" name="UserName" minlength="4" maxlength="25" required />
+                    <div class="validation-summary-errors">@Html.ValidationMessageFor(model => model.UserName)</div>
+                    <input type="text" class="form-control" name="UserName" value="@Model.UserName" minlength="4" maxlength="25" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Password: <span class="warning">*</span></label>
-                    <input type="password" class="form-control" name="Password" minlength="8" maxlength="25" required />
+                    <div class="validation-summary-errors">@Html.ValidationMessageFor(model => model.Password)</div>
+                    <input type="password" class="form-control" name="Password" value="@Model.Password" minlength="8" maxlength="25" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <label>Confirm Password: <span class="warning">*</span></label>
-                    <input type="password" class="form-control" name="PasswordConfirm" minlength="8" maxlength="25" required />
+                    <div class="validation-summary-errors">@Html.ValidationMessageFor(model => model.ConfirmPassword)</div>
+                    <input type="password" class="form-control" name="ConfirmPassword" value="@Model.ConfirmPassword" minlength="8" maxlength="25" required />
                 </div>
             </div>
         </fieldset>
 
-        <button ng-click="vm.registerUser()" btn-loading="vm.busy" data-loading-text="Setting up account..." class="btn btn-normal btn-color" style="width: 100%;">Register</button>
+        <button class="btn btn-normal btn-color" style="width: 100%;">Register</button>
         <div class="clearfix"></div>
     }
 </div>

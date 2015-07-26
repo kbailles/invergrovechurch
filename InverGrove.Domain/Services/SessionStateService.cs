@@ -6,6 +6,13 @@ namespace InverGrove.Domain.Services
 {
     public class SessionStateService : ISessionStateService
     {
+        private readonly ILogService logService;
+
+        public SessionStateService(ILogService logService)
+        {
+            this.logService = logService;
+        }
+
         /// <summary>
         /// Adds the specified value to Session using the specified key.
         /// </summary>
@@ -22,7 +29,7 @@ namespace InverGrove.Domain.Services
             {
                 HttpContext.Current.Session[key] = value;
 
-                //this.logService.WriteToLog("Value was added to Session with key of: " + key);
+                this.logService.WriteToLog("Value was added to Session with key of: " + key);
             }
         }
 
@@ -47,8 +54,8 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                //this.logService.WriteToErrorLog("Exception thrown when checking Session Contains");
-                //this.logService.WriteToErrorLog(e.StackTrace);
+                this.logService.WriteToErrorLog("Exception thrown when checking Session Contains");
+                this.logService.WriteToErrorLog(e.StackTrace);
                 return false;
             }
 
@@ -110,7 +117,7 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                //this.logService.WriteToErrorLog(e);
+                this.logService.WriteToErrorLog(e);
             }
 
             return default(TResult);
@@ -155,7 +162,7 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                //this.logService.WriteToErrorLog(e);
+                this.logService.WriteToErrorLog(e);
             }
 
             return default(TResult);
@@ -201,7 +208,7 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                //this.logService.WriteToErrorLog(e);
+                this.logService.WriteToErrorLog(e);
             }
 
             return default(TResult);
@@ -249,7 +256,7 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                //this.logService.WriteToErrorLog(e);
+                this.logService.WriteToErrorLog(e);
             }
 
             return default(TResult);
@@ -279,7 +286,7 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                //this.logService.WriteToErrorLog(e);
+                this.logService.WriteToErrorLog(e);
             }
 
             return default(TResult);

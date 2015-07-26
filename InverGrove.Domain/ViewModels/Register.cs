@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Resources;
 
 namespace InverGrove.Domain.ViewModels
@@ -33,6 +31,17 @@ namespace InverGrove.Domain.ViewModels
         [Display(ResourceType = typeof(ViewLabels), Name = "PasswordLabel")]
         public string Password { get; set; }
 
+        ///// <summary>
+        ///// Gets or sets the confirm password.
+        ///// </summary>
+        ///// <value>
+        ///// The confirm password.
+        ///// </value>
+        [DataType(DataType.Password)]
+        [Display(ResourceType = typeof(ViewLabels), Name = "ConfirmPasswordLabel")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "ConfirmPasswordErrorMessage")]
+        public string ConfirmPassword { get; set; }
+
         /// <summary>
         /// Gets or sets the person identifier.
         /// </summary>
@@ -42,7 +51,7 @@ namespace InverGrove.Domain.ViewModels
         public int PersonId { get; set; }
 
         /// <summary>
-        /// GUID for the person, since we don't want the PesonId to be tampered with 
+        /// GUID for the person, since we don't want the PesonId to be tampered with
         /// in the client.
         /// </summary>
         /// <value>

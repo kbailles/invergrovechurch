@@ -121,6 +121,8 @@
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\MembershipCreateStatusExtensions.cs" />
     <Compile Include="Factories\AuthenticatedUserFactory.cs" />
+    <Compile Include="Interfaces\IRegisterFactory.cs" />
+    <Compile Include="Factories\RegisterFactory.cs" />
     <Compile Include="Interfaces\IAbsentReasonRepository.cs" />
     <Compile Include="Interfaces\IAttendancePerson.cs" />
     <Compile Include="Interfaces\IPersonFactory.cs" />

@@ -5,12 +5,12 @@ using System.Web.Security;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Models;
 using InverGrove.Domain.Resources;
 using InverGrove.Domain.Services;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.ViewModels;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Membership = System.Web.Security.Membership;
 
 namespace InverGrove.Web.Controllers
 {
@@ -22,6 +22,7 @@ namespace InverGrove.Web.Controllers
         private readonly IProfileService profileService;
         private readonly IRoleProvider roleProvider;
         private readonly ISessionStateService sessionService;
+        private readonly IRegisterFactory registerFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController" /> class.
@@ -30,16 +31,21 @@ namespace InverGrove.Web.Controllers
         /// <param name="registrationService">The registration service.</param>
         /// <param name="profileService">The profile service.</param>
         /// <param name="roleProvider">The role provider.</param>
+        /// <param name="sessionStateService">The session state service.</param>
+        /// <param name="registerFactory">The register factory.</param>
         public AccountController(IUserVerificationService userVerificationService,
             IRegistrationService registrationService,
             IProfileService profileService,
-            IRoleProvider roleProvider)
+            IRoleProvider roleProvider,
+            ISessionStateService sessionStateService,
+            IRegisterFactory registerFactory)
         {
             this.userVerificationService = userVerificationService;
             this.registrationService = registrationService;
             this.profileService = profileService;
             this.roleProvider = roleProvider;
-            this.sessionService = new SessionStateService(); // not a candidate for IOC
+            this.sessionService = sessionStateService;
+            this.registerFactory = registerFactory;
         }
 
         [HttpGet]
@@ -133,10 +139,11 @@ namespace InverGrove.Web.Controllers
             {
                 Guid token = new Guid(accessToken);
                 var userCandidate = this.userVerificationService.GetUserInviteNotice(token);
+                var register = this.registerFactory.BuildByUserVerification(userCandidate);
 
                 if (userCandidate != null)
                 {
-                    return View("Register", userCandidate);
+                    return View("Register", (Register)register);
                 }
 
                 return RedirectToAction("Index", "Home"); // send the hack attempt somewhere
@@ -149,7 +156,7 @@ namespace InverGrove.Web.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RegisterUser(Register model)
+        public ActionResult Register(Register model)
         {
             Guard.ArgumentNotNull(model, "model");
             Guard.ParameterGuidNotEmpty(model.Identifier, "identifier");
@@ -158,6 +165,7 @@ namespace InverGrove.Web.Controllers
 
             if (userVerification == null)
             {
+                //They probably came here manually... Send them back to home page
                 return RedirectToAction("Index", "Home");
             }
 
@@ -170,10 +178,15 @@ namespace InverGrove.Web.Controllers
                 {
                     return RedirectToAction("Login", "Account");
                 }
+
+                if (registerUserResult.MembershipCreateStatus == MembershipCreateStatus.DuplicateUserName)
+                {
+                    ModelState.AddModelError("", Messages.IncorrectPasswordErrorMessage);
+                    return View("Register", model);
+                }
             }
 
-            // until we decide what to do with hack attempts.
-            return RedirectToAction("Index", "Home");
+            return View("Register", model);
         }
 
         private void SetDisplayUserFirstLastName(IProfile userProfile)

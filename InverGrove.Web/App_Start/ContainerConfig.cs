@@ -37,6 +37,7 @@ namespace InverGrove.Web
             container.Register(Component.For<IHttpControllerActivator>().Instance(apiControllerFactory).LifeStyle.Singleton);
             container.Register(Component.For<IMembershipFactory>().ImplementedBy<MembershipFactory>().LifeStyle.Transient);
             container.Register(Component.For<IPersonFactory>().ImplementedBy<PersonFactory>().LifeStyle.Transient);
+            container.Register(Component.For<IRegisterFactory>().ImplementedBy<RegisterFactory>().LifeStyle.Transient);
         }
 
         private static void RegisterRepositories(IWindsorContainer container)
