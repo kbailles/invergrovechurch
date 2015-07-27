@@ -388,4 +388,7 @@
   <data name="IsUserRequired" xml:space="preserve">
     <value>Please select whether or not to create a user account.</value>
   </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>That username has been claimed already. Please enter a different username.</value>
+  </data>
 </root>

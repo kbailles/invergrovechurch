@@ -177,12 +177,20 @@ namespace InverGrove.Web.Controllers
                 if (registerUserResult.Success)
                 {
                     this.userVerificationService.UpdateUserInviteNotice(userVerification);
-                    return RedirectToAction("Login", "Account");
+
+                    //Log them in on success...
+                    var loginModel = new LoginUser
+                    {
+                        UserName = model.UserName,
+                        Password = model.Password,
+                        RememberMe = false
+                    };
+                    return RedirectToAction("Login", "Account", loginModel);
                 }
 
                 if (registerUserResult.MembershipCreateStatus == MembershipCreateStatus.DuplicateUserName)
                 {
-                    ModelState.AddModelError("", Messages.IncorrectPasswordErrorMessage);
+                    ModelState.AddModelError("", Messages.DuplicateUserName);
                     return View("Register", model);
                 }
             }
