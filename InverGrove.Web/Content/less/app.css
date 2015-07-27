@@ -283,15 +283,6 @@ button[disabled] {
   float: left;
   margin-right: 15px;
 }
-@media (max-width: 767px) {
-  .directory-content .avatar {
-    float: none !important;
-    text-align: center !important;
-  }
-  .directory-content .user-quick-info {
-    text-align: center !important;
-  }
-}
 .directory-content .user-meta a {
   color: #767676;
   text-decoration: none;
