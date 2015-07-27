@@ -41,6 +41,7 @@
                  .invoke('split', ',')
                  .flatten()
                  .invoke('trim')
+                 .sortBy()
                  .value();
 
             return _.mapValues(_.groupBy(sermonTags), function (r) { return r.length; });
