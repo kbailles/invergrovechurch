@@ -5,12 +5,9 @@ using System.Web.Security;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Factories;
 using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
 using InverGrove.Domain.Resources;
-using InverGrove.Domain.Services;
 using InverGrove.Domain.Utils;
 using InverGrove.Domain.ViewModels;
-using Membership = System.Web.Security.Membership;
 
 namespace InverGrove.Web.Controllers
 {
@@ -66,6 +63,11 @@ namespace InverGrove.Web.Controllers
 
             if (this.User.Identity.IsAuthenticated)
             {
+                if (!string.IsNullOrEmpty(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+
                 if (this.User.IsInRole("Member"))
                 {
                     return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
@@ -97,6 +99,11 @@ namespace InverGrove.Web.Controllers
 
                         SetDisplayUserFirstLastName(userProfile);
                         var userRoles = this.roleProvider.GetRolesForUser(model.UserName);
+
+                        if (!string.IsNullOrEmpty(returnUrl))
+                        {
+                            return Redirect(returnUrl);
+                        }
 
                         if (userRoles.Contains("Member"))
                         {
@@ -185,7 +192,7 @@ namespace InverGrove.Web.Controllers
                         Password = model.Password,
                         RememberMe = false
                     };
-                    return RedirectToAction("Login", "Account", loginModel);
+                    return RedirectToAction("Login", "Account", new { model = loginModel, returnUrl = "" });
                 }
 
                 if (registerUserResult.MembershipCreateStatus == MembershipCreateStatus.DuplicateUserName)
