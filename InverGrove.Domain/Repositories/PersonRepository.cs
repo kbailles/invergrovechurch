@@ -74,14 +74,7 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (DbEntityValidationException dbe)
                 {
-                    var sb = new StringBuilder();
-                    foreach (var error in dbe.EntityValidationErrors)
-                    {
-                        foreach (var ve in error.ValidationErrors)
-                        {
-                            sb.Append(ve.ErrorMessage + ", ");
-                        }
-                    }
+                    var sb = dbe.ToValidationErrorMessage();
 
                     this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
                                                    person.FirstName + " " + person.LastName + " with message: " + sb.ToString());
@@ -148,7 +141,7 @@ namespace InverGrove.Domain.Repositories
                     if (existingPhone != null && phone.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
                     {
                         existingPhone.PersonId = phone.PersonId;
-                        existingPhone.Phone = phone.Phone;
+                        existingPhone.Phone = phone.Phone.StripPhoneString();
                         existingPhone.PhoneNumberTypeId = phone.PhoneNumberTypeId;
                     }
                     else
@@ -193,14 +186,7 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (DbEntityValidationException dbe)
                 {
-                    var sb = new StringBuilder();
-                    foreach (var error in dbe.EntityValidationErrors)
-                    {
-                        foreach (var ve in error.ValidationErrors)
-                        {
-                            sb.Append(ve.ErrorMessage + ", ");
-                        }
-                    }
+                    var sb = dbe.ToValidationErrorMessage();
 
                     person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
                     this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
@@ -215,80 +201,6 @@ namespace InverGrove.Domain.Repositories
             }
 
             return person;
-        }
-
-        private void UpdateNewPhoneNumbers(IPerson person, ICollection<PhoneNumber> personPhoneNumbers)
-        {
-            foreach (var phone in person.PhoneNumbers)
-            {
-                if (personPhoneNumbers != null)
-                {
-                    var phoneEntity = personPhoneNumbers.FirstOrDefault(p => p.PhoneNumberId == phone.PhoneNumberId);
-
-                    if (phoneEntity != null && phone.Phone.IsValidPhoneNumber(PhoneNumberFormatType.UsAllFormats))
-                    {
-                        phoneEntity.PersonId = phone.PersonId;
-                        phoneEntity.Phone = phone.Phone.StripPhoneString();
-                        phoneEntity.PhoneNumberTypeId = phone.PhoneNumberTypeId;
-                        phoneEntity.Person = null;
-                        phoneEntity.PhoneNumberType = null;
-
-                        this.phoneNumberRepository.Update(phoneEntity);
-                    }
-                    else
-                    {
-                        this.AddNewPhoneNumber(phone);
-                    }
-                }
-                else
-                {
-                    this.AddNewPhoneNumber(phone);
-                }
-            }
-
-            using (TimedLock.Lock(this.syncRoot))
-            {
-                try
-                {
-                    this.phoneNumberRepository.Save();
-                }
-                catch (SqlException sql)
-                {
-                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
-                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person phoneNumbers with PersonId: " + person.PersonId +
-                                                   " with message: " + sql.Message);
-                }
-                catch (DbEntityValidationException dbe)
-                {
-                    var sb = new StringBuilder();
-
-                    foreach (var error in dbe.EntityValidationErrors)
-                    {
-                        foreach (var ve in error.ValidationErrors)
-                        {
-                            sb.Append(ve.ErrorMessage + ", ");
-                        }
-                    }
-
-                    person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
-                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person phoneNumbers with name: " +
-                                                   person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
-                                                   " with message: " + sb);
-                }
-            }
-        }
-
-        private void AddNewPhoneNumber(Models.PhoneNumber phone)
-        {
-            var entityPhone = phone.ToEntity();
-
-            if (entityPhone != null)
-            {
-                entityPhone.Person = null;
-                entityPhone.PhoneNumberType = null;
-
-                this.phoneNumberRepository.Insert(entityPhone);
-            }
         }
 
         /// <summary>
@@ -334,14 +246,7 @@ namespace InverGrove.Domain.Repositories
             }
             catch (DbEntityValidationException dbe)
             {
-                var sb = new StringBuilder();
-                foreach (var error in dbe.EntityValidationErrors)
-                {
-                    foreach (var ve in error.ValidationErrors)
-                    {
-                        sb.Append(ve.ErrorMessage + ", ");
-                    }
-                }
+                var sb = dbe.ToValidationErrorMessage();
 
                 this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with name: " +
                                                person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
@@ -352,6 +257,5 @@ namespace InverGrove.Domain.Repositories
 
             return true;
         }
-
     }
 }

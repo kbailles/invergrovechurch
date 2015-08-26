@@ -82,12 +82,11 @@ namespace InverGrove.Domain.Services
                TODO - People will be a cached list that is placed into cache when a person logs into the website.
                       This list will never be more than a couple hundred (likley around 150) so no big deal caching that.
             */
-            var existingPerson = this.personRepository.Get(p => p.EmailPrimary == person.PrimaryEmail).FirstOrDefault().ToModel();
-            var existingEmail = this.EmailExists(person, existingPerson);
+            
+            var existingEmail = this.EmailExists(person);
 
             if (!string.IsNullOrEmpty(person.PrimaryEmail) && existingEmail)
             {
-                person.PersonId = existingPerson.PersonId;
                 person.ErrorMessage = "This email address already exists.";
 
                 return person;
@@ -114,7 +113,7 @@ namespace InverGrove.Domain.Services
             Guard.ParameterNotNull(person, "person");
             var existingPerson = this.GetById(person.PersonId);
 
-            if (!string.IsNullOrEmpty(person.PrimaryEmail) && this.EmailExists(person, existingPerson))
+            if (!string.IsNullOrEmpty(person.PrimaryEmail) && this.EmailExists(person))
             {
                 person.ErrorMessage = "This email address already exists.";
 
@@ -170,9 +169,16 @@ namespace InverGrove.Domain.Services
             return 0;
         }
 
-        private bool EmailExists(IPerson person, IPerson existingPerson)
+        private bool EmailExists(IPerson person)
         {
-            return (existingPerson != null) && (existingPerson.PersonId > 0) && (person.PersonId != existingPerson.PersonId);
+            var existingPerson = this.personRepository.Get(p => p.EmailPrimary == person.PrimaryEmail).FirstOrDefault();
+
+            if (person.PersonId > 0) // If updating a person, check if the existing person is the same record we are updating.
+            {
+                return (existingPerson != null) && (existingPerson.PersonId > 0) && (person.PersonId != existingPerson.PersonId);
+            }
+            
+            return (existingPerson != null) && (existingPerson.PersonId > 0);
         }
 
         private void SendNewUserVerification(IPerson person, string hostName)

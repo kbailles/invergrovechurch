@@ -114,6 +114,7 @@
     <Compile Include="Exceptions\ParameterNullException.cs" />
     <Compile Include="Exceptions\ParameterOutOfRangeException.cs" />
     <Compile Include="Exceptions\UndisposedLockException.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Extensions\JsonResultExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
