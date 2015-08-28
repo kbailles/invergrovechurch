@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <label>Street:</label>
+                <label>Street: <span class="warning">*</span></label>
                 <input class="form-control" name="addressOne" ng-model="modalCtrl.member.addressOne" type="text" maxlength="50" required />
             </div>
             <div class="col-xs-6">
@@ -76,8 +76,8 @@
                 </select>
             </div>
             <div class="col-xs-6">
-                <label>Email Address: <span ng-show="!modalCtrl.disableEmail" class="warning">*</span></label>
-                <input class="form-control" ng-required="modalCtrl.requireEmail" ng-disabled="modalCtrl.disableEmail"
+                <label>Email Address: <span ng-show="modalCtrl.requireEmail" class="warning">*</span></label>
+                <input class="form-control" ng-required="modalCtrl.requireEmail"
                        name="primaryEmail" ng-model="modalCtrl.member.primaryEmail"
                        maxlength="50" type="text" />
             </div>

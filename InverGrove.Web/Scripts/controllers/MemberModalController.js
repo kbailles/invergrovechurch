@@ -32,7 +32,6 @@
         vm.busy = false;
 
         vm.addUserSetupToForm = addUserSetupToForm;
-        vm.disableEmail = true;
         vm.requireEmail = false;
 
         vm.member = _.defaults(angular.copy(member) || {}, defaults);
@@ -89,7 +88,6 @@
 
         function addUserSetupToForm() {
             var isUser = vm.member.isUser;
-            vm.disableEmail = (isUser === 'true') ? false : true;
             vm.requireEmail = (isUser === 'true') ? true : false;
         }
 
