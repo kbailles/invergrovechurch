@@ -855,6 +855,7 @@
     <Content Include="Content\images\ms-icon-150x150.png" />
     <Content Include="Content\images\ms-icon-310x310.png" />
     <Content Include="Content\images\ms-icon-70x70.png" />
+    <Content Include="Content\images\open_bible.jpg" />
     <Content Include="Content\images\open_bible.png" />
     <Content Include="Content\images\romans_biblestudy.jpg" />
     <Content Include="Content\images\summer_series_2015.jpg" />
