@@ -21,7 +21,7 @@
             </div>
             <div class="col-xs-6">
                 <label>Apartment #:</label>
-                <input class="form-control" name="addressTwo" ng-model="modalCtrl.member.addressTwo" type="text" maxlength="50" required />
+                <input class="form-control" name="addressTwo" ng-model="modalCtrl.member.addressTwo" type="text" maxlength="50" />
             </div>
         </div>
         <div class="row">
@@ -106,6 +106,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" btn-loading="modalCtrl.busy" data-loading-text="Saving..." ng-click="modalCtrl.editPerson()">Save</button>
+    <button class="btn btn-normal btn-color" ng-disabled="form.$invalid" btn-loading="modalCtrl.busy" data-loading-text="Saving..." ng-click="modalCtrl.editPerson()">Save</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>

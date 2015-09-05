@@ -88,7 +88,12 @@
 
         function addUserSetupToForm() {
             var isUser = vm.member.isUser;
-            vm.requireEmail = (isUser === 'true') ? true : false;
+
+            if (_.isBoolean(isUser)) {
+                vm.requireEmail = isUser;
+            } else if (_.isString(isUser)) {
+                vm.requireEmail = isUser === 'true';
+            }
         }
 
         function dismissModal() {
