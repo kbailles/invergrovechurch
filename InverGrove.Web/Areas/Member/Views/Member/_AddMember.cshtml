@@ -112,6 +112,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-normal btn-color" ng-disabled="form.$invalid" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add</button>
+    <button class="btn btn-normal btn-color" ng-disabled="form.$invalid || modalCtrl.busy" btn-loading="modalCtrl.busy" data-loading-text="Adding..." ng-click="modalCtrl.addPerson()">Add</button>
     <button class="btn btn-normal btn-warning" ng-click="modalCtrl.dismissModal()">Cancel</button>
 </div>
