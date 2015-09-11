@@ -849,7 +849,10 @@
     <Content Include="Content\images\favicon-32x32.png" />
     <Content Include="Content\images\favicon-96x96.png" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\gospel_meeting_2015.jpg" />
     <Content Include="Content\images\graymatte.png" />
+    <Content Include="Content\images\james_bible_study.jpg" />
+    <Content Include="Content\images\kingdom_of_heaven_bible_study.jpg" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\ms-icon-144x144.png" />
     <Content Include="Content\images\ms-icon-150x150.png" />
