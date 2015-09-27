@@ -8,6 +8,14 @@
 
     function gMapChurchLocation() {
         var location = {
+            controls: {
+                panControl: true,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: true,
+                streetViewControl: true,
+                overviewMapControl: true
+            },
             address: 'Inver Grove Church of Christ',
             zoom: 13,
             markers: [
