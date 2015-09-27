@@ -34,7 +34,7 @@ namespace InverGrove.Web.Controllers
 
             var sermons = this.sermonService.GetSermons().ToSafeList().OrderByDescending(sermon => sermon.SermonDate);
 
-            return View("_ViewSermons", (object)JsonConvert.SerializeObject(sermons, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver()}));
+            return View("_ViewSermons", sermons);
         }
 
         [HttpGet]

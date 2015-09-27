@@ -1,8 +1,4 @@
-﻿@model string
-
-<script>
-    var sermons = JSON.parse('@Html.Raw(!string.IsNullOrEmpty(Model) ? Model : "[]")');
-</script>
+﻿@model IEnumerable<InverGrove.Domain.Interfaces.ISermon>
 
 <div class="sermons-wrapper" ng-controller="ViewSermonsCtrl as vm">
 
@@ -28,72 +24,51 @@
         </div>
     </div>
 
-    <div class="sermons-content" ng-cloak>
+    <div class="sermons-content">
         <div class="container">
             <div class="row">
+                <div class="sermons-block col-xs-12">
 
-                <div class="sidebar col-lg-3 col-lg-push-9 col-md-3 col-md-push-9 col-sm-4 col-sm-push-8 col-xs-12">
-                    <div class="widget search-form">
-                        <div class="input-group">
-                            <input type="text" placeholder="Search..." class="search-input form-control" ng-model="vm.titleFilter">
-                            <span class="input-group-btn">
-                                <button type="submit" class="subscribe-btn btn btn-color" ng-class="vm.titleFilter.length > 0 ? 'btn-warning' : ''" ng-click="vm.titleFilter = ''"><i class="fa" ng-class="vm.titleFilter.length <= 0 ? 'fa-search' : 'fa-remove'"></i></button>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="widget speakers">
-                        <h3 class="title">Filter by Speaker</h3>
-                        <div style="padding-left: 20px;">
-                            <select ng-model="vm.speakerFilter" class="form-control">
-                                <option value="">Select speaker</option>
-                                <option ng-repeat="(key, value) in vm.filteredSpeakers()" value="{{::key}}">{{::key}} ({{::value}})</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="widget tags visible-sm visible-md visible-lg">
-                        <h3 class="title">Filter by Tags</h3>
-                        <ul style="list-style: none; padding-left: 20px;">
-                            <li ng-repeat="(key, value) in vm.filteredTags()">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" ng-click="vm.toggleTagChecked(key)"> {{::key}} ({{::value}})
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="sermons-block col-lg-9 col-lg-pull-3 col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4 col-xs-12">
-
-                    <article class="sermon hentry" ng-repeat="sermon in vm.sermons | filter: { title: vm.titleFilter, speaker: vm.speakerFilter } | selectedTags: vm.tagsFilter track by sermon.sermonId">
-                        <div class="sermon-content-wrap">
-                            <header class="sermon-header">
-                                <div class="sermon-date">
-                                    <a class="date" href="#"><strong>{{::sermon.sermonDate | date : 'dd'}}</strong><i>{{::sermon.sermonDate | date : 'MMM'}}</i><i class="new" ng-if="::vm.isNewSermon(sermon.sermonDate)">New!</i></a>
-                                </div>
-                                <h3 class="sermon-title">
-                                    <a ng-href="/Sermon/SermonDetail/?sermonId={{::sermon.sermonId}}">{{::sermon.title}}</a>
-                                </h3>
-                                <div class="sermon-meta">
-                                    <div class="sermon-entry-meta-speaker">
-                                        <i class="fa fa-user"></i>
-                                        {{::sermon.speaker}}
+                    @foreach (var sermon in Model)
+                    {
+                        var i = 0;
+                        var tags = sermon.Tags.Split(',');
+                        
+                        <article class="sermon hentry">
+                            <div class="sermon-content-wrap">
+                                <header class="sermon-header">
+                                    <div class="sermon-date">
+                                        <a class="date" href="javascript:void(0);">
+                                            <strong>@sermon.SermonDate.ToString("dd")</strong><i>@sermon.SermonDate.ToString("MMM")</i>
+                                            @if ((DateTime.Now - sermon.SermonDate).Days <= 7)
+                                            {
+                                                <i class="new">New!</i>
+                                            }
+                                        </a>
                                     </div>
-                                    <div class="sermon-entry-meta-tags">
-                                        <i class="fa" ng-class="::sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
-                                        <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
-                                            {{::tag }}{{::! $last ? ',&nbsp;' : ''}}
+                                    <h3 class="sermon-title">
+                                        <a href="@Url.Action("SermonDetail", "Sermon", new { sermonId = sermon.SermonId })">@sermon.Title</a>
+                                    </h3>
+                                    <div class="sermon-meta">
+                                        <div class="sermon-entry-meta-speaker">
+                                            <i class="fa fa-user"></i>
+                                            @sermon.Speaker
+                                        </div>
+                                        <div class="sermon-entry-meta-tags">
+                                            <i class="fa @(tags.Length > 1 ? "fa-tags" : "fa-tag")"></i>
+                                            @foreach (var tag in tags)
+                                            {
+                                                <div class="tags-container">@(i < tags.Length - 1 ? tag + ", " : tag)</div>
+                                                i++;
+                                            }
                                         </div>
                                     </div>
-                                </div>
-                            </header>
-                        </div>
+                                </header>
+                            </div>
 
-                        <div class="sermon-divider" ng-show="! $last"></div>
-                    </article>
+                            <div class="sermon-divider"></div>
+                        </article>
+                    }
 
                     <div class="divider"></div>
                 </div>
