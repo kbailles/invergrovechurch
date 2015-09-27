@@ -560,6 +560,15 @@ form .ng-dirty.ng-valid {
   -moz-resize: vertical;
   resize: vertical;
 }
+.reply .human-question ~ input {
+  display: inline-block;
+  width: 50px;
+}
+.reply .human-question:before {
+  content: '2 + 3 = ';
+  margin: 0 10px;
+  font-size: 16px;
+}
 .scrollup {
   background: #9e9e9e;
   border-radius: 2px;
@@ -611,6 +620,10 @@ form .ng-dirty.ng-valid {
   display: block;
   font-size: 11px;
   font-style: normal;
+}
+.sermon-date a.date i.new {
+  background-color: #419641;
+  border-top: 0;
 }
 .sermon-date a.date strong {
   color: #0488cd;

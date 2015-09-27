@@ -569,6 +569,15 @@ form .ng-dirty.ng-valid {
     -moz-resize: vertical;
     resize: vertical;
   }
+  .human-question ~ input {
+      display: inline-block;
+      width: 50px;
+  }
+    .human-question:before {
+        content: '2 + 3 = ';
+        margin: 0 10px;
+        font-size: 16px;
+    }
 }
 .scrollup {
     background: @gray-lighter;
@@ -624,6 +633,11 @@ form .ng-dirty.ng-valid {
             display: block;
             font-size: 11px;
             font-style: normal;
+        }
+
+        i.new {
+            background-color: #419641;
+            border-top: 0;
         }
 
         strong {

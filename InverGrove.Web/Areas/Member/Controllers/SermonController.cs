@@ -7,6 +7,7 @@ using InverGrove.Domain.Models;
 using InverGrove.Domain.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Web;
 
 namespace InverGrove.Web.Areas.Member.Controllers
 {
@@ -35,7 +36,7 @@ namespace InverGrove.Web.Areas.Member.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(Sermon sermon)
+        public ActionResult Add(Sermon sermon, HttpPostedFileBase file)
         {
             if (sermon == null)
             {

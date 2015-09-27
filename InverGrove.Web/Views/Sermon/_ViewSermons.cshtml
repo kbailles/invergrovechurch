@@ -72,7 +72,7 @@
                         <div class="sermon-content-wrap">
                             <header class="sermon-header">
                                 <div class="sermon-date">
-                                    <a class="date" href="#"><strong>{{::sermon.sermonDate | date : 'dd'}}</strong><i>{{::sermon.sermonDate | date : 'MMM'}}</i></a>
+                                    <a class="date" href="#"><strong>{{::sermon.sermonDate | date : 'dd'}}</strong><i>{{::sermon.sermonDate | date : 'MMM'}}</i><i class="new" ng-if="::vm.isNewSermon(sermon.sermonDate)">New!</i></a>
                                 </div>
                                 <h3 class="sermon-title">
                                     <a ng-href="/Sermon/SermonDetail/?sermonId={{::sermon.sermonId}}">{{::sermon.title}}</a>
@@ -83,7 +83,7 @@
                                         {{::sermon.speaker}}
                                     </div>
                                     <div class="sermon-entry-meta-tags">
-                                        <i class="fa" ng-class="sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
+                                        <i class="fa" ng-class="::sermon.tags.split(',').length > 1 ? 'fa-tags' : 'fa-tag'"></i>
                                         <div class="tags-container" ng-repeat="tag in sermon.tags.split(',')">
                                             {{::tag }}{{::! $last ? ',&nbsp;' : ''}}
                                         </div>

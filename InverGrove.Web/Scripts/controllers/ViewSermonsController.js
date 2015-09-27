@@ -13,6 +13,8 @@
     function ViewSermonsController($window) {
         var vm = this;
 
+        vm.now = moment();
+
         /*
          * Public declarations
          */
@@ -27,6 +29,7 @@
         vm.tagsFilter = [];
 
         vm.toggleTagChecked = toggleTagChecked;
+        vm.isNewSermon = isNewSermon;
 
 
         function filteredSpeakers() {
@@ -59,6 +62,10 @@
             } else {
                 vm.tagsFilter.push(value);
             }
+        }
+
+        function isNewSermon(sermonDate) {
+            return vm.now.diff(moment(sermonDate), 'days') < 7;
         }
     }
 })();
