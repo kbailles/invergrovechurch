@@ -49,6 +49,7 @@
 
         function resetContactUsForm() {
             vm.contactUsObj = {};
+            vm.humanTest = '';
             $scope.form.$setPristine();
         }
 

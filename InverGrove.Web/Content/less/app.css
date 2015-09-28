@@ -26,6 +26,22 @@ a:focus {
   background-color: inherit;
   text-decoration: inherit;
 }
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #f5e79e;
+  background-image: -webkit-linear-gradient(top, #fcf8e3 0%, #f8efc0 100%);
+  background-image: -o-linear-gradient(top, #fcf8e3 0%, #f8efc0 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fcf8e3), to(#f8efc0));
+  background-image: linear-gradient(to bottom, #fcf8e3 0%, #f8efc0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fff8efc0', GradientType=0);
+  background-repeat: repeat-x;
+}
+.radio-alert {
+  border-radius: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
 body {
   background: url('../images/graymatte.png') repeat;
   color: #767676;

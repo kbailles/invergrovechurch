@@ -37,6 +37,20 @@
 </head>
 <body ng-controller="BaseCtrl as base">
     <div class="container wrapper">
+
+        @if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday
+            && (
+                (DateTime.Now.Hour == 11 && DateTime.Now.Minute < 35)
+                || (DateTime.Now.Hour == 10 && DateTime.Now.Minute > 55)
+                )
+            )
+        {
+            <!-- Saturday between 11AM-11:30AM -->
+            <div class="alert-warning alert radio-alert">
+                <strong>Our radio broadcast "Letting the Bible Speak" is live! <a href="javascript:ga('send', 'event', 'Listen Live', 'Button Click');window.open('http://saleminteractivemedia.com/ListenLive/Player/KKMSAM','','width=800,height=710,status=no,resizable=no,scrollbars=no');void(0);">Click here to listen!</a></strong>
+            </div>
+        }
+
         <header>
             <div class="top-bar">
                 <div class="container">
@@ -46,6 +60,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="bottom-bar" sticky>
                 <div class="container">
@@ -86,7 +101,6 @@
             <!--[if lt IE 7]>
                 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
-
             @RenderBody()
         </main>
 
