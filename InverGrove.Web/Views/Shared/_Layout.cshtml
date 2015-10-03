@@ -38,14 +38,15 @@
 <body ng-controller="BaseCtrl as base">
     <div class="container wrapper">
 
-        @if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday
+        @{ DateTime centralNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time")); }
+        @if (centralNow.DayOfWeek == DayOfWeek.Saturday
             && (
-                (DateTime.Now.Hour == 11 && DateTime.Now.Minute < 35)
-                || (DateTime.Now.Hour == 10 && DateTime.Now.Minute > 55)
+                (centralNow.Hour == 11 && centralNow.Minute < 35)
+                || (centralNow.Hour == 10 && centralNow.Minute > 55)
                 )
             )
         {
-            <!-- Saturday between 11AM-11:30AM -->
+            <!-- Saturday between 11AM-11:30AM Central Time -->
             <div class="alert-warning alert radio-alert">
                 <strong>Our radio broadcast "Letting the Bible Speak" is live! <a href="javascript:ga('send', 'event', 'Listen Live', 'Button Click');window.open('http://saleminteractivemedia.com/ListenLive/Player/KKMSAM','','width=800,height=710,status=no,resizable=no,scrollbars=no');void(0);">Click here to listen!</a></strong>
             </div>
