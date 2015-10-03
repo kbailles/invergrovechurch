@@ -41,7 +41,7 @@
         @{ DateTime centralNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time")); }
         @if (centralNow.DayOfWeek == DayOfWeek.Saturday
             && (
-                (centralNow.Hour == 11 && centralNow.Minute < 35)
+                (centralNow.Hour == 6 && centralNow.Minute < 35)
                 || (centralNow.Hour == 10 && centralNow.Minute > 55)
                 )
             )
