@@ -506,26 +506,26 @@ h3.title:after {
   background-color: #323b44;
   border-bottom: 3px solid #2eaef0;
 }
-.need-ride {
+.white-box {
   background: #fff;
   min-height: 100px;
   width: 100%;
 }
-.need-ride .need-ride-content {
+.white-box .white-box-content {
   padding: 20px 0;
 }
-.need-ride .need-ride-content .contact-us {
+.white-box .white-box-content .box-action {
   padding-top: 15px;
   vertical-align: middle;
 }
-.need-ride .need-ride-content h3 {
+.white-box .white-box-content h3 {
   margin: 25px 0 25px;
 }
 @media (max-width: 991px) {
-  .need-ride .need-ride-content .contact-us {
+  .white-box .white-box-content .box-action {
     text-align: center !important;
   }
-  .need-ride .need-ride-content .btn {
+  .white-box .white-box-content .btn {
     float: none !important;
   }
 }
