@@ -16,7 +16,7 @@
                 streetViewControl: true,
                 overviewMapControl: true
             },
-            address: 'Inver Grove Church of Christ',
+            address: '8777 Courthouse Blvd, Inver Grove Heights, MN 55077, United States',
             zoom: 13,
             markers: [
                 {
