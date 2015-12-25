@@ -50,7 +50,6 @@ namespace InverGrove.Domain.Repositories
                 }
             }
 
-
             return newEntityAttendance.AttendanceId;
         }
     }

@@ -9,12 +9,12 @@ namespace InverGrove.Data
     public interface IInverGroveContext : IQueryableDataContext
     {
         /// <summary>
-        /// Gets or sets the attendances.
+        /// Gets the attendances.
         /// </summary>
         /// <value>
         /// The attendances.
         /// </value>
-        IDbSet<Attendance> Attendances { get; set; }
+        IDbSet<Attendance> Attendances { get; }
 
         /// <summary>
         /// Gets or sets the absent reasons.

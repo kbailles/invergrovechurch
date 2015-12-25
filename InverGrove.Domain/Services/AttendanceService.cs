@@ -80,6 +80,8 @@ namespace InverGrove.Domain.Services
                     LastName = member.LastName,
                     AbsentReasons = absentReasonSelectList
                 };
+
+                attendanceList.Add(personAttendance);
             }
 
             return attendanceList;

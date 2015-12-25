@@ -32,7 +32,7 @@
                     @foreach (var sermon in Model)
                     {
                         var i = 0;
-                        var tags = sermon.Tags.Split(',');
+                        var tags = sermon.Tags != null ? sermon.Tags.Split(',') : new[] {""};
                         
                         <article class="sermon hentry">
                             <div class="sermon-content-wrap">

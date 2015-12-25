@@ -12,6 +12,8 @@ namespace InverGrove.Data
 {
     public class InverGroveContext : DbContext, IInverGroveContext
     {
+        private IDbSet<Attendance> attendances;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="InverGroveContext"/> class.
         /// </summary>
@@ -56,12 +58,16 @@ namespace InverGrove.Data
         public IDbSet<AbsentReason> AbsentReasons { get; set; }
 
         /// <summary>
-        /// Gets or sets the attendances.
+        /// Gets the attendances.
         /// </summary>
         /// <value>
         /// The attendances.
         /// </value>
-        public IDbSet<Attendance> Attendances { get; set; }
+        public IDbSet<Attendance> Attendances 
+        {
+            // Changing this to just a getter as don't believe we need a setter.  Might do this with the rest as well.
+            get { return this.attendances ?? (this.attendances = this.Set<Attendance>()); }
+        }
 
         /// <summary>
         /// Gets or sets the contacts.
