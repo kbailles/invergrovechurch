@@ -445,6 +445,7 @@ namespace InverGrove.Domain.Extensions
 
             attendanceEntity.AttendanceId = attendance.AttendanceId;
             attendanceEntity.AbsentReasonId = attendance.AbsentReasonId == 0 ? null : attendance.AbsentReasonId;
+            attendanceEntity.IsAbsent = attendance.IsAbsent;
             attendanceEntity.DateAttended = attendance.DateAttended;
             attendanceEntity.IsEvening = attendance.IsEvening;
             attendanceEntity.IsSunday = attendance.IsSunday;
@@ -466,12 +467,30 @@ namespace InverGrove.Domain.Extensions
             attendance.AttendanceId = attendanceEntity.AttendanceId;
             attendance.AbsentReasonId = attendanceEntity.AbsentReasonId;
             attendance.DateAttended = attendanceEntity.DateAttended;
+            attendance.IsAbsent = attendanceEntity.IsAbsent;
             attendance.IsEvening = attendanceEntity.IsEvening;
             attendance.IsSunday = attendanceEntity.IsSunday;
             attendance.IsWednesday = attendanceEntity.IsWednesday;
             attendance.PersonId = attendanceEntity.PersonId;
 
             return attendance;
+        }
+
+        public static IEnumerable<Attendance> ToModelCollection(this IEnumerable<Data.Entities.Attendance> attendanceEntityCollection)
+        {
+            var attendanceCollection = new List<Attendance>();
+
+            if (attendanceEntityCollection == null)
+            {
+                return attendanceCollection;
+            }
+
+            foreach (var attendance in attendanceEntityCollection)
+            {
+                attendanceCollection.Add(attendance.ToModel());
+            }
+
+            return attendanceCollection;
         }
     }
 }

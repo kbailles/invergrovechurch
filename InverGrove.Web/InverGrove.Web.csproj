@@ -911,6 +911,7 @@
     <Content Include="Scripts\common\logger.js" />
     <Content Include="Scripts\common\namespace.js" />
     <Content Include="Scripts\controllers\AccountController.js" />
+    <Content Include="Scripts\controllers\AttendanceController.js" />
     <Content Include="Scripts\controllers\BaseController.js" />
     <Content Include="Scripts\controllers\controllers.module.js" />
     <Content Include="Scripts\controllers\DirectoryController.js" />
@@ -1001,6 +1002,7 @@
     <Content Include="Areas\Member\Views\Shared\EditorTemplates\Person.cshtml" />
     <Content Include="Components\modernizr\modernizr-2.6.2.js" />
     <Content Include="Scripts\namespace.variables.js" />
+    <Content Include="Scripts\services\AttendanceService.js" />
     <Content Include="Scripts\services\MessageService.js" />
     <Content Include="Scripts\services\NewsEventsService.js" />
     <Content Include="Scripts\services\SermonService.js" />
@@ -1255,6 +1257,7 @@
     <Content Include="bower_components\ng-file-upload\bower.json" />
     <Content Include="bower_components\ng-file-upload\LICENSE" />
     <Content Include="bower_components\ng-file-upload\README.md" />
+    <Content Include="Areas\Member\Views\Attendance\_ManageAttendance.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1301,7 +1304,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Member\Views\Attendance\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">

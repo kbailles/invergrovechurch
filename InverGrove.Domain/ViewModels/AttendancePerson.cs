@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using InverGrove.Domain.Interfaces;
 using System.Web.Mvc;
+using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Domain.ViewModels
 {
@@ -32,6 +30,14 @@ namespace InverGrove.Domain.ViewModels
         /// The absent reason description.
         /// </value>
         public string AbsentReasonDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is absent.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is absent; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsAbsent { get; set; }
 
         /// <summary>
         /// Gets or sets the person identifier.

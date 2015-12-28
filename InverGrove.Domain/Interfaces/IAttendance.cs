@@ -59,6 +59,14 @@ namespace InverGrove.Domain.Interfaces
         bool IsWednesday { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether this instance is absent.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is absent; otherwise, <c>false</c>.
+        /// </value>
+        bool IsAbsent { get; set; }
+
+        /// <summary>
         /// Gets or sets the person identifier.
         /// </summary>
         /// <value>

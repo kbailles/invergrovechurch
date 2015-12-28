@@ -2,7 +2,7 @@
 
 namespace InverGrove.Domain.Models
 {
-    public class Attendance : InverGrove.Domain.Interfaces.IAttendance
+    public class Attendance : Interfaces.IAttendance
     {
         /// <summary>
         /// Gets or sets the attendance identifier.
@@ -19,6 +19,14 @@ namespace InverGrove.Domain.Models
         /// The absent reason identifier.
         /// </value>
         public int? AbsentReasonId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is absent.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is absent; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsAbsent { get; set; }
 
         /// <summary>
         /// Gets or sets the person identifier.

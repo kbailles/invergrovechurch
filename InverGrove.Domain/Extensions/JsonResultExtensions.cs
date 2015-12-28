@@ -1,8 +1,6 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Helpers;
-using JetBrains.Annotations;
 
 namespace InverGrove.Domain.Extensions
 {

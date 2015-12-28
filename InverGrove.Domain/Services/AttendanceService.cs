@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.ViewModels;
-using InverGrove.Domain.Utils;
+using System.Linq;
 using System.Web.Mvc;
+using InverGrove.Domain.Extensions;
+using InverGrove.Domain.Interfaces;
+using InverGrove.Domain.Utils;
+using InverGrove.Domain.ViewModels;
 
 namespace InverGrove.Domain.Services
 {
@@ -88,6 +90,54 @@ namespace InverGrove.Domain.Services
         }
 
         /// <summary>
+        /// Gets the past six months base total attendance for past 6 months for the manage attendance page.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<IManageAttendance> GetManageAttendanceList()
+        {
+            // Get all past 6 months of attendance
+            var attendanceList =
+                this.attendanceRepository.Get(x => (x.DateAttended.Date >= DateTime.Now.Date.AddMonths(-6)))
+                    .ToModelCollection()
+                    .ToList();
+
+            // Get absent total count per date
+            var isAbsentCollection = (from at in attendanceList
+                where at.IsAbsent
+                group at by at.DateAttended
+                into ga
+                select new ManageAttendance
+                       {
+                           DateAttended = ga.Key,
+                           AbsentCount = ga.Count()
+                       }).ToList();
+
+            // Get attended total count per date
+            var attendedCollection = (from at in attendanceList
+                where !at.IsAbsent
+                group at by at.DateAttended
+                into ga
+                select new ManageAttendance
+                       {
+                           DateAttended = ga.Key,
+                           AttendedCount = ga.Count()
+                       }).ToList();
+
+            // Combine the counts together
+            foreach (var absentNumber in isAbsentCollection)
+            {
+                var dateAttended = attendedCollection.FirstOrDefault(a => a.DateAttended == absentNumber.DateAttended);
+
+                if (dateAttended != null)
+                {
+                    dateAttended.AbsentCount = absentNumber.AbsentCount;
+                }
+            }
+
+            return attendedCollection;
+        }
+
+        /// <summary>
         /// Gets the attendance by date.
         /// </summary>
         /// <param name="startDate">The start date.</param>
@@ -99,7 +149,7 @@ namespace InverGrove.Domain.Services
 
             if(startDate.Date.Equals(endDate.Date))
             {
-                endDate.AddDays(1);
+                endDate = endDate.AddDays(1);
             }
 
             var peoplesAttendance = this.attendanceRepository.Get(x =>

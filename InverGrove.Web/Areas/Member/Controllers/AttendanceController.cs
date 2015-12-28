@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.ViewModels;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace InverGrove.Web.Areas.Member.Controllers
 {
@@ -19,15 +20,16 @@ namespace InverGrove.Web.Areas.Member.Controllers
 
         // GET: Member/Attendance
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult ManageAttendance()
         {
             var membersForAttendance = this.attendanceService.GetMembersForAttendance();
 
-            return this.Json(membersForAttendance, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+            return View("_ManageAttendance", (object)JsonConvert.SerializeObject(membersForAttendance, 
+                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
 
         [HttpPost]
-        public JsonResult Index(List<AttendancePerson> attendancePersons)
+        public JsonResult Add(List<AttendancePerson> attendancePersons)
         {
             if (attendancePersons == null)
             {
