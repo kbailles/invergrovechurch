@@ -55,6 +55,7 @@ bin/
 obj/
 *.log
 */log.txt
+[Pp]ublishProfiles/
 DbConnection.txt
 invergrovechurch.com.publishsettings
 InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy.pubxml
