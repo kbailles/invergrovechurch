@@ -58,6 +58,7 @@ obj/
 [Pp]ublishProfiles/
 DbConnection.txt
 Web.Release.config
+Web.Debug.config
 invergrovechurch.com.publishsettings
 InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy.pubxml
 InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy (2).pubxml

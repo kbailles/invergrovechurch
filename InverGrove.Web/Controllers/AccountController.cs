@@ -91,29 +91,11 @@ namespace InverGrove.Web.Controllers
             {
                 if (Membership.ValidateUser(model.UserName, model.Password))
                 {
-                    var userProfile = this.profileService.GetProfileByUserName(model.UserName);
+                    var result = this.AuthenticateUser(model, returnUrl);
 
-                    if (!userProfile.IsDisabled)
+                    if (result != null)
                     {
-                        FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-
-                        SetDisplayUserFirstLastName(userProfile);
-                        var userRoles = this.roleProvider.GetRolesForUser(model.UserName);
-
-                        if (!string.IsNullOrEmpty(returnUrl))
-                        {
-                            return Redirect(returnUrl);
-                        }
-
-                        if (userRoles.Contains("Member"))
-                        {
-                            return Redirect(Url.Action("Directory", "Member", new { area = "Member" }));
-                        }
-
-                        if (userRoles.Contains("MemberAdmin") || userRoles.Contains("SiteAdmin"))
-                        {
-                            return Redirect(Url.Action("ManageMembers", "Member", new { area = "Member" }));
-                        }
+                        return result;
                     }
                 }
             }
@@ -192,7 +174,13 @@ namespace InverGrove.Web.Controllers
                         Password = model.Password,
                         RememberMe = false
                     };
-                    return RedirectToAction("Login", "Account", new { model = loginModel, returnUrl = "" });
+
+                    var result = this.AuthenticateUser(loginModel, "");
+
+                    if (result != null)
+                    {
+                        return result;
+                    }
                 }
 
                 if (registerUserResult.MembershipCreateStatus == MembershipCreateStatus.DuplicateUserName)
@@ -203,6 +191,37 @@ namespace InverGrove.Web.Controllers
             }
 
             return View("Register", model);
+        }
+
+        private ActionResult AuthenticateUser(LoginUser model, string returnUrl)
+        {
+            var userProfile = this.profileService.GetProfileByUserName(model.UserName);
+
+            if (!userProfile.IsDisabled)
+            {
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
+                this.SetDisplayUserFirstLastName(userProfile);
+
+                var userRoles = this.roleProvider.GetRolesForUser(model.UserName);
+
+                if (!string.IsNullOrEmpty(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+
+                if (userRoles.Contains("Member"))
+                {
+                    return Redirect(Url.Action("Directory", "Member", new {area = "Member"}));
+                }
+
+                if (userRoles.Contains("MemberAdmin") || userRoles.Contains("SiteAdmin"))
+                {
+                    return Redirect(Url.Action("ManageMembers", "Member", new {area = "Member"}));
+                }
+            }
+
+            return null;
         }
 
         private void SetDisplayUserFirstLastName(IProfile userProfile)
