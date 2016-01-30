@@ -8,9 +8,9 @@ namespace InverGrove.Domain.Services
     {
         private readonly ILogService logService;
 
-        public SessionStateService(ILogService logService)
+        public SessionStateService()
         {
-            this.logService = logService;
+            this.logService = null; // removing for now
         }
 
         /// <summary>
@@ -29,7 +29,10 @@ namespace InverGrove.Domain.Services
             {
                 HttpContext.Current.Session[key] = value;
 
-                this.logService.WriteToLog("Value was added to Session with key of: " + key);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToLog("Value was added to Session with key of: " + key);
+                }
             }
         }
 
@@ -54,8 +57,12 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                this.logService.WriteToErrorLog("Exception thrown when checking Session Contains");
-                this.logService.WriteToErrorLog(e.StackTrace);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Exception thrown when checking Session Contains");
+                    this.logService.WriteToErrorLog(e.StackTrace);
+                }
+
                 return false;
             }
 
@@ -117,7 +124,10 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                this.logService.WriteToErrorLog(e);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(e);
+                }
             }
 
             return default(TResult);
@@ -162,7 +172,10 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                this.logService.WriteToErrorLog(e);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(e);
+                }
             }
 
             return default(TResult);
@@ -208,7 +221,10 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                this.logService.WriteToErrorLog(e);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(e);
+                }
             }
 
             return default(TResult);
@@ -256,7 +272,10 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                this.logService.WriteToErrorLog(e);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(e);
+                }
             }
 
             return default(TResult);
@@ -286,7 +305,10 @@ namespace InverGrove.Domain.Services
             }
             catch (Exception e)
             {
-                this.logService.WriteToErrorLog(e);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(e);
+                }
             }
 
             return default(TResult);
