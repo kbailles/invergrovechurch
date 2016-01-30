@@ -23,10 +23,10 @@ namespace InverGrove.Domain.Repositories
         /// </summary>
         /// <param name="dataContext">The data context.</param>
         /// <param name="logService">The log service.</param>
-        public MembershipRepository(IInverGroveContext dataContext, ILogService logService)
+        public MembershipRepository(IInverGroveContext dataContext)//, ILogService logService
             : base(dataContext)
         {
-            this.logService = logService;
+            this.logService = null; // logService;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace InverGrove.Domain.Repositories
         /// <returns></returns>
         public new static IMembershipRepository Create()
         {
-            return new MembershipRepository(InverGroveContext.Create(), new LogService("", false));
+            return new MembershipRepository(InverGroveContext.Create()); //, new LogService("", false)
         }
 
         /// <summary>
@@ -65,8 +65,12 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    this.logService.WriteToErrorLog("Error occurred when attempting to insert a membership record with user name: " + userName +
-                    " with message: " + sql.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to insert a membership record with user name: " + userName +
+                            " with message: " + sql.Message);
+                    }
 
                     return membership;
                 }
@@ -81,16 +85,23 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog("Error occurred when attempting to insert a membership record with user name: " + userName +
-                    " with message: " + sb);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to insert a membership record with user name: " + userName +
+                            " with message: " + sb);
+                    }
 
                     return membership;
                 }
                 catch (Exception ex)
                 {
-                    this.logService.WriteToErrorLog(
-                        "Error occurred when attempting to insert a membership record with user name: " + userName +
-                        " with message: " + ex.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to insert a membership record with user name: " + userName +
+                            " with message: " + ex.Message);
+                    }
 
                     return membership;
                 }
@@ -144,9 +155,13 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    this.logService.WriteToErrorLog(
-                        "Error occurred when attempting to update a membership record with MembershipId: " + membership.MembershipId +
-                        " with message: " + sql.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to update a membership record with MembershipId: " +
+                            membership.MembershipId +
+                            " with message: " + sql.Message);
+                    }
 
                     return false;
                 }
@@ -161,18 +176,25 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog(
-                        "Error occurred when attempting to insert a membership record with with MembershipId: " +
-                        membership.MembershipId +
-                        " with message: " + sb);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to insert a membership record with with MembershipId: " +
+                            membership.MembershipId +
+                            " with message: " + sb);
+                    }
 
                     return false;
                 }
                 catch (Exception ex)
                 {
-                    this.logService.WriteToErrorLog(
-                        "Error occurred when attempting to update a membership record with MembershipId: " + membership.MembershipId +
-                        " with message: " + ex.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to update a membership record with MembershipId: " +
+                            membership.MembershipId +
+                            " with message: " + ex.Message);
+                    }
 
                     return false;
                 }

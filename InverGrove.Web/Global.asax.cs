@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
@@ -11,7 +12,7 @@ using InverGrove.Domain.Interfaces;
 
 namespace InverGrove.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         private static readonly IWindsorContainer container = IocFactory.Instance;
 

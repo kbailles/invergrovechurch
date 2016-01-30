@@ -13,10 +13,10 @@ namespace InverGrove.Domain.Repositories
     {
         private readonly ILogService logService;
 
-        public SermonRepository(IInverGroveContext dataContext, ILogService logService)
+        public SermonRepository(IInverGroveContext dataContext)//, ILogService logService
             : base(dataContext)
         {
-            this.logService = logService;
+            this.logService = null; //logService;
         }
 
         /// <summary>
@@ -48,12 +48,18 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                this.logService.WriteToErrorLog("Error when attempting to add new sermon in SermonRepository: " + ex.Message);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Error when attempting to add new sermon in SermonRepository: " + ex.Message);
+                }
             }
             catch (Exception ex)
             {
-                this.logService.WriteToErrorLog(
-                    "Error when attempting to add new sermon in SermonRepository with message: " + ex.Message);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(
+                        "Error when attempting to add new sermon in SermonRepository with message: " + ex.Message);
+                }
             }
 
             return newEntitySermon.SermonId;
@@ -84,7 +90,10 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                this.logService.WriteToErrorLog("Error when attempting to update sermon in SermonRepository: " + ex.Message);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Error when attempting to update sermon in SermonRepository: " + ex.Message);
+                }
             }
             catch (DbEntityValidationException dbe)
             {
@@ -97,14 +106,20 @@ namespace InverGrove.Domain.Repositories
                     }
                 }
 
-                this.logService.WriteToErrorLog("Error occurred in attempting to update Sermon with SermonId: " + sermon.SermonId +
-                                               " with message: " + sb);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Error occurred in attempting to update Sermon with SermonId: " + sermon.SermonId +
+                                                    " with message: " + sb);
+                }
             }
             catch (Exception ex)
             {
-                this.logService.WriteToErrorLog(
-                    "Error occurred in attempting to update Sermon with SermonId: " + sermon.SermonId +
-                    " with message: " + ex.Message);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(
+                        "Error occurred in attempting to update Sermon with SermonId: " + sermon.SermonId +
+                        " with message: " + ex.Message);
+                }
             }
         }
     }

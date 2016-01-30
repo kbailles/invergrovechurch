@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Mail;
-using System.Runtime.CompilerServices;
 using System.Text;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Utils;
@@ -13,9 +12,9 @@ namespace InverGrove.Domain.Services
         private const string ToAddress = "lancebailles@hotmail.com;heidibailles@hotmail.com;kbailles@outlook.com";
         private string DefaultBaseHost = "http://www.invergrovechurch.com";
 
-        public EmailService(ILogService logService)
+        public EmailService()//ILogService logService
         {
-            this.logService = logService;
+            this.logService = null; //logService;
         }
 
         /// <summary>
@@ -57,7 +56,7 @@ namespace InverGrove.Domain.Services
 
             if (string.IsNullOrEmpty(hostName))
             {
-                hostName = DefaultBaseHost;
+                hostName = this.DefaultBaseHost;
             }
 
             if (!hostName.StartsWith("http"))
@@ -89,9 +88,9 @@ namespace InverGrove.Domain.Services
         private bool SendMail(MailMessage mailMessage)
         {
             Guard.ParameterNotNull(mailMessage, "mailMessage");
-            bool success = true;
+            var success = true;
 
-            SmtpClient smtpClient = new SmtpClient { DeliveryMethod = SmtpDeliveryMethod.Network };//  or "localhost"
+            var smtpClient = new SmtpClient { DeliveryMethod = SmtpDeliveryMethod.Network };//  or "localhost"
 
             try
             {
@@ -100,7 +99,12 @@ namespace InverGrove.Domain.Services
             catch (Exception ex)
             {
                 success = false;
-                this.logService.WriteToErrorLog("Email client failed to send email with subject: " + mailMessage.Subject + " error message: " + ex.Message);
+
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Email client failed to send email with subject: " + mailMessage.Subject +
+                                                    " error message: " + ex.Message);
+                }
             }
 
             return success;

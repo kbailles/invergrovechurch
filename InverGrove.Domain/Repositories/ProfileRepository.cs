@@ -2,18 +2,16 @@
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Text;
-using System.Web.Hosting;
 using InverGrove.Data;
+using InverGrove.Data.Entities;
 using InverGrove.Domain.Exceptions;
 using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
-using InverGrove.Domain.Models;
-using InverGrove.Domain.Services;
 using InverGrove.Domain.Utils;
 
 namespace InverGrove.Domain.Repositories
 {
-    public class ProfileRepository : EntityRepository<Data.Entities.Profile, int>, IProfileRepository
+    public class ProfileRepository : EntityRepository<Profile, int>, IProfileRepository
     {
         private readonly ILogService logService;
         private readonly object syncRoot = new object();
@@ -23,10 +21,10 @@ namespace InverGrove.Domain.Repositories
         /// </summary>
         /// <param name="dataContext">The data context.</param>
         /// <param name="logService">The log service.</param>
-        public ProfileRepository(IInverGroveContext dataContext, ILogService logService)
+        public ProfileRepository(IInverGroveContext dataContext)//, ILogService logService
             : base(dataContext)
         {
-            this.logService = logService;
+            this.logService = null; // logService;
         }
 
         /// <summary>
@@ -35,7 +33,7 @@ namespace InverGrove.Domain.Repositories
         /// <returns></returns>
         public new static IProfileRepository Create()
         {
-            return new ProfileRepository(InverGroveContext.Create(), new LogService("", false));
+            return new ProfileRepository(InverGroveContext.Create()); //, new LogService("", false)
         }
 
         /// <summary>
@@ -55,7 +53,7 @@ namespace InverGrove.Domain.Repositories
             profile.DateCreated = currentDate;
             profile.DateModified = currentDate;
 
-            Data.Entities.Profile profileEntity = ((Profile)profile).ToEntity();
+            Profile profileEntity = ((Models.Profile)profile).ToEntity();
             profileEntity.Person = null;
             profileEntity.User = null;
 
@@ -69,13 +67,17 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException ex)
                 {
-                    this.logService.WriteToErrorLog(
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
                         "Error occurred when attempting to add a profile record with UserId: " + profile.UserId +
                         " with message: " + ex.Message);
+                    }
                 }
                 catch (DbEntityValidationException dbe)
                 {
                     var sb = new StringBuilder();
+
                     foreach (var error in dbe.EntityValidationErrors)
                     {
                         foreach (var ve in error.ValidationErrors)
@@ -84,8 +86,11 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog("Error occurred when attempting to add a profile record with UserId: " + profile.UserId +
-                    " with message: " + sb);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred when attempting to add a profile record with UserId: " +
+                                                        profile.UserId + " with message: " + sb);
+                    }
                 }
             }
 
@@ -119,8 +124,8 @@ namespace InverGrove.Domain.Repositories
             profile.DateCreated = currentDate;
             profile.DateModified = currentDate;
 
-            Data.Entities.Profile profileEntity = ((Profile)profile).ToEntity();
-            profileEntity.Person = ((Person)person).ToEntity();
+            Profile profileEntity = ((Models.Profile)profile).ToEntity();
+            profileEntity.Person = ((Models.Person)person).ToEntity();
             profileEntity.User = null;
 
             this.Insert(profileEntity);
@@ -133,9 +138,12 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException ex)
                 {
-                    this.logService.WriteToErrorLog(
-                        "Error occurred when attempting to add a profile record with UserId: " + profile.UserId +
-                        " with message: " + ex.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog(
+                            "Error occurred when attempting to add a profile record with UserId: " + profile.UserId +
+                            " with message: " + ex.Message);
+                    }
                 }
                 catch (DbEntityValidationException dbe)
                 {
@@ -148,8 +156,11 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog("Error occurred when attempting to add a profile record with UserId: " + profile.UserId +
-                    " with message: " + sb);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred when attempting to add a profile record with UserId: " +
+                                                        profile.UserId + " with message: " + sb);
+                    }
                 }
             }
 
@@ -192,8 +203,11 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    this.logService.WriteToErrorLog("Error occurred when attempting to update a profile record with ProfileId: " + profile.ProfileId +
-                    " with message: " + sql.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred when attempting to update a profile record with ProfileId: " +
+                                                        profile.ProfileId + " with message: " + sql.Message);
+                    }
 
                     return false;
                 }
@@ -208,8 +222,11 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog("Error occurred when attempting to update a profile record with ProfileId: " + profile.ProfileId +
-                    " with message: " + sb);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred when attempting to update a profile record with ProfileId: " +
+                                                        profile.ProfileId + " with message: " + sb);
+                    }
 
                     return false;
                 }

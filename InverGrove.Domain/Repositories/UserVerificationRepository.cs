@@ -12,10 +12,10 @@ namespace InverGrove.Domain.Repositories
     {
         private readonly ILogService logService;
 
-        public UserVerificationRepository(IInverGroveContext dataContext, ILogService logService)
+        public UserVerificationRepository(IInverGroveContext dataContext)//, ILogService logService
             : base(dataContext)
         {
-            this.logService = logService;
+            this.logService = null; // logService;
         }
 
         /// <summary>
@@ -42,7 +42,12 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                this.logService.WriteToErrorLog("Error when attempting to add new UserVerificatioin in UserVerificationRepository: " + ex.Message);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog(
+                        "Error when attempting to add new UserVerificatioin in UserVerificationRepository: " + ex.Message);
+                }
+
                 return Guid.Empty;
             }
 
@@ -91,8 +96,12 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException ex)
                 {
-                    this.logService.WriteToErrorLog("Error when attempting to update UserVerificatioin in UserVerificationRepository with Identifier of: "
-                        + userVerification.Identifier + " message:" + ex.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error when attempting to update UserVerificatioin in UserVerificationRepository with Identifier of: "
+                                                        + userVerification.Identifier + " message:" + ex.Message);
+                    }
+
                     return false;
                 }
 

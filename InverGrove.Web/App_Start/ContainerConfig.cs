@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
@@ -25,8 +25,8 @@ namespace InverGrove.Web
             RegisterServices(container);
             RegisterFactories(container);
 
-            var logService = new LogService("", false);
-            container.Register(Component.For<ILogService>().Instance(logService).LifeStyle.Singleton);
+            //var logService = new LogService("", false);
+            //container.Register(Component.For<ILogService>().Instance(logService).LifeStyle.Singleton);
             container.Register(Component.For<IProfileProvider>().ImplementedBy<ProfileProvider>().LifeStyle.Transient);
             container.Register(Component.For<IMembershipProvider>().ImplementedBy<MembershipProvider>().LifeStyle.Transient);
         }
@@ -86,7 +86,7 @@ namespace InverGrove.Web
                 container.Register(Component.For<IController>().ImplementedBy(controllerType).Named(controllerType.FullName.ToLower()).LifeStyle.Transient);
             }
 
-            foreach (var apiControllerType in assemblyTypes.Where(a => typeof (System.Web.Http.ApiController).IsAssignableFrom(a)))
+            foreach (var apiControllerType in assemblyTypes.Where(a => typeof (ApiController).IsAssignableFrom(a)))
             {
                 container.Register(Component.For<IHttpController>().ImplementedBy(apiControllerType).Named(apiControllerType.FullName.ToLower()).LifeStyle.Transient);
             }

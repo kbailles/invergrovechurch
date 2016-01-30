@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using InverGrove.Data;
 using InverGrove.Data.Entities;
 using InverGrove.Domain.Enums;
@@ -16,7 +14,6 @@ namespace InverGrove.Domain.Repositories
 {
     public class PersonRepository : EntityRepository<Person, int>, IPersonRepository
     {
-        private readonly IPhoneNumberRepository phoneNumberRepository;
         private readonly ILogService logService;
         private readonly object syncRoot = new object();
 
@@ -26,11 +23,10 @@ namespace InverGrove.Domain.Repositories
         /// <param name="dataContext">The data context.</param>
         /// <param name="phoneNumberRepository">The phone number repository.</param>
         /// <param name="logService">The log service.</param>
-        public PersonRepository(IInverGroveContext dataContext, IPhoneNumberRepository phoneNumberRepository, ILogService logService)
+        public PersonRepository(IInverGroveContext dataContext)//, ILogService logService
             : base(dataContext)
         {
-            this.phoneNumberRepository = phoneNumberRepository;
-            this.logService = logService;
+            this.logService = null; //logService;
         }
 
 
@@ -69,15 +65,21 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
-                                                   person.FirstName + " " + person.LastName + " with message: " + sql.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
+                                                        person.FirstName + " " + person.LastName + " with message: " + sql.Message);
+                    }
                 }
                 catch (DbEntityValidationException dbe)
                 {
                     var sb = dbe.ToValidationErrorMessage();
 
-                    this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
-                                                   person.FirstName + " " + person.LastName + " with message: " + sb.ToString());
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to add Person with name: " +
+                                                        person.FirstName + " " + person.LastName + " with message: " + sb.ToString());
+                    }
                 }
             }
 
@@ -181,22 +183,35 @@ namespace InverGrove.Domain.Repositories
                 catch (SqlException sql)
                 {
                     person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
-                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
+
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
                                                    " with message: " + sql.Message);
+                    }
                 }
                 catch (DbEntityValidationException dbe)
                 {
                     var sb = dbe.ToValidationErrorMessage();
 
                     person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
-                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
-                                                   " with message: " + sb);
+
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " +
+                                                        person.PersonId +
+                                                        " with message: " + sb);
+                    }
                 }
                 catch (Exception ex)
                 {
                     person.ErrorMessage = "Error occurred in attempting to update Person with PersonId: " + person.PersonId;
-                    this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " + person.PersonId +
-                                                   " with message: " + ex.Message);
+
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to update Person with PersonId: " +
+                                                        person.PersonId + " with message: " + ex.Message);
+                    }
                 }
             }
 
@@ -240,17 +255,23 @@ namespace InverGrove.Domain.Repositories
             }
             catch (SqlException ex)
             {
-                this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with PersonId: " + person.PersonId +
-                                               " with message: " + ex.Message);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with PersonId: " + person.PersonId +
+                                                    " with message: " + ex.Message);
+                }
                 return false;
             }
             catch (DbEntityValidationException dbe)
             {
                 var sb = dbe.ToValidationErrorMessage();
 
-                this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with name: " +
-                                               person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
-                                               " with message: " + sb);
+                if (this.logService != null)
+                {
+                    this.logService.WriteToErrorLog("Error occurred in attempting to delete Person with name: " +
+                                                    person.FirstName + " " + person.LastName + " personId: " + person.PersonId +
+                                                    " with message: " + sb);
+                }
 
                 return false;
             }

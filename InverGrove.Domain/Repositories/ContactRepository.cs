@@ -21,10 +21,10 @@ namespace InverGrove.Domain.Repositories
         /// </summary>
         /// <param name="dataContext">The data context.</param>
         /// <param name="logService">The log service.</param>
-        public ContactRepository(IInverGroveContext dataContext, ILogService logService)
+        public ContactRepository(IInverGroveContext dataContext)//, ILogService logService // removing for now, might replace with DB logging
             : base(dataContext)
         {
-            this.logService = logService;
+            this.logService = null; // logService;
         }
 
         public IEnumerable<Contact> GetAllContacts()
@@ -58,8 +58,11 @@ namespace InverGrove.Domain.Repositories
                 }
                 catch (SqlException sql)
                 {
-                    this.logService.WriteToErrorLog("Error occurred in attempting to add Contact with name: " +
-                                                   contact.Name + " email:" + contact.Email + " with message: " + sql.Message);
+                    if (this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to add Contact with name: " +
+                                                        contact.Name + " email:" + contact.Email + " with message: " + sql.Message);
+                    }
                 }
                 catch (DbEntityValidationException dbe)
                 {
@@ -72,8 +75,11 @@ namespace InverGrove.Domain.Repositories
                         }
                     }
 
-                    this.logService.WriteToErrorLog("Error occurred in attempting to add Contact with name: " +
+                    if(this.logService != null)
+                    {
+                        this.logService.WriteToErrorLog("Error occurred in attempting to add Contact with name: " +
                                                    contact.Name + " email:" + contact.Email + " with message: " + sb.ToString());
+                    }
                 }
             }
 
