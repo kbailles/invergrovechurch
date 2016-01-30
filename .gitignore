@@ -63,3 +63,4 @@ InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy.pubx
 InverGrove.Web/Properties/PublishProfiles/invergrovechurch.com - Web Deploy (2).pubxml
 InverGrove.Web/Web.config
 InverGrove.Web/Web.config
+InverGrove.Web/Web.Release.config
