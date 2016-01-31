@@ -95,6 +95,8 @@ namespace InverGrove.Domain.Services
         /// <returns></returns>
         public IEnumerable<IManageAttendance> GetManageAttendanceList()
         {
+            var manageAttendanceList = new List<IManageAttendance>();
+
             // Get all past 6 months of attendance
             var attendanceList =
                 this.attendanceRepository.Get(x => (x.DateAttended.Date >= DateTime.Now.Date.AddMonths(-6)))
@@ -102,7 +104,7 @@ namespace InverGrove.Domain.Services
                     .ToList();
 
             // Get absent total count per date
-            var isAbsentCollection = (from at in attendanceList
+            var absentCollection = (from at in attendanceList
                 where at.IsAbsent
                 group at by at.DateAttended
                 into ga
@@ -124,26 +126,53 @@ namespace InverGrove.Domain.Services
                        }).ToList();
 
             // Combine the counts together
-            foreach (var absentNumber in isAbsentCollection)
+            foreach (var absentNumber in absentCollection)
             {
+                var manageData = new ManageAttendance
+                {
+                    DateAttended = absentNumber.DateAttended,
+                    AbsentCount = absentNumber.AbsentCount
+
+                };
+
                 var dateAttended = attendedCollection.FirstOrDefault(a => a.DateAttended == absentNumber.DateAttended);
 
                 if (dateAttended != null)
                 {
-                    dateAttended.AbsentCount = absentNumber.AbsentCount;
+                    manageData.AttendedCount = dateAttended.AttendedCount;
+                }
+
+                manageAttendanceList.Add(manageData);
+
+                attendedCollection.Remove(dateAttended);
+            }
+
+            if (attendedCollection.Count > 0)
+            {
+                foreach(var attendedNumber in attendedCollection)
+                {
+                    var manageData = new ManageAttendance
+                    {
+                        DateAttended = attendedNumber.DateAttended,
+                        AttendedCount = attendedNumber.AbsentCount
+
+                    };
+
+                    manageAttendanceList.Add(manageData);
+
                 }
             }
 
-            return attendedCollection;
+            return manageAttendanceList.OrderByDescending(x => x.DateAttended);
         }
 
         /// <summary>
-        /// Gets the attendance by date.
+        /// Gets the attendance by date range.
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <returns></returns>
-        public IEnumerable<IAttendancePerson> GetAttendanceByDate(DateTime startDate, DateTime endDate)
+        public IEnumerable<IAttendancePerson> GetAttendanceByDateRange(DateTime startDate, DateTime endDate)
         {
             var attendanceList = new List<IAttendancePerson>();
 
@@ -153,12 +182,32 @@ namespace InverGrove.Domain.Services
             }
 
             var peoplesAttendance = this.attendanceRepository.Get(x =>
-                (x.DateAttended >= startDate) && (x.DateAttended <= endDate), includeProperties: "AbsentReason,Person");
+                (x.DateAttended.Date >= startDate.Date) && (x.DateAttended.Date <= endDate.Date), includeProperties: "AbsentReason,Person");
 
-            foreach(var attendance in peoplesAttendance)
+            return this.GetDetailList(peoplesAttendance);
+        }
+
+        /// <summary>
+        /// Gets the attendance by date.
+        /// </summary>
+        /// <param name="attendanceDate">The attendance date.</param>
+        /// <returns></returns>
+        public IEnumerable<IAttendancePerson> GetAttendanceByDate(DateTime attendanceDate)
+        {
+            var peoplesAttendance = this.attendanceRepository.Get(x =>
+                (x.DateAttended.Date == attendanceDate.Date), includeProperties: "AbsentReason,Person");
+
+            return this.GetDetailList(peoplesAttendance);
+        }
+
+        private IEnumerable<IAttendancePerson> GetDetailList(IEnumerable<Data.Entities.Attendance> attendanceCollection)
+        {
+            var attendanceList = new List<IAttendancePerson>();
+
+            foreach (var attendance in attendanceCollection)
             {
-                var personAttendance = new AttendancePerson 
-                { 
+                var personAttendance = new AttendancePerson
+                {
                     AttendanceId = attendance.AttendanceId,
                     AbsentReasonId = attendance.AbsentReasonId,
                     DateAttended = attendance.DateAttended,
@@ -168,7 +217,7 @@ namespace InverGrove.Domain.Services
                     PersonId = attendance.PersonId
                 };
 
-                if(attendance.AbsentReason != null)
+                if (attendance.AbsentReason != null)
                 {
                     personAttendance.AbsentReasonDescription = attendance.AbsentReason.Description;
                 }

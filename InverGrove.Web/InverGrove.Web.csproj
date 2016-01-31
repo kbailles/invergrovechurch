@@ -912,6 +912,7 @@
     <Content Include="Scripts\common\namespace.js" />
     <Content Include="Scripts\controllers\AccountController.js" />
     <Content Include="Scripts\controllers\AttendanceController.js" />
+    <Content Include="Scripts\controllers\AttendanceModelController.js" />
     <Content Include="Scripts\controllers\BaseController.js" />
     <Content Include="Scripts\controllers\controllers.module.js" />
     <Content Include="Scripts\controllers\DirectoryController.js" />
@@ -1257,7 +1258,7 @@
     <Content Include="bower_components\ng-file-upload\bower.json" />
     <Content Include="bower_components\ng-file-upload\LICENSE" />
     <Content Include="bower_components\ng-file-upload\README.md" />
-    <Content Include="Areas\Member\Views\Attendance\_ManageAttendance.cshtml" />
+    <Content Include="Areas\Member\Views\Attendance\_Manage.cshtml" />
     <None Include="Properties\PublishProfiles\inverGroveFtp.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

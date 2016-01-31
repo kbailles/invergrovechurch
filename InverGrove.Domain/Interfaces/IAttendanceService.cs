@@ -23,10 +23,17 @@ namespace InverGrove.Domain.Interfaces
         /// <summary>
         /// Gets the attendance by date.
         /// </summary>
+        /// <param name="attendanceDate">The attendance date.</param>
+        /// <returns></returns>
+        IEnumerable<IAttendancePerson> GetAttendanceByDate(DateTime attendanceDate);
+
+        /// <summary>
+        /// Gets the attendance by date range.
+        /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
         /// <returns></returns>
-        IEnumerable<IAttendancePerson> GetAttendanceByDate(DateTime startDate, DateTime endDate);
+        IEnumerable<IAttendancePerson> GetAttendanceByDateRange(DateTime startDate, DateTime endDate);
 
         /// <summary>
         /// Gets the past six months base total attendance for past 6 months for the manage attendance page.

@@ -20,14 +20,28 @@ namespace InverGrove.Web.Areas.Member.Controllers
 
         // GET: Member/Attendance
         [HttpGet]
-        public ActionResult ManageAttendance()
+        public ActionResult Manage()
         {
             var membersForAttendance = this.attendanceService.GetMembersForAttendance();
 
-            return View("_ManageAttendance", (object)JsonConvert.SerializeObject(membersForAttendance, 
+            return View("_Manage", (object)JsonConvert.SerializeObject(membersForAttendance, 
                 new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
         }
 
+        [HttpGet]
+        public ActionResult Details(DateTime? attendanceDate)
+        {
+            if(attendanceDate == null)
+            {
+                this.RedirectToAction("Manage");
+            }
+
+            var attendanceDetails = this.attendanceService.GetAttendanceByDate(attendanceDate.Value);
+
+            return View("_Details", (object)JsonConvert.SerializeObject(attendanceDetails, 
+                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
+        }
+    
         [HttpPost]
         public JsonResult Add(List<AttendancePerson> attendancePersons)
         {
