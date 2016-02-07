@@ -39,7 +39,7 @@
                                 <header class="sermon-header">
                                     <div class="sermon-date">
                                         <a class="date" href="javascript:void(0);">
-                                            <strong>@sermon.SermonDate.ToString("dd")</strong><i>@sermon.SermonDate.ToString("MMM")</i>
+                                            <strong>@sermon.SermonDate.ToString("dd")</strong><i>@sermon.SermonDate.ToString("MMM yyyy")</i>
                                             @if ((DateTime.Now - sermon.SermonDate).Days < 7)
                                             {
                                                 <i class="new">New!</i>
