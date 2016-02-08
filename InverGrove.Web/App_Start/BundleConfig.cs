@@ -12,25 +12,13 @@ namespace InverGrove.Web
                 .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/bower_components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
                 .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform())
+                .Include("~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform())
+                .Include("~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/app.min.css"));
 
             bundles.Add(new ScriptBundle("~/Components/scripts/critical").Include(
                 "~/bower_components/jquery/dist/jquery.min.js",
                 "~/bower_components/angular/angular.js"));
-
-            bundles.Add(new StyleBundle("~/Components/css/revoslider")
-                .Include("~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform())
-                .Include("~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform()));
-
-            bundles.Add(new ScriptBundle("~/Components/scripts/revoslider").Include(
-                "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
-                "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js"));
-
-            //Plugins bundles
-            bundles.Add(new ScriptBundle("~/Components/scripts/plugins").Include(
-                "~/Components/gmaps/jquery.gmap.min.js",
-                "~/Components/sticky/jquery.sticky.js",
-                "~/Components/pickadate/v2-(deprecated)/source/pickadate.min.js"));
 
             //Login area bundles
             bundles.Add(new StyleBundle("~/Content/css/area/account").Include(
@@ -38,37 +26,6 @@ namespace InverGrove.Web
                 "~/Components/html5-boilerplate/css/main.css")
                 .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
-
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/account").Include(
-                "~/Components/modernizr/modernizr-2.6.2.min.js",
-                "~/bower_components/lodash/lodash.min.js",
-                "~/bower_components/moment/min/moment.min.js",
-                "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
-                "~/bower_components/ng-file-upload/ng-file-upload-shim.min.js",
-                "~/bower_components/ng-file-upload/ng-file-upload.min.js",
-
-                "~/Scripts/common/namespace.js",
-                "~/Scripts/namespace.variables.js",
-
-                "~/Scripts/app.module.js",
-                "~/Scripts/app.routes.js",
-                //Factories
-                "~/Scripts/factories/factories.module.js",
-                //Filters
-                "~/Scripts/filters/filters.module.js",
-                //Services
-                "~/Scripts/services/services.module.js",
-                "~/Scripts/services/UserService.js",
-                //Controllers
-                "~/Scripts/controllers/controllers.module.js",
-                "~/Scripts/controllers/AccountController.js",
-                "~/Scripts/controllers/RegisterController.js",
-                //Directives
-                "~/Scripts/directives/directives.module.js",
-                "~/Scripts/directives/googleMapDirective.js",
-                "~/Scripts/directives/scrollUpDirective.js",
-                "~/Scripts/directives/stickyElementDirective.js",
-                "~/Scripts/directives/buttonLoadingDirective.js"));
 
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
@@ -86,6 +43,9 @@ namespace InverGrove.Web
                 "~/Components/sticky/jquery.sticky.js",
                 "~/Components/pickadate/v2-(deprecated)/source/pickadate.min.js",
 
+                "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
+                "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js",
+
                 "~/Scripts/app.module.js",
                 //Factories
                 "~/Scripts/factories/factories.module.js",
@@ -98,13 +58,16 @@ namespace InverGrove.Web
                 "~/Scripts/services/services.module.js",
                 "~/Scripts/services/SermonService.js",
                 "~/Scripts/services/MessageService.js",
+                "~/Scripts/services/UserService.js",
                 //Controllers
                 "~/Scripts/controllers/controllers.module.js",
                 "~/Scripts/controllers/BaseController.js",
+                "~/Scripts/controllers/AccountController.js",
                 "~/Scripts/controllers/HomeController.js",
                 "~/Scripts/controllers/ContactController.js",
                 "~/Scripts/controllers/ViewSermonsController.js",
                 "~/Scripts/controllers/SermonDetailController.js",
+                "~/Scripts/controllers/RegisterController.js",
                 //Directives
                 "~/Scripts/directives/directives.module.js",
                 "~/Scripts/directives/googleMapDirective.js",
