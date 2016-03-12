@@ -88,10 +88,12 @@
                             <li class="@(controller == "sermon" ? "active" : string.Empty)">
                                 <a href="@Url.Action("ViewSermons", "Sermon")">Sermons</a>
                             </li>
+                            <li class="@(controller == "resource" ? "active" : string.Empty)">
+                                <a href="@Url.Action("Index", "Resource")">Resources</a>
+                            </li>
                             <li class="@(controller == "contact" ? "active" : string.Empty)">
                                 <a href="@Url.Action("Index", "Contact")">Contact Us</a>
                             </li>
-                            <li><a href="@Url.Action("Login", "Account")">Members</a></li>
                         </ul>
                     </nav>
                 </div>

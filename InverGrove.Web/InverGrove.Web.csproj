@@ -1260,7 +1260,9 @@
     <Content Include="bower_components\ng-file-upload\LICENSE" />
     <Content Include="bower_components\ng-file-upload\README.md" />
     <Content Include="Areas\Member\Views\Attendance\_Manage.cshtml" />
+    <Content Include="Content\images\Study of 1st Peter Spring 2016.pdf" />
     <None Include="Properties\PublishProfiles\inverGroveFtp.pubxml" />
+    <Content Include="Views\Resource\_ViewResources.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1280,6 +1282,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\SermonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1307,6 +1310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Member\Views\Resource\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InverGrove.Data\InverGrove.Data.csproj">
