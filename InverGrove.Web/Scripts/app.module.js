@@ -7,7 +7,6 @@
         /**
          * Angular modules
          */
-        'ngFileUpload',
         /*
          * Bootstrap modules
          */

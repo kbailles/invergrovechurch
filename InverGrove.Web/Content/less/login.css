@@ -26,6 +26,9 @@ a:focus {
   background-color: inherit;
   text-decoration: inherit;
 }
+.alert > div {
+  line-height: 20px;
+}
 .alert-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;

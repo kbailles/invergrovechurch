@@ -29,19 +29,11 @@ namespace InverGrove.Web
 
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
-                "~/Components/modernizr/modernizr-2.6.2.min.js",
-                "~/bower_components/lodash/lodash.min.js",
-                "~/bower_components/moment/min/moment.min.js",
                 "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
-                "~/bower_components/ng-file-upload/ng-file-upload-shim.min.js",
-                "~/bower_components/ng-file-upload/ng-file-upload.min.js",
-
-                "~/Scripts/common/namespace.js",
-                "~/Scripts/namespace.variables.js",
-
                 "~/Components/gmaps/jquery.gmap.min.js",
                 "~/Components/sticky/jquery.sticky.js",
-                "~/Components/pickadate/v2-(deprecated)/source/pickadate.min.js",
+                "~/Scripts/common/namespace.js",
+                "~/Scripts/namespace.variables.js",
 
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
                 "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js",
@@ -78,7 +70,6 @@ namespace InverGrove.Web
 
             //Member area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(
-                "~/Components/modernizr/modernizr-2.6.2.min.js",
                 "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
                 "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",

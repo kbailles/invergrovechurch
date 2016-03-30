@@ -11,11 +11,10 @@
         '$window',
         'sermon',
         'soundCloudSermons',
-        'SermonService',
-        'Upload'
+        'SermonService'
     ];
 
-    function SermonModalController($modalInstance, $window, sermon, soundCloudSermons, SermonService, Upload) {
+    function SermonModalController($modalInstance, $window, sermon, soundCloudSermons, SermonService) {
         var vm = this;
 
         vm.sermon = angular.copy(sermon) || {};
@@ -23,7 +22,7 @@
         vm.soundCloudSermons = soundCloudSermons || [];
         vm.SermonService = SermonService;
         vm.$modalInstance = $modalInstance;
-        vm.$upload = Upload;
+        //vm.$upload = Upload;
 
         vm.newTag = '';
         vm.busy = false;
@@ -65,10 +64,14 @@
         function addSermon() {
             vm.busy = true;
 
-            vm.$upload.upload({
-                url: '/Member/Sermon/Add',
-                data: { sermon: vm.sermon },
-                file: vm.sermon.file
+            //vm.$upload.upload({
+            //    url: '/Member/Sermon/Add',
+            //    data: { sermon: vm.sermon },
+            //    file: vm.sermon.file
+            //});
+
+            vm.SermonService.add(vm.sermon).then(function () {
+                $window.location.reload();
             });
         }
 

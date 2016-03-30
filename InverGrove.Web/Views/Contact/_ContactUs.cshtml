@@ -28,7 +28,7 @@
                     <div class="divider"></div>
 
                     <div class="alert-container" ng-cloak>
-                        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)" ng-bind="alert.msg"></alert>
+                        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="vm.closeAlert($index)">{{alert.msg}}</alert>
                     </div>
 
                     <form name="form" novalidate>
