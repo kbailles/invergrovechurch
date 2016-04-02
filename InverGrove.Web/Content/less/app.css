@@ -717,6 +717,15 @@ form .ng-dirty.ng-valid {
 .tags-container {
   display: inline-block;
 }
+.tp-banner > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tp-banner > ul > li {
+  list-stye: none;
+  visibility: hidden;
+}
 .top-bar {
   background-color: #272727;
   border-bottom: 1px solid #414f5a;
