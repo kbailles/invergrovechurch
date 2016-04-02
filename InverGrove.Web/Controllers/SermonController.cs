@@ -42,7 +42,7 @@ namespace InverGrove.Web.Controllers
         {
             var sermon = this.sermonService.GetSermon(sermonId);
 
-            return View("_SermonDetail", (object)JsonConvert.SerializeObject(sermon, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }));
+            return View("_SermonDetail", sermon);
         }
     }
 }

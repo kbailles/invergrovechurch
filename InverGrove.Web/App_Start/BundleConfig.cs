@@ -29,44 +29,11 @@ namespace InverGrove.Web
 
             //Public area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
-                "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
                 "~/Components/gmaps/jquery.gmap.min.js",
                 "~/Components/sticky/jquery.sticky.js",
-                "~/Scripts/common/namespace.js",
-                "~/Scripts/namespace.variables.js",
 
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
-                "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js",
-
-                "~/Scripts/app.module.js",
-                //Factories
-                "~/Scripts/factories/factories.module.js",
-                "~/Scripts/factories/googleMapChurchLocationFactory.js",
-                "~/Scripts/factories/homePageRevoSliderOptionsFactory.js",
-                //Filters
-                "~/Scripts/filters/filters.module.js",
-                "~/Scripts/filters/selectedTagsFilter.js",
-                //Services
-                "~/Scripts/services/services.module.js",
-                "~/Scripts/services/SermonService.js",
-                "~/Scripts/services/MessageService.js",
-                "~/Scripts/services/UserService.js",
-                //Controllers
-                "~/Scripts/controllers/controllers.module.js",
-                "~/Scripts/controllers/BaseController.js",
-                "~/Scripts/controllers/AccountController.js",
-                "~/Scripts/controllers/HomeController.js",
-                "~/Scripts/controllers/ContactController.js",
-                "~/Scripts/controllers/ViewSermonsController.js",
-                "~/Scripts/controllers/SermonDetailController.js",
-                "~/Scripts/controllers/RegisterController.js",
-                //Directives
-                "~/Scripts/directives/directives.module.js",
-                "~/Scripts/directives/googleMapDirective.js",
-                "~/Scripts/directives/revosliderDirective.js",
-                "~/Scripts/directives/scrollUpDirective.js",
-                "~/Scripts/directives/stickyElementDirective.js",
-                "~/Scripts/directives/buttonLoadingDirective.js"));
+                "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js"));
 
             //Member area bundles
             bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(

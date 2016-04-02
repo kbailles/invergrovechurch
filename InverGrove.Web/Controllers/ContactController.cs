@@ -37,17 +37,16 @@ namespace InverGrove.Web.Controllers
         }
 
         [HttpPost]
-        public JsonResult ContactUs(Contact contact)
+        public ActionResult ContactUs(Contact model)
         {
             if (!ModelState.IsValid)
             {
-                this.ControllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return this.Json(contact, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+                return View(model);
             }
 
-            this.contactService.AddContact(contact);
+            this.contactService.AddContact(model);
 
-            bool hasSent = this.mailService.SendContactMail(contact);
+            bool hasSent = this.mailService.SendContactMail(model);
 
             if (!hasSent)
             {
@@ -55,7 +54,7 @@ namespace InverGrove.Web.Controllers
                 return this.Json(Messages.SendMailError, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
             }
 
-            return this.Json(contact, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+            return this.RedirectToAction("Index", "Contact");
         }
     }
 }
