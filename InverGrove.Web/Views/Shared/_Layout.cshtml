@@ -32,8 +32,7 @@
     <meta name="msapplication-TileImage" content="/Content/images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    @Styles.Render("~/Content/css/core")
-    @Scripts.Render("~/Components/scripts/critical")
+    @Styles.Render("~/Content/css/public")
 </head>
 <body>
     <div class="container wrapper">
@@ -160,10 +159,8 @@
             <i class="fa fa-angle-up"></i>
         </a>
     </div>
-
     @Scripts.Render("~/Scripts/scripts/area/public")
     @RenderSection("Scripts", required: false)
-
 <script>
 
     var $window = $(window), $backToTop = $(".scrollup");

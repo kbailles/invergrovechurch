@@ -28,10 +28,16 @@ namespace InverGrove.Web
                 .Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
 
             //Public area bundles
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
-                "~/Components/gmaps/jquery.gmap.min.js",
-                "~/Components/sticky/jquery.sticky.js",
+            bundles.Add(new StyleBundle("~/Content/css/public")
+                .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
+                .Include("~/bower_components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
+                .Include("~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform())
+                .Include("~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform())
+                .Include("~/Content/less/app.min.css"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
+                "~/bower_components/jquery/dist/jquery.min.js",
+                "~/Components/gmaps/jquery.gmap.min.js",
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
                 "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js"));
 

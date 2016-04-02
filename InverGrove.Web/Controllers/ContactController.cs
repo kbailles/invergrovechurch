@@ -4,6 +4,7 @@ using InverGrove.Domain.Extensions;
 using InverGrove.Domain.Interfaces;
 using InverGrove.Domain.Models;
 using InverGrove.Domain.Resources;
+using InverGrove.Domain.ViewModels;
 
 namespace InverGrove.Web.Controllers
 {
@@ -33,15 +34,18 @@ namespace InverGrove.Web.Controllers
                 }
             }
 
-            return View("_ContactUs");
+            return View("_ContactUs", new ContactForm());
         }
 
         [HttpPost]
-        public ActionResult ContactUs(Contact model)
+        public ActionResult ContactUs(ContactForm model)
         {
+            model.SuccessfullySentMessage = false;
+            model.MessageSentFailure = false;
+
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("_ContactUs", model);
             }
 
             this.contactService.AddContact(model);
@@ -50,11 +54,14 @@ namespace InverGrove.Web.Controllers
 
             if (!hasSent)
             {
-                this.ControllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return this.Json(Messages.SendMailError, JsonRequestBehavior.AllowGet).AsCamelCaseResolverResult();
+                model.MessageSentFailure = true;
+                return this.View("_ContactUs", model);
             }
-
-            return this.RedirectToAction("Index", "Contact");
+            else
+            {
+                ModelState.Clear();
+                return this.View("_ContactUs", new ContactForm {SuccessfullySentMessage = true});
+            }
         }
     }
 }

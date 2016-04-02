@@ -269,6 +269,7 @@
     <Compile Include="ViewModels\AuthenticatedUser.cs" />
     <Compile Include="Interfaces\IAuthenticatedUser.cs" />
     <Compile Include="Interfaces\IManageAttendance.cs" />
+    <Compile Include="ViewModels\ContactForm.cs" />
     <Compile Include="ViewModels\LoginUser.cs" />
     <Compile Include="ViewModels\ManageAttendance.cs" />
     <Compile Include="ViewModels\PersonUserMember.cs" />

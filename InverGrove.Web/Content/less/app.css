@@ -532,7 +532,8 @@ h3.title:after {
     float: none !important;
   }
 }
-form .ng-dirty.ng-invalid {
+form .ng-dirty.ng-invalid,
+.input-validation-error {
   border: 1px solid #e24747;
 }
 form .ng-dirty.ng-valid {
@@ -740,6 +741,10 @@ form .ng-dirty.ng-valid {
 .validation-summary-errors ul {
   list-style: none;
   padding-left: 0;
+}
+.field-validation-error {
+  color: #e24747;
+  display: block;
 }
 .warning {
   color: #e24747;

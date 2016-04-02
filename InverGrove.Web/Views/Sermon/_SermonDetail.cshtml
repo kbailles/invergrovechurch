@@ -1,5 +1,10 @@
 ﻿@model InverGrove.Domain.Interfaces.ISermon
 
+@{
+    var i = 0;
+    var tags = Model.Tags != null ? Model.Tags.Split(',') : new[] { "" };
+}
+
 <div class="sermons-wrapper">
     <div class="breadcrumb-wrapper">
         <div class="container">
@@ -38,11 +43,11 @@
                                 <span>@this.Model.Speaker</span>
                             </div>
                             <div class="sermon-entry-meta-tags">
-                                <i class="fa @(this.Model.Tags.Split(',').Length > 1 ? "fa-tags" : "fa-tag")"></i>
-
-                                @foreach (var tag in this.Model.Tags.Split(','))
+                                <i class="fa @(tags.Length > 1 ? "fa-tags" : "fa-tag")"></i>
+                                @foreach (var tag in tags)
                                 {
-                                    <span>@tag</span>
+                                    <div class="tags-container">@(i < tags.Length - 1 ? tag + ", " : tag)</div>
+                                    i++;
                                 }
                             </div>
                         </div>
