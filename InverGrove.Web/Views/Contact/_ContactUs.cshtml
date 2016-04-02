@@ -42,35 +42,35 @@
                         </div>
                     }
 
-                    @using (Html.BeginForm("ContactUs", "Contact", FormMethod.Post, new { role = "form" }))
+                    @using (Html.BeginForm("ContactUs", "Contact", FormMethod.Post, new {role = "form"}))
                     {
                         @Html.AntiForgeryToken()
-                        
+
                         <fieldset class="reply">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label>Name: <span class="warning">*</span></label>
                                     @Html.ValidationMessageFor(model => model.Name)
-                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                    @Html.TextBoxFor(model => model.Name, new {@class = "form-control"})
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label>Email: <span class="warning">*</span></label>
                                     @Html.ValidationMessageFor(model => model.Email)
-                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    @Html.TextBoxFor(model => model.Email, new {@class = "form-control"})
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label>Subject: <span class="warning">*</span></label>
                                     @Html.ValidationMessageFor(model => model.Subject)
-                                    @Html.TextBoxFor(model => model.Subject, new { @class = "form-control" })
+                                    @Html.TextBoxFor(model => model.Subject, new {@class = "form-control"})
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label>Message: <span class="warning">*</span></label>
                                     @Html.ValidationMessageFor(model => model.Comments)
-                                    @Html.TextAreaFor(model => model.Comments, new { rows = "3", cols = "40", @class = "form-control" })
+                                    @Html.TextAreaFor(model => model.Comments, new {rows = "3", cols = "40", @class = "form-control"})
                                 </div>
                             </div>
                         </fieldset>
@@ -115,3 +115,30 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        (function() {
+            $(document).ready(function () {
+                $(".church-location").gMap({
+                    controls: {
+                        panControl: true,
+                        zoomControl: true,
+                        mapTypeControl: false,
+                        scaleControl: true,
+                        streetViewControl: true,
+                        overviewMapControl: true
+                    },
+                    address: '8777 Courthouse Blvd, Inver Grove Heights, MN 55077, United States',
+                    zoom: 13,
+                    markers: [
+                        {
+                            latitude: 44.822361,
+                            longitude: -93.058097
+                        }
+                    ]
+                });
+            });
+        })();
+    </script>
+}
