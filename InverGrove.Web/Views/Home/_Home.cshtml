@@ -3,7 +3,7 @@
         <div class="tp-banner">
             <ul>
                 <li data-transition="fade" data-slotamount="7" data-masterspeed="1750">
-                    <img src="~/Content/images/2016_theme_seek_ye_first.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                    <img src="~/Content/images/2016_theme_seek_ye_first_compressed.jpg" alt="darkblurbg" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                 </li>
             </ul>
         </div>
@@ -152,34 +152,32 @@
 
 @section Scripts {
     <script>
-        (function() {
-            $(document).ready(function () {
-                $(".tp-banner").revolution({
-                    delay: 7000,
-                    startwidth: 1170,
-                    startheight: 370,
-                    hideThumbs: 10
-                });
-
-                $(".church-location").gMap({
-                    controls: {
-                        panControl: true,
-                        zoomControl: true,
-                        mapTypeControl: false,
-                        scaleControl: true,
-                        streetViewControl: true,
-                        overviewMapControl: true
-                    },
-                    address: '8777 Courthouse Blvd, Inver Grove Heights, MN 55077, United States',
-                    zoom: 13,
-                    markers: [
-                        {
-                            latitude: 44.822361,
-                            longitude: -93.058097
-                        }
-                    ]
-                });
+        $(document).ready(function () {
+            $(".tp-banner").revolution({
+                delay: 7000,
+                startwidth: 1170,
+                startheight: 370,
+                hideThumbs: 10
             });
-        })();
+
+            $(".church-location").gMap({
+                controls: {
+                    panControl: true,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: true,
+                    streetViewControl: true,
+                    overviewMapControl: true
+                },
+                address: '8777 Courthouse Blvd, Inver Grove Heights, MN 55077, United States',
+                zoom: 13,
+                markers: [
+                    {
+                        latitude: 44.822361,
+                        longitude: -93.058097
+                    }
+                ]
+            });
+        });
     </script>
 }

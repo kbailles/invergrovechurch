@@ -66,7 +66,7 @@
                 <div class="container">
                     <div class="logo pull-left">
                         <h1>
-                            <a href="@Url.Action("Index", "Home")"><img src="~/Content/Images/churchlogo.png" alt="Inver Grove church of Christ"></a>
+                            <a href="@Url.Action("Index", "Home")"><img src="~/Content/images/churchlogo.png" alt="Inver Grove church of Christ"></a>
                         </h1>
                     </div>
 
@@ -162,34 +162,32 @@
     @Scripts.Render("~/Scripts/scripts/area/public")
     @RenderSection("Scripts", required: false)
 <script>
-    (function () {
-        var $window = $(window), $backToTop = $(".scrollup");
+    var $window = $(window), $backToTop = $(".scrollup");
 
-        function hideShowScrollElement() {
-            if ($window.scrollTop() > 100) {
-                $backToTop.fadeIn();
-            } else {
-                $backToTop.fadeOut();
-            }
+    function hideShowScrollElement() {
+        if ($window.scrollTop() > 100) {
+            $backToTop.fadeIn();
+        } else {
+            $backToTop.fadeOut();
         }
+    }
 
-        function scrollUp(e) {
-            e.preventDefault();
+    function scrollUp(e) {
+        e.preventDefault();
 
-            $('html, body').animate({
-                scrollTop: 0
-            }, 600);
-        }
+        $('html, body').animate({
+            scrollTop: 0
+        }, 600);
+    }
 
-        $(document).ready(function () {
-            $backToTop.click(scrollUp);
-            $window.bind('scroll', hideShowScrollElement);
+    $(document).ready(function () {
+        $backToTop.click(scrollUp);
+        $window.bind('scroll', hideShowScrollElement);
 
-            $(".navbar-toggle").click(function() {
-                $(".navbar-collapse").toggleClass("collapse");
-            });
+        $(".navbar-toggle").click(function() {
+            $(".navbar-collapse").toggleClass("collapse");
         });
-    })();
+    });
 </script>
 
 <script src="http://maps.google.com/maps/api/js"></script>
