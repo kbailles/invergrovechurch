@@ -1263,6 +1263,7 @@
     <Content Include="bower_components\ng-file-upload\README.md" />
     <Content Include="Areas\Member\Views\Attendance\_Manage.cshtml" />
     <Content Include="Content\images\Study of 1st Peter Spring 2016.pdf" />
+    <Content Include="Content\images\Study of Ecclesiastes Summer 2016.pdf" />
     <None Include="Properties\PublishProfiles\inverGroveFtp.pubxml" />
     <Content Include="Views\Resource\_ViewResources.cshtml" />
     <None Include="Web.Debug.config">
