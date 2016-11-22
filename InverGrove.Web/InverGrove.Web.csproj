@@ -24,6 +24,7 @@
     <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -861,6 +862,7 @@
     <Content Include="Content\images\bg_off.png" />
     <Content Include="Content\images\browserconfig.xml" />
     <Content Include="Content\images\churchlogo.png" />
+    <Content Include="Content\images\ephesians_bible_study.jpg" />
     <Content Include="Content\images\favicon-16x16.png" />
     <Content Include="Content\images\favicon-32x32.png" />
     <Content Include="Content\images\favicon-96x96.png" />
@@ -1013,9 +1015,6 @@
     <Content Include="Scripts\services\services.module.js" />
     <Content Include="Scripts\services\MemberService.js" />
     <Content Include="Scripts\services\UserService.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Content\images\manifest.json" />
     <Content Include="Content\fonts\open_sans_font.less" />
@@ -1264,6 +1263,11 @@
     <Content Include="Areas\Member\Views\Attendance\_Manage.cshtml" />
     <Content Include="Content\images\Study of 1st Peter Spring 2016.pdf" />
     <Content Include="Content\images\Study of Ecclesiastes Summer 2016.pdf" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\images\Study of Ephesians Fall 2016.pdf" />
+    <Content Include="Content\images\Growing in Love  Fall 2016.pdf" />
     <None Include="Properties\PublishProfiles\inverGroveFtp.pubxml" />
     <Content Include="Views\Resource\_ViewResources.cshtml" />
     <None Include="Web.Debug.config">
