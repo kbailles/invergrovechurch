@@ -862,13 +862,17 @@
     <Content Include="Content\images\bg_off.png" />
     <Content Include="Content\images\browserconfig.xml" />
     <Content Include="Content\images\churchlogo.png" />
+    <Content Include="Content\images\DynamicMarriageBanner.jpg" />
     <Content Include="Content\images\ephesians_bible_study.jpg" />
+    <Content Include="Content\images\fall_gospel_meeting.png" />
     <Content Include="Content\images\favicon-16x16.png" />
     <Content Include="Content\images\favicon-32x32.png" />
     <Content Include="Content\images\favicon-96x96.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\gospel_meeting_2015.jpg" />
     <Content Include="Content\images\graymatte.png" />
+    <Content Include="Content\images\HeartlandCreditUnion.jpg" />
+    <Content Include="Content\images\JaimeTeaching.jpg" />
     <Content Include="Content\images\james_bible_study.jpg" />
     <Content Include="Content\images\kingdom_of_heaven_bible_study.jpg" />
     <Content Include="Content\images\life_summer_series_2016.jpg" />
@@ -882,6 +886,8 @@
     <Content Include="Content\images\romans_biblestudy.jpg" />
     <Content Include="Content\images\summer_series_2015.jpg" />
     <Content Include="Content\images\summer_series_2015.png" />
+    <Content Include="Content\images\summer_series_2017.jpg" />
+    <Content Include="Content\images\summer_series_2019.jpg" />
     <Content Include="Content\images\team-member-1.jpg" />
     <Content Include="Content\images\team-member-4.jpg" />
     <Content Include="Content\less\app.css">
@@ -1268,8 +1274,35 @@
     </Content>
     <Content Include="Content\images\Study of Ephesians Fall 2016.pdf" />
     <Content Include="Content\images\Growing in Love  Fall 2016.pdf" />
+    <Content Include="Content\images\The Forgiveness Project.pdf" />
+    <Content Include="Content\images\Study on 1 &amp; 2  Thessalonians.pdf" />
+    <Content Include="Content\images\Jonah Winter 2017.pdf" />
+    <Content Include="Content\images\Study of Psalms Book 1.pdf" />
+    <Content Include="Content\images\Developing Our Relationship with God.pdf" />
+    <Content Include="Content\images\Study of Ephesians Fall 2018.pdf" />
+    <Content Include="Content\images\Things That Affect My Service to God.pdf" />
+    <Content Include="Content\images\Living Love.winter 2018 Adult class with cover.pdf" />
+    <Content Include="Content\images\Lessons From the Revelation of Jesus Christ.pdf" />
+    <Content Include="Content\images\The Parables of Jesus - Student Workbook.pdf" />
+    <Content Include="Content\images\The Parables of Jesus - Book 2.pdf" />
+    <Content Include="Content\images\resisting_the_devil_2.pdf" />
+    <Content Include="Content\images\summer series handout.pdf" />
+    <Content Include="Content\images\Acts of the Apostles 2019.pdf" />
+    <Content Include="Content\images\Adult Class Winter 2019 - Overview of the Bible.pdf" />
+    <Content Include="Content\images\Letter to congregation about assemblies 3.21.20.docx" />
+    <Content Include="Content\images\Letter to congregation about assemblies 3.21.20.pdf" />
+    <Content Include="Content\images\The Church Spring Qt 2020 %281%29.pdf" />
+    <Content Include="Content\images\Job - All Lessons - Standard Print.pdf" />
+    <Content Include="Content\images\The Joys of Lamentations.pdf" />
+    <Content Include="Content\images\Holy Spirit study.pdf" />
+    <Content Include="Content\images\Assemblies of the Church.Winter Q.2020-2021 %281%29.pdf" />
+    <Content Include="Content\images\Assemblies of the Church.supplemental.pdf" />
+    <Content Include="Content\images\Bible Reading Schedule 2021.pdf" />
+    <Content Include="Content\images\The Epistle To The Philippians1.pdf" />
+    <Content Include="Content\images\Believe!  Lessons from Hebrews 11.pdf" />
     <None Include="Properties\PublishProfiles\inverGroveFtp.pubxml" />
     <Content Include="Views\Resource\_ViewResources.cshtml" />
+    <Content Include="Views\MarriageCourse\_Info.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1289,6 +1322,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarriageCourseController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\SermonController.cs" />
     <Compile Include="Global.asax.cs">

@@ -22,10 +22,8 @@
                     <input class="form-control" ng-model="modalCtrl.sermon.speaker" type="text" required />
                 </div>
                 <div class="col-xs-6">
-                    <label>Link to SoundCloud: <span class="warning">*</span></label>
-                    <select class="form-control" ng-model="modalCtrl.sermon.soundCloudId" ng-options="track.id as track.title for track in modalCtrl.soundCloudSermons" required>
-                        <option value="">Select Track</option>
-                    </select>
+                    <label>Sound Cloud Track Id: <span class="warning">*</span></label>
+                    <input class="form-control" ng-model="modalCtrl.sermon.soundCloudId" type="text" required />
                 </div>
             </div>
             <div class="row">

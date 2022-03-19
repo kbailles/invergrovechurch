@@ -36,21 +36,6 @@
 </head>
 <body>
     <div class="container wrapper">
-
-        @{ DateTime centralNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time")); }
-        @if (centralNow.DayOfWeek == DayOfWeek.Saturday
-            && (
-                (centralNow.Hour == 11 && centralNow.Minute < 05)
-                || (centralNow.Hour == 9 && centralNow.Minute > 55)
-                )
-            )
-        {
-            <!-- Saturday between 11AM-11:30AM Central Time -->
-            <div class="alert-warning alert radio-alert">
-                <strong>Our radio broadcast "Letting the Bible Speak" is live! <a href="javascript:ga('send', 'event', 'Listen Live', 'Button Click');window.open('http://saleminteractivemedia.com/ListenLive/Player/KKMSAM','','width=800,height=710,status=no,resizable=no,scrollbars=no');void(0);">Click here to listen!</a></strong>
-            </div>
-        }
-
         <header>
             <div class="top-bar">
                 <div class="container">
@@ -125,19 +110,14 @@
                             <p>Located 12 minutes south of downtown St. Paul off of Hwy. 52 in Inver Grove Heights.</p>
                         </section>
                         <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
-                            <h3>times of assembly</h3>
+                            <h3>times of Assembly</h3>
                             <p>
                                 <em>Sunday AM</em> <br>
-                                Bible Study – 9:30 <br>
-                                Worship – 10:30 <br>
-                            </p>
-                            <p>
-                                <em>Sunday PM</em> <br>
-                                Small Groups <br>
+                                In Person – 9:30am <br>
                             </p>
                             <p>
                                 <em>Wednesday PM</em> <br>
-                                Bible Study – 7:00 <br>
+                                In Person – 7pm <br>
                             </p>
                         </section>
                     </div>
@@ -147,7 +127,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            © Copyright 2016 Inver Grove church of Christ. All Rights Reserved.
+                            © Copyright 2021 Inver Grove church of Christ. All Rights Reserved.
                         </div>
                     </div>
                 </div>
@@ -190,7 +170,7 @@
     });
 </script>
 
-<script src="http://maps.google.com/maps/api/js"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyAZeTjQw94f_kv8fjaTm_7dWfFwDNLMyH4"></script>
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
