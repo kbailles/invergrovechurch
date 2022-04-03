@@ -8,7 +8,7 @@ namespace InverGrove.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             //Core bundles
-            bundles.Add(new StyleBundle("~/Content/css/core")
+            bundles.Add(new StyleBundle("~/bundles/css/core")
                 .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/bower_components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
                 .Include("~/Components/pickadate/v2-(deprecated)/themes/pickadate.04.inline-fixed.css", new CssRewriteUrlTransform())
@@ -16,33 +16,33 @@ namespace InverGrove.Web
                 .Include("~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/app.min.css"));
 
-            bundles.Add(new ScriptBundle("~/Components/scripts/critical").Include(
+            bundles.Add(new ScriptBundle("~/bundles/scripts/critical").Include(
                 "~/bower_components/jquery/dist/jquery.min.js",
                 "~/bower_components/angular/angular.js"));
 
             //Login area bundles
-            bundles.Add(new StyleBundle("~/Content/css/area/account").Include(
+            bundles.Add(new StyleBundle("~/bundles/css/area/account").Include(
                 "~/Components/html5-boilerplate/css/normalize.css",
                 "~/Components/html5-boilerplate/css/main.css")
                 .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/login.min.css", new CssRewriteUrlTransform()));
 
             //Public area bundles
-            bundles.Add(new StyleBundle("~/Content/css/public")
+            bundles.Add(new StyleBundle("~/bundles/css/public")
                 .Include("~/bower_components/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/bower_components/font-awesome/css/font-awesome.min.css", new CssRewriteUrlTransform())
                 .Include("~/Content/css/rs-plugin/style.css", new CssRewriteUrlTransform())
                 .Include("~/Components/rs-plugin/css/settings.css", new CssRewriteUrlTransform())
                 .Include("~/Content/less/app.min.css"));
 
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/public").Include(
+            bundles.Add(new ScriptBundle("~/bundles/scripts/public").Include(
                 "~/bower_components/jquery/dist/jquery.min.js",
                 "~/Components/gmaps/jquery.gmap.min.js",
                 "~/Components/rs-plugin/js/jquery.themepunch.tools.min.js",
                 "~/Components/rs-plugin/js/jquery.themepunch.revolution.min.js"));
 
             //Member area bundles
-            bundles.Add(new ScriptBundle("~/Scripts/scripts/area/member").Include(
+            bundles.Add(new ScriptBundle("~/bundles/area/member").Include(
                 "~/bower_components/lodash/lodash.min.js",
                 "~/bower_components/moment/min/moment.min.js",
                 "~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
@@ -91,6 +91,9 @@ namespace InverGrove.Web
                 "~/Scripts/directives/loadingOverlayDirective.js",
                 "~/Scripts/directives/pickadateDirective.js",
                 "~/Scripts/directives/buttonLoadingDirective.js"));
+
+            // Change this to "false" if you do not want to minify the scripts/css
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

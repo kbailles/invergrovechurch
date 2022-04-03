@@ -37,6 +37,11 @@ namespace InverGrove.Web
             this.ForceDbCreation();
         }
 
+        protected void Application_BeginRequest()
+        {
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
+        }
+
         private void ForceDbCreation()
         {
 #if DEBUG

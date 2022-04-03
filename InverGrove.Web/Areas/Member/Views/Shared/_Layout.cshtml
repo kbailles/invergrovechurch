@@ -13,7 +13,7 @@
     <meta name="keywords" content="Church of Christ, Minnesota, St. Paul, Non-denominational, Conservative, Twin Cities, Rennie Frazier, Bible study">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @Styles.Render("~/Content/css/core")
+    @Styles.Render("~/bundles/css/core")
 
     <link rel="apple-touch-icon" sizes="57x57" href="/Content/images/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/Content/images/apple-icon-60x60.png">
@@ -36,7 +36,7 @@
     <script src="//connect.soundcloud.com/sdk.js"></script>
     <script>SC.initialize({ client_id: 'cdcb2eb2652ff8f36652f3d89138419e' });</script>
 
-    @Scripts.Render("~/Components/scripts/critical")
+    @Scripts.Render("~/bundles/scripts/critical")
 
     <style>.nav .dropdown-menu li a {padding: 10px 16px !important;}</style>
 </head>
@@ -154,7 +154,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            © Copyright 2015 Inver Grove church of Christ. All Rights Reserved.
+                            © Copyright @DateTime.Now.Year Inver Grove church of Christ. All Rights Reserved.
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
         </a>
     </div>
 
-    @Scripts.Render("~/Scripts/scripts/area/member")
+    @Scripts.Render("~/bundles/area/member")
     @RenderSection("Scripts", required: false)
 </body>
 </html>
